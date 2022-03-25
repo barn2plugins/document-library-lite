@@ -1,0 +1,10 @@
+/node_modules
+.DS_Store
+/vendor/bamarni
+/vendor/barn2
+/vendor-bin
+/vendor/bin
+/vendor/dealerdirect
+/vendor/phpcompatibility
+/vendor/squizlabs
+/vendor/wp-coding-standards

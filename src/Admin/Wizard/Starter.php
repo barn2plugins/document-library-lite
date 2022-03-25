@@ -1,0 +1,27 @@
+<?php
+
+namespace Barn2\Plugin\Document_Library\Admin\Wizard;
+
+use Barn2\Plugin\Document_Library\Dependencies\Barn2\Setup_Wizard\Starter as Setup_Wizard_Starter;
+
+/**
+ * Setup Wizard Starter
+ *
+ * @package   Barn2/document-library-for-wordpress
+ * @author    Barn2 Plugins <info@barn2.com>
+ * @license   GPL-3.0
+ * @copyright Barn2 Media Ltd
+ */
+class Starter extends Setup_Wizard_Starter {
+
+	/**
+	 * Determine if the conditions to start the wizard are met.
+	 *
+	 * @return boolean
+	 */
+	public function should_start() {
+		$setup_happened = get_option( 'document-library-for-wordpress-setup-wizard_completed' ) ?: false;
+		return ! $setup_happened;
+	}
+
+}
