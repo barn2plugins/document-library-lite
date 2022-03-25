@@ -84,13 +84,15 @@ final class Options {
 
 		$options = wp_parse_args( get_option( self::SHORTCODE_OPTION_KEY ), self::get_default_settings() );
 
-		$allowed_keys = self::get_default_settings();
+		$allowed_keys = array_keys( self::get_default_settings() );
 
 		foreach ( $values as $key => $value ) {
 			if ( ! in_array( $key, $allowed_keys, true ) ) {
 				unset( $values[ $key ] );
 			}
 		}
+
+		$test_update = array_merge( $options, $values );
 
 		update_option( self::SHORTCODE_OPTION_KEY, array_merge( $options, $values ) );
 

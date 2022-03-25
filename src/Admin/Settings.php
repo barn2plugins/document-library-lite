@@ -113,9 +113,9 @@ class Settings implements Registerable, Service {
 		}
 
 		$document_fields_structure = [
-			'editor'    => '0',
+			'editor'    => '1',
 			'excerpt'   => '0',
-			'thumbnail' => '0',
+			'thumbnail' => '1',
 			'comments'  => '0',
 		];
 
@@ -159,7 +159,7 @@ class Settings implements Registerable, Service {
 
 		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
 		if ( ! isset( $_REQUEST['option_page'] ) ) {
-			return $args;
+			return array_merge( $existing_options, $args );
 		}
 
 		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
