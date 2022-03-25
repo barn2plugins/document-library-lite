@@ -92,8 +92,6 @@ final class Options {
 			}
 		}
 
-		$test_update = array_merge( $options, $values );
-
 		update_option( self::SHORTCODE_OPTION_KEY, array_merge( $options, $values ) );
 
 		return true;
