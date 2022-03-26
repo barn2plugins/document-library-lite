@@ -110,7 +110,7 @@ class Settings implements Service, Registerable, Conditional {
 			<?php } ?>
 
 			<div class="barn2-settings-inner dlw-settings">
-				<h1><?php esc_html_e( 'Document Library Settings', 'document-library-lite' ); ?></h1>
+				<h1><?php esc_html_e( 'Document Library Lite Settings', 'document-library-lite' ); ?></h1>
 
 				<h2 class="nav-tab-wrapper">
 					<?php
