@@ -87,7 +87,7 @@ class Settings implements Service, Registerable, Conditional {
 	public function add_settings_page() {
 		add_submenu_page(
 			'document_library',
-			__( 'Document Library Settings', 'document-library-lite' ),
+			__( 'Document Library Lite Settings', 'document-library-lite' ),
 			__( 'Settings', 'document-library-lite' ),
 			'manage_options',
 			'document_library',
