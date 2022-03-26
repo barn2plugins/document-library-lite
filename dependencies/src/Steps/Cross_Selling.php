@@ -63,7 +63,7 @@ class Cross_Selling extends Step
                 if (isset($response['error_message'])) {
                     $this->send_error(sanitize_text_field($response['error_message']));
                 } else {
-                    $this->send_error(__('Something went wrong while retrieving the list of products. Please try again later.', 'document-library-for-wordpress'));
+                    $this->send_error(__('Something went wrong while retrieving the list of products. Please try again later.', 'document-library-lite'));
                 }
             }
             if (isset($response['success']) && isset($response['upsells'])) {

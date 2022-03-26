@@ -10,7 +10,7 @@ defined( 'ABSPATH' ) || exit;
 /**
  * Register the Document Library associated taxonomies
  *
- * @package   Barn2/document-library-for-wordpress
+ * @package   Barn2/document-library-lite
  * @author    Barn2 Plugins <info@barn2.com>
  * @license   GPL-3.0
  * @copyright Barn2 Media Ltd
@@ -32,26 +32,26 @@ class Taxonomies implements Registerable, Service {
 	 */
 	public function register_document_category() {
 		$labels = [
-			'name'                       => _x( 'Document Categories', 'Taxonomy General Name', 'document-library-for-wordpress' ),
-			'singular_name'              => _x( 'Document Category', 'Taxonomy Singular Name', 'document-library-for-wordpress' ),
-			'menu_name'                  => __( 'Categories', 'document-library-for-wordpress' ),
-			'all_items'                  => __( 'All Categories', 'document-library-for-wordpress' ),
-			'parent_item'                => __( 'Parent Category', 'document-library-for-wordpress' ),
-			'parent_item_colon'          => __( 'Parent Category:', 'document-library-for-wordpress' ),
-			'new_item_name'              => __( 'New Category Name', 'document-library-for-wordpress' ),
-			'add_new_item'               => __( 'Add New Category', 'document-library-for-wordpress' ),
-			'edit_item'                  => __( 'Edit Category', 'document-library-for-wordpress' ),
-			'update_item'                => __( 'Update Category', 'document-library-for-wordpress' ),
-			'view_item'                  => __( 'View Category', 'document-library-for-wordpress' ),
-			'separate_items_with_commas' => __( 'Separate categories with commas', 'document-library-for-wordpress' ),
-			'add_or_remove_items'        => __( 'Add or remove categories', 'document-library-for-wordpress' ),
-			'choose_from_most_used'      => __( 'Choose from the most used', 'document-library-for-wordpress' ),
-			'popular_items'              => __( 'Popular Categories', 'document-library-for-wordpress' ),
-			'search_items'               => __( 'Search Categories', 'document-library-for-wordpress' ),
-			'not_found'                  => __( 'Not Found', 'document-library-for-wordpress' ),
-			'no_terms'                   => __( 'No categories', 'document-library-for-wordpress' ),
-			'items_list'                 => __( 'Categories list', 'document-library-for-wordpress' ),
-			'items_list_navigation'      => __( 'Categories list navigation', 'document-library-for-wordpress' ),
+			'name'                       => _x( 'Document Categories', 'Taxonomy General Name', 'document-library-lite' ),
+			'singular_name'              => _x( 'Document Category', 'Taxonomy Singular Name', 'document-library-lite' ),
+			'menu_name'                  => __( 'Categories', 'document-library-lite' ),
+			'all_items'                  => __( 'All Categories', 'document-library-lite' ),
+			'parent_item'                => __( 'Parent Category', 'document-library-lite' ),
+			'parent_item_colon'          => __( 'Parent Category:', 'document-library-lite' ),
+			'new_item_name'              => __( 'New Category Name', 'document-library-lite' ),
+			'add_new_item'               => __( 'Add New Category', 'document-library-lite' ),
+			'edit_item'                  => __( 'Edit Category', 'document-library-lite' ),
+			'update_item'                => __( 'Update Category', 'document-library-lite' ),
+			'view_item'                  => __( 'View Category', 'document-library-lite' ),
+			'separate_items_with_commas' => __( 'Separate categories with commas', 'document-library-lite' ),
+			'add_or_remove_items'        => __( 'Add or remove categories', 'document-library-lite' ),
+			'choose_from_most_used'      => __( 'Choose from the most used', 'document-library-lite' ),
+			'popular_items'              => __( 'Popular Categories', 'document-library-lite' ),
+			'search_items'               => __( 'Search Categories', 'document-library-lite' ),
+			'not_found'                  => __( 'Not Found', 'document-library-lite' ),
+			'no_terms'                   => __( 'No categories', 'document-library-lite' ),
+			'items_list'                 => __( 'Categories list', 'document-library-lite' ),
+			'items_list_navigation'      => __( 'Categories list navigation', 'document-library-lite' ),
 		];
 
 		$args = [
@@ -71,26 +71,26 @@ class Taxonomies implements Registerable, Service {
 	 */
 	public function register_document_download_taxonomy() {
 		$labels = [
-			'name'                       => _x( 'Document Download', 'Taxonomy General Name', 'document-library-for-wordpress' ),
-			'singular_name'              => _x( 'Document Download', 'Taxonomy Singular Name', 'document-library-for-wordpress' ),
-			'menu_name'                  => __( 'Document Downloads', 'document-library-for-wordpress' ),
-			'all_items'                  => __( 'All Items', 'document-library-for-wordpress' ),
-			'parent_item'                => __( 'Parent Item', 'document-library-for-wordpress' ),
-			'parent_item_colon'          => __( 'Parent Item:', 'document-library-for-wordpress' ),
-			'new_item_name'              => __( 'New Item Name', 'document-library-for-wordpress' ),
-			'add_new_item'               => __( 'Add New Item', 'document-library-for-wordpress' ),
-			'edit_item'                  => __( 'Edit Item', 'document-library-for-wordpress' ),
-			'update_item'                => __( 'Update Item', 'document-library-for-wordpress' ),
-			'view_item'                  => __( 'View Item', 'document-library-for-wordpress' ),
-			'separate_items_with_commas' => __( 'Separate items with commas', 'document-library-for-wordpress' ),
-			'add_or_remove_items'        => __( 'Add or remove items', 'document-library-for-wordpress' ),
-			'choose_from_most_used'      => __( 'Choose from the most used', 'document-library-for-wordpress' ),
-			'popular_items'              => __( 'Popular Items', 'document-library-for-wordpress' ),
-			'search_items'               => __( 'Search Items', 'document-library-for-wordpress' ),
-			'not_found'                  => __( 'Not Found', 'document-library-for-wordpress' ),
-			'no_terms'                   => __( 'No items', 'document-library-for-wordpress' ),
-			'items_list'                 => __( 'Items list', 'document-library-for-wordpress' ),
-			'items_list_navigation'      => __( 'Items list navigation', 'document-library-for-wordpress' ),
+			'name'                       => _x( 'Document Download', 'Taxonomy General Name', 'document-library-lite' ),
+			'singular_name'              => _x( 'Document Download', 'Taxonomy Singular Name', 'document-library-lite' ),
+			'menu_name'                  => __( 'Document Downloads', 'document-library-lite' ),
+			'all_items'                  => __( 'All Items', 'document-library-lite' ),
+			'parent_item'                => __( 'Parent Item', 'document-library-lite' ),
+			'parent_item_colon'          => __( 'Parent Item:', 'document-library-lite' ),
+			'new_item_name'              => __( 'New Item Name', 'document-library-lite' ),
+			'add_new_item'               => __( 'Add New Item', 'document-library-lite' ),
+			'edit_item'                  => __( 'Edit Item', 'document-library-lite' ),
+			'update_item'                => __( 'Update Item', 'document-library-lite' ),
+			'view_item'                  => __( 'View Item', 'document-library-lite' ),
+			'separate_items_with_commas' => __( 'Separate items with commas', 'document-library-lite' ),
+			'add_or_remove_items'        => __( 'Add or remove items', 'document-library-lite' ),
+			'choose_from_most_used'      => __( 'Choose from the most used', 'document-library-lite' ),
+			'popular_items'              => __( 'Popular Items', 'document-library-lite' ),
+			'search_items'               => __( 'Search Items', 'document-library-lite' ),
+			'not_found'                  => __( 'Not Found', 'document-library-lite' ),
+			'no_terms'                   => __( 'No items', 'document-library-lite' ),
+			'items_list'                 => __( 'Items list', 'document-library-lite' ),
+			'items_list_navigation'      => __( 'Items list navigation', 'document-library-lite' ),
 		];
 
 		$args = [

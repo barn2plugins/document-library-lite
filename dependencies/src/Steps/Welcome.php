@@ -22,7 +22,7 @@ class Welcome extends Step
     public function __construct()
     {
         $this->set_id('license_activation');
-        $this->set_name(esc_html__('Welcome', 'document-library-for-wordpress'));
+        $this->set_name(esc_html__('Welcome', 'document-library-lite'));
     }
     /**
      * {@inheritdoc}
@@ -30,7 +30,7 @@ class Welcome extends Step
     public function setup_fields()
     {
         $fields = [];
-        $fields['license_key'] = ['type' => 'license', 'label' => esc_html__('License key', 'document-library-for-wordpress'), 'description' => esc_html__('Enter your license key to start using the plugin.', 'document-library-for-wordpress'), 'tooltip' => esc_html__('The licence key is contained in your order confirmation email.', 'document-library-for-wordpress')];
+        $fields['license_key'] = ['type' => 'license', 'label' => esc_html__('License key', 'document-library-lite'), 'description' => esc_html__('Enter your license key to start using the plugin.', 'document-library-lite'), 'tooltip' => esc_html__('The licence key is contained in your order confirmation email.', 'document-library-lite')];
         return $fields;
     }
     /**
@@ -50,7 +50,7 @@ class Welcome extends Step
     {
         check_ajax_referer('barn2_setup_wizard_nonce', 'nonce');
         if (!current_user_can('manage_options')) {
-            $this->send_error(__('You are not allowed to retrieve license details.', 'document-library-for-wordpress'));
+            $this->send_error(__('You are not allowed to retrieve license details.', 'document-library-lite'));
         }
         $wizard = $this->get_wizard();
         wp_send_json_success(['license_key' => $wizard->get_licensing()->get_license_key(), 'license_status' => $wizard->get_licensing()->get_status(), 'license_status_text' => $wizard->get_licensing()->get_status_help_text()]);
@@ -62,11 +62,11 @@ class Welcome extends Step
     {
         check_ajax_referer('barn2_setup_wizard_nonce', 'nonce');
         if (!current_user_can('manage_options')) {
-            $this->send_error(__('You are not allowed to validate your license.', 'document-library-for-wordpress'));
+            $this->send_error(__('You are not allowed to validate your license.', 'document-library-lite'));
         }
         $license_key = isset($_POST['license_key']) && !empty($_POST['license_key']) ? sanitize_text_field($_POST['license_key']) : \false;
         if (!$license_key) {
-            $this->send_error(esc_html__('Please enter a license key.', 'document-library-for-wordpress'));
+            $this->send_error(esc_html__('Please enter a license key.', 'document-library-lite'));
         }
         $license_handler = $this->get_wizard()->get_licensing();
         $success = \false;

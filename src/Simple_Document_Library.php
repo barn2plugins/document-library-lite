@@ -7,7 +7,7 @@ use Barn2\Plugin\Document_Library\Util\Options;
 /**
  * This class is responsible for generating a HTML table from a list of supplied attributes.
  *
- * @package   Barn2\document-library-for-wordpress
+ * @package   Barn2\document-library-lite
  * @author    Barn2 Plugins <support@barn2.com>
  * @license   GPL-3.0
  * @copyright Barn2 Media Ltd
@@ -48,37 +48,37 @@ class Simple_Document_Library {
 			 */
 			self::$column_defaults = [
 				'id'             => [
-					'heading'  => __( 'ID', 'document-library-for-wordpress' ),
+					'heading'  => __( 'ID', 'document-library-lite' ),
 					'priority' => 3,
 					'width'    => ''
 				],
 				'image'          => [
-					'heading'  => __( 'Image', 'document-library-for-wordpress' ),
+					'heading'  => __( 'Image', 'document-library-lite' ),
 					'priority' => 6,
 					'width'    => ''
 				],
 				'title'          => [
-					'heading'  => __( 'Title', 'document-library-for-wordpress' ),
+					'heading'  => __( 'Title', 'document-library-lite' ),
 					'priority' => 1,
 					'width'    => ''
 				],
 				'doc_categories' => [
-					'heading'  => __( 'Categories', 'document-library-for-wordpress' ),
+					'heading'  => __( 'Categories', 'document-library-lite' ),
 					'priority' => 7,
 					'width'    => ''
 				],
 				'date'           => [
-					'heading'  => __( 'Date', 'document-library-for-wordpress' ),
+					'heading'  => __( 'Date', 'document-library-lite' ),
 					'priority' => 2,
 					'width'    => ''
 				],
 				'content'        => [
-					'heading'  => __( 'Description', 'document-library-for-wordpress' ),
+					'heading'  => __( 'Description', 'document-library-lite' ),
 					'priority' => 5,
 					'width'    => ''
 				],
 				'link'           => [
-					'heading'  => __( 'Link', 'document-library-for-wordpress' ),
+					'heading'  => __( 'Link', 'document-library-lite' ),
 					'priority' => 4,
 					'width'    => ''
 				]

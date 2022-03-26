@@ -14,7 +14,7 @@ use Barn2\Plugin\Document_Library\Post_Type;
 /**
  * Handles general admin functions.
  *
- * @package   Barn2\document-library-for-wordpress
+ * @package   Barn2\document-library-lite
  * @author    Barn2 Plugins <support@barn2.com>
  * @license   GPL-3.0
  * @copyright Barn2 Media Ltd
@@ -73,7 +73,7 @@ class Admin_Controller implements Registerable, Service {
 			sprintf(
 				'<a href="%1$s">%2$s</a>',
 				esc_url( $this->plugin->get_settings_page_url() ),
-				esc_html__( 'Settings', 'document-library-for-wordpress' )
+				esc_html__( 'Settings', 'document-library-lite' )
 			)
 		);
 		return $links;
@@ -91,7 +91,7 @@ class Admin_Controller implements Registerable, Service {
 			$links[] = sprintf(
 				'<a href="%1$s" target="_blank"><strong>%2$s</strong></a>',
 				esc_url( 'https://barn2.com/wordpress-plugins/document-library-pro/?utm_source=settings&utm_medium=settings&utm_campaign=pluginsadmin&utm_content=dlw-plugins' ),
-				esc_html__( 'Pro Version', 'document-library-for-wordpress' )
+				esc_html__( 'Pro Version', 'document-library-lite' )
 			);
 		}
 
@@ -127,9 +127,9 @@ class Admin_Controller implements Registerable, Service {
 				'dlwAdminObject',
 				[
 					'i18n' => [
-						'select_file'  => __( 'Select File', 'document-library-for-wordpress' ),
-						'add_file'     => __( 'Add File', 'document-library-for-wordpress' ),
-						'replace_file' => __( 'Replace File', 'document-library-for-wordpress' ),
+						'select_file'  => __( 'Select File', 'document-library-lite' ),
+						'add_file'     => __( 'Add File', 'document-library-lite' ),
+						'replace_file' => __( 'Replace File', 'document-library-lite' ),
 					],
 				]
 			);

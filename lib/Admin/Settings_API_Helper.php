@@ -295,7 +295,7 @@ class Settings_API_Helper implements Registerable, Conditional {
 
 		$size_id          = $args['id'] . '[size]';
 		$size_value       = isset( $current_value['size'] ) ? $current_value['size'] : '';
-		$size_placeholder = ! empty( $args['placeholder'] ) ? $args['placeholder'] : __( 'Size', 'document-library-for-wordpress' );
+		$size_placeholder = ! empty( $args['placeholder'] ) ? $args['placeholder'] : __( 'Size', 'document-library-lite' );
 
 		if ( empty( $args['custom_attributes'] ) ) {
 			$args['custom_attributes'] = [];

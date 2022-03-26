@@ -10,7 +10,7 @@ defined( 'ABSPATH' ) || exit;
 /**
  * Add a notice to request a review.
  *
- * @package   Barn2/document-library-for-wordpress
+ * @package   Barn2/document-library-lite
  * @author    Barn2 Plugins <info@barn2.com>
  * @license   GPL-3.0
  * @copyright Barn2 Media Ltd
@@ -101,15 +101,15 @@ class Review_Notice implements Registerable, Service {
 		?>
 		<div id="dlw-review-notice" class="notice">
 			<div class="dlw-review-notice-left">
-				<h1><?php esc_html_e( 'Are you enjoying Document Library for WordPress?', 'document-library-for-wordpress' ); ?></h1>
-				<p><?php esc_html_e( 'Congratulations, you\'ve just published your 5th document! If you have time, it would be great if you could leave us a review and let us know what you think of the plugin.', 'document-library-for-wordpress' ); ?></p>
+				<h1><?php esc_html_e( 'Are you enjoying Document Library for WordPress?', 'document-library-lite' ); ?></h1>
+				<p><?php esc_html_e( 'Congratulations, you\'ve just published your 5th document! If you have time, it would be great if you could leave us a review and let us know what you think of the plugin.', 'document-library-lite' ); ?></p>
 
 				<div class="dlw-review-notice-actions">
-					<a href="https://wordpress.org/support/plugin/document-library-for-wordpress/reviews/#new-post" target="_blank" class="dlw-add-review button button-primary"><?php esc_html_e( 'Add Review', 'document-library-for-wordpress' ); ?></a>
-					<a class="dlw-dismiss-notice"><?php esc_html_e( 'Dismiss', 'document-library-for-wordpress' ); ?></a>
+					<a href="https://wordpress.org/support/plugin/document-library-lite/reviews/#new-post" target="_blank" class="dlw-add-review button button-primary"><?php esc_html_e( 'Add Review', 'document-library-lite' ); ?></a>
+					<a class="dlw-dismiss-notice"><?php esc_html_e( 'Dismiss', 'document-library-lite' ); ?></a>
 				</div>
 
-				<span class="dlw-review-notice-meta"><?php esc_html_e( 'Barn2', 'document-library-for-wordpress' ); ?></span>
+				<span class="dlw-review-notice-meta"><?php esc_html_e( 'Barn2', 'document-library-lite' ); ?></span>
 			</div>
 
 			<div class="dlw-review-notice-right">

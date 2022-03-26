@@ -7,7 +7,7 @@ use Barn2\Plugin\Document_Library\Dependencies\Barn2\Setup_Wizard\Starter as Set
 /**
  * Setup Wizard Starter
  *
- * @package   Barn2/document-library-for-wordpress
+ * @package   Barn2/document-library-lite
  * @author    Barn2 Plugins <info@barn2.com>
  * @license   GPL-3.0
  * @copyright Barn2 Media Ltd
@@ -20,7 +20,7 @@ class Starter extends Setup_Wizard_Starter {
 	 * @return boolean
 	 */
 	public function should_start() {
-		$setup_happened = get_option( 'document-library-for-wordpress-setup-wizard_completed' ) ?: false;
+		$setup_happened = get_option( 'document-library-lite-setup-wizard_completed' ) ?: false;
 		return ! $setup_happened;
 	}
 

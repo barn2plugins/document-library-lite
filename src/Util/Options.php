@@ -113,7 +113,7 @@ final class Options {
 	 */
 	public static function get_default_settings() {
 		$default_settings = [
-			'link_text'       => __( 'Download', 'document-library-for-wordpress' ),
+			'link_text'       => __( 'Download', 'document-library-lite' ),
 			'lightbox'        => false,
 			'rows_per_page'   => 20,
 			'sort_by'         => 'date',
@@ -146,7 +146,7 @@ final class Options {
 				$setting['custom_attributes'] = isset( $setting['custom_attributes'] ) && is_array( $setting['custom_attributes'] ) ? array_merge( $setting['custom_attributes'], [ 'disabled' => 'disabled' ] ) : [ 'disabled' => 'disabled' ];
 
 				$setting['title'] = $setting['title'] .
-					sprintf( '<span class="pro-version">%s</span>', Lib_Util::barn2_link( 'wordpress-plugins/document-library-pro/?utm_source=settings&utm_medium=settings&utm_campaign=settingsinline&utm_content=dlw-settings', __( 'Pro version only', 'document-library-for-wordpress' ), true ) );
+					sprintf( '<span class="pro-version">%s</span>', Lib_Util::barn2_link( 'wordpress-plugins/document-library-pro/?utm_source=settings&utm_medium=settings&utm_campaign=settingsinline&utm_content=dlw-settings', __( 'Pro version only', 'document-library-lite' ), true ) );
 			}
 		}
 

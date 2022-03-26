@@ -33,7 +33,7 @@ class Util {
 	 */
 	public static function barn2_link( $relative_path, $link_text = '', $new_tab = false ) {
 		if ( empty( $link_text ) ) {
-			$link_text = __( 'Read more', 'document-library-for-wordpress' );
+			$link_text = __( 'Read more', 'document-library-lite' );
 		}
 		return self::format_link( self::barn2_url( $relative_path ), esc_html( $link_text ), $new_tab );
 	}

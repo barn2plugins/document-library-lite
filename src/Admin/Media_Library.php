@@ -11,7 +11,7 @@ defined( 'ABSPATH' ) || exit;
 /**
  * Handles the Media Library features
  *
- * @package   Barn2/document-library-for-wordpress
+ * @package   Barn2/document-library-lite
  * @author    Barn2 Plugins <info@barn2.com>
  * @license   GPL-3.0
  * @copyright Barn2 Media Ltd
@@ -40,8 +40,8 @@ class Media_Library implements Registerable, Service {
 
 		?>
 		<select name="<?php echo esc_attr( Taxonomies::DOCUMENT_DOWNLOAD_SLUG ); ?>" id="filter-by-dlp">
-			<option<?php selected( $document_download, '' ); ?> value=""><?php esc_html_e( 'All types', 'document-library-for-wordpress' ); ?></option>
-			<option<?php selected( $document_download, 'document-download' ); ?> value="document-download"><?php esc_html_e( 'Documents', 'document-library-for-wordpress' ); ?></option>
+			<option<?php selected( $document_download, '' ); ?> value=""><?php esc_html_e( 'All types', 'document-library-lite' ); ?></option>
+			<option<?php selected( $document_download, 'document-download' ); ?> value="document-download"><?php esc_html_e( 'Documents', 'document-library-lite' ); ?></option>
 		</select>
 		<?php
 	}

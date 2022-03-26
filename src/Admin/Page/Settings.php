@@ -13,7 +13,7 @@ defined( 'ABSPATH' ) || exit;
 /**
  * This class handles our plugin settings page in the admin.
  *
- * @package   Barn2/document-library-for-wordpress
+ * @package   Barn2/document-library-lite
  * @author    Barn2 Plugins <info@barn2.com>
  * @license   GPL-3.0
  * @copyright Barn2 Media Ltd
@@ -87,8 +87,8 @@ class Settings implements Service, Registerable, Conditional {
 	public function add_settings_page() {
 		add_submenu_page(
 			'document_library',
-			__( 'Document Library Settings', 'document-library-for-wordpress' ),
-			__( 'Settings', 'document-library-for-wordpress' ),
+			__( 'Document Library Settings', 'document-library-lite' ),
+			__( 'Settings', 'document-library-lite' ),
 			'manage_options',
 			'document_library',
 			[ $this, 'render_settings_page' ],
@@ -110,7 +110,7 @@ class Settings implements Service, Registerable, Conditional {
 			<?php } ?>
 
 			<div class="barn2-settings-inner dlw-settings">
-				<h1><?php esc_html_e( 'Document Library Settings', 'document-library-for-wordpress' ); ?></h1>
+				<h1><?php esc_html_e( 'Document Library Settings', 'document-library-lite' ); ?></h1>
 
 				<h2 class="nav-tab-wrapper">
 					<?php
@@ -127,14 +127,14 @@ class Settings implements Service, Registerable, Conditional {
 
 				<form action="options.php" method="post">
 					<?php
-					settings_errors( 'document-library-for-wordpress' );
+					settings_errors( 'document-library-lite' );
 					settings_fields( $this->registered_settings[ $active_tab ]::OPTION_GROUP );
 					do_settings_sections( $this->registered_settings[ $active_tab ]::MENU_SLUG );
 					?>
 
 					<?php if ( in_array( $active_tab, [ 'general', 'document_libraries' ], true ) ) { ?>
 						<p class="submit">
-							<input name="Submit" type="submit" name="submit" class="button button-primary" value="<?php esc_attr_e( 'Save Changes', 'document-library-for-wordpress' ); ?>" />
+							<input name="Submit" type="submit" name="submit" class="button button-primary" value="<?php esc_attr_e( 'Save Changes', 'document-library-lite' ); ?>" />
 						</p>
 					<?php } ?>
 				</form>

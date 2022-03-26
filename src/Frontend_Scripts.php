@@ -10,7 +10,7 @@ use Barn2\DLW_Lib\Util;
 /**
  * Registers the frontend styles and scripts for the post tables.
  *
- * @package   Barn2\document-library-for-wordpress
+ * @package   Barn2\document-library-lite
  * @author    Barn2 Plugins <support@barn2.com>
  * @license   GPL-3.0
  * @copyright Barn2 Media Ltd

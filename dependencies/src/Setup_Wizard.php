@@ -480,7 +480,7 @@ class Setup_Wizard implements Bootable
     public function register_admin_page()
     {
         $menu_slug = $this->get_slug();
-        $page_title = \sprintf(__('%s setup wizard', 'document-library-for-wordpress'), $this->plugin->get_name());
+        $page_title = \sprintf(__('%s setup wizard', 'document-library-lite'), $this->plugin->get_name());
         add_menu_page($page_title, $page_title, 'manage_options', $menu_slug, [$this, 'render_setup_wizard_page']);
     }
     /**
@@ -613,16 +613,16 @@ class Setup_Wizard implements Bootable
         ?>
 		<div class="barn2-setup-wizard-restart">
 			<hr>
-			<h3><?php 
-        esc_html_e('Setup wizard', 'document-library-for-wordpress');
+			<h3><?php
+        esc_html_e('Setup wizard', 'document-library-lite');
         ?></h3>
-			<p><?php 
-        esc_html_e('If you need to access the setup wizard again, please click on the button below.', 'document-library-for-wordpress');
+			<p><?php
+        esc_html_e('If you need to access the setup wizard again, please click on the button below.', 'document-library-lite');
         ?></p>
-			<a href="<?php 
+			<a href="<?php
         echo esc_url($url);
-        ?>" class="button barn2-wiz-restart-btn"><?php 
-        esc_html_e('Setup wizard', 'document-library-for-wordpress');
+        ?>" class="button barn2-wiz-restart-btn"><?php
+        esc_html_e('Setup wizard', 'document-library-lite');
         ?></a>
 			<hr>
 		</div>
@@ -635,12 +635,12 @@ class Setup_Wizard implements Bootable
 
 		<script>
 			jQuery( '.barn2-wiz-restart-btn' ).on( 'click', function( e ) {
-				return confirm( '<?php 
-        echo esc_html(\sprintf(__('Warning: This will overwrite your existing settings for %s. Are you sure you want to continue?', 'document-library-for-wordpress'), $this->plugin->get_name()));
+				return confirm( '<?php
+        echo esc_html(\sprintf(__('Warning: This will overwrite your existing settings for %s. Are you sure you want to continue?', 'document-library-lite'), $this->plugin->get_name()));
         ?>' );
 			});
 		</script>
-		<?php 
+		<?php
     }
     /**
      * Add a restart link next to the settings page docs and support link.
@@ -657,7 +657,7 @@ class Setup_Wizard implements Bootable
             if ($title_setting && isset($title_setting[\key($title_setting)]['desc'])) {
                 $desc = $title_setting[\key($title_setting)]['desc'];
                 $p_closing_tag = \strrpos($desc, '</p>');
-                $new_desc = \substr_replace($desc, ' | <a class="barn2-wiz-restart-btn" href="' . esc_url($url) . '">' . esc_html__('Setup wizard', 'document-library-for-wordpress') . '</a>', $p_closing_tag, 0);
+                $new_desc = \substr_replace($desc, ' | <a class="barn2-wiz-restart-btn" href="' . esc_url($url) . '">' . esc_html__('Setup wizard', 'document-library-lite') . '</a>', $p_closing_tag, 0);
                 $settings[\key($title_setting)]['desc'] = $new_desc;
             }
             return $settings;
@@ -668,12 +668,12 @@ class Setup_Wizard implements Bootable
                 ?>
 				<script>
 					jQuery( '.barn2-wiz-restart-btn' ).on( 'click', function( e ) {
-						return confirm( '<?php 
-                echo esc_html(\sprintf(__('Warning: This will overwrite your existing settings for %s. Are you sure you want to continue?', 'document-library-for-wordpress'), $this->plugin->get_name()));
+						return confirm( '<?php
+                echo esc_html(\sprintf(__('Warning: This will overwrite your existing settings for %s. Are you sure you want to continue?', 'document-library-lite'), $this->plugin->get_name()));
                 ?>' );
 					});
 				</script>
-					<?php 
+					<?php
             }
         });
     }

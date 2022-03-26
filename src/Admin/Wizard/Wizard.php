@@ -9,7 +9,7 @@ use Barn2\Plugin\Document_Library_Pro\Util\Options;
 /**
  * Main Setup Wizard Loader
  *
- * @package   Barn2/document-library-for-wordpress
+ * @package   Barn2/document-library-lite
  * @author    Barn2 Plugins <info@barn2.com>
  * @license   GPL-3.0
  * @copyright Barn2 Media Ltd
@@ -25,7 +25,7 @@ class Wizard extends Setup_Wizard implements Restartable {
 		check_ajax_referer( 'barn2_setup_wizard_nonce', 'nonce' );
 
 		if ( ! current_user_can( 'manage_options' ) ) {
-			wp_send_json_error( [ 'error_message' => __( 'You are not authorized.', 'document-library-for-wordpress' ) ], 403 );
+			wp_send_json_error( [ 'error_message' => __( 'You are not authorized.', 'document-library-lite' ) ], 403 );
 		}
 	}
 

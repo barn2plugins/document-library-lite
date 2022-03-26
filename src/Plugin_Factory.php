@@ -4,7 +4,7 @@ namespace Barn2\Plugin\Document_Library;
 /**
  * Factory to create/return the shared plugin instance.
  *
- * @package   Barn2\document-library-for-wordpress
+ * @package   Barn2\document-library-lite
  * @author    Barn2 Plugins <support@barn2.com>
  * @license   GPL-3.0
  * @copyright Barn2 Media Ltd

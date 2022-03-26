@@ -14,7 +14,7 @@ defined( 'ABSPATH' ) || exit;
 /**
  * Document Link - Edit Document Metabox
  *
- * @package   Barn2/document-library-for-wordpress
+ * @package   Barn2/document-library-lite
  * @author    Barn2 Plugins <info@barn2.com>
  * @license   GPL-3.0z
  */
@@ -42,7 +42,7 @@ class Document_Link implements Registerable, Service, Conditional {
 	public function register_metabox() {
 		add_meta_box(
 			self::ID,
-			__( 'Document Link', 'document-library-for-wordpress' ),
+			__( 'Document Link', 'document-library-lite' ),
 			[ $this, 'render' ],
 			'dlp_document',
 			'side',
@@ -58,17 +58,17 @@ class Document_Link implements Registerable, Service, Conditional {
 	public function render( $post ) {
 		$document = new Document( $post->ID );
 
-		$button_text         = $document->get_file_id() ? __( 'Replace File', 'document-library-for-wordpress' ) : __( 'Add File', 'document-library-for-wordpress' );
+		$button_text         = $document->get_file_id() ? __( 'Replace File', 'document-library-lite' ) : __( 'Add File', 'document-library-lite' );
 		$file_attached_class = $document->get_file_id() ? ' active' : '';
 		$file_details_class  = $document->get_link_type() === 'file' ? 'active' : '';
 		?>
 
-		<label for="<?php esc_attr( self::ID ); ?>" class="howto"><?php esc_html_e( 'Upload a file or select one from the meid library:', 'document-library-for-wordpress' ); ?></label>
+		<label for="<?php esc_attr( self::ID ); ?>" class="howto"><?php esc_html_e( 'Upload a file or select one from the meid library:', 'document-library-lite' ); ?></label>
 
 		<!-- option selector -->
 		<select name="_dlp_document_link_type" id="dlw_document_link_type" class="postbox">
-			<option value="none" <?php selected( $document->get_link_type(), 'none' ); ?>><?php esc_html_e( 'None', 'document-library-for-wordpress' ); ?></option>
-			<option value="file" <?php selected( $document->get_link_type(), 'file' ); ?>><?php esc_html_e( 'File Upload', 'document-library-for-wordpress' ); ?></option>
+			<option value="none" <?php selected( $document->get_link_type(), 'none' ); ?>><?php esc_html_e( 'None', 'document-library-lite' ); ?></option>
+			<option value="file" <?php selected( $document->get_link_type(), 'file' ); ?>><?php esc_html_e( 'File Upload', 'document-library-lite' ); ?></option>
 		</select>
 
 		<!-- file upload -->
@@ -80,7 +80,7 @@ class Document_Link implements Registerable, Service, Conditional {
 						<span class="screen-reader-text">
 						<?php
 						/* translators: %s: File name */
-						echo esc_html( sprintf( __( 'Remove file: %s', 'document-library-for-wordpress' ), $document->get_file_name() ) );
+						echo esc_html( sprintf( __( 'Remove file: %s', 'document-library-lite' ), $document->get_file_name() ) );
 						?>
 						</span>
 					</button>

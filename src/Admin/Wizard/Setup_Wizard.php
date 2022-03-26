@@ -10,7 +10,7 @@ use Barn2\Plugin\Document_Library\Admin\Wizard\Steps,
 /**
  * Main Setup Wizard Loader
  *
- * @package   Barn2/document-library-for-wordpress
+ * @package   Barn2/document-library-lite
  * @author    Barn2 Plugins <info@barn2.com>
  * @license   GPL-3.0
  * @copyright Barn2 Media Ltd

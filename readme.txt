@@ -116,7 +116,7 @@ Thank you for using our free WordPress document library plugin 🙂
 
 == Installation ==
 
-1. Upload the plugin files to the `/wp-content/plugins/document-library-for-wordpress` directory, or install the plugin through the WordPress plugins screen directly.
+1. Upload the plugin files to the `/wp-content/plugins/document-library-lite` directory, or install the plugin through the WordPress plugins screen directly.
 2. Activate the plugin through the 'Plugins' screen in WordPress.
 3. Follow the setup wizard or go to **Documents > Settings** and configure your document libraries.
 4. View your document library by going to the Document Library page.

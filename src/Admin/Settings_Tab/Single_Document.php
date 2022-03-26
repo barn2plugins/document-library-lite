@@ -11,7 +11,7 @@ defined( 'ABSPATH' ) || exit;
 /**
  * General Setting Tab
  *
- * @package   Barn2/document-library-for-wordpress
+ * @package   Barn2/document-library-lite
  * @author    Barn2 Plugins <info@barn2.com>
  * @license   GPL-3.0
  * @copyright Barn2 Media Ltd
@@ -29,7 +29,7 @@ class Single_Document implements Registerable {
 	public function __construct( $plugin ) {
 		$this->plugin = $plugin;
 		$this->id     = 'single_document';
-		$this->title  = __( 'Single Document', 'document-library-for-wordpress' );
+		$this->title  = __( 'Single Document', 'document-library-lite' );
 	}
 
 	/**
@@ -59,7 +59,7 @@ class Single_Document implements Registerable {
 		printf(
 			'<div class="promo-wrapper"><p class="promo">' .
 			/* translators: %1: Document Library Pro link start, %2: Document Library Pro link end */
-			esc_html__( 'Upgrade to %1$sDocument Library Pro%2$s to have a separate page for each document. You can use this instead - or in addition to - the download links on the main document library page. It’s ideal for providing more information about each document, or even embedding documents directly onto the page:', 'document-library-for-wordpress' ) .
+			esc_html__( 'Upgrade to %1$sDocument Library Pro%2$s to have a separate page for each document. You can use this instead - or in addition to - the download links on the main document library page. It’s ideal for providing more information about each document, or even embedding documents directly onto the page:', 'document-library-lite' ) .
 			'</p>' .
 			'<img class="promo" src="%3$s" /></div>',
 			// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped

@@ -11,7 +11,7 @@ defined( 'ABSPATH' ) || exit;
 /**
  * Document Table Setting Tab
  *
- * @package   Barn2/document-library-for-wordpress
+ * @package   Barn2/document-library-lite
  * @author    Barn2 Plugins <info@barn2.com>
  * @license   GPL-3.0
  * @copyright Barn2 Media Ltd
@@ -29,7 +29,7 @@ class Document_Grid implements Registerable {
 	public function __construct( $plugin ) {
 		$this->plugin           = $plugin;
 		$this->id               = 'document_grid';
-		$this->title            = __( 'Document Grid', 'document-library-for-wordpress' );
+		$this->title            = __( 'Document Grid', 'document-library-lite' );
 		$this->default_settings = [];
 	}
 
@@ -62,7 +62,7 @@ class Document_Grid implements Registerable {
 		printf(
 			'<div class="promo-wrapper"><p class="promo">' .
 			/* translators: %1: Document Library Pro link start, %2: Document Library Pro link end */
-			esc_html__( 'Upgrade to %1$sDocument Library Pro%2$s to display documents in a beautiful grid layout:', 'document-library-for-wordpress' ) .
+			esc_html__( 'Upgrade to %1$sDocument Library Pro%2$s to display documents in a beautiful grid layout:', 'document-library-lite' ) .
 			'</p>' .
 			'<img class="promo" src="%3$s" /></div>',
 			// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped

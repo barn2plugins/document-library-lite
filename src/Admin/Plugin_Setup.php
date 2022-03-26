@@ -11,7 +11,7 @@ use Barn2\Plugin\Document_Library\Admin\Wizard\Starter,
 /**
  * Plugin Setup
  *
- * @package   Barn2/document-library-for-wordpress
+ * @package   Barn2/document-library-lite
  * @author    Barn2 Plugins <info@barn2.com>
  * @license   GPL-3.0
  * @copyright Barn2 Media Ltd
@@ -103,8 +103,8 @@ class Plugin_Setup implements Registerable {
 	public function create_pages() {
 		$pages = [
 			'document_page' => [
-				'name'    => _x( 'document-library', 'Page slug', 'document-library-for-wordpress' ),
-				'title'   => _x( 'Document Library', 'Page title', 'document-library-for-wordpress' ),
+				'name'    => _x( 'document-library', 'Page slug', 'document-library-lite' ),
+				'title'   => _x( 'Document Library', 'Page title', 'document-library-lite' ),
 				'content' => '<!-- wp:shortcode -->[doc_library]<!-- /wp:shortcode -->',
 			]
 		];

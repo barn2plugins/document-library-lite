@@ -3,7 +3,7 @@
  * The Photoswipe HTML markup.
  *
  * @version   1.0
- * @package   Barn2\document-library-for-wordpress
+ * @package   Barn2\document-library-lite
  * @author    Barn2 Plugins <support@barn2.com>
  * @license   GPL-3.0
  * @copyright Barn2 Media Ltd
@@ -42,13 +42,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 				<div class="pswp__counter"></div>
 
-				<button class="pswp__button pswp__button--close" aria-label="<?php esc_attr_e( 'Close (Esc)', 'document-library-for-wordpress' ); ?>"></button>
+				<button class="pswp__button pswp__button--close" aria-label="<?php esc_attr_e( 'Close (Esc)', 'document-library-lite' ); ?>"></button>
 
-				<button class="pswp__button pswp__button--share" aria-label="<?php esc_attr_e( 'Share', 'document-library-for-wordpress' ); ?>"></button>
+				<button class="pswp__button pswp__button--share" aria-label="<?php esc_attr_e( 'Share', 'document-library-lite' ); ?>"></button>
 
-				<button class="pswp__button pswp__button--fs" aria-label="<?php esc_attr_e( 'Toggle fullscreen', 'document-library-for-wordpress' ); ?>"></button>
+				<button class="pswp__button pswp__button--fs" aria-label="<?php esc_attr_e( 'Toggle fullscreen', 'document-library-lite' ); ?>"></button>
 
-				<button class="pswp__button pswp__button--zoom" aria-label="<?php esc_attr_e( 'Zoom in/out', 'document-library-for-wordpress' ); ?>"></button>
+				<button class="pswp__button pswp__button--zoom" aria-label="<?php esc_attr_e( 'Zoom in/out', 'document-library-lite' ); ?>"></button>
 
 				<!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
 				<!-- element will get class pswp__preloader--active when preloader is running -->
@@ -65,9 +65,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<div class="pswp__share-tooltip"></div>
 			</div>
 
-			<button class="pswp__button pswp__button--arrow--left" aria-label="<?php esc_attr_e( 'Previous (arrow left)', 'document-library-for-wordpress' ); ?>"></button>
+			<button class="pswp__button pswp__button--arrow--left" aria-label="<?php esc_attr_e( 'Previous (arrow left)', 'document-library-lite' ); ?>"></button>
 
-			<button class="pswp__button pswp__button--arrow--right" aria-label="<?php esc_attr_e( 'Next (arrow right)', 'document-library-for-wordpress' ); ?>"></button>
+			<button class="pswp__button pswp__button--arrow--right" aria-label="<?php esc_attr_e( 'Next (arrow right)', 'document-library-lite' ); ?>"></button>
 
 			<div class="pswp__caption">
 				<div class="pswp__caption__center"></div>

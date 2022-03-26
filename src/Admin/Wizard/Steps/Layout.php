@@ -9,7 +9,7 @@ use Barn2\Plugin\Document_Library\Dependencies\Barn2\Setup_Wizard\Step,
 /**
  * Layout Settings Step.
  *
- * @package   Barn2/document-library-for-wordpress
+ * @package   Barn2/document-library-lite
  * @author    Barn2 Plugins <info@barn2.com>
  * @license   GPL-3.0
  * @copyright Barn2 Media Ltd
@@ -28,9 +28,9 @@ class Layout extends Step {
 	 */
 	public function __construct() {
 		$this->set_id( 'layout' );
-		$this->set_name( esc_html__( 'Layout and Content', 'document-library-for-wordpress' ) );
-		$this->set_description( esc_html__( 'First, choose the layout for your document libraries.', 'document-library-for-wordpress' ) );
-		$this->set_title( esc_html__( 'Layout and content', 'document-library-for-wordpress' ) );
+		$this->set_name( esc_html__( 'Layout and Content', 'document-library-lite' ) );
+		$this->set_description( esc_html__( 'First, choose the layout for your document libraries.', 'document-library-lite' ) );
+		$this->set_title( esc_html__( 'Layout and content', 'document-library-lite' ) );
 
 		$this->values = Options::get_defaults();
 	}
@@ -42,30 +42,30 @@ class Layout extends Step {
 
 		$fields = [
 			'columns' => [
-				'label'       => __( 'Columns', 'document-library-for-wordpress' ),
-				'description' => __( 'Enter the fields to include in your document tables.', 'document-library-for-wordpress' ) . ' ' . Lib_Util::barn2_link( 'kb/document-library-wordpress-documentation/#document-tables-tab', esc_html__( 'Read more', 'document-library-for-wordpress' ), true ),
+				'label'       => __( 'Columns', 'document-library-lite' ),
+				'description' => __( 'Enter the fields to include in your document tables.', 'document-library-lite' ) . ' ' . Lib_Util::barn2_link( 'kb/document-library-wordpress-documentation/#document-tables-tab', esc_html__( 'Read more', 'document-library-lite' ), true ),
 				'type'        => 'text',
 				'value'       => $this->values['columns'],
 			],
 			'layout'  => [
-				'label'   => __( 'Default layout', 'document-library-for-wordpress' ),
+				'label'   => __( 'Default layout', 'document-library-lite' ),
 				'type'    => 'radio',
 				'options' => [
 					[
 						'value' => 'table',
-						'label' => __( 'Table', 'document-library-for-wordpress' ),
+						'label' => __( 'Table', 'document-library-lite' ),
 					],
 					[
 						'value' => 'grid',
-						'label' => __( 'Grid', 'document-library-for-wordpress' ),
+						'label' => __( 'Grid', 'document-library-lite' ),
 					]
 				],
 				'value'   => 'table',
 				'premium' => true,
 			],
 			'folders' => [
-				'title'   => __( 'Folders', 'document-library-for-wordpress' ),
-				'label'   => __( 'Display the document library in folders', 'document-library-for-wordpress' ),
+				'title'   => __( 'Folders', 'document-library-lite' ),
+				'label'   => __( 'Display the document library in folders', 'document-library-lite' ),
 				'type'    => 'checkbox',
 				'value'   => false,
 				'premium' => true,
@@ -84,7 +84,7 @@ class Layout extends Step {
 		check_ajax_referer( 'barn2_setup_wizard_nonce', 'nonce' );
 
 		if ( ! current_user_can( 'manage_options' ) ) {
-			$this->send_error( esc_html__( 'You are not authorized.', 'document-library-for-wordpress' ) );
+			$this->send_error( esc_html__( 'You are not authorized.', 'document-library-lite' ) );
 		}
 
 		$values = $this->get_submitted_values();

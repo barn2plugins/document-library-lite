@@ -9,7 +9,7 @@ use Barn2\Plugin\Document_Library\Dependencies\Barn2\Setup_Wizard\Step,
 /**
  * Document Links Settings Step.
  *
- * @package   Barn2/document-library-for-wordpress
+ * @package   Barn2/document-library-lite
  * @author    Barn2 Plugins <info@barn2.com>
  * @license   GPL-3.0
  * @copyright Barn2 Media Ltd
@@ -28,9 +28,9 @@ class Links extends Step {
 	 */
 	public function __construct() {
 		$this->set_id( 'links' );
-		$this->set_name( esc_html__( 'Links', 'document-library-for-wordpress' ) );
-		$this->set_description( esc_html__( 'Next, decide how the links to download a document will look and behave.', 'document-library-for-wordpress' ) );
-		$this->set_title( esc_html__( 'Document links', 'document-library-for-wordpress' ) );
+		$this->set_name( esc_html__( 'Links', 'document-library-lite' ) );
+		$this->set_description( esc_html__( 'Next, decide how the links to download a document will look and behave.', 'document-library-lite' ) );
+		$this->set_title( esc_html__( 'Document links', 'document-library-lite' ) );
 
 		$this->values = Options::get_defaults();
 	}
@@ -42,26 +42,26 @@ class Links extends Step {
 
 		$fields = [
 			'link_text'  => [
-				'label'       => __( 'Link text', 'document-library-for-wordpress' ),
+				'label'       => __( 'Link text', 'document-library-lite' ),
 				'type'        => 'text',
-				'description' => __( 'The text displayed on the button or link.', 'document-library-for-wordpress' ),
+				'description' => __( 'The text displayed on the button or link.', 'document-library-lite' ),
 				'value'       => $this->values['link_text'],
 			],
 			'link_style' => [
-				'label'   => __( 'Link style', 'document-library-for-wordpress' ),
+				'label'   => __( 'Link style', 'document-library-lite' ),
 				'type'    => 'select',
 				'options' => [
 					[
 						'key'   => 'button',
-						'label' => __( 'Button with text', 'document-library-for-wordpress' ),
+						'label' => __( 'Button with text', 'document-library-lite' ),
 					]
 				],
 				'value'   => 'button',
 				'premium' => true,
 			],
 			'preview'    => [
-				'title'   => __( 'Document preview', 'document-library-for-wordpress' ),
-				'label'   => __( 'Allow users to preview documents in a lightbox', 'document-library-for-wordpress' ),
+				'title'   => __( 'Document preview', 'document-library-lite' ),
+				'label'   => __( 'Allow users to preview documents in a lightbox', 'document-library-lite' ),
 				'type'    => 'checkbox',
 				'value'   => false,
 				'premium' => true,
@@ -80,7 +80,7 @@ class Links extends Step {
 		check_ajax_referer( 'barn2_setup_wizard_nonce', 'nonce' );
 
 		if ( ! current_user_can( 'manage_options' ) ) {
-			$this->send_error( esc_html__( 'You are not authorized.', 'document-library-for-wordpress' ) );
+			$this->send_error( esc_html__( 'You are not authorized.', 'document-library-lite' ) );
 		}
 
 		$values = $this->get_submitted_values();

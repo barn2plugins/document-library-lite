@@ -12,14 +12,14 @@ msgstr ""
 "POT-Creation-Date: 2022-03-25T09:36:20+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.6.0\n"
-"X-Domain: document-library-for-wordpress\n"
+"X-Domain: document-library-lite\n"
 
 #. Plugin Name of the plugin
 msgid "Document Library for WordPress"
 msgstr ""
 
 #. Plugin URI of the plugin
-msgid "https://wordpress.org/plugins/document-library-for-wordpress/"
+msgid "https://wordpress.org/plugins/document-library-lite/"
 msgstr ""
 
 #. Description of the plugin

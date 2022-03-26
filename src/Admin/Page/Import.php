@@ -12,7 +12,7 @@ defined( 'ABSPATH' ) || exit;
 /**
  * This class handles our plugin import page in the admin.
  *
- * @package   Barn2/document-library-for-wordpress
+ * @package   Barn2/document-library-lite
  * @author    Barn2 Plugins <info@barn2.com>
  * @license   GPL-3.0
  * @copyright Barn2 Media Ltd
@@ -50,8 +50,8 @@ class Import implements Service, Registerable, Conditional {
 	public function add_import_page() {
 		add_submenu_page(
 			'document_library',
-			__( 'Document Library Importing', 'document-library-for-wordpress' ),
-			__( 'Import', 'document-library-for-wordpress' ),
+			__( 'Document Library Importing', 'document-library-lite' ),
+			__( 'Import', 'document-library-lite' ),
 			'manage_options',
 			'dlp_import',
 			[ $this, 'render' ],
@@ -65,13 +65,13 @@ class Import implements Service, Registerable, Conditional {
 	public function render() {
 		?>
 		<div class="wrap dlw-settings">
-			<h1><?php esc_html_e( 'Import documents', 'document-library-for-wordpress' ); ?></h1>
+			<h1><?php esc_html_e( 'Import documents', 'document-library-lite' ); ?></h1>
 
 			<?php
 			printf(
 				'<div class="promo-wrapper"><p class="promo">' .
 				/* translators: %1: Document Library Pro link start, %2: Document Library Pro link end */
-				esc_html__( 'Lots of documents? Upgrade to %1$sDocument Library Pro%2$s to add documents in bulk - either by using drag-and-drop to upload documents directly to WordPress, or by importing documents from a CSV file. It’s a fantastic time-saver for adding multiple documents at once.', 'document-library-for-wordpress' ) .
+				esc_html__( 'Lots of documents? Upgrade to %1$sDocument Library Pro%2$s to add documents in bulk - either by using drag-and-drop to upload documents directly to WordPress, or by importing documents from a CSV file. It’s a fantastic time-saver for adding multiple documents at once.', 'document-library-lite' ) .
 				'</p>' .
 				'<img class="promo" src="%3$s" /></div>',
 				// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped

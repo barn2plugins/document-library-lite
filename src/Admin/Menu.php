@@ -11,7 +11,7 @@ defined( 'ABSPATH' ) || exit;
 /**
  * Handles the custom menu
  *
- * @package   Barn2/document-library-for-wordpress
+ * @package   Barn2/document-library-lite
  * @author    Barn2 Plugins <info@barn2.com>
  * @license   GPL-3.0
  * @copyright Barn2 Media Ltd
@@ -35,8 +35,8 @@ class Menu implements Registerable, Service {
 	public function add_menu_pages() {
 		// Main Menu
 		add_menu_page(
-			__( 'Documents', 'document-library-for-wordpress' ),
-			__( 'Documents', 'document-library-for-wordpress' ),
+			__( 'Documents', 'document-library-lite' ),
+			__( 'Documents', 'document-library-lite' ),
 			'edit_posts',
 			'document_library',
 			'',
@@ -47,8 +47,8 @@ class Menu implements Registerable, Service {
 		// Add New
 		add_submenu_page(
 			'document_library',
-			__( 'Add New', 'document-library-for-wordpress' ),
-			__( 'Add New', 'document-library-for-wordpress' ),
+			__( 'Add New', 'document-library-lite' ),
+			__( 'Add New', 'document-library-lite' ),
 			'edit_posts',
 			'/post-new.php?post_type=dlp_document',
 			'',
@@ -58,8 +58,8 @@ class Menu implements Registerable, Service {
 		// Categories
 		add_submenu_page(
 			'document_library',
-			__( 'Categories', 'document-library-for-wordpress' ),
-			__( 'Categories', 'document-library-for-wordpress' ),
+			__( 'Categories', 'document-library-lite' ),
+			__( 'Categories', 'document-library-lite' ),
 			'edit_posts',
 			'/edit-tags.php?taxonomy=doc_categories&post_type=dlp_document',
 			'',

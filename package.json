@@ -1,5 +1,5 @@
 {
-    "name": "document-library-for-wordpress",
+    "name": "document-library-lite",
     "version": "1.0",
     "description": "Document Library for WordPress.",
     "main": "gulpfile.js",
@@ -11,14 +11,14 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/Barn2Media/document-library-for-wordpress.git"
+        "url": "git+https://github.com/Barn2Media/document-library-lite.git"
     },
     "author": "Barn2 Plugins <support@barn2.com>",
     "license": "GPL-3.0",
     "bugs": {
-        "url": "https://github.com/Barn2Media/document-library-for-wordpress/issues"
+        "url": "https://github.com/Barn2Media/document-library-lite/issues"
     },
-    "homepage": "https://github.com/Barn2Media/document-library-for-wordpress#readme",
+    "homepage": "https://github.com/Barn2Media/document-library-lite#readme",
     "devDependencies": {
         "@barn2/webpack-config": "file:../barn2-lib/build/webpack-config/barn2-webpack-config-1.0.20.tgz",
         "@wordpress/dependency-extraction-webpack-plugin": "^3.4.0",

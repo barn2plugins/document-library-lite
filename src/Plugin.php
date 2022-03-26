@@ -11,7 +11,7 @@ use Barn2\DLW_Lib\Util;
 /**
  * The main plugin class.
  *
- * @package   Barn2\document-library-for-wordpress
+ * @package   Barn2\document-library-lite
  * @author    Barn2 Plugins <support@barn2.com>
  * @license   GPL-3.0
  * @copyright Barn2 Media Ltd
@@ -87,7 +87,7 @@ class Plugin extends Simple_Plugin implements Registerable, Service_Provider {
 	 * Load the textdomain.
 	 */
 	public function load_textdomain() {
-		load_plugin_textdomain( 'document-library-for-wordpress', false, $this->get_slug() . '/languages' );
+		load_plugin_textdomain( 'document-library-lite', false, $this->get_slug() . '/languages' );
 	}
 
 	/**

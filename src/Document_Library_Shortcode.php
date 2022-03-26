@@ -8,7 +8,7 @@ use Barn2\Plugin\Document_Library\Util\Options,
 /**
  * This class handles the posts table shortcode registration.
  *
- * @package   Barn2\document-library-for-wordpress
+ * @package   Barn2\document-library-lite
  * @author    Barn2 Plugins <support@barn2.com>
  * @license   GPL-3.0
  * @copyright Barn2 Media Ltd

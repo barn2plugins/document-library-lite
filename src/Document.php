@@ -7,7 +7,7 @@ defined( 'ABSPATH' ) || exit;
 /**
  * Document Controller
  *
- * @package   Barn2/document-library-for-wordpress
+ * @package   Barn2/document-library-lite
  * @author    Barn2 Plugins <info@barn2.com>
  * @license   GPL-3.0
  * @copyright Barn2 Media Ltd
@@ -38,7 +38,7 @@ class Document {
 		$this->post_object = get_post( $id, 'object' );
 
 		if ( is_null( $this->post_object ) ) {
-			throw new \Exception( __( 'Document does not exist', 'document-library-for-wordpress' ) );
+			throw new \Exception( __( 'Document does not exist', 'document-library-lite' ) );
 		}
 
 		$this->id = $this->post_object->ID;

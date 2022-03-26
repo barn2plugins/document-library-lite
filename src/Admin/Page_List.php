@@ -12,7 +12,7 @@ defined( 'ABSPATH' ) || exit;
 /**
  * Handles functionality on the Pages list table screen
  *
- * @package   Barn2/document-library-for-wordpress
+ * @package   Barn2/document-library-lite
  * @author    Barn2 Plugins <info@barn2.com>
  * @license   GPL-3.0
  * @copyright Barn2 Media Ltd
@@ -41,7 +41,7 @@ class Page_List implements Registerable, Service, Conditional {
 	 */
 	public function display_post_states( $post_states, $post ) {
 		if ( $this->get_page_id( 'document_page' ) === $post->ID ) {
-			$post_states['dlp_document_library_page'] = __( 'Document Library Page', 'document-library-for-wordpress' );
+			$post_states['dlp_document_library_page'] = __( 'Document Library Page', 'document-library-lite' );
 		}
 
 		return $post_states;
