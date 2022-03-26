@@ -1,5 +1,5 @@
 const pluginData = {
-	name: 'Document Library for WordPress',
+	name: 'Document Library Lite',
 	libNamespace: 'Barn2\\DLW_Lib',
 	libIncludes: ['Plugin/Plugin.php', 'Plugin/Simple_Plugin.php', 'Plugin/Plugin_Activation_Listener.php', '*.php',	'Admin/**', 'assets/css/**', 'assets/js/**', '!class-*.php'],
 	requiresES6: true

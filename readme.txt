@@ -1,4 +1,4 @@
-=== Document Library for WordPress ===
+=== Document Library Lite ===
 Contributors: barn2media
 Donate link: https://barn2.com
 Tags: wordpress, document library, file manager, download manager, documents, downloads, document management
@@ -9,13 +9,13 @@ Stable tag: 1.0
 License: GPL-3.0
 License URI: https://www.gnu.org/licenses/gpl.html
 
-Document Library for WordPress makes it easy to add downloadable files and display them in a flexible table view, complete with instant AJAX search.
+Document Library Lite makes it easy to add downloadable files and display them in a flexible table view, complete with instant AJAX search.
 
 == Description ==
 
 Discover the easy way to create a searchable WordPress document library or download manager.
 
-*Document Library for WordPress* makes it easy to add downloadable files and display them in a flexible table view, complete with instant AJAX search box.
+*Document Library Lite* makes it easy to add downloadable files and display them in a flexible table view, complete with instant AJAX search box.
 
 https://www.youtube.com/watch?v=gI09lzKMcF4
 
@@ -23,11 +23,11 @@ Install the best WordPress document library plugin today and start adding and di
 
 This WordPress file manager plugin will save you a huge amount of time on your download management. It adds a dedicated 'Documents' section to the WP Media Library where you can manage documents separately from images and other media types. If you’ve ever wanted Media Library categories then you can filter the media library to view document files only.
 
-As well as benefiting you, *Document Library for WordPress* also makes things easier for your users. Instead of having to read through a long list of document links, they can use the instant search box, sortable columns and category filters to find exactly what they’re looking for. They can then click to download documents of any file type straight to their computer or mobile device.
+As well as benefiting you, *Document Library Lite* also makes things easier for your users. Instead of having to read through a long list of document links, they can use the instant search box, sortable columns and category filters to find exactly what they’re looking for. They can then click to download documents of any file type straight to their computer or mobile device.
 
 To get started with this WordPress download manager plugin, simply install the plugin, start adding documents and they will instantly appear on the ‘Document Library’ page. You can also use the `[doc_library]` shortcode to insert document libraries anywhere.
 
-**Document Library for WordPress (free) includes:**
+**Document Library Lite (free) includes:**
 
 * Easy document management - add documents of any file type, plus all the document data you want to display.
 * List documents in searchable, sortable tables.
@@ -64,11 +64,11 @@ To get started with this WordPress download manager plugin, simply install the p
 * 3 user-friendly protection options: simple password protection, or automatically unlock the hidden document categories to specific logged in users or roles.
 * Each user only sees the documents and files that they have access to.
 
-See *Document Library for WordPress* in action on the [plugin demo site](https://documentlibrary-free.barn2.com/), and view the [plugin documentation](https://barn2.com/kb/document-library-wordpress-documentation/?utm_source=wporg&utm_medium=freeplugin&utm_campaign=freepluginwporg&utm_content=dlw-wporg) in our knowledge base.
+See *Document Library Lite* in action on the [plugin demo site](https://documentlibrary-free.barn2.com/), and view the [plugin documentation](https://barn2.com/kb/document-library-wordpress-documentation/?utm_source=wporg&utm_medium=freeplugin&utm_campaign=freepluginwporg&utm_content=dlw-wporg) in our knowledge base.
 
 **HOW TO CREATE A WORDPRESS FILE MANAGER**
 
-You can use *Document Library for WordPress* to create a download manager which lists documents of any file type. It’s perfect for creating a WordPress document library, resource library, download management, file manager, audio library, video gallery, and much more.
+You can use *Document Library Lite* to create a download manager which lists documents of any file type. It’s perfect for creating a WordPress document library, resource library, download management, file manager, audio library, video gallery, and much more.
 
 First, install the plugin and choose your settings at **Documents > Settings**. This page gives you full control over the WordPress file manager including which columns to display, and the text of the document download button.
 
@@ -152,7 +152,7 @@ With the free WordPress document library plugin, the number of documents depends
 If you want to list hundreds (or even thousands) of downloads on the same page, then we recommend upgrading to [Document Library Pro](https://barn2.com/wordpress-plugins/document-library-pro/https://barn2.com/kb/document-library-wordpress-documentation/#doc-library-shortcode/?utm_source=wporg&utm_medium=freeplugin&utm_campaign=freepluginwporg&utm_content=dlw-wporg). This comes with built-in lazy load and caching options which allow you to list an unlimited number of documents without any performance issues.
 
 = Can I make the document library private? =
-If you want a private WordPress file manager then we recommend using *Document Library for WordPress* with our other plugin, [Password Protected Categories](https://barn2.com/wordpress-plugins/password-protected-categories/https://barn2.com/kb/document-library-wordpress-documentation/#doc-library-shortcode/?utm_source=wporg&utm_medium=freeplugin&utm_campaign=freepluginwporg&utm_content=dlw-wporg). This lets you restrict access to any or all of your download categories.
+If you want a private WordPress file manager then we recommend using *Document Library Lite* with our other plugin, [Password Protected Categories](https://barn2.com/wordpress-plugins/password-protected-categories/https://barn2.com/kb/document-library-wordpress-documentation/#doc-library-shortcode/?utm_source=wporg&utm_medium=freeplugin&utm_campaign=freepluginwporg&utm_content=dlw-wporg). This lets you restrict access to any or all of your download categories.
 
 For example, you can make all the categories private, or show different categories to different people.
 
@@ -162,10 +162,10 @@ For each category, you can:
 * Give access to specific logged in users only.
 
 = Can I see a demo of the download manager plugin? =
-Absolutely! You can see the *Document Library for WordPress* plugin in action on the demo site at https://documentlibrary-free.barn2.com.
+Absolutely! You can see the *Document Library Lite* plugin in action on the demo site at https://documentlibrary-free.barn2.com.
 
 = Is there a premium version with more features? =
-We have designed the free *Document Library for WordPress* plugin to have all the essential features that you need to create a fully functional document library.
+We have designed the free *Document Library Lite* plugin to have all the essential features that you need to create a fully functional document library.
 
 For more advanced document management and display options, you can upgrade to [Document Library Pro](https://barn2.com/wordpress-plugins/document-library-pro/https://barn2.com/kb/document-library-wordpress-documentation/#doc-library-shortcode/?utm_source=wporg&utm_medium=freeplugin&utm_campaign=freepluginwporg&utm_content=dlw-wporg). This incredibly popular plugin will supercharge your document library by giving you extra column and layout options, more ways to list documents, plus time-saving features including bulk document import.
 

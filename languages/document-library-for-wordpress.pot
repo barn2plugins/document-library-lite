@@ -2,7 +2,7 @@
 # This file is distributed under the GNU General Public License v3.0.
 msgid ""
 msgstr ""
-"Project-Id-Version: Document Library for WordPress 1.0\n"
+"Project-Id-Version: Document Library Lite 1.0\n"
 "Report-Msgid-Bugs-To: https://barn2.com/support-center/\n"
 "Last-Translator: Barn2 Plugins <support@barn2.com>\n"
 "Language-Team: Barn2 Plugins <support@barn2.com>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "X-Domain: document-library-lite\n"
 
 #. Plugin Name of the plugin
-msgid "Document Library for WordPress"
+msgid "Document Library Lite"
 msgstr ""
 
 #. Plugin URI of the plugin
@@ -1026,7 +1026,7 @@ msgid "Document Library documents."
 msgstr ""
 
 #: src/Review_Notice.php:104
-msgid "Are you enjoying Document Library for WordPress?"
+msgid "Are you enjoying Document Library Lite?"
 msgstr ""
 
 #: src/Review_Notice.php:105

@@ -18,7 +18,7 @@ use Barn2\DLW_Lib\Util;
  */
 class Plugin extends Simple_Plugin implements Registerable, Service_Provider {
 
-	const NAME    = 'Document Library For WordPress';
+	const NAME    = 'Document Library Lite';
 	const ITEM_ID = 425625;
 
 	/**

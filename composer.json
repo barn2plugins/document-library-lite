@@ -1,6 +1,6 @@
 {
     "name": "barn2/document-library-lite",
-    "description": "Document Library for WordPress.",
+    "description": "Document Library Lite.",
     "type": "wordpress-plugin",
     "license": "GPL-3.0",
     "authors": [

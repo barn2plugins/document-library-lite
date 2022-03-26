@@ -1,7 +1,7 @@
 {
     "name": "document-library-lite",
     "version": "1.0",
-    "description": "Document Library for WordPress.",
+    "description": "Document Library Lite.",
     "main": "gulpfile.js",
     "directories": {
         "lib": "lib"

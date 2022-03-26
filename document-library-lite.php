@@ -1,6 +1,6 @@
 <?php
 /**
- * The main plugin file for Document Library for WordPress.
+ * The main plugin file for Document Library Lite.
  *
  * @package   Barn2\document-library-lite
  * @author    Barn2 Plugins <support@barn2.com>
@@ -8,7 +8,7 @@
  * @copyright Barn2 Media Ltd
  *
  * @wordpress-plugin
- * Plugin Name:     Document Library for WordPress
+ * Plugin Name:     Document Library Lite
  * Plugin URI:      https://wordpress.org/plugins/document-library-lite/
  * Description:     Add documents and display them in a searchable document library.
  * Version:         1.0

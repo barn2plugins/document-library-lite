@@ -101,7 +101,7 @@ class Review_Notice implements Registerable, Service {
 		?>
 		<div id="dlw-review-notice" class="notice">
 			<div class="dlw-review-notice-left">
-				<h1><?php esc_html_e( 'Are you enjoying Document Library for WordPress?', 'document-library-lite' ); ?></h1>
+				<h1><?php esc_html_e( 'Are you enjoying Document Library Lite?', 'document-library-lite' ); ?></h1>
 				<p><?php esc_html_e( 'Congratulations, you\'ve just published your 5th document! If you have time, it would be great if you could leave us a review and let us know what you think of the plugin.', 'document-library-lite' ); ?></p>
 
 				<div class="dlw-review-notice-actions">
