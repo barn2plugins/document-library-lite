@@ -17,7 +17,7 @@ Discover the easy way to create a searchable WordPress document library or downl
 
 *Document Library Lite* makes it easy to add downloadable files and display them in a flexible table view, complete with instant AJAX search box.
 
-https://www.youtube.com/watch?v=gI09lzKMcF4
+https://www.youtube.com/watch?v=K0H-9FUQgW0
 
 Install the best WordPress document library plugin today and start adding and displaying documents anywhere on your site.
 
