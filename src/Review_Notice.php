@@ -72,7 +72,9 @@ class Review_Notice implements Registerable, Service {
 	 * Handle the dismiss AJAX action.
 	 */
 	public function maybe_dismiss_notice() {
-		if ( ! isset( $_POST['action'] ) || 'dlw_dismiss_notice' !== $_POST['action'] ) {
+		$action = filter_input( INPUT_POST, 'action', FILTER_SANITIZE_FULL_SPECIAL_CHARS );
+
+		if ( ! $action || 'dlw_dismiss_notice' !== $action ) {
 			return;
 		}
 
@@ -85,9 +87,25 @@ class Review_Notice implements Registerable, Service {
 	 * Maybe add the notice.
 	 */
 	public function maybe_add_notice() {
+		global $pagenow, $current_screen;
+
+		if ( ! in_array( $pagenow, [ 'index.php', 'edit.php', 'edit-tags.php', 'plugins.php', 'admin.php' ], true ) ) {
+			return;
+		}
+
+		if ( $pagenow === 'admin.php' && $current_screen->parent_base !== 'document_library' ) {
+			return;
+		}
+
+		if ( in_array( $pagenow, [ 'edit.php', 'edit-tags.php' ], true ) && $current_screen->post_type !== Post_Type::POST_TYPE_SLUG ) {
+			return;
+		}
+
 		if ( ! get_option( 'dlw_review_notice_triggered' ) || get_option( 'dlw_review_notice_dismissed' ) ) {
 			return;
 		}
+
+
 
 		$user_id = (int) get_option( 'dlw_review_notice_user', 0 );
 
