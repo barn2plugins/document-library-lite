@@ -16,18 +16,31 @@ use Barn2\DLW_Lib\Registerable,
 class Settings_Scripts implements Registerable {
 
 	/**
-	 * @var Plugin The plugin object.
+	 * The plugin object.
+	 *
+	 * @var Plugin
 	 */
 	private $plugin;
 
+	/**
+	 * Constructor.
+	 *
+	 * @param Plugin $plugin
+	 */
 	public function __construct( Plugin $plugin ) {
 		$this->plugin = $plugin;
 	}
 
+	/**
+	 * {@inheritdoc}
+	 */
 	public function register() {
 		add_action( 'admin_enqueue_scripts', [ $this, 'load_scripts' ], 5 );
 	}
 
+	/**
+	 * Load any scripts required by settings fields.
+	 */
 	public function load_scripts() {
 		if ( ! wp_script_is( 'barn2-tiptip', 'registered' ) ) {
 			wp_register_script(
