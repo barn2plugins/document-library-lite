@@ -100,8 +100,7 @@ class Settings implements Service, Registerable, Conditional {
 	 * Render the Settings page.
 	 */
 	public function render_settings_page() {
-		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
-		$active_tab = isset( $_GET['tab'] ) ? $_GET['tab'] : 'general';
+		$active_tab = filter_input( INPUT_GET, 'tab', FILTER_SANITIZE_FULL_SPECIAL_CHARS ) ?? 'general';
 		?>
 		<div class="wrap barn2-plugins-settings">
 

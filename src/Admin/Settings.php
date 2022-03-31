@@ -156,14 +156,11 @@ class Settings implements Registerable, Service {
 	 */
 	public function sanitize_shortcode_settings( $args ) {
 		$existing_options = $this->get_existing_shortcode_options();
+		$option_page      = filter_input( INPUT_GET, 'option_page', FILTER_SANITIZE_FULL_SPECIAL_CHARS );
 
-		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
-		if ( ! isset( $_REQUEST['option_page'] ) ) {
+		if ( ! $option_page ) {
 			return array_merge( $existing_options, $args );
 		}
-
-		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
-		$option_page = $_REQUEST['option_page'];
 
 		if ( is_null( $args ) ) {
 			$args = [];
