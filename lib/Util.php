@@ -2,7 +2,10 @@
 
 namespace Barn2\DLW_Lib;
 
-use function Barn2\Plugin\WC_Fast_Cart\wfc;
+use Barn2\Plugin\WC_Quick_View_Pro\Quick_View_Plugin,
+	WC_Product_Table_Plugin,
+	WC_Protected_Categories_Plugin,
+	Barn2\DLW_Lib\Plugin\Plugin;
 use function Barn2\Plugin\WC_Product_Table\wpt;
 use function Barn2\Plugin\WC_Protected_Categories\wpc;
 use function Barn2\Plugin\WC_Quick_View_Pro\wqv;

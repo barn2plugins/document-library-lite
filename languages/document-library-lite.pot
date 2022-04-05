@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2022-03-31T00:00:00+00:00\n"
+"POT-Creation-Date: 2022-04-05T00:00:00+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.6.0\n"
 "X-Domain: document-library-lite\n"
@@ -94,7 +94,17 @@ msgstr ""
 msgid "Size"
 msgstr ""
 
-#: lib/Util.php:36
+#: lib/Admin/Settings_Util.php:56
+#: src/Admin/Settings_Tab/General.php:110
+msgid "Documentation"
+msgstr ""
+
+#: lib/Admin/Settings_Util.php:61
+#: src/Admin/Settings_Tab/General.php:111
+msgid "Support"
+msgstr ""
+
+#: lib/Util.php:39
 #: src/Admin/Wizard/Steps/Behavior.php:59
 #: src/Admin/Wizard/Steps/Layout.php:46
 msgid "Read more"
@@ -457,14 +467,6 @@ msgstr ""
 #. translators: %1: knowledge base link start, %2: knowledge base link end
 #: src/Admin/Settings_Tab/General.php:95
 msgid "These options set defaults for all your document libraries and are used for the table layout. You can override them in the shortcode for individual libraries. %1$sRead more%2$s."
-msgstr ""
-
-#: src/Admin/Settings_Tab/General.php:110
-msgid "Documentation"
-msgstr ""
-
-#: src/Admin/Settings_Tab/General.php:111
-msgid "Support"
 msgstr ""
 
 #: src/Admin/Settings_Tab/General.php:130
@@ -1025,23 +1027,23 @@ msgstr ""
 msgid "Document Library documents."
 msgstr ""
 
-#: src/Review_Notice.php:104
+#: src/Review_Notice.php:120
 msgid "Are you enjoying Document Library Lite?"
 msgstr ""
 
-#: src/Review_Notice.php:105
+#: src/Review_Notice.php:121
 msgid "Congratulations, you've just published your 5th document! If you have time, it would be great if you could leave us a review and let us know what you think of the plugin."
 msgstr ""
 
-#: src/Review_Notice.php:108
+#: src/Review_Notice.php:124
 msgid "Add Review"
 msgstr ""
 
-#: src/Review_Notice.php:109
+#: src/Review_Notice.php:125
 msgid "Dismiss"
 msgstr ""
 
-#: src/Review_Notice.php:112
+#: src/Review_Notice.php:128
 msgid "Barn2"
 msgstr ""
 

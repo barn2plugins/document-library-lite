@@ -105,8 +105,6 @@ class Review_Notice implements Registerable, Service {
 			return;
 		}
 
-
-
 		$user_id = (int) get_option( 'dlw_review_notice_user', 0 );
 
 		if ( get_current_user_id() !== $user_id ) {

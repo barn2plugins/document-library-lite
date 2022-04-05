@@ -65,7 +65,10 @@
 .barn2-plugins-settings #barn2_plugins_promo {
   max-width: 500px;
 }
-@media (min-width: 1100px) {
+.barn2-plugins-settings ul.subsubsub li:not(:last-child)::after {
+  content: "|";
+}
+@media screen and (min-width: 1100px) {
   .barn2-plugins-settings {
     flex-direction: row;
     align-items: flex-start;
@@ -80,5 +83,35 @@
     max-width: 30%;
     margin-left: 30px;
     margin-right: 20px;
+  }
+  .wrap.woocommerce .barn2-plugins-settings #barn2_plugins_promo {
+    margin-right: 0;
+  }
+}
+
+@media screen and (min-width: 1350px) {
+  .barn2-promo-wrap {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  .barn2-promo-wrap .barn2-promo-inner {
+    flex: 3 1 70%;
+  }
+  .barn2-promo-wrap .barn2-plugins-promo {
+    flex: 1 1 30%;
+    max-width: 500px;
+  }
+}
+@media screen and (min-width: 850px) and (max-width: 1349px) {
+  .barn2-plugins-promo h2 {
+    text-align: center;
+  }
+  .barn2-plugins-promo .barn2_promo_block {
+    display: inline-block;
+    width: 47%;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
   }
 }
