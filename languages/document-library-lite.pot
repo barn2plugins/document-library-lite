@@ -41,7 +41,7 @@ msgstr ""
 #: dependencies/src/Setup_Wizard.php:617
 #: dependencies/src/Setup_Wizard.php:625
 #: dependencies/src/Setup_Wizard.php:660
-#: src/Admin/Settings_Tab/General.php:115
+#: src/Admin/Settings_Tab/General.php:116
 msgid "Setup wizard"
 msgstr ""
 
@@ -95,12 +95,12 @@ msgid "Size"
 msgstr ""
 
 #: lib/Admin/Settings_Util.php:56
-#: src/Admin/Settings_Tab/General.php:110
+#: src/Admin/Settings_Tab/General.php:111
 msgid "Documentation"
 msgstr ""
 
 #: lib/Admin/Settings_Util.php:61
-#: src/Admin/Settings_Tab/General.php:111
+#: src/Admin/Settings_Tab/General.php:112
 msgid "Support"
 msgstr ""
 
@@ -283,7 +283,7 @@ msgid "How a user accesses documents from the ‘link’ column."
 msgstr ""
 
 #: src/Admin/Settings_Tab/Document_Table.php:107
-#: src/Admin/Settings_Tab/General.php:200
+#: src/Admin/Settings_Tab/General.php:201
 msgid "Link to document"
 msgstr ""
 
@@ -390,30 +390,30 @@ msgid "Page length"
 msgstr ""
 
 #: src/Admin/Settings_Tab/Document_Table.php:217
-#: src/Admin/Settings_Tab/General.php:363
-#: src/Admin/Settings_Tab/General.php:417
-#: src/Admin/Settings_Tab/General.php:430
+#: src/Admin/Settings_Tab/General.php:364
+#: src/Admin/Settings_Tab/General.php:418
+#: src/Admin/Settings_Tab/General.php:431
 msgid "Above library"
 msgstr ""
 
 #: src/Admin/Settings_Tab/Document_Table.php:218
-#: src/Admin/Settings_Tab/General.php:364
-#: src/Admin/Settings_Tab/General.php:418
-#: src/Admin/Settings_Tab/General.php:431
+#: src/Admin/Settings_Tab/General.php:365
+#: src/Admin/Settings_Tab/General.php:419
+#: src/Admin/Settings_Tab/General.php:432
 msgid "Below library"
 msgstr ""
 
 #: src/Admin/Settings_Tab/Document_Table.php:219
-#: src/Admin/Settings_Tab/General.php:365
-#: src/Admin/Settings_Tab/General.php:419
-#: src/Admin/Settings_Tab/General.php:432
+#: src/Admin/Settings_Tab/General.php:366
+#: src/Admin/Settings_Tab/General.php:420
+#: src/Admin/Settings_Tab/General.php:433
 msgid "Above and below library"
 msgstr ""
 
 #: src/Admin/Settings_Tab/Document_Table.php:220
-#: src/Admin/Settings_Tab/General.php:366
-#: src/Admin/Settings_Tab/General.php:420
-#: src/Admin/Settings_Tab/General.php:433
+#: src/Admin/Settings_Tab/General.php:367
+#: src/Admin/Settings_Tab/General.php:421
+#: src/Admin/Settings_Tab/General.php:434
 msgid "Hidden"
 msgstr ""
 
@@ -447,7 +447,7 @@ msgid "Document lists"
 msgstr ""
 
 #: src/Admin/Settings_Tab/General.php:62
-#: src/Admin/Settings_Tab/General.php:267
+#: src/Admin/Settings_Tab/General.php:268
 #: src/Admin/Wizard/Steps/Links.php:63
 msgid "Document preview"
 msgstr ""
@@ -469,358 +469,358 @@ msgstr ""
 msgid "These options set defaults for all your document libraries and are used for the table layout. You can override them in the shortcode for individual libraries. %1$sRead more%2$s."
 msgstr ""
 
-#: src/Admin/Settings_Tab/General.php:130
+#: src/Admin/Settings_Tab/General.php:131
 msgid "Document fields"
 msgstr ""
 
-#: src/Admin/Settings_Tab/General.php:131
+#: src/Admin/Settings_Tab/General.php:132
 #: src/Util/Options.php:149
 msgid "Pro version only"
 msgstr ""
 
-#: src/Admin/Settings_Tab/General.php:134
+#: src/Admin/Settings_Tab/General.php:135
 msgid "Content"
 msgstr ""
 
-#: src/Admin/Settings_Tab/General.php:135
+#: src/Admin/Settings_Tab/General.php:136
 msgid "Excerpt"
 msgstr ""
 
-#: src/Admin/Settings_Tab/General.php:136
+#: src/Admin/Settings_Tab/General.php:137
 #: src/Post_Type.php:59
 msgid "Featured Image"
 msgstr ""
 
-#: src/Admin/Settings_Tab/General.php:137
+#: src/Admin/Settings_Tab/General.php:138
 msgid "Comments"
 msgstr ""
 
-#: src/Admin/Settings_Tab/General.php:163
+#: src/Admin/Settings_Tab/General.php:164
 msgid "Document library page"
 msgstr ""
 
-#: src/Admin/Settings_Tab/General.php:165
+#: src/Admin/Settings_Tab/General.php:166
 msgid "The page to display your documents."
 msgstr ""
 
-#: src/Admin/Settings_Tab/General.php:166
+#: src/Admin/Settings_Tab/General.php:167
 msgid "You can also use the [doc_library] shortcode to list documents on other pages."
 msgstr ""
 
-#: src/Admin/Settings_Tab/General.php:172
+#: src/Admin/Settings_Tab/General.php:173
 #: src/Admin/Wizard/Steps/Layout.php:51
 msgid "Default layout"
 msgstr ""
 
-#: src/Admin/Settings_Tab/General.php:175
+#: src/Admin/Settings_Tab/General.php:176
 #: src/Admin/Wizard/Steps/Layout.php:56
 msgid "Table"
 msgstr ""
 
-#: src/Admin/Settings_Tab/General.php:176
+#: src/Admin/Settings_Tab/General.php:177
 #: src/Admin/Wizard/Steps/Layout.php:60
 msgid "Grid"
 msgstr ""
 
-#: src/Admin/Settings_Tab/General.php:181
+#: src/Admin/Settings_Tab/General.php:182
 #: src/Admin/Wizard/Steps/Layout.php:67
 msgid "Folders"
 msgstr ""
 
-#: src/Admin/Settings_Tab/General.php:184
+#: src/Admin/Settings_Tab/General.php:185
 #: src/Admin/Wizard/Steps/Layout.php:68
 msgid "Display the document library in folders"
 msgstr ""
 
-#: src/Admin/Settings_Tab/General.php:203
+#: src/Admin/Settings_Tab/General.php:204
 msgid "Include a link to the document."
 msgstr ""
 
-#: src/Admin/Settings_Tab/General.php:204
+#: src/Admin/Settings_Tab/General.php:205
 msgid "Use the 'Link destination' option below to control the link behavior."
 msgstr ""
 
-#: src/Admin/Settings_Tab/General.php:208
+#: src/Admin/Settings_Tab/General.php:209
 #: src/Admin/Wizard/Steps/Links.php:51
 msgid "Link style"
 msgstr ""
 
-#: src/Admin/Settings_Tab/General.php:211
+#: src/Admin/Settings_Tab/General.php:212
 msgid "Control the appearance of the link to the document."
-msgstr ""
-
-#: src/Admin/Settings_Tab/General.php:213
-#: src/Admin/Settings_Tab/General.php:280
-#: src/Admin/Wizard/Steps/Links.php:56
-msgid "Button with text"
 msgstr ""
 
 #: src/Admin/Settings_Tab/General.php:214
 #: src/Admin/Settings_Tab/General.php:281
-msgid "Button with icon and text"
+#: src/Admin/Wizard/Steps/Links.php:56
+msgid "Button with text"
 msgstr ""
 
 #: src/Admin/Settings_Tab/General.php:215
 #: src/Admin/Settings_Tab/General.php:282
-msgid "Button with icon"
+msgid "Button with icon and text"
 msgstr ""
 
 #: src/Admin/Settings_Tab/General.php:216
-msgid "Download icon only"
+#: src/Admin/Settings_Tab/General.php:283
+msgid "Button with icon"
 msgstr ""
 
 #: src/Admin/Settings_Tab/General.php:217
-msgid "File type icon"
+msgid "Download icon only"
 msgstr ""
 
 #: src/Admin/Settings_Tab/General.php:218
-#: src/Admin/Settings_Tab/General.php:284
+msgid "File type icon"
+msgstr ""
+
+#: src/Admin/Settings_Tab/General.php:219
+#: src/Admin/Settings_Tab/General.php:285
 msgid "Text link"
 msgstr ""
 
-#: src/Admin/Settings_Tab/General.php:224
+#: src/Admin/Settings_Tab/General.php:225
 #: src/Admin/Wizard/Steps/Links.php:45
 msgid "Link text"
 msgstr ""
 
-#: src/Admin/Settings_Tab/General.php:226
+#: src/Admin/Settings_Tab/General.php:227
 #: src/Admin/Wizard/Steps/Behavior.php:53
 #: src/Admin/Wizard/Steps/Links.php:47
 msgid "The text displayed on the button or link."
 msgstr ""
 
-#: src/Admin/Settings_Tab/General.php:230
+#: src/Admin/Settings_Tab/General.php:231
 msgid "Link destination"
 msgstr ""
 
-#: src/Admin/Settings_Tab/General.php:233
+#: src/Admin/Settings_Tab/General.php:234
 msgid "What happens when someone clicks on a link to a document."
 msgstr ""
 
-#: src/Admin/Settings_Tab/General.php:235
+#: src/Admin/Settings_Tab/General.php:236
 msgid "Direct access"
 msgstr ""
 
-#: src/Admin/Settings_Tab/General.php:236
+#: src/Admin/Settings_Tab/General.php:237
 msgid "Open single document page"
 msgstr ""
 
-#: src/Admin/Settings_Tab/General.php:241
+#: src/Admin/Settings_Tab/General.php:242
 msgid "Link target"
 msgstr ""
 
-#: src/Admin/Settings_Tab/General.php:244
+#: src/Admin/Settings_Tab/General.php:245
 msgid "Open links in a new tab"
 msgstr ""
 
-#: src/Admin/Settings_Tab/General.php:249
+#: src/Admin/Settings_Tab/General.php:250
 msgid "Clickable fields"
 msgstr ""
 
-#: src/Admin/Settings_Tab/General.php:251
+#: src/Admin/Settings_Tab/General.php:252
 msgid "Control which fields are clickable, in addition to the 'link' field."
 msgstr ""
 
-#: src/Admin/Settings_Tab/General.php:270
+#: src/Admin/Settings_Tab/General.php:271
 #: src/Admin/Wizard/Steps/Links.php:64
 msgid "Allow users to preview documents in a lightbox"
 msgstr ""
 
-#: src/Admin/Settings_Tab/General.php:271
+#: src/Admin/Settings_Tab/General.php:272
 msgid "The preview option will appear for supported file types only."
 msgstr ""
 
-#: src/Admin/Settings_Tab/General.php:275
+#: src/Admin/Settings_Tab/General.php:276
 msgid "Preview style"
 msgstr ""
 
-#: src/Admin/Settings_Tab/General.php:278
+#: src/Admin/Settings_Tab/General.php:279
 msgid "Control the appearance of the preview option."
 msgstr ""
 
-#: src/Admin/Settings_Tab/General.php:283
+#: src/Admin/Settings_Tab/General.php:284
 msgid "Icon only"
 msgstr ""
 
-#: src/Admin/Settings_Tab/General.php:289
+#: src/Admin/Settings_Tab/General.php:290
 msgid "Preview text"
 msgstr ""
 
-#: src/Admin/Settings_Tab/General.php:292
+#: src/Admin/Settings_Tab/General.php:293
 msgid "The text displayed on the preview button or link."
 msgstr ""
 
-#: src/Admin/Settings_Tab/General.php:293
+#: src/Admin/Settings_Tab/General.php:294
 msgid "Preview"
 msgstr ""
 
-#: src/Admin/Settings_Tab/General.php:309
+#: src/Admin/Settings_Tab/General.php:310
 #: src/Admin/Wizard/Steps/Behavior.php:45
 msgid "Image lightbox"
 msgstr ""
 
-#: src/Admin/Settings_Tab/General.php:311
+#: src/Admin/Settings_Tab/General.php:312
 #: src/Admin/Wizard/Steps/Behavior.php:46
 msgid "Display images in a lightbox when opened"
 msgstr ""
 
-#: src/Admin/Settings_Tab/General.php:315
+#: src/Admin/Settings_Tab/General.php:316
 msgid "Shortcodes"
 msgstr ""
 
-#: src/Admin/Settings_Tab/General.php:318
+#: src/Admin/Settings_Tab/General.php:319
 msgid "Display shortcodes, HTML and other formatting in the document content, excerpt and custom field columns"
 msgstr ""
 
-#: src/Admin/Settings_Tab/General.php:323
+#: src/Admin/Settings_Tab/General.php:324
 msgid "Excerpt length"
 msgstr ""
 
-#: src/Admin/Settings_Tab/General.php:326
-#: src/Admin/Settings_Tab/General.php:338
+#: src/Admin/Settings_Tab/General.php:327
+#: src/Admin/Settings_Tab/General.php:339
 msgid "words"
 msgstr ""
 
-#: src/Admin/Settings_Tab/General.php:327
+#: src/Admin/Settings_Tab/General.php:328
 msgid "Enter -1 to show the full excerpt."
 msgstr ""
 
-#: src/Admin/Settings_Tab/General.php:335
+#: src/Admin/Settings_Tab/General.php:336
 msgid "Content length"
 msgstr ""
 
-#: src/Admin/Settings_Tab/General.php:339
+#: src/Admin/Settings_Tab/General.php:340
 msgid "Enter -1 to show the full content."
 msgstr ""
 
-#: src/Admin/Settings_Tab/General.php:358
+#: src/Admin/Settings_Tab/General.php:359
 msgid "Search box"
 msgstr ""
 
-#: src/Admin/Settings_Tab/General.php:361
+#: src/Admin/Settings_Tab/General.php:362
 msgid "The position of the search box above the list of documents. You can also add a search box using a shortcode or widget."
 msgstr ""
 
-#: src/Admin/Settings_Tab/General.php:371
+#: src/Admin/Settings_Tab/General.php:372
 msgid "Reset button"
 msgstr ""
 
-#: src/Admin/Settings_Tab/General.php:374
+#: src/Admin/Settings_Tab/General.php:375
 msgid "Show the reset button above the library"
 msgstr ""
 
-#: src/Admin/Settings_Tab/General.php:390
+#: src/Admin/Settings_Tab/General.php:391
 #: src/Admin/Wizard/Steps/Behavior.php:51
 msgid "Documents per page"
 msgstr ""
 
-#: src/Admin/Settings_Tab/General.php:393
+#: src/Admin/Settings_Tab/General.php:394
 msgid "The number of documents per page of the document library. Enter -1 to display all documents on one page."
 msgstr ""
 
-#: src/Admin/Settings_Tab/General.php:400
+#: src/Admin/Settings_Tab/General.php:401
 msgid "Pagination type"
 msgstr ""
 
-#: src/Admin/Settings_Tab/General.php:404
+#: src/Admin/Settings_Tab/General.php:405
 msgid "Numbers only"
 msgstr ""
 
-#: src/Admin/Settings_Tab/General.php:405
+#: src/Admin/Settings_Tab/General.php:406
 msgid "Prev|Next"
 msgstr ""
 
-#: src/Admin/Settings_Tab/General.php:406
+#: src/Admin/Settings_Tab/General.php:407
 msgid "Prev|Next + Numbers"
 msgstr ""
 
-#: src/Admin/Settings_Tab/General.php:407
+#: src/Admin/Settings_Tab/General.php:408
 msgid "Prev|Next|First|Last"
 msgstr ""
 
-#: src/Admin/Settings_Tab/General.php:408
+#: src/Admin/Settings_Tab/General.php:409
 msgid "Prev|Next|First|Last + Numbers"
 msgstr ""
 
-#: src/Admin/Settings_Tab/General.php:413
+#: src/Admin/Settings_Tab/General.php:414
 msgid "Pagination position"
 msgstr ""
 
-#: src/Admin/Settings_Tab/General.php:422
+#: src/Admin/Settings_Tab/General.php:423
 msgid "The position of the paging buttons which scroll between results."
 msgstr ""
 
-#: src/Admin/Settings_Tab/General.php:426
+#: src/Admin/Settings_Tab/General.php:427
 msgid "Totals"
 msgstr ""
 
-#: src/Admin/Settings_Tab/General.php:435
+#: src/Admin/Settings_Tab/General.php:436
 msgid "The position of the document total, e.g. '25 documents'."
 msgstr ""
 
-#: src/Admin/Settings_Tab/General.php:451
+#: src/Admin/Settings_Tab/General.php:452
 #: src/Admin/Wizard/Steps/Behavior.php:57
 msgid "Sort by"
 msgstr ""
 
-#: src/Admin/Settings_Tab/General.php:455
+#: src/Admin/Settings_Tab/General.php:456
 #: src/Admin/Wizard/Steps/Behavior.php:63
 #: src/Simple_Document_Library.php:61
 msgid "Title"
 msgstr ""
 
-#: src/Admin/Settings_Tab/General.php:456
+#: src/Admin/Settings_Tab/General.php:457
 #: src/Admin/Wizard/Steps/Behavior.php:67
 #: src/Simple_Document_Library.php:51
 msgid "ID"
 msgstr ""
 
-#: src/Admin/Settings_Tab/General.php:457
+#: src/Admin/Settings_Tab/General.php:458
 #: src/Admin/Wizard/Steps/Behavior.php:71
 msgid "Date published"
 msgstr ""
 
-#: src/Admin/Settings_Tab/General.php:458
+#: src/Admin/Settings_Tab/General.php:459
 #: src/Admin/Wizard/Steps/Behavior.php:75
 msgid "Date modified"
 msgstr ""
 
-#: src/Admin/Settings_Tab/General.php:459
+#: src/Admin/Settings_Tab/General.php:460
 #: src/Admin/Wizard/Steps/Behavior.php:79
 msgid "Page order (menu order)"
 msgstr ""
 
-#: src/Admin/Settings_Tab/General.php:460
+#: src/Admin/Settings_Tab/General.php:461
 #: src/Admin/Wizard/Steps/Behavior.php:83
 msgid "Author"
 msgstr ""
 
-#: src/Admin/Settings_Tab/General.php:461
+#: src/Admin/Settings_Tab/General.php:462
 #: src/Admin/Wizard/Steps/Behavior.php:87
 msgid "Random"
 msgstr ""
 
-#: src/Admin/Settings_Tab/General.php:463
+#: src/Admin/Settings_Tab/General.php:464
 #: src/Admin/Wizard/Steps/Behavior.php:59
 msgid "The initial sort order of the document library."
 msgstr ""
 
-#: src/Admin/Settings_Tab/General.php:467
+#: src/Admin/Settings_Tab/General.php:468
 #: src/Admin/Wizard/Steps/Behavior.php:93
 msgid "Sort direction"
 msgstr ""
 
-#: src/Admin/Settings_Tab/General.php:471
+#: src/Admin/Settings_Tab/General.php:472
 #: src/Admin/Wizard/Steps/Behavior.php:98
 msgid "Automatic"
 msgstr ""
 
-#: src/Admin/Settings_Tab/General.php:472
+#: src/Admin/Settings_Tab/General.php:473
 #: src/Admin/Wizard/Steps/Behavior.php:102
 msgid "Ascending (A to Z, oldest to newest)"
 msgstr ""
 
-#: src/Admin/Settings_Tab/General.php:473
+#: src/Admin/Settings_Tab/General.php:474
 #: src/Admin/Wizard/Steps/Behavior.php:106
 msgid "Descending (Z to A, newest to oldest)"
 msgstr ""
