@@ -76,11 +76,11 @@ class Menu implements Registerable, Service {
 	public function keep_menu_open( $parent_file ) {
 		global $pagenow;
 
-		// phpcs:disable WordPress.Security.NonceVerification.Recommended
-		if ( $pagenow === 'edit-tags.php' && $_GET['taxonomy'] === Taxonomies::CATEGORY_SLUG ) {
+		$taxonomy = filter_input( INPUT_GET, 'taxonomy', FILTER_SANITIZE_FULL_SPECIAL_CHARS );
+
+		if ( $pagenow === 'edit-tags.php' && $taxonomy === Taxonomies::CATEGORY_SLUG ) {
 			$parent_file = 'document_library';
 		}
-		// phpcs:enable
 
 		return $parent_file;
 	}
@@ -94,11 +94,11 @@ class Menu implements Registerable, Service {
 	public function highlight_submenus( $submenu_file ) {
 		global $pagenow;
 
-		// phpcs:disable WordPress.Security.NonceVerification.Recommended
-		if ( $pagenow === 'edit-tags.php' && $_GET['taxonomy'] === Taxonomies::CATEGORY_SLUG ) {
+		$taxonomy = filter_input( INPUT_GET, 'taxonomy', FILTER_SANITIZE_FULL_SPECIAL_CHARS );
+
+		if ( $pagenow === 'edit-tags.php' && $taxonomy === Taxonomies::CATEGORY_SLUG ) {
 			$submenu_file = 'edit-tags.php?taxonomy=doc_categories&post_type=dlp_document';
 		}
-		// phpcs:enable
 
 		return $submenu_file;
 	}
