@@ -107,12 +107,13 @@ class General implements Registerable {
 		printf(
 			'<p>%s | %s | %s</p>',
 			// phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
-			Lib_Util::format_link( $this->plugin->get_documentation_url(), __( 'Documentation', 'document-library-lite' ), true ),
-			Lib_Util::format_link( 'https://barn2.com/wordpress-plugins/document-library-free-support-request/', __( 'Support', 'document-library-lite' ), true ),
+			// Note: Partially escaped in Lib_Util::format_link
+			Lib_Util::format_link( $this->plugin->get_documentation_url(), esc_html__( 'Documentation', 'document-library-lite' ), true ),
+			Lib_Util::format_link( 'https://barn2.com/wordpress-plugins/document-library-free-support-request/', esc_html__( 'Support', 'document-library-lite' ), true ),
 			sprintf(
 				'<a class="barn2-wiz-restart-btn" href="%s">%s</a>',
-				add_query_arg( [ 'page' => $this->plugin->get_slug() . '-setup-wizard' ], admin_url( 'admin.php' ) ),
-				__( 'Setup wizard', 'document-library-lite' )
+				esc_url( add_query_arg( [ 'page' => $this->plugin->get_slug() . '-setup-wizard' ], admin_url( 'admin.php' ) ) ),
+				esc_html__( 'Setup wizard', 'document-library-lite' )
 			)
 			// phpcs:enable
 		);
