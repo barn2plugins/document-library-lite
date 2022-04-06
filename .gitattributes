@@ -1,6 +1,8 @@
-assets/js/datatables/* linguist-vendored
-assets/css/datatables/* linguist-vendored
+# Directories
+/.wordpress-org export-ignore
+/.github export-ignore
 
+# Files
 /.wordpress-org export-ignore
 /.github export-ignore
 /.git export-ignore
