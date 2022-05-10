@@ -12,6 +12,7 @@
 /webpack.config.js export-ignore
 /package.json export-ignore
 /package-lock.json export-ignore
+/yarn.lock export-ignore
 /composer.lock export-ignore
 /phpcs.ruleset.xml export-ignore
 /.scoper.inc.php export-ignore

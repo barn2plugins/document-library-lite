@@ -73,11 +73,13 @@ class Import implements Service, Registerable, Conditional {
 				/* translators: %1: Document Library Pro link start, %2: Document Library Pro link end */
 				esc_html__( 'Lots of documents? Upgrade to %1$sDocument Library Pro%2$s to add documents in bulk - either by using drag-and-drop to upload documents directly to WordPress, or by importing documents from a CSV file. It’s a fantastic time-saver for adding multiple documents at once.', 'document-library-lite' ) .
 				'</p>' .
-				'<img class="promo" src="%3$s" /></div>',
+				'<a class="promo" href="%3$s" target="_blank"><img class="promo" src="%4$s" />%2$s</div>',
 				// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				Lib_Util::format_link_open( Lib_Util::barn2_url( 'wordpress-plugins/document-library-pro/?utm_source=settings&utm_medium=settings&utm_campaign=settingsinline&utm_content=dlw-settings' ), true ),
 				'</a>',
-				esc_url( $this->plugin->get_dir_url() . '/assets/images/promo-import.png' )
+				// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				Lib_Util::barn2_url( 'wordpress-plugins/document-library-pro/?utm_source=settings&utm_medium=settings&utm_campaign=settingsinline&utm_content=dlw-settings' ),
+				esc_url( $this->plugin->get_dir_url() . '/assets/images/promo-grid.png' )
 			);
 			?>
 

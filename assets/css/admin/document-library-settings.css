@@ -18,6 +18,9 @@
 .promo-wrapper p.promo {
     max-width: 900px;
 }
+.promo-wrapper a.promo {
+    max-width: 700px;
+}
 .promo-wrapper img.promo {
 	max-width: 700px;
 	width: 100%;

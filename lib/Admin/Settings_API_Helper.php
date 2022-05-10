@@ -238,8 +238,21 @@ class Settings_API_Helper implements Registerable, Conditional {
 		if ( ! empty( $args['desc'] ) ) {
 			$allowed_html = [
 				'a'      => [
+					'class'  => [],
+					'style'  => [],
 					'target' => [],
 					'href'   => []
+				],
+				'span'   => [
+					'class' => [],
+					'style' => [],
+				],
+				'button' => [
+					'class' => [],
+					'style' => [],
+					'type'  => [],
+					'name'  => [],
+					'value' => [],
 				],
 				'strong' => []
 			];
@@ -370,12 +383,16 @@ class Settings_API_Helper implements Registerable, Conditional {
 				<label for="<?php echo esc_attr( sprintf( '%1$s-%2$s', $args['id'], $value ) ); ?>">
 
 					<input
-							id="<?php echo esc_attr( sprintf( '%1$s-%2$s', $args['id'], $value ) ); ?>"
-							name="<?php echo esc_attr( sprintf( '%1$s[%2$s]', $args['id'], $value ) ); ?>"
-							class="<?php echo esc_attr( $args['input_class'] ); ?>"
-							type="checkbox"
-						<?php checked( $current_value[ $value ] ); ?>
-							value="1"
+						id="<?php echo esc_attr( sprintf( '%1$s-%2$s', $args['id'], $value ) ); ?>"
+						name="<?php echo esc_attr( sprintf( '%1$s[%2$s]', $args['id'], $value ) ); ?>"
+						class="<?php echo esc_attr( $args['input_class'] ); ?>"
+						type="checkbox"
+						<?php
+						if ( isset( $current_value[ $value ] ) ) {
+							checked( $current_value[ $value ] );
+						}
+						?>
+						value="1"
 						<?php self::custom_attributes( $args ); ?>
 					/>
 					<?php echo esc_html( $option ); ?>

@@ -613,15 +613,15 @@ class Setup_Wizard implements Bootable
         ?>
 		<div class="barn2-setup-wizard-restart">
 			<hr>
-			<h3><?php
+			<h3><?php 
         esc_html_e('Setup wizard', 'document-library-lite');
         ?></h3>
-			<p><?php
+			<p><?php 
         esc_html_e('If you need to access the setup wizard again, please click on the button below.', 'document-library-lite');
         ?></p>
-			<a href="<?php
+			<a href="<?php 
         echo esc_url($url);
-        ?>" class="button barn2-wiz-restart-btn"><?php
+        ?>" class="button barn2-wiz-restart-btn"><?php 
         esc_html_e('Setup wizard', 'document-library-lite');
         ?></a>
 			<hr>
@@ -635,12 +635,12 @@ class Setup_Wizard implements Bootable
 
 		<script>
 			jQuery( '.barn2-wiz-restart-btn' ).on( 'click', function( e ) {
-				return confirm( '<?php
+				return confirm( '<?php 
         echo esc_html(\sprintf(__('Warning: This will overwrite your existing settings for %s. Are you sure you want to continue?', 'document-library-lite'), $this->plugin->get_name()));
         ?>' );
 			});
 		</script>
-		<?php
+		<?php 
     }
     /**
      * Add a restart link next to the settings page docs and support link.
@@ -668,12 +668,12 @@ class Setup_Wizard implements Bootable
                 ?>
 				<script>
 					jQuery( '.barn2-wiz-restart-btn' ).on( 'click', function( e ) {
-						return confirm( '<?php
+						return confirm( '<?php 
                 echo esc_html(\sprintf(__('Warning: This will overwrite your existing settings for %s. Are you sure you want to continue?', 'document-library-lite'), $this->plugin->get_name()));
                 ?>' );
 					});
 				</script>
-					<?php
+					<?php 
             }
         });
     }

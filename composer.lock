@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e5b4242a9c7707d3d7872164970cd6f9",
+    "content-hash": "a205fcd3bc40d2329b340c719d591868",
     "packages": [],
     "packages-dev": [
         {
@@ -82,11 +82,11 @@
         },
         {
             "name": "barn2/setup-wizard",
-            "version": "0.4.1",
+            "version": "0.4.4",
             "source": {
                 "type": "git",
                 "url": "git@bitbucket.org:barn2plugins/setup-wizard.git",
-                "reference": "c4b625377cd66e346bb9299bdf8decb28dccc49b"
+                "reference": "7b6e2c93bea4522f39630a2d4e2af5c1f40e9480"
             },
             "require-dev": {
                 "barn2/php-standards": "dev-master",
@@ -138,7 +138,7 @@
             "keywords": [
                 "wordpress"
             ],
-            "time": "2022-03-24T11:39:45+00:00"
+            "time": "2022-05-10T08:00:08+00:00"
         },
         {
             "name": "dealerdirect/phpcodesniffer-composer-installer",

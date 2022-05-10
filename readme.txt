@@ -1,11 +1,11 @@
-=== Document Library Lite ===
+=== Document Library Lite - Manage & Display Downloads ===
 Contributors: barn2media
 Donate link: https://barn2.com
 Tags: wordpress, document library, file manager, download manager, documents, downloads, document management
 Requires at least: 5.0
-Tested up to: 5.9.2
+Tested up to: 5.9.3
 Requires PHP: 7.2
-Stable tag: 1.0
+Stable tag: 1.0.1
 License: GPL-3.0
 License URI: https://www.gnu.org/licenses/gpl.html
 
@@ -74,7 +74,7 @@ First, install the plugin and choose your settings at **Documents > Settings**. 
 
 Next, you can start adding documents at **Documents > Add New**. The plugin automatically adds a 'Document Library' page to your WordPress site. This page lists all your documents in a searchable, sortable table. Each file in the download manager appears as a separate row of the table, complete with helpful information such as the filename and summary description. This helps users to learn more about each document before downloading the file to their computer.
 
-For more flexibility, you can use the `[doc_library]` shortcode to list different downloads on different parts of your site. Use the [shortcode options](https://barn2.com/kb/document-library-wordpress-documentation/#doc-library-shortcode/?utm_source=wporg&utm_medium=freeplugin&utm_campaign=freepluginwporg&utm_content=dlw-wporg) to override the global settings and apply different options to each document library. And don’t forget, you can get dozens more shortcode options with our premium [Document Library Pro](https://barn2.com/wordpress-plugins/document-library-pro/https://barn2.com/kb/document-library-wordpress-documentation/#doc-library-shortcode/?utm_source=wporg&utm_medium=freeplugin&utm_campaign=freepluginwporg&utm_content=dlw-wporg) plugin!
+For more flexibility, you can use the `[doc_library]` shortcode to list different downloads on different parts of your site. Use the [shortcode options](https://barn2.com/kb/document-library-wordpress-documentation/?utm_source=wporg&utm_medium=freeplugin&utm_campaign=freepluginwporg&utm_content=dlw-wporg#doc-library-shortcode) to override the global settings and apply different options to each document library. And don’t forget, you can get dozens more shortcode options with our premium [Document Library Pro](https://barn2.com/wordpress-plugins/document-library-pro/?utm_source=wporg&utm_medium=freeplugin&utm_campaign=freepluginwporg&utm_content=dlw-wporg) plugin!
 
 **HERE’S THE FULL LIST OF FEATURES THAT YOU CAN USE WITH THIS FREE WORDPRESS DOCUMENT LIBRARY PLUGIN**
 
@@ -109,15 +109,14 @@ Shortcode options for the `[doc_library]` shortcode:
 * **show_footer** - Show or hide the footer row of the file manager.
 
 For example: `[doc_library doc_category="meetings" content="title,content,link" sort_by="date"]`
-
-View the [full documentation](https://barn2.com/kb/document-library-wordpress-documentation/https://barn2.com/kb/document-library-wordpress-documentation/#doc-library-shortcode/?utm_source=wporg&utm_medium=freeplugin&utm_campaign=freepluginwporg&utm_content=dlw-wporg), check out the [demo](https://documentlibrary-free.barn2.com/), and if you need more features then have a look at [Document Library Pro](https://barn2.com/wordpress-plugins/document-library-pro/https://barn2.com/kb/document-library-wordpress-documentation/#doc-library-shortcode/?utm_source=wporg&utm_medium=freeplugin&utm_campaign=freepluginwporg&utm_content=dlw-wporg).
+View the [full documentation](https://barn2.com/kb/document-library-wordpress-documentation?utm_source=wporg&utm_medium=freeplugin&utm_campaign=freepluginwporg&utm_content=dlw-wporg#doc-library-shortcode), check out the [demo](https://documentlibrary-free.barn2.com/), and if you need more features then have a look at [Document Library Pro](https://barn2.com/wordpress-plugins/document-library-pro/?utm_source=wporg&utm_medium=freeplugin&utm_campaign=freepluginwporg&utm_content=dlw-wporg).
 
 Thank you for using our free WordPress document library plugin 🙂
 
 == Installation ==
 
 1. Upload the plugin files to the `/wp-content/plugins/document-library-lite` directory, or install the plugin through the WordPress plugins screen directly.
-2. Activate the plugin through the 'Plugins' screen in WordPress.
+2. Activate the plugin through the **Plugins** screen in WordPress.
 3. Follow the setup wizard or go to **Documents > Settings** and configure your document libraries.
 4. View your document library by going to the Document Library page.
 
@@ -149,10 +148,10 @@ See the complete list of shortcode options above
 = Is there a maximum number of documents? =
 With the free WordPress document library plugin, the number of documents depends on the overall speed of your website and how good your hosting is. Most sites can happily list several dozen documents per page.
 
-If you want to list hundreds (or even thousands) of downloads on the same page, then we recommend upgrading to [Document Library Pro](https://barn2.com/wordpress-plugins/document-library-pro/https://barn2.com/kb/document-library-wordpress-documentation/#doc-library-shortcode/?utm_source=wporg&utm_medium=freeplugin&utm_campaign=freepluginwporg&utm_content=dlw-wporg). This comes with built-in lazy load and caching options which allow you to list an unlimited number of documents without any performance issues.
+If you want to list hundreds (or even thousands) of downloads on the same page, then we recommend upgrading to [Document Library Pro](https://barn2.com/wordpress-plugins/document-library-pro/?utm_source=wporg&utm_medium=freeplugin&utm_campaign=freepluginwporg&utm_content=dlw-wporg). This comes with built-in lazy load and caching options which allow you to list an unlimited number of documents without any performance issues.
 
 = Can I make the document library private? =
-If you want a private WordPress file manager then we recommend using *Document Library Lite* with our other plugin, [Password Protected Categories](https://barn2.com/wordpress-plugins/password-protected-categories/https://barn2.com/kb/document-library-wordpress-documentation/#doc-library-shortcode/?utm_source=wporg&utm_medium=freeplugin&utm_campaign=freepluginwporg&utm_content=dlw-wporg). This lets you restrict access to any or all of your download categories.
+If you want a private WordPress file manager then we recommend using *Document Library Lite* with our other plugin, [Password Protected Categories](https://barn2.com/wordpress-plugins/password-protected-categories/?utm_source=wporg&utm_medium=freeplugin&utm_campaign=freepluginwporg&utm_content=dlw-wporg). This lets you restrict access to any or all of your download categories.
 
 For example, you can make all the categories private, or show different categories to different people.
 
@@ -162,22 +161,22 @@ For each category, you can:
 * Give access to specific logged in users only.
 
 = Can I see a demo of the download manager plugin? =
-Absolutely! You can see the *Document Library Lite* plugin in action on the demo site at https://documentlibrary-free.barn2.com.
+Absolutely! You can see the *Document Library Lite* plugin in action on the [demo site](https://documentlibrary-free.barn2.com).
 
 = Is there a premium version with more features? =
 We have designed the free *Document Library Lite* plugin to have all the essential features that you need to create a fully functional document library.
 
-For more advanced document management and display options, you can upgrade to [Document Library Pro](https://barn2.com/wordpress-plugins/document-library-pro/https://barn2.com/kb/document-library-wordpress-documentation/#doc-library-shortcode/?utm_source=wporg&utm_medium=freeplugin&utm_campaign=freepluginwporg&utm_content=dlw-wporg). This incredibly popular plugin will supercharge your document library by giving you extra column and layout options, more ways to list documents, plus time-saving features including bulk document import.
+For more advanced document management and display options, you can upgrade to [Document Library Pro](https://barn2.com/wordpress-plugins/document-library-pro/?utm_source=wporg&utm_medium=freeplugin&utm_campaign=freepluginwporg&utm_content=dlw-wporg). This incredibly popular plugin will supercharge your document library by giving you extra column and layout options, more ways to list documents, plus time-saving features including bulk document import.
 
-[Compare the free and pro plugins](https://barn2.com/kb/document-library-plugins-free-pro-comparison/https://barn2.com/kb/document-library-wordpress-documentation/#doc-library-shortcode/?utm_source=wporg&utm_medium=freeplugin&utm_campaign=freepluginwporg&utm_content=dlw-wporg) and choose which is best for your site.
+[Compare the free and pro plugins](https://barn2.com/kb/document-library-plugins-free-pro-comparison/?utm_source=wporg&utm_medium=freeplugin&utm_campaign=freepluginwporg&utm_content=dlw-wporg) and choose which is best for your site.
 
 = Can you customize the plugin for me? =
-We developed this free plugin to be flexible and easy to configure so that it will be suitable for many different websites. The [premium version](https://barn2.com/wordpress-plugins/document-library-pro/https://barn2.com/kb/document-library-wordpress-documentation/#doc-library-shortcode/?utm_source=wporg&utm_medium=freeplugin&utm_campaign=freepluginwporg&utm_content=dlw-wporg) adds most of the features which you are ever likely to need.
+We developed this free plugin to be flexible and easy to configure so that it will be suitable for many different websites. The [premium version](https://barn2.com/wordpress-plugins/document-library-pro/?utm_source=wporg&utm_medium=freeplugin&utm_campaign=freepluginwporg&utm_content=dlw-wporg) adds most of the features which you are ever likely to need.
 
 If you would like to modify the plugin to suit your exact requirements, then we recommend posting a task on [Codeable](https://barn2.com/go/codeable/?utm=content&utm_source=wporg&utm_content=document-library-free). They have lots of excellent developers who are experienced in customizing our plugins.
 
 = Where can I find the documentation? =
-Like all Barn2 plugins, the free file manager plugin comes with in-depth documentation. You can either read the instructions above, or the [dedicated documentation page](https://barn2.com/kb/document-library-wordpress-documentation/https://barn2.com/kb/document-library-wordpress-documentation/#doc-library-shortcode/?utm_source=wporg&utm_medium=freeplugin&utm_campaign=freepluginwporg&utm_content=dlw-wporg) on the Barn2 site.
+Like all Barn2 plugins, the free file manager plugin comes with in-depth documentation. You can either read the instructions above, or the [dedicated documentation page](https://barn2.com/kb/document-library-wordpress-documentation/?utm_source=wporg&utm_medium=freeplugin&utm_campaign=freepluginwporg&utm_content=dlw-wporg) on the Barn2 site.
 
 == Screenshots ==
 
@@ -194,6 +193,12 @@ Like all Barn2 plugins, the free file manager plugin comes with in-depth documen
 11. View document downloads separately from other Media Library files.
 
 == Changelog ==
+
+= 1.0.1 =
+Release date 9 May 2022
+
+ * Dev: Updated Barn2 libraries and dependencies.
+ * Dev: Tested up to WordPress 5.9.3.
 
 = 1.0 =
 Release date 5 April 2022
