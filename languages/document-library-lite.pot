@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2022-05-10T00:00:00+00:00\n"
+"POT-Creation-Date: 2022-05-17T00:00:00+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.6.0\n"
 "X-Domain: document-library-lite\n"
@@ -90,7 +90,7 @@ msgstr ""
 msgid "Please enter a license key."
 msgstr ""
 
-#: lib/Admin/Settings_API_Helper.php:459
+#: lib/Admin/Settings_API_Helper.php:466
 msgid "Size"
 msgstr ""
 
