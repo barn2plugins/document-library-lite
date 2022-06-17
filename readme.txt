@@ -2,7 +2,7 @@
 Contributors: barn2media
 Donate link: https://barn2.com
 Tags: wordpress, document library, file manager, download manager, documents, downloads, document management
-Requires at least: 5.0
+Requires at least: 5.2
 Tested up to: 5.9.3
 Requires PHP: 7.2
 Stable tag: 1.0.1
