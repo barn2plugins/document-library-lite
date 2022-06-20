@@ -8,3 +8,4 @@
 /vendor/phpcompatibility
 /vendor/squizlabs
 /vendor/wp-coding-standards
+/.npmrc

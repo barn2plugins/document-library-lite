@@ -254,7 +254,14 @@ class Settings_API_Helper implements Registerable, Conditional {
 					'name'  => [],
 					'value' => [],
 				],
-				'strong' => []
+				'strong' => [],
+				'img'    => [
+					'src'    => [],
+					'alt'    => [],
+					'width'  => [],
+					'height' => [],
+					'class'  => []
+				]
 			];
 
 			echo '<p class="description">' . wp_kses( $args['desc'], $allowed_html ) . '</p>';
