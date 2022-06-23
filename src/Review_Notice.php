@@ -210,6 +210,7 @@ class Review_Notice implements Registerable, Service {
 				align-items: center;
 			}
 			.dlw-review-notice-right img {
+				width: 154px;
 				padding-left: 110px;
 			}
 			@media screen and (max-width: 992px) {
