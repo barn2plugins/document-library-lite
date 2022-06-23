@@ -102,42 +102,42 @@ class Settings implements Service, Registerable, Conditional {
 	public function render_settings_page() {
 		$active_tab = filter_input( INPUT_GET, 'tab', FILTER_SANITIZE_FULL_SPECIAL_CHARS ) ?? 'general';
 		?>
-		<div class="wrap barn2-plugins-settings">
+		<div class="wrap dlw-settings">
 
 			<?php if ( in_array( $active_tab, [ 'general', 'document_libraries' ], true ) ) { ?>
-				<?php do_action( 'barn2_before_plugin_settings' ); ?>
+				<?php do_action( 'barn2_before_plugin_settings', $this->plugin->get_id() ); ?>
 			<?php } ?>
 
-			<div class="barn2-settings-inner dlw-settings">
-				<h1><?php esc_html_e( 'Document Library Lite Settings', 'document-library-lite' ); ?></h1>
 
-				<h2 class="nav-tab-wrapper">
-					<?php
-					foreach ( $this->registered_settings as $setting_tab ) {
-						$active_class = $active_tab === $setting_tab->get_id() ? ' nav-tab-active' : '';
-						?>
-						<a href="<?php echo esc_url( add_query_arg( 'tab', $setting_tab->get_id(), $this->plugin->get_settings_page_url() ) ); ?>" class="<?php echo esc_attr( sprintf( 'nav-tab%s', $active_class ) ); ?>">
-							<?php echo esc_html( $setting_tab->get_title() ); ?>
-						</a>
-						<?php
-					}
+			<h1><?php esc_html_e( 'Document Library Lite Settings', 'document-library-lite' ); ?></h1>
+
+			<h2 class="nav-tab-wrapper">
+				<?php
+				foreach ( $this->registered_settings as $setting_tab ) {
+					$active_class = $active_tab === $setting_tab->get_id() ? ' nav-tab-active' : '';
 					?>
-				</h2>
-
-				<form action="options.php" method="post">
+					<a href="<?php echo esc_url( add_query_arg( 'tab', $setting_tab->get_id(), $this->plugin->get_settings_page_url() ) ); ?>" class="<?php echo esc_attr( sprintf( 'nav-tab%s', $active_class ) ); ?>">
+						<?php echo esc_html( $setting_tab->get_title() ); ?>
+					</a>
 					<?php
-					settings_errors( 'document-library-lite' );
-					settings_fields( $this->registered_settings[ $active_tab ]::OPTION_GROUP );
-					do_settings_sections( $this->registered_settings[ $active_tab ]::MENU_SLUG );
-					?>
+				}
+				?>
+			</h2>
 
-					<?php if ( in_array( $active_tab, [ 'general', 'document_libraries' ], true ) ) { ?>
-						<p class="submit">
-							<input name="Submit" type="submit" name="submit" class="button button-primary" value="<?php esc_attr_e( 'Save Changes', 'document-library-lite' ); ?>" />
-						</p>
-					<?php } ?>
-				</form>
-			</div>
+			<form action="options.php" method="post">
+				<?php
+				settings_errors( 'document-library-lite' );
+				settings_fields( $this->registered_settings[ $active_tab ]::OPTION_GROUP );
+				do_settings_sections( $this->registered_settings[ $active_tab ]::MENU_SLUG );
+				?>
+
+				<?php if ( in_array( $active_tab, [ 'general', 'document_libraries' ], true ) ) { ?>
+					<p class="submit">
+						<input name="Submit" type="submit" name="submit" class="button button-primary" value="<?php esc_attr_e( 'Save Changes', 'document-library-lite' ); ?>" />
+					</p>
+				<?php } ?>
+			</form>
+
 
 			<?php if ( in_array( $active_tab, [ 'general', 'document_libraries' ], true ) ) { ?>
 				<?php do_action( 'barn2_after_plugin_settings', $this->plugin->get_id() ); ?>
