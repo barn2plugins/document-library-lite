@@ -6,6 +6,9 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Dealerdirect\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\' => array($vendorDir . '/dealerdirect/phpcodesniffer-composer-installer/src'),
+    'Barn2\\Setup_Wizard\\' => array($vendorDir . '/barn2/setup-wizard/src'),
     'Barn2\\Plugin\\Document_Library\\' => array($baseDir . '/src'),
     'Barn2\\DLW_Lib\\' => array($baseDir . '/lib'),
+    'Bamarni\\Composer\\Bin\\' => array($vendorDir . '/bamarni/composer-bin-plugin/src'),
 );

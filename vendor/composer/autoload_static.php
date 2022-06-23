@@ -7,14 +7,28 @@ namespace Composer\Autoload;
 class ComposerStaticInit8aa1d3baa100ae13f7a1ded33fbd6d4b
 {
     public static $prefixLengthsPsr4 = array (
+        'D' => 
+        array (
+            'Dealerdirect\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\' => 55,
+        ),
         'B' => 
         array (
+            'Barn2\\Setup_Wizard\\' => 19,
             'Barn2\\Plugin\\Document_Library\\' => 30,
             'Barn2\\DLW_Lib\\' => 14,
+            'Bamarni\\Composer\\Bin\\' => 21,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
+        'Dealerdirect\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/dealerdirect/phpcodesniffer-composer-installer/src',
+        ),
+        'Barn2\\Setup_Wizard\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/barn2/setup-wizard/src',
+        ),
         'Barn2\\Plugin\\Document_Library\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src',
@@ -22,6 +36,10 @@ class ComposerStaticInit8aa1d3baa100ae13f7a1ded33fbd6d4b
         'Barn2\\DLW_Lib\\' => 
         array (
             0 => __DIR__ . '/../..' . '/lib',
+        ),
+        'Bamarni\\Composer\\Bin\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/bamarni/composer-bin-plugin/src',
         ),
     );
 
