@@ -26,6 +26,7 @@
         "little-state-machine-devtools": "^2.0.1"
     },
     "dependencies": {
+        "@barn2media/components": "^0.2.0",
         "@woocommerce/components": "~10.0.0",
         "@woocommerce/experimental": "~3.0.1",
         "@woocommerce/navigation": "~7.0.1",

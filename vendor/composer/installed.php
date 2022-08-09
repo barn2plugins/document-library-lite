@@ -3,7 +3,7 @@
         'name' => 'barn2/document-library-lite',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '3c1bb2cd845fa20b7748212b8bdbb4f6f166c65a',
+        'reference' => 'e941503b58be70fc7c1d4ccfae21786cb8a52a4f',
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -11,9 +11,9 @@
     ),
     'versions' => array(
         'bamarni/composer-bin-plugin' => array(
-            'pretty_version' => 'v1.5.0',
-            'version' => '1.5.0.0',
-            'reference' => '49934ffea764864788334c1485fbb08a4b852031',
+            'pretty_version' => '1.8.1',
+            'version' => '1.8.1.0',
+            'reference' => 'e12e9769c8ee97d036f7f98abf66b96cf3862346',
             'type' => 'composer-plugin',
             'install_path' => __DIR__ . '/../bamarni/composer-bin-plugin',
             'aliases' => array(),
@@ -22,7 +22,7 @@
         'barn2/document-library-lite' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '3c1bb2cd845fa20b7748212b8bdbb4f6f166c65a',
+            'reference' => 'e941503b58be70fc7c1d4ccfae21786cb8a52a4f',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -31,7 +31,7 @@
         'barn2/php-standards' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => 'e1476dff450268b8d594fb309a0c282fce8fcc61',
+            'reference' => '9c88c22bdbd38e198769004ad4e98616b7492ba5',
             'type' => 'phpcodesniffer-standard',
             'install_path' => __DIR__ . '/../barn2/php-standards',
             'aliases' => array(
@@ -40,9 +40,9 @@
             'dev_requirement' => true,
         ),
         'barn2/setup-wizard' => array(
-            'pretty_version' => '0.4.9',
-            'version' => '0.4.9.0',
-            'reference' => '6c954bdf5536e80d750c7c3407f425a4b3d715e9',
+            'pretty_version' => '0.5.0',
+            'version' => '0.5.0.0',
+            'reference' => '398b61f163ca7cf6a37640b12b095f163e0d89df',
             'type' => 'library',
             'install_path' => __DIR__ . '/../barn2/setup-wizard',
             'aliases' => array(),
@@ -85,9 +85,9 @@
             'dev_requirement' => true,
         ),
         'squizlabs/php_codesniffer' => array(
-            'pretty_version' => '3.6.2',
-            'version' => '3.6.2.0',
-            'reference' => '5e4e71592f69da17871dba6e80dd51bce74a351a',
+            'pretty_version' => '3.7.1',
+            'version' => '3.7.1.0',
+            'reference' => '1359e176e9307e906dc3d890bcc9603ff6d90619',
             'type' => 'library',
             'install_path' => __DIR__ . '/../squizlabs/php_codesniffer',
             'aliases' => array(),
