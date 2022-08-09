@@ -1,24 +1,106 @@
-<?php return array (
-  'root' => 
-  array (
-    'pretty_version' => 'dev-main',
-    'version' => 'dev-main',
-    'aliases' => 
-    array (
+<?php return array(
+    'root' => array(
+        'name' => 'barn2/document-library-lite',
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => '3c1bb2cd845fa20b7748212b8bdbb4f6f166c65a',
+        'type' => 'wordpress-plugin',
+        'install_path' => __DIR__ . '/../../',
+        'aliases' => array(),
+        'dev' => true,
     ),
-    'reference' => '793c4718758c89460e62dc7fb80365d10e867973',
-    'name' => 'barn2/document-library-lite',
-  ),
-  'versions' => 
-  array (
-    'barn2/document-library-lite' => 
-    array (
-      'pretty_version' => 'dev-main',
-      'version' => 'dev-main',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '793c4718758c89460e62dc7fb80365d10e867973',
+    'versions' => array(
+        'bamarni/composer-bin-plugin' => array(
+            'pretty_version' => 'v1.5.0',
+            'version' => '1.5.0.0',
+            'reference' => '49934ffea764864788334c1485fbb08a4b852031',
+            'type' => 'composer-plugin',
+            'install_path' => __DIR__ . '/../bamarni/composer-bin-plugin',
+            'aliases' => array(),
+            'dev_requirement' => true,
+        ),
+        'barn2/document-library-lite' => array(
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '3c1bb2cd845fa20b7748212b8bdbb4f6f166c65a',
+            'type' => 'wordpress-plugin',
+            'install_path' => __DIR__ . '/../../',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'barn2/php-standards' => array(
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'reference' => 'e1476dff450268b8d594fb309a0c282fce8fcc61',
+            'type' => 'phpcodesniffer-standard',
+            'install_path' => __DIR__ . '/../barn2/php-standards',
+            'aliases' => array(
+                0 => '9999999-dev',
+            ),
+            'dev_requirement' => true,
+        ),
+        'barn2/setup-wizard' => array(
+            'pretty_version' => '0.4.9',
+            'version' => '0.4.9.0',
+            'reference' => '6c954bdf5536e80d750c7c3407f425a4b3d715e9',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../barn2/setup-wizard',
+            'aliases' => array(),
+            'dev_requirement' => true,
+        ),
+        'dealerdirect/phpcodesniffer-composer-installer' => array(
+            'pretty_version' => 'v0.7.2',
+            'version' => '0.7.2.0',
+            'reference' => '1c968e542d8843d7cd71de3c5c9c3ff3ad71a1db',
+            'type' => 'composer-plugin',
+            'install_path' => __DIR__ . '/../dealerdirect/phpcodesniffer-composer-installer',
+            'aliases' => array(),
+            'dev_requirement' => true,
+        ),
+        'phpcompatibility/php-compatibility' => array(
+            'pretty_version' => '9.3.5',
+            'version' => '9.3.5.0',
+            'reference' => '9fb324479acf6f39452e0655d2429cc0d3914243',
+            'type' => 'phpcodesniffer-standard',
+            'install_path' => __DIR__ . '/../phpcompatibility/php-compatibility',
+            'aliases' => array(),
+            'dev_requirement' => true,
+        ),
+        'phpcompatibility/phpcompatibility-paragonie' => array(
+            'pretty_version' => '1.3.1',
+            'version' => '1.3.1.0',
+            'reference' => 'ddabec839cc003651f2ce695c938686d1086cf43',
+            'type' => 'phpcodesniffer-standard',
+            'install_path' => __DIR__ . '/../phpcompatibility/phpcompatibility-paragonie',
+            'aliases' => array(),
+            'dev_requirement' => true,
+        ),
+        'phpcompatibility/phpcompatibility-wp' => array(
+            'pretty_version' => '2.1.3',
+            'version' => '2.1.3.0',
+            'reference' => 'd55de55f88697b9cdb94bccf04f14eb3b11cf308',
+            'type' => 'phpcodesniffer-standard',
+            'install_path' => __DIR__ . '/../phpcompatibility/phpcompatibility-wp',
+            'aliases' => array(),
+            'dev_requirement' => true,
+        ),
+        'squizlabs/php_codesniffer' => array(
+            'pretty_version' => '3.6.2',
+            'version' => '3.6.2.0',
+            'reference' => '5e4e71592f69da17871dba6e80dd51bce74a351a',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../squizlabs/php_codesniffer',
+            'aliases' => array(),
+            'dev_requirement' => true,
+        ),
+        'wp-coding-standards/wpcs' => array(
+            'pretty_version' => '2.3.0',
+            'version' => '2.3.0.0',
+            'reference' => '7da1894633f168fe244afc6de00d141f27517b62',
+            'type' => 'phpcodesniffer-standard',
+            'install_path' => __DIR__ . '/../wp-coding-standards/wpcs',
+            'aliases' => array(),
+            'dev_requirement' => true,
+        ),
     ),
-  ),
 );

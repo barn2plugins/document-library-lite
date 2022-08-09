@@ -20,7 +20,7 @@ class Ready extends Step
     public function __construct()
     {
         $this->set_id('ready');
-        $this->set_title(__('Finished!'));
+        $this->set_title(__('Finished!', 'document-library-lite'));
     }
     /**
      * {@inheritdoc}

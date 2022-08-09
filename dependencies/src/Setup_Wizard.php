@@ -195,7 +195,7 @@ class Setup_Wizard implements Bootable
      */
     public function configure($args = [])
     {
-        $defaults = ['plugin_name' => $this->plugin->get_name(), 'plugin_slug' => $this->plugin->get_slug(), 'plugin_product_id' => $this->plugin::ITEM_ID, 'skip_url' => admin_url(), 'license_tooltip' => '', 'utm_id' => '', 'premium_url' => '', 'completed' => $this->is_completed()];
+        $defaults = ['plugin_name' => $this->plugin->get_name(), 'plugin_slug' => $this->plugin->get_slug(), 'plugin_product_id' => $this->plugin::ITEM_ID, 'skip_url' => admin_url(), 'license_tooltip' => '', 'utm_id' => '', 'premium_url' => '', 'completed' => $this->is_completed(), 'barn2_api' => 'https://barn2.com/wp-json/upsell/v1/settings'];
         $args = wp_parse_args($args, $defaults);
         $args['ajax'] = esc_url(admin_url('admin-ajax.php'));
         $args['nonce'] = wp_create_nonce('barn2_setup_wizard_nonce');

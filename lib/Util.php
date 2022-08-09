@@ -2,6 +2,8 @@
 
 namespace Barn2\DLW_Lib;
 
+use Barn2\DLW_Lib\Plugin\Plugin;
+
 /**
  * Utility functions for Barn2 plugins.
  *
@@ -9,7 +11,7 @@ namespace Barn2\DLW_Lib;
  * @author    Barn2 Plugins <support@barn2.com>
  * @license   GPL-3.0
  * @copyright Barn2 Media Ltd
- * @version   1.5.3
+ * @version   1.5.4
  */
 class Util {
 
@@ -20,9 +22,9 @@ class Util {
 	/**
 	 * Formats a HTML link to a path on the Barn2 site.
 	 *
-	 * @param string $relative_path The path relative to https://barn2.com.
-	 * @param string $link_text     The link text.
-	 * @param boolean $new_tab      Whether to open the link in a new tab.
+	 * @param string  $relative_path The path relative to https://barn2.com.
+	 * @param string  $link_text     The link text.
+	 * @param boolean $new_tab       Whether to open the link in a new tab.
 	 * @return string The hyperlink.
 	 */
 	public static function barn2_link( $relative_path, $link_text = '', $new_tab = false ) {
@@ -247,7 +249,7 @@ class Util {
 	 * Retrieves an array of internal WP dependencies for bundled JS files.
 	 *
 	 * @param Barn2\DLW_Lib\Plugin $plugin
-	 * @param string $filename
+	 * @param string           $filename
 	 * @return array
 	 */
 	public static function get_script_dependencies( $plugin, $filename ) {
@@ -270,11 +272,11 @@ class Util {
 	/**
 	 * Create a page and store the ID in an option. (adapted from WooCommerce)
 	 *
-	 * @param mixed $slug          Slug for the new page.
+	 * @param mixed  $slug         Slug for the new page.
 	 * @param string $option       Option name to store the page's ID.
 	 * @param string $page_title   (default: '') Title for the new page.
 	 * @param string $page_content (default: '') Content for the new page.
-	 * @param int $post_parent     (default: 0) Parent for the new page.
+	 * @param int    $post_parent  (default: 0) Parent for the new page.
 	 * @return int page ID.
 	 */
 	public static function create_page( $slug, $option = '', $page_title = '', $page_content = '', $post_parent = 0 ) {
@@ -361,6 +363,21 @@ class Util {
 		}
 
 		return wp_kses( $string, $allowed_html );
+	}
+
+	/**
+	 * Get the plugin data from the plugin header
+	 *
+	 * @param Plugin $plugin
+	 * @return array The plugin data from the plugin header
+	 * @since 1.5.4
+	 */
+	public static function get_plugin_data( Plugin $plugin ) {
+		if ( ! function_exists( 'get_plugin_data' ) ) {
+			require_once ABSPATH . 'wp-admin/includes/plugin.php';
+		}
+
+		return get_plugin_data( $plugin->get_file() );
 	}
 
 }

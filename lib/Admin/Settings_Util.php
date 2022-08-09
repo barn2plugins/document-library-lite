@@ -1,4 +1,5 @@
 <?php
+
 namespace Barn2\DLW_Lib\Admin;
 
 /**
@@ -12,12 +13,24 @@ namespace Barn2\DLW_Lib\Admin;
  */
 class Settings_Util {
 
+	/**
+	 * Convert a checkbox bool value to 'yes' or 'no' (used by WooCommerce).
+	 *
+	 * @param bool $bool A bool value.
+	 * @return string 'yes' if true, 'no' otherwise.
+	 */
 	public static function bool_to_checkbox_setting( $bool ) {
-		return (bool) $bool ? 'yes' : 'no';
+		return $bool ? 'yes' : 'no';
 	}
 
+	/**
+	 * Convert a checkbox 'yes'/'no' value to a bool.
+	 *
+	 * @param string $value 'yes' or 'no'
+	 * @return bool true if 'yes', false otherwise.
+	 */
 	public static function checkbox_setting_to_bool( $value ) {
-		return in_array( $value, [ 'yes', true ], true ) ? true : false;
+		return in_array( $value, [ 'yes', true ], true );
 	}
 
 	public static function get_checkbox_option( $option, $default = false ) {
@@ -36,14 +49,13 @@ class Settings_Util {
 		return implode( ' ', $custom_attributes );
 	}
 
-
 	/**
 	 * Return the description for the main title of a settings tab/section
 	 * including the links below the description
 	 * (as a filterable array of [ 'url', 'label', 'class' ])
 	 *
 	 * @param Barn2\DLW_Lib\Plugin $plugin
-	 * @param string $description The text of the description
+	 * @param string           $description The text of the description
 	 *
 	 * @return string
 	 */
@@ -68,7 +80,7 @@ class Settings_Util {
 		$printed_links = implode(
 			' | ',
 			array_map(
-				function( $link ) {
+				function ( $link ) {
 					$target = isset( $link['target'] ) ? sprintf( ' target="%s"', esc_attr( $link['target'] ) ) : '';
 
 					return sprintf( '<a href="%s"%s>%s</a>', esc_url( $link['url'] ), $target, esc_html( $link['label'] ) );
@@ -83,8 +95,8 @@ class Settings_Util {
 	/**
 	 * Check whether the current page, tab and section match the ones the plugin uses
 	 *
-	 * @param string $page The slug of the page for the plugin settings.
-	 * @param string $tab The slug of the tab for the plugin settings. Default to an empty string.
+	 * @param string $page    The slug of the page for the plugin settings.
+	 * @param string $tab     The slug of the tab for the plugin settings. Default to an empty string.
 	 * @param string $section The slug of the section for the plugin settings. Default to an empty string.
 	 *
 	 * @return boolean
@@ -111,7 +123,7 @@ class Settings_Util {
 	 * A shorthand of is_current_settings_page for WooCommerce plugins
 	 *
 	 * @param string $section The slug of the section for the plugin settings.
-	 * @param string $tab The slug of the tab for the plugin settings. Default to 'products'.
+	 * @param string $tab     The slug of the tab for the plugin settings. Default to 'products'.
 	 *
 	 * @return boolean
 	 */
