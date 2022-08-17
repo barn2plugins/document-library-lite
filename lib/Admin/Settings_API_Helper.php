@@ -284,9 +284,7 @@ class Settings_API_Helper implements Registerable, Conditional {
 			class="<?php echo esc_attr( $class ); ?>"
 			rows="<?php echo esc_attr( $rows ); ?>"
 			<?php self::custom_attributes( $args ); ?>
-		>
-			<?php echo esc_textarea( self::get_value( $args['id'], $args['default'] ) ); ?>
-		</textarea>
+		><?php echo esc_textarea( self::get_value( $args['id'], $args['default'] ) ); ?></textarea>
 		<?php
 
 		self::field_tooltip( $args );

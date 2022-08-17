@@ -523,7 +523,7 @@ class Setup_Wizard implements Bootable
      */
     public function get_library_url()
     {
-        $url = trailingslashit(plugin_dir_url($this->plugin->get_file())) . 'dependencies/';
+        $url = trailingslashit(plugin_dir_url(__DIR__));
         if ($this->is_dev_mode()) {
             $url = trailingslashit(plugin_dir_url($this->dev_mode));
         }
@@ -539,7 +539,7 @@ class Setup_Wizard implements Bootable
      */
     public function get_library_path()
     {
-        $path = trailingslashit(plugin_dir_path($this->plugin->get_file())) . 'dependencies/';
+        $path = trailingslashit(plugin_dir_path(__DIR__));
         if ($this->is_dev_mode()) {
             $path = trailingslashit(plugin_dir_path($this->dev_mode));
         }
