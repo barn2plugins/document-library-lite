@@ -194,6 +194,13 @@ Like all Barn2 plugins, the free file manager plugin comes with in-depth documen
 
 == Changelog ==
 
+= 1.0.2 =
+Release date 9 May 2022
+
+ * Dev: Increased minimum rerquired WordPress version to 5.2.
+ * Dev: Updated Barn2 libraries and dependencies.
+ * Dev: Tested up to WordPress 6.0.1.
+
 = 1.0.1 =
 Release date 9 May 2022
 
