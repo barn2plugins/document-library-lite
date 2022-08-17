@@ -23,17 +23,17 @@
         "@barn2media/webpack-config": "^0.4.1",
         "@wordpress/dependency-extraction-webpack-plugin": "^3.4.0",
         "gulp": "^4.0.2",
-        "little-state-machine-devtools": "^2.0.1"
+        "little-state-machine-devtools": "^2.0.2"
     },
     "dependencies": {
-        "@barn2media/components": "^0.2.0",
+        "@barn2media/components": "^0.3.0",
         "@woocommerce/components": "~10.0.0",
         "@woocommerce/experimental": "~3.0.1",
         "@woocommerce/navigation": "~7.0.1",
         "axios": "^0.27.2",
         "classnames": "^2.3.1",
         "html-react-parser": "^1.4.12",
-        "json-conditions": "^1.3.1",
+        "json-conditions": "^1.3.3",
         "little-state-machine": "^4.3.2",
         "react-grid-system": "^8.1.4"
     }

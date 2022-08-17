@@ -1008,18 +1008,20 @@
     "@babel/helper-validator-identifier" "^7.18.6"
     to-fast-properties "^2.0.0"
 
-"@barn2media/components@^0.2.0":
-  version "0.2.0"
-  resolved "https://npm.pkg.github.com/download/@Barn2Media/components/0.2.0/5e2c21ebc0297713368c7d1bcea10d0893462d7e#5e2c21ebc0297713368c7d1bcea10d0893462d7e"
-  integrity sha512-qWDJhFZAl98xyaFUqLlVuX7ylDKGxLS3yl2sioJuUcZvcKEvYvK/AVkH/kSvqpCOnwqSFNwHWVt6PDwh5vEdkQ==
+"@barn2media/components@^0.3.0":
+  version "0.3.0"
+  resolved "https://npm.pkg.github.com/download/@Barn2Media/components/0.3.0/80d2bc91f4ab1aed44b7ad8774e7c904c20ce85e#80d2bc91f4ab1aed44b7ad8774e7c904c20ce85e"
+  integrity sha512-h/loC+ADlxTbcH18ajUuW8fLW+pyMQaDEu1aTUn7Thet7DoQifYRM6hw3foVfmr+fRGRaQLgX8C5BVn3CrrKcw==
   dependencies:
     "@automattic/color-studio" "^2.5.0"
     "@use-it/event-listener" "^0.1.7"
     "@wordpress/base-styles" "^4.4.0"
     classnames "^2.3.1"
     highlight-matches-utils "^1.0.0"
+    html-react-parser "^3.0.1"
     react-beautiful-dnd "^13.1.0"
     react-table "^7.7.0"
+    react-tiny-popover "^7.1.0"
 
 "@barn2media/webpack-config@^0.4.1":
   version "0.4.1"
@@ -3588,7 +3590,16 @@ dom-serializer@^1.0.1:
     domhandler "^4.2.0"
     entities "^2.0.0"
 
-domelementtype@^2.0.1, domelementtype@^2.2.0:
+dom-serializer@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/dom-serializer/-/dom-serializer-2.0.0.tgz#e41b802e1eedf9f6cae183ce5e622d789d7d8e53"
+  integrity sha512-wIkAryiqt/nV5EQKqQpo3SToSOV9J0DnbJqwK7Wv/Trc92zIAYZ4FlMu+JPFW1DfGFt81ZTCGgDEabffXeLyJg==
+  dependencies:
+    domelementtype "^2.3.0"
+    domhandler "^5.0.2"
+    entities "^4.2.0"
+
+domelementtype@^2.0.1, domelementtype@^2.2.0, domelementtype@^2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/domelementtype/-/domelementtype-2.3.0.tgz#5c45e8e869952626331d7aab326d01daf65d589d"
   integrity sha512-OLETBj6w0OsagBwdXnPdN0cnMfF9opN69co+7ZrbfPGrdpPVNBUj02spi6B1N7wChLQiPn4CSH/zJvXw56gmHw==
@@ -3599,6 +3610,13 @@ domhandler@4.3.1, domhandler@^4.2.0, domhandler@^4.2.2, domhandler@^4.3.1:
   integrity sha512-GrwoxYN+uWlzO8uhUXRl0P+kHE4GtVPfYzVLcUxPL7KNdHKj66vvlhiweIHqYYXWlw+T8iLMp42Lm67ghw4WMQ==
   dependencies:
     domelementtype "^2.2.0"
+
+domhandler@5.0.3, domhandler@^5.0.1, domhandler@^5.0.2:
+  version "5.0.3"
+  resolved "https://registry.yarnpkg.com/domhandler/-/domhandler-5.0.3.tgz#cc385f7f751f1d1fc650c21374804254538c7d31"
+  integrity sha512-cgwlv/1iFQiFnU96XXgROh8xTeetsnJiDsTc7TYCLFd9+/WNkIqPTxiM/8pSd8VIrhXGTf1Ny1q1hquVqDJB5w==
+  dependencies:
+    domelementtype "^2.3.0"
 
 dompurify@^2.3.6:
   version "2.3.10"
@@ -3613,6 +3631,15 @@ domutils@^2.8.0:
     dom-serializer "^1.0.1"
     domelementtype "^2.2.0"
     domhandler "^4.2.0"
+
+domutils@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/domutils/-/domutils-3.0.1.tgz#696b3875238338cb186b6c0612bd4901c89a4f1c"
+  integrity sha512-z08c1l761iKhDFtfXO04C7kTdPBLi41zwOZl00WS8b5eiaebNpY00HKbztwBq+e3vyqWNwWF3mP9YLUeqIrF+Q==
+  dependencies:
+    dom-serializer "^2.0.0"
+    domelementtype "^2.3.0"
+    domhandler "^5.0.1"
 
 downshift@^6.0.15:
   version "6.1.7"
@@ -3698,7 +3725,7 @@ entities@^3.0.1:
   resolved "https://registry.yarnpkg.com/entities/-/entities-3.0.1.tgz#2b887ca62585e96db3903482d336c1006c3001d4"
   integrity sha512-WiyBqoomrwMdFG1e0kqvASYfnlb0lp8M5o5Fw2OFq1hNZxxcNk8Ik0Xm7LxzBhuidnZB/UtBqVCgUz3kBOP51Q==
 
-entities@^4.3.0:
+entities@^4.2.0, entities@^4.3.0:
   version "4.3.1"
   resolved "https://registry.yarnpkg.com/entities/-/entities-4.3.1.tgz#c34062a94c865c322f9d67b4384e4169bcede6a4"
   integrity sha512-o4q/dYJlmyjP2zfnaWDUC6A3BQFmVTX+tZPezK7k0GLSU9QYCauscf5Y+qcEPzKL+EixVouYDgLQK5H9GrLpkg==
@@ -4609,6 +4636,14 @@ html-dom-parser@1.2.0:
     domhandler "4.3.1"
     htmlparser2 "7.2.0"
 
+html-dom-parser@3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/html-dom-parser/-/html-dom-parser-3.0.1.tgz#09907c612c846865301cb3b1216462371021e256"
+  integrity sha512-BtPGWyE2XGbqQFdZE+0/YMVppz319jvvkNGcMwLRmt1Mw0tLHzZOMs1TqbxtcCdVSZwS5pEOXasaD7HHD5iwkQ==
+  dependencies:
+    domhandler "5.0.3"
+    htmlparser2 "8.0.1"
+
 html-react-parser@^1.4.12:
   version "1.4.14"
   resolved "https://registry.yarnpkg.com/html-react-parser/-/html-react-parser-1.4.14.tgz#577b7a90be0c61eebbbc488d914ad08398c79ef5"
@@ -4616,6 +4651,16 @@ html-react-parser@^1.4.12:
   dependencies:
     domhandler "4.3.1"
     html-dom-parser "1.2.0"
+    react-property "2.0.0"
+    style-to-js "1.1.1"
+
+html-react-parser@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/html-react-parser/-/html-react-parser-3.0.1.tgz#b5715b6c12fe4d46ad770f0cdae313784d7d120c"
+  integrity sha512-TsCwwmpqN8F2JA0EqWK/8U/cN07BfZU7agH3FY5G+RQqLs6HT2z2RNlFZI+Jp8e/nIXIsgYDvt8vqu8Dv9lr6w==
+  dependencies:
+    domhandler "5.0.3"
+    html-dom-parser "3.0.1"
     react-property "2.0.0"
     style-to-js "1.1.1"
 
@@ -4628,6 +4673,16 @@ htmlparser2@7.2.0:
     domhandler "^4.2.2"
     domutils "^2.8.0"
     entities "^3.0.1"
+
+htmlparser2@8.0.1:
+  version "8.0.1"
+  resolved "https://registry.yarnpkg.com/htmlparser2/-/htmlparser2-8.0.1.tgz#abaa985474fcefe269bc761a779b544d7196d010"
+  integrity sha512-4lVbmc1diZC7GUJQtRQ5yBAeUCL1exyMwmForWkRLnwyzWBFxN633SALPMGYaWZvKe9j1pRZJpauvmxENSp/EA==
+  dependencies:
+    domelementtype "^2.3.0"
+    domhandler "^5.0.2"
+    domutils "^3.0.1"
+    entities "^4.3.0"
 
 http-parser-js@>=0.5.1:
   version "0.5.8"
@@ -5073,10 +5128,10 @@ jsesc@~0.5.0:
   resolved "https://registry.yarnpkg.com/jsesc/-/jsesc-0.5.0.tgz#e7dee66e35d6fc16f710fe91d5cf69f70f08911d"
   integrity sha512-uZz5UnB7u4T9LvwmFqXii7pZSouaRPorGs5who1Ip7VO0wxanFvBL7GkM6dTHlgX+jhBApRetaWpnDabOeTcnA==
 
-json-conditions@^1.3.1:
-  version "1.3.2"
-  resolved "https://registry.yarnpkg.com/json-conditions/-/json-conditions-1.3.2.tgz#bc057e0941427736e19e6ac987a97f9b5de6381c"
-  integrity sha512-cllwq7J+mcBmtRcv91MaIwJxTg8Yhcz+psntG570gj7dlLlDfaRQ7zHyRagj20PWdqt0uP2Oju4tkVX0yRNTmw==
+json-conditions@^1.3.3:
+  version "1.3.3"
+  resolved "https://registry.yarnpkg.com/json-conditions/-/json-conditions-1.3.3.tgz#1a6b09f50489b34fedd6638ac7fcdc711bca2bcb"
+  integrity sha512-m9Hbh+pmdpuc1K/VqGtKxQSK57FWkDOkRGhNEJe55hMiTEkQc3MbHIVMfvyN34QzE9V4pUNwfZztrdGmmkRPXg==
   dependencies:
     lodash "^4.17.20"
 
@@ -5197,10 +5252,10 @@ lines-and-columns@^1.1.6:
   resolved "https://registry.yarnpkg.com/lines-and-columns/-/lines-and-columns-1.2.4.tgz#eca284f75d2965079309dc0ad9255abb2ebc1632"
   integrity sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==
 
-little-state-machine-devtools@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/little-state-machine-devtools/-/little-state-machine-devtools-2.0.1.tgz#51e38a5e57f94aafa0475c17ee0be6cb104e1a1c"
-  integrity sha512-/CdF5Fd1CCF/HeebP8CNDYDp6dCA29GZmrs2OngNAYeOb+mOew1q4solUectmWn49ubKHgLUTRiXiq+ZanFWrw==
+little-state-machine-devtools@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/little-state-machine-devtools/-/little-state-machine-devtools-2.0.2.tgz#b22bd0cf799917f909968196d90e6c152ee7e19b"
+  integrity sha512-lSCPw7wzPR2+F7p5YAEYsvvSzn5cQv2E8WxjfPwsbfsjeJXRULRC6N+zV2ylJH+CpXXpca94MJGGnAGor4YHcQ==
   dependencies:
     little-state-machine "^4.0.0"
     lodash.clonedeep "^4.5.0"
@@ -6680,6 +6735,11 @@ react-textarea-autosize@^8.3.2:
     "@babel/runtime" "^7.10.2"
     use-composed-ref "^1.3.0"
     use-latest "^1.2.1"
+
+react-tiny-popover@^7.1.0:
+  version "7.1.0"
+  resolved "https://registry.yarnpkg.com/react-tiny-popover/-/react-tiny-popover-7.1.0.tgz#809bffefd54c7921eba96991f964953858e3388f"
+  integrity sha512-vlZFs8/uFWwLY+JwXL4Fwjvz+c5rqKUlg5b9UOgc/gJiRdp1lk+FachCdZlDIQwk8UOADMu8YxYp0VV3rXLU9g==
 
 react-transition-group@^4.4.2:
   version "4.4.5"
