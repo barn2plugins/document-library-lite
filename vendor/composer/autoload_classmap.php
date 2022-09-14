@@ -6,6 +6,7 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Barn2\\Plugin\\Document_Library\\Dependencies\\Barn2\\Setup_Wizard\\Api' => $baseDir . '/dependencies/src/Api.php',
     'Barn2\\Plugin\\Document_Library\\Dependencies\\Barn2\\Setup_Wizard\\Interfaces\\Bootable' => $baseDir . '/dependencies/src/Interfaces/Bootable.php',
     'Barn2\\Plugin\\Document_Library\\Dependencies\\Barn2\\Setup_Wizard\\Interfaces\\Pluggable' => $baseDir . '/dependencies/src/Interfaces/Pluggable.php',
     'Barn2\\Plugin\\Document_Library\\Dependencies\\Barn2\\Setup_Wizard\\Interfaces\\Restartable' => $baseDir . '/dependencies/src/Interfaces/Restartable.php',
