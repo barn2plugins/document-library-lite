@@ -6,6 +6,7 @@ use Barn2\Plugin\Document_Library\Admin\Wizard\Steps,
 	Barn2\DLW_Lib\Plugin\Plugin,
 	Barn2\DLW_Lib\Registerable,
 	Barn2\DLW_Lib\Util as Lib_Util;
+use Barn2\Plugin\Document_Library\Dependencies\Barn2\Setup_Wizard\Setup_Wizard as Wizard;
 
 /**
  * Main Setup Wizard Loader
@@ -46,13 +47,6 @@ class Setup_Wizard implements Registerable {
 				'premium_url' => 'https://barn2.com/wordpress-plugins/document-library-pro/',
 				'utm_id'      => 'dlw',
 			]
-		);
-
-		$script_dependencies = Lib_Util::get_script_dependencies( $this->plugin, './assets/js/admin/document-library-wizard.min.js' );
-		$wizard->set_non_wc_asset(
-			$plugin->get_dir_url() . 'assets/js/admin/document-library-wizard.min.js',
-			$script_dependencies['dependencies'],
-			$script_dependencies['version']
 		);
 
 		$this->wizard = $wizard;

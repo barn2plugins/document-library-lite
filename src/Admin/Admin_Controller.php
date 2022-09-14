@@ -46,7 +46,6 @@ class Admin_Controller implements Registerable, Service {
 	 */
 	public function get_services() {
 		$services = [
-			'setup_wizard'          => new Setup_Wizard( $this->plugin ),
 			'menu'                  => new Menu( $this->plugin ),
 			'plugin_promo'          => new Plugin_Promo( $this->plugin ),
 			'settings_api'          => new Settings_API_Helper( $this->plugin ),

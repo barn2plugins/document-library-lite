@@ -7,6 +7,7 @@ use Barn2\DLW_Lib\Registerable;
 use Barn2\DLW_Lib\Service;
 use Barn2\DLW_Lib\Service_Provider;
 use Barn2\DLW_Lib\Util;
+use Barn2\Plugin\Document_Library\Admin\Wizard\Setup_Wizard;
 
 /**
  * The main plugin class.
@@ -47,6 +48,7 @@ class Plugin extends Simple_Plugin implements Registerable, Service_Provider {
 		);
 
 		// Services
+		$this->services['wizard']     = new Setup_Wizard( $this );
 		$this->services['post_type']     = new Post_Type();
 		$this->services['taxonomies']    = new Taxonomies();
 		$this->services['shortcode']     = new Document_Library_Shortcode();
