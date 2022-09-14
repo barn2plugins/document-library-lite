@@ -2,6 +2,7 @@
 
 namespace Barn2\Plugin\Document_Library\Admin\Wizard\Steps;
 
+use Barn2\Plugin\Document_Library\Dependencies\Barn2\Setup_Wizard\Api;
 use Barn2\Plugin\Document_Library\Dependencies\Barn2\Setup_Wizard\Step,
 	Barn2\Plugin\Document_Library\Util\Options,
 	Barn2\DLW_Lib\Util as Lib_Util;
@@ -75,15 +76,7 @@ class Links extends Step {
 	/**
 	 * {@inheritdoc}
 	 */
-	public function submit() {
-
-		check_ajax_referer( 'barn2_setup_wizard_nonce', 'nonce' );
-
-		if ( ! current_user_can( 'manage_options' ) ) {
-			$this->send_error( esc_html__( 'You are not authorized.', 'document-library-lite' ) );
-		}
-
-		$values = $this->get_submitted_values();
+	public function submit( array $values ) {
 
 		$link_text = isset( $values['link_text'] ) ? $values['link_text'] : $this->values['link_text'];
 
@@ -93,7 +86,7 @@ class Links extends Step {
 			]
 		);
 
-		wp_send_json_success();
+		return Api::send_success_response();
 
 	}
 

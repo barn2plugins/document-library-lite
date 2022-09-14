@@ -19,6 +19,7 @@ class Welcome extends Welcome_Free {
 	 */
 	public function __construct() {
 		$this->set_id( 'welcome_free' );
+		$this->set_title( 'Welcome to Document Library Lite' );
 		$this->set_name( esc_html__( 'Welcome', 'document-library-lite' ) );
 		$this->set_tooltip( false );
 		$this->set_description( esc_html__( 'Start displaying documents in no time.', 'document-library-lite' ) );

@@ -2,6 +2,7 @@
 
 namespace Barn2\Plugin\Document_Library\Admin\Wizard\Steps;
 
+use Barn2\Plugin\Document_Library\Dependencies\Barn2\Setup_Wizard\Api;
 use Barn2\Plugin\Document_Library\Dependencies\Barn2\Setup_Wizard\Step,
 	Barn2\Plugin\Document_Library\Util\Options,
 	Barn2\DLW_Lib\Util as Lib_Util;
@@ -137,15 +138,7 @@ class Behavior extends Step {
 	/**
 	 * {@inheritdoc}
 	 */
-	public function submit() {
-		check_ajax_referer( 'barn2_setup_wizard_nonce', 'nonce' );
-
-		if ( ! current_user_can( 'manage_options' ) ) {
-			$this->send_error( esc_html__( 'You are not authorized.', 'document-library-lite' ) );
-		}
-
-		$values = $this->get_submitted_values();
-
+	public function submit( array $values ) {
 		$lightbox      = isset( $values['lightbox'] ) && $values['lightbox'] ? true : false;
 		$rows_per_page = isset( $values['rows_per_page'] ) && is_numeric( $values['rows_per_page'] ) ? $values['rows_per_page'] : $this->values['rows_per_page'];
 		$sort_by       = isset( $values['sort_by'] ) ? $values['sort_by'] : $this->values['sort_by'];
@@ -164,7 +157,7 @@ class Behavior extends Step {
 			]
 		);
 
-		wp_send_json_success();
+		return Api::send_success_response();
 	}
 
 }
