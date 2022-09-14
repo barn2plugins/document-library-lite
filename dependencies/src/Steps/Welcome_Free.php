@@ -20,7 +20,7 @@ class Welcome_Free extends Step
     public function __construct()
     {
         $this->set_id('welcome_free');
-        $this->set_name(esc_html__('Welcome', 'document-library-lite'));
+        $this->set_name(esc_html__('Welcome', 'barn2-setup-wizard'));
     }
     /**
      * {@inheritdoc}
@@ -37,7 +37,7 @@ class Welcome_Free extends Step
     {
         check_ajax_referer('barn2_setup_wizard_nonce', 'nonce');
         if (!current_user_can('manage_options')) {
-            $this->send_error(__('You are not allowed to validate your license.', 'document-library-lite'));
+            $this->send_error(__('You are not allowed to validate your license.', 'barn2-setup-wizard'));
         }
     }
 }
