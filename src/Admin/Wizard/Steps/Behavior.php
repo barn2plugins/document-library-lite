@@ -60,31 +60,31 @@ class Behavior extends Step {
 				'description' => __( 'The initial sort order of the document library.', 'document-library-lite' ) . ' ' . Lib_Util::barn2_link( 'kb/document-library-wordpress-documentation/#general-tab', esc_html__( 'Read more', 'document-library-lite' ), true ),
 				'options'     => [
 					[
-						'key'   => 'title',
+						'value'   => 'title',
 						'label' => __( 'Title', 'document-library-lite' ),
 					],
 					[
-						'key'   => 'id',
+						'value'   => 'id',
 						'label' => __( 'ID', 'document-library-lite' ),
 					],
 					[
-						'key'   => 'date',
+						'value'   => 'date',
 						'label' => __( 'Date published', 'document-library-lite' ),
 					],
 					[
-						'key'   => 'modified',
+						'value'   => 'modified',
 						'label' => __( 'Date modified', 'document-library-lite' ),
 					],
 					[
-						'key'   => 'menu_order',
+						'value'   => 'menu_order',
 						'label' => __( 'Page order (menu order)', 'document-library-lite' ),
 					],
 					[
-						'key'   => 'author',
+						'value'   => 'author',
 						'label' => __( 'Author', 'document-library-lite' ),
 					],
 					[
-						'key'   => 'rand',
+						'value'   => 'rand',
 						'label' => __( 'Random', 'document-library-lite' ),
 					],
 				],
@@ -95,15 +95,15 @@ class Behavior extends Step {
 				'type'    => 'select',
 				'options' => [
 					[
-						'key'   => 'auto',
+						'value'   => 'auto',
 						'label' => __( 'Automatic', 'document-library-lite' ),
 					],
 					[
-						'key'   => 'asc',
+						'value'   => 'asc',
 						'label' => __( 'Ascending (A to Z, oldest to newest)', 'document-library-lite' ),
 					],
 					[
-						'key'   => 'desc',
+						'value'   => 'desc',
 						'label' => __( 'Descending (Z to A, newest to oldest)', 'document-library-lite' ),
 					],
 				],
@@ -115,7 +115,7 @@ class Behavior extends Step {
 				'description' => __( 'Show filters dropdown to allow users to filter by categories, tags, or custom taxonomy.', 'document-library-lite' ),
 				'options'     => [
 					[
-						'key'   => 'false',
+						'value'   => 'false',
 						'label' => __( 'Disabled', 'document-library-lite' ),
 					]
 				],
