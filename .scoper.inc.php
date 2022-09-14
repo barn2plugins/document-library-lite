@@ -41,13 +41,16 @@ return [
         )->
         append(
             [
-                'vendor/barn2/setup-wizard/build/main.asset.php',
-                'vendor/barn2/setup-wizard/build/main.css',
-                'vendor/barn2/setup-wizard/build/main.js',
-                'vendor/barn2/setup-wizard/resources/wc-vendor/components.css',
+                'vendor/barn2/setup-wizard/build/setup-wizard.asset.php',
+                'vendor/barn2/setup-wizard/build/setup-wizard.css',
+                'vendor/barn2/setup-wizard/build/setup-wizard.js',
             ]
         )->
         name( [ '*.php' ] ),
+    ],
+
+    'exclude-classes' => [
+        "WP_REST_Response",
     ],
 
     /** When scoping PHP files, there will be scenarios where some of the code being scoped indirectly references the
