@@ -33,11 +33,8 @@ class Welcome_Free extends Step
     /**
      * {@inheritdoc}
      */
-    public function submit()
+    public function submit($values)
     {
-        check_ajax_referer('barn2_setup_wizard_nonce', 'nonce');
-        if (!current_user_can('manage_options')) {
-            $this->send_error(__('You are not allowed to validate your license.', 'barn2-setup-wizard'));
-        }
+        return Api::send_success_response();
     }
 }
