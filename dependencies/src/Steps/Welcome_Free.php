@@ -8,6 +8,7 @@
  */
 namespace Barn2\Plugin\Document_Library\Dependencies\Barn2\Setup_Wizard\Steps;
 
+use Barn2\Plugin\Document_Library\Dependencies\Barn2\Setup_Wizard\Api;
 use Barn2\Plugin\Document_Library\Dependencies\Barn2\Setup_Wizard\Step;
 /**
  * Handles the welcome step of the wizard for free plugins.
