@@ -24,7 +24,7 @@ class Completed extends Ready {
 		$this->set_name( esc_html__( 'Ready', 'document-library-lite' ) );
 		$this->set_title( esc_html__( 'Complete Setup', 'document-library-lite' ) );
 
-		$this->set_description( $this->get_custom_description() );
+		//$this->set_description( $this->get_custom_description() );
 	}
 
 	/**
