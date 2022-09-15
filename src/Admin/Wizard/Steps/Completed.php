@@ -2,6 +2,7 @@
 
 namespace Barn2\Plugin\Document_Library\Admin\Wizard\Steps;
 
+use Barn2\Plugin\Document_Library\Dependencies\Barn2\Setup_Wizard\Interfaces\Deferrable;
 use Barn2\Plugin\Document_Library\Dependencies\Barn2\Setup_Wizard\Steps\Ready,
 	Barn2\Plugin\Document_Library\Util\Options,
 	Barn2\DLW_Lib\Util as Lib_Util;
@@ -14,17 +15,17 @@ use Barn2\Plugin\Document_Library\Dependencies\Barn2\Setup_Wizard\Steps\Ready,
  * @license   GPL-3.0
  * @copyright Barn2 Media Ltd
  */
-class Completed extends Ready {
+class Completed extends Ready implements Deferrable {
 
 	/**
-	 * Constructor.
+	 * {@inheritdoc}
 	 */
-	public function __construct() {
-		parent::__construct();
-		$this->set_name( esc_html__( 'Ready', 'document-library-lite' ) );
-		$this->set_title( esc_html__( 'Complete Setup', 'document-library-lite' ) );
-
-		//$this->set_description( $this->get_custom_description() );
+	public function get_step_details() {
+		return [
+			'label'       => esc_html__( 'Ready', 'document-library-lite' ),
+			'description' => $this->get_custom_description(),
+			'heading'     => esc_html__( 'Complete Setup', 'document-library-lite' ),
+		];
 	}
 
 	/**
