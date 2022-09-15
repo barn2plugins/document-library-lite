@@ -46,6 +46,7 @@ class ComposerStaticInit8aa1d3baa100ae13f7a1ded33fbd6d4b
     public static $classMap = array (
         'Barn2\\Plugin\\Document_Library\\Dependencies\\Barn2\\Setup_Wizard\\Api' => __DIR__ . '/../..' . '/dependencies/src/Api.php',
         'Barn2\\Plugin\\Document_Library\\Dependencies\\Barn2\\Setup_Wizard\\Interfaces\\Bootable' => __DIR__ . '/../..' . '/dependencies/src/Interfaces/Bootable.php',
+        'Barn2\\Plugin\\Document_Library\\Dependencies\\Barn2\\Setup_Wizard\\Interfaces\\Deferrable' => __DIR__ . '/../..' . '/dependencies/src/Interfaces/Deferrable.php',
         'Barn2\\Plugin\\Document_Library\\Dependencies\\Barn2\\Setup_Wizard\\Interfaces\\Pluggable' => __DIR__ . '/../..' . '/dependencies/src/Interfaces/Pluggable.php',
         'Barn2\\Plugin\\Document_Library\\Dependencies\\Barn2\\Setup_Wizard\\Interfaces\\Restartable' => __DIR__ . '/../..' . '/dependencies/src/Interfaces/Restartable.php',
         'Barn2\\Plugin\\Document_Library\\Dependencies\\Barn2\\Setup_Wizard\\Setup_Wizard' => __DIR__ . '/../..' . '/dependencies/src/Setup_Wizard.php',
