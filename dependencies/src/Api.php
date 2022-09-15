@@ -8,6 +8,7 @@
  */
 namespace Barn2\Plugin\Document_Library\Dependencies\Barn2\Setup_Wizard;
 
+use Barn2\Plugin\Document_Library\Dependencies\Barn2\Setup_Wizard\Interfaces\Deferrable;
 use WP_REST_Response;
 use JsonSerializable;
 /**
@@ -127,7 +128,12 @@ class Api implements JsonSerializable
         $config = [];
         /** @var Step $step */
         foreach ($this->steps as $step) {
-            $config[] = ['key' => $step->get_id(), 'label' => $step->get_name(), 'description' => $step->get_description(), 'heading' => $step->get_title(), 'tooltip' => $step->get_tooltip(), 'fields' => $step->get_fields(), 'hidden' => $step->is_hidden()];
+            if ($step instanceof Deferrable) {
+                $details = $step->get_step_details();
+                $config[] = \array_merge(['key' => $step->get_id(), 'fields' => $step->get_fields(), 'hidden' => $step->is_hidden()], $details);
+            } else {
+                $config[] = ['key' => $step->get_id(), 'label' => $step->get_name(), 'description' => $step->get_description(), 'heading' => $step->get_title(), 'tooltip' => $step->get_tooltip(), 'fields' => $step->get_fields(), 'hidden' => $step->is_hidden()];
+            }
         }
         return self::send_success_response(['steps' => $config]);
     }
