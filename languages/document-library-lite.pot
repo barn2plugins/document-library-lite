@@ -902,7 +902,7 @@ msgstr ""
 msgid "Start displaying documents in no time."
 msgstr ""
 
-#: src/Admin/Wizard/Steps/Welcome.php:35
+#: src/Admin/Wizard/Steps/Welcome.php:36
 msgid "Use this setup wizard to quickly configure the most popular options for your document libraries. You can change these options later on the plugin settings page or by relaunching the setup wizard. You can also override these options in the shortcode for individual libraries."
 msgstr ""
 
