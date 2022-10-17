@@ -32,6 +32,7 @@ class Welcome extends Welcome_Free {
 		$fields = [
 			'welcome_messages' => [
 				'type'  => 'heading',
+				'raw'   => true,
 				'label' => esc_html__( 'Use this setup wizard to quickly configure the most popular options for your document libraries. You can change these options later on the plugin settings page or by relaunching the setup wizard. You can also override these options in the shortcode for individual libraries.', 'document-library-lite' ),
 				'size'  => 'p',
 				'style' => [
