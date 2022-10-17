@@ -35,7 +35,7 @@ class Setup_Wizard implements Registerable {
 			new Steps\Layout(),
 			new Steps\Links(),
 			new Steps\Behavior(),
-			new Steps\Upsell(),
+			new Steps\Upsell( $this->plugin ),
 			new Steps\Completed(),
 		];
 
