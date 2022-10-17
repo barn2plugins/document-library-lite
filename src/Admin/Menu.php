@@ -78,7 +78,7 @@ class Menu implements Registerable, Service {
 
 		$taxonomy = filter_input( INPUT_GET, 'taxonomy', FILTER_SANITIZE_FULL_SPECIAL_CHARS );
 
-		if ( $pagenow === 'edit-tags.php' && $taxonomy === Taxonomies::CATEGORY_SLUG ) {
+		if ( in_array( $pagenow, [ 'term.php', 'edit-tags.php' ], true ) && $taxonomy === Taxonomies::CATEGORY_SLUG ) {
 			$parent_file = 'document_library';
 		}
 
@@ -96,7 +96,7 @@ class Menu implements Registerable, Service {
 
 		$taxonomy = filter_input( INPUT_GET, 'taxonomy', FILTER_SANITIZE_FULL_SPECIAL_CHARS );
 
-		if ( $pagenow === 'edit-tags.php' && $taxonomy === Taxonomies::CATEGORY_SLUG ) {
+		if ( in_array( $pagenow, [ 'term.php', 'edit-tags.php' ], true ) && $taxonomy === Taxonomies::CATEGORY_SLUG ) {
 			$submenu_file = 'edit-tags.php?taxonomy=doc_categories&post_type=dlp_document';
 		}
 
