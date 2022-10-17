@@ -24,7 +24,7 @@
     "require-dev": {
         "barn2/php-standards": "dev-master",
         "bamarni/composer-bin-plugin": "^1.4",
-        "barn2/setup-wizard": "dev-setup-wizard-next"
+        "barn2/setup-wizard": "^1.0.6"
     },
     "scripts": {
 		"no-dev": "composer update --prefer-dist --no-dev",

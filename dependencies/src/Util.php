@@ -25,7 +25,7 @@ class Util
     {
         $values = [];
         if ($with_empty) {
-            $values[] = ['value' => '', 'label' => __('Select an option')];
+            $values[] = ['value' => '', 'label' => __('Select an option', 'document-library-lite')];
         }
         foreach ($array as $key => $value) {
             $values[] = ['value' => $key, 'label' => \html_entity_decode($value)];
@@ -161,6 +161,30 @@ class Util
         return $is_access_pass;
     }
     /**
+     * Retrieve UTM id via the barn2.com api.
+     *
+     * @param object $plugin instance of the plugin.
+     * @return string
+     */
+    public static function get_remote_utm_id($plugin)
+    {
+        $utm_id = get_transient($plugin->get_slug() . '_remote_utm_id');
+        $rest_url = 'https://api.barn2.com/wp-json/upsell/v1/get/';
+        $args = ['plugin' => $plugin->get_slug()];
+        if (\false === $utm_id) {
+            $request = wp_remote_get(add_query_arg($args, $rest_url));
+            $response = wp_remote_retrieve_body($request);
+            $response = \json_decode($response, \true);
+            if (wp_remote_retrieve_response_code($request) === 200) {
+                if (isset($response['utm_prefix'])) {
+                    $utm_id = $response['utm_prefix'];
+                    set_transient($plugin->get_slug() . '_remote_utm_id', $utm_id, WEEK_IN_SECONDS);
+                }
+            }
+        }
+        return $utm_id;
+    }
+    /**
      * Get an array of pages of the site.
      *
      * @param bool $exclude_empty whether or not an empty option should be displayed within the dropdown.
@@ -185,12 +209,17 @@ class Util
      * required by the wizard.
      *
      * @param string $url
-     * @param string $utm_id UTM ID, example: wro
+     * @param string|bool $utm_id UTM ID, example: wro
+     * @param object $plugin plugin instance.
      * @return string
      */
-    public static function generate_utm_url(string $url, string $utm_id)
+    public static function generate_utm_url(string $url, $utm_id = \false, $plugin)
     {
-        return add_query_arg(['utm_source' => 'wizard', 'utm_medium' => 'wizard', 'utm_campaign' => "{$utm_id}-wizard", 'utm_content' => "{$utm_id}-wizard"], $url);
+        $utm = get_transient($plugin->get_slug() . '_remote_utm_id');
+        if (!$utm) {
+            $utm = $utm_id;
+        }
+        return add_query_arg(['utm_source' => 'wizard', 'utm_medium' => 'wizard', 'utm_campaign' => "{$utm}-wizard", 'utm_content' => "{$utm}-wizard"], $url);
     }
     /**
      * Retrieves an array of internal WP dependencies for bundled JS files.

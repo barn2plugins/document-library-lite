@@ -135,7 +135,8 @@ class Api implements JsonSerializable
                 $config[] = ['key' => $step->get_id(), 'label' => $step->get_name(), 'description' => $step->get_description(), 'heading' => $step->get_title(), 'tooltip' => $step->get_tooltip(), 'fields' => $step->get_fields(), 'hidden' => $step->is_hidden()];
             }
         }
-        return self::send_success_response(['steps' => $config]);
+        $utm_prefix = Util::get_remote_utm_id($this->get_plugin());
+        return self::send_success_response(['steps' => $config, 'utm_prefix' => $utm_prefix]);
     }
     /**
      * Save fields of a step into the database.
@@ -148,7 +149,7 @@ class Api implements JsonSerializable
         $step = $request->get_param('step');
         $step = $this->get_step_by_key($step);
         if (empty($step) || !$step instanceof Step) {
-            return self::send_error_response(['message' => __('Could not find the appropriate step.')]);
+            return self::send_error_response(['message' => __('Could not find the appropriate step.', 'document-library-lite')]);
         }
         $values = Util::clean($request->get_param('values'));
         return $step->submit($values);
@@ -185,10 +186,10 @@ class Api implements JsonSerializable
         $action = $request->get_param('action');
         $allowed_actions = ['activate', 'check', 'deactivate'];
         if (empty($license_key)) {
-            return self::send_error_response(['message' => __('Please enter a license key.')]);
+            return self::send_error_response(['message' => __('Please enter a license key.', 'document-library-lite')]);
         }
         if (!\in_array($action, $allowed_actions, \true)) {
-            return self::send_error_response(['message' => __('Invalid action requested.')]);
+            return self::send_error_response(['message' => __('Invalid action requested.', 'document-library-lite')]);
         }
         $license_handler = $this->get_plugin()->get_license();
         switch ($action) {

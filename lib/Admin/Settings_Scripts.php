@@ -1,8 +1,9 @@
 <?php
+
 namespace Barn2\DLW_Lib\Admin;
 
-use Barn2\DLW_Lib\Registerable,
-	Barn2\DLW_Lib\Plugin\Plugin;
+use Barn2\DLW_Lib\Plugin\Plugin;
+use Barn2\DLW_Lib\Registerable;
 
 /**
  * Registers the tooltip assets
@@ -49,6 +50,13 @@ class Settings_Scripts implements Registerable {
 				[ 'jquery' ],
 				$this->plugin->get_version(),
 				true
+			);
+
+			wp_register_style(
+				'barn2-tooltip',
+				plugins_url( 'lib/assets/css/admin/tooltip.min.css', $this->plugin->get_file() ),
+				[],
+				$this->plugin->get_version()
 			);
 		}
 	}

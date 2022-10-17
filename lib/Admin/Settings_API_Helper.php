@@ -14,16 +14,9 @@ use Barn2\DLW_Lib\Util;
  * @author    Barn2 Plugins <support@barn2.com>
  * @license   GPL-3.0
  * @copyright Barn2 Media Ltd
- * @version   1.4
+ * @version   1.5
  */
 class Settings_API_Helper implements Registerable, Conditional {
-
-	/**
-	 * The plugin object.
-	 *
-	 * @var Plugin
-	 */
-	private $plugin;
 
 	/**
 	 * Responsible for registering any additional settings scripts.
@@ -38,8 +31,21 @@ class Settings_API_Helper implements Registerable, Conditional {
 	 * @param Plugin $plugin
 	 */
 	public function __construct( Plugin $plugin ) {
-		$this->plugin  = $plugin;
 		$this->scripts = new Settings_Scripts( $plugin );
+	}
+
+	/**
+	 * {@inheritdoc}
+	 */
+	public function is_required() {
+		return Util::is_admin();
+	}
+
+	/**
+	 * {@inheritdoc}
+	 */
+	public function register() {
+		$this->scripts->register();
 	}
 
 	/**
@@ -108,72 +114,6 @@ class Settings_API_Helper implements Registerable, Conditional {
 				add_settings_field( $args['id'], $args['title'], $setting_callback, $page, $section, $args );
 			}
 		}
-	}
-
-	/**
-	 * Number field.
-	 *
-	 * @param array $args
-	 */
-	public static function settings_field_number( $args ) {
-		$args['input_class'] = ! empty( $args['input_class'] ) ? $args['input_class'] : 'small-text';
-		$args['type']        = 'number';
-
-		self::field_tooltip( $args );
-		self::settings_field_text( $args );
-	}
-
-	/**
-	 * Tooltip field.
-	 *
-	 * @param array $args
-	 */
-	private static function field_tooltip( $args ) {
-		if ( ! empty( $args['desc_tip'] ) ) {
-			wp_enqueue_script( 'barn2-tiptip' );
-
-			$allowed_html = [
-				'br'     => [],
-				'em'     => [],
-				'strong' => [],
-				'small'  => [],
-				'span'   => [],
-				'ul'     => [],
-				'li'     => [],
-				'ol'     => [],
-				'p'      => [],
-				'a'      => [],
-			];
-
-			echo '<span class="barn2-help-tip" data-tip="' . wp_kses( $args['desc_tip'], $allowed_html ) . '"></span>';
-		}
-	}
-
-	/**
-	 * Text field.
-	 *
-	 * @param array $args
-	 */
-	public static function settings_field_text( $args ) {
-		$class = ! empty( $args['input_class'] ) ? $args['input_class'] : 'regular-text';
-		$type  = ! empty( $args['type'] ) ? $args['type'] : 'text';
-
-		?>
-		<input
-			id="<?php echo esc_attr( $args['id'] ); ?>"
-			name="<?php echo esc_attr( $args['id'] ); ?>"
-			class="<?php echo esc_attr( $class ); ?>"
-			type="<?php echo esc_attr( $type ); ?>"
-			value="<?php echo esc_attr( self::get_value( $args['id'], $args['default'] ) ); ?>"<?php self::custom_attributes( $args ); ?>
-		/>
-		<?php
-
-		if ( ! empty( $args['suffix'] ) ) {
-			echo ' ' . esc_html( $args['suffix'] );
-		}
-
-		self::field_tooltip( $args );
-		self::field_description( $args );
 	}
 
 	/**
@@ -254,6 +194,7 @@ class Settings_API_Helper implements Registerable, Conditional {
 					'name'  => [],
 					'value' => [],
 				],
+				'br'     => [],
 				'strong' => [],
 				'img'    => [
 					'src'    => [],
@@ -266,6 +207,76 @@ class Settings_API_Helper implements Registerable, Conditional {
 
 			echo '<p class="description">' . wp_kses( $args['desc'], $allowed_html ) . '</p>';
 		}
+	}
+
+	/**
+	 * Tooltip field.
+	 *
+	 * @param array $args
+	 */
+	private static function field_tooltip( $args ) {
+		if ( ! empty( $args['desc_tip'] ) ) {
+			if ( ! wp_script_is( 'barn2-tiptip' ) ) {
+				wp_enqueue_script( 'barn2-tiptip' );
+				wp_add_inline_script( 'barn2-tiptip', 'jQuery( function() { jQuery( \'.barn2-help-tip\' ).tipTip( { "attribute": "data-tip" } ); } );' );
+
+				wp_enqueue_style( 'barn2-tooltip' );
+			}
+
+			$allowed_html = [
+				'br'     => [],
+				'em'     => [],
+				'strong' => [],
+				'small'  => [],
+				'span'   => [],
+				'ul'     => [],
+				'li'     => [],
+				'ol'     => [],
+				'p'      => [],
+				'a'      => [],
+			];
+
+			echo '<span class="barn2-help-tip" data-tip="' . wp_kses( $args['desc_tip'], $allowed_html ) . '"></span>';
+		}
+	}
+
+	/**
+	 * Number field.
+	 *
+	 * @param array $args
+	 */
+	public static function settings_field_number( $args ) {
+		$args['input_class'] = ! empty( $args['input_class'] ) ? $args['input_class'] : 'small-text';
+		$args['type']        = 'number';
+
+		self::settings_field_text( $args );
+	}
+
+	/**
+	 * Text field.
+	 *
+	 * @param array $args
+	 */
+	public static function settings_field_text( $args ) {
+		$class = ! empty( $args['input_class'] ) ? $args['input_class'] : 'regular-text';
+		$type  = ! empty( $args['type'] ) ? $args['type'] : 'text';
+
+		?>
+		<input
+			id="<?php echo esc_attr( $args['id'] ); ?>"
+			name="<?php echo esc_attr( $args['id'] ); ?>"
+			class="<?php echo esc_attr( $class ); ?>"
+			type="<?php echo esc_attr( $type ); ?>"
+			value="<?php echo esc_attr( self::get_value( $args['id'], $args['default'] ) ); ?>"<?php self::custom_attributes( $args ); ?>
+		/>
+		<?php
+
+		if ( ! empty( $args['suffix'] ) ) {
+			echo ' ' . esc_html( $args['suffix'] ) . ' ';
+		}
+
+		self::field_tooltip( $args );
+		self::field_description( $args );
 	}
 
 	/**
@@ -336,7 +347,10 @@ class Settings_API_Helper implements Registerable, Conditional {
 					<?php self::custom_attributes( $args ); ?> />
 				<?php echo esc_html( $args['label'] ); ?>
 			</label>
-			<?php self::field_description( $args ); ?>
+			<?php
+				self::field_tooltip( $args );
+				self::field_description( $args ); 
+			?>
 		</fieldset>
 		<?php
 	}
@@ -434,11 +448,11 @@ class Settings_API_Helper implements Registerable, Conditional {
 		?>
 		<div class="color-field">
 			<input
-					type="text"
-					name="<?php echo esc_attr( $args['id'] ); ?>"
-					id="<?php echo esc_attr( $args['id'] ); ?>"
-					class="color-picker"
-					value="<?php echo esc_attr( $current_value ); ?>"/>
+				type="text"
+				name="<?php echo esc_attr( $args['id'] ); ?>"
+				id="<?php echo esc_attr( $args['id'] ); ?>"
+				class="color-picker"
+				value="<?php echo esc_attr( $current_value ); ?>"/>
 
 			<?php self::field_description( $args ); ?>
 		</div>
@@ -492,7 +506,8 @@ class Settings_API_Helper implements Registerable, Conditional {
 				class="color-size"
 				value="<?php echo esc_attr( $size_value ); ?>"
 				placeholder="<?php echo esc_attr( $size_placeholder ); ?>"
-				<?php /* Note: This is escaped in get_custom_attributes */ echo $size_attributes; ?>
+				<?php /* Note: This is escaped in get_custom_attributes */
+				echo $size_attributes; ?>
 			/>
 
 			<?php self::field_description( $args ); ?>
@@ -507,20 +522,6 @@ class Settings_API_Helper implements Registerable, Conditional {
 	 */
 	public static function settings_field_help_note( $args ) {
 		self::field_description( $args );
-	}
-
-	/**
-	 * {@inheritdoc}
-	 */
-	public function is_required() {
-		return Util::is_admin();
-	}
-
-	/**
-	 * {@inheritdoc}
-	 */
-	public function register() {
-		$this->scripts->register();
 	}
 
 }
