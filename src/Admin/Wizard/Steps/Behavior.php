@@ -46,7 +46,7 @@ class Behavior extends Step {
 				'title' => __( 'Image lightbox', 'document-library-lite' ),
 				'label' => __( 'Display images in a lightbox when opened', 'document-library-lite' ),
 				'type'  => 'checkbox',
-				'value' => false,
+				'value' => $this->values['lightbox'],
 			],
 			'rows_per_page' => [
 				'label'       => __( 'Documents per page', 'document-library-lite' ),
@@ -60,31 +60,31 @@ class Behavior extends Step {
 				'description' => __( 'The initial sort order of the document library.', 'document-library-lite' ) . ' ' . Lib_Util::barn2_link( 'kb/document-library-wordpress-documentation/#general-tab', esc_html__( 'Read more', 'document-library-lite' ), true ),
 				'options'     => [
 					[
-						'value'   => 'title',
+						'value' => 'title',
 						'label' => __( 'Title', 'document-library-lite' ),
 					],
 					[
-						'value'   => 'id',
+						'value' => 'id',
 						'label' => __( 'ID', 'document-library-lite' ),
 					],
 					[
-						'value'   => 'date',
+						'value' => 'date',
 						'label' => __( 'Date published', 'document-library-lite' ),
 					],
 					[
-						'value'   => 'modified',
+						'value' => 'modified',
 						'label' => __( 'Date modified', 'document-library-lite' ),
 					],
 					[
-						'value'   => 'menu_order',
+						'value' => 'menu_order',
 						'label' => __( 'Page order (menu order)', 'document-library-lite' ),
 					],
 					[
-						'value'   => 'author',
+						'value' => 'author',
 						'label' => __( 'Author', 'document-library-lite' ),
 					],
 					[
-						'value'   => 'rand',
+						'value' => 'rand',
 						'label' => __( 'Random', 'document-library-lite' ),
 					],
 				],
@@ -95,15 +95,15 @@ class Behavior extends Step {
 				'type'    => 'select',
 				'options' => [
 					[
-						'value'   => 'auto',
+						'value' => 'auto',
 						'label' => __( 'Automatic', 'document-library-lite' ),
 					],
 					[
-						'value'   => 'asc',
+						'value' => 'asc',
 						'label' => __( 'Ascending (A to Z, oldest to newest)', 'document-library-lite' ),
 					],
 					[
-						'value'   => 'desc',
+						'value' => 'desc',
 						'label' => __( 'Descending (Z to A, newest to oldest)', 'document-library-lite' ),
 					],
 				],
@@ -115,7 +115,7 @@ class Behavior extends Step {
 				'description' => __( 'Show filters dropdown to allow users to filter by categories, tags, or custom taxonomy.', 'document-library-lite' ),
 				'options'     => [
 					[
-						'value'   => 'false',
+						'value' => 'false',
 						'label' => __( 'Disabled', 'document-library-lite' ),
 					]
 				],
