@@ -3,9 +3,9 @@ Contributors: barn2media
 Donate link: https://barn2.com
 Tags: wordpress, document library, file manager, download manager, documents, downloads, document management
 Requires at least: 5.2
-Tested up to: 6.0.1
+Tested up to: 6.0.2
 Requires PHP: 7.2
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 License: GPL-3.0
 License URI: https://www.gnu.org/licenses/gpl.html
 
@@ -194,22 +194,18 @@ Like all Barn2 plugins, the free file manager plugin comes with in-depth documen
 
 == Changelog ==
 
+= 1.0.3 =
+Release date 17 October 2022
+
+ * Fix: The 'Documents' wp-admin sidebar menu would not be open when editing a category.
+ * Dev: Updated Barn2 libraries and dependencies.
+ * Dev: Tested up to WordPress 6.0.2.
+
 = 1.0.2 =
 Release date 9 May 2022
 
  * Dev: Increased minimum rerquired WordPress version to 5.2.
  * Dev: Updated Barn2 libraries and dependencies.
  * Dev: Tested up to WordPress 6.0.1.
-
-= 1.0.1 =
-Release date 9 May 2022
-
- * Dev: Updated Barn2 libraries and dependencies.
- * Dev: Tested up to WordPress 5.9.3.
-
-= 1.0 =
-Release date 5 April 2022
-
- * Initial release.
 
 See changelog.txt for more details.
