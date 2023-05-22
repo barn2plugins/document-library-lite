@@ -20,7 +20,7 @@
     },
     "homepage": "https://github.com/Barn2Media/document-library-lite#readme",
     "devDependencies": {
-        "@barn2media/webpack-config": "^0.4.1",
+        "@barn2media/webpack-config": "^2.0.0",
         "@wordpress/dependency-extraction-webpack-plugin": "^3.4.0",
         "gulp": "^4.0.2"
     },
