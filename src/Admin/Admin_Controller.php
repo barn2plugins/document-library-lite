@@ -104,23 +104,22 @@ class Admin_Controller implements Registerable, Service {
 	 */
 	public function settings_page_scripts( $hook ) {
 		$screen = get_current_screen();
-		$suffix = Util::get_script_suffix();
 
 		// Main Settings Page
 		if ( 'toplevel_page_document_library' === $hook ) {
-			wp_enqueue_style( 'dlw-admin-settings', plugins_url( "assets/css/admin/document-library-settings{$suffix}.css", $this->plugin->get_file() ), [], $this->plugin->get_version(), 'all' );
-			wp_enqueue_script( 'dlw-admin-settings', plugins_url( "assets/js/admin/document-library-settings{$suffix}.js", $this->plugin->get_file() ), [ 'jquery' ], $this->plugin->get_version(), true );
+			wp_enqueue_style( 'dlw-admin-settings', plugins_url( "assets/css/admin/document-library-settings.css", $this->plugin->get_file() ), [], $this->plugin->get_version(), 'all' );
+			wp_enqueue_script( 'dlw-admin-settings', plugins_url( "assets/js/admin/document-library-settings.js", $this->plugin->get_file() ), [ 'jquery' ], $this->plugin->get_version(), true );
 		}
 
 		// Import Page
 		if (  $this->str_ends_with( $hook, 'page_dlp_import' ) ) {
-			wp_enqueue_style( 'dlw-admin-import', plugins_url( "assets/css/admin/document-library-import{$suffix}.css", $this->plugin->get_file() ), [], $this->plugin->get_version(), 'all' );
+			wp_enqueue_style( 'dlw-admin-import', plugins_url( "assets/css/admin/document-library-import.css", $this->plugin->get_file() ), [], $this->plugin->get_version(), 'all' );
 		}
 
 		// Add - Edit Document Page
 		if ( in_array( $hook, [ 'post.php', 'post-new.php' ], true ) && is_object( $screen ) && Post_Type::POST_TYPE_SLUG === $screen->post_type ) {
 			wp_enqueue_media();
-			wp_enqueue_script( 'dlw-admin-post', $this->plugin->get_dir_url() . "assets/js/admin/document-library-post.min.js", [ 'jquery' ], $this->plugin->get_version(), true );
+			wp_enqueue_script( 'dlw-admin-post', $this->plugin->get_dir_url() . "assets/js/admin/document-library-post.js", [ 'jquery' ], $this->plugin->get_version(), true );
 			wp_localize_script(
 				'dlw-admin-post',
 				'dlwAdminObject',
@@ -133,7 +132,7 @@ class Admin_Controller implements Registerable, Service {
 				]
 			);
 
-			wp_enqueue_style( 'dlw-admin-post', $this->plugin->get_dir_url() . "assets/css/admin/document-library-post.min.css", [], $this->plugin->get_version(), 'all' );
+			wp_enqueue_style( 'dlw-admin-post', $this->plugin->get_dir_url() . "assets/css/admin/document-library-post.css", [], $this->plugin->get_version(), 'all' );
 		}
 	}
 

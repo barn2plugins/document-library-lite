@@ -51,13 +51,6 @@ class Settings_Scripts implements Registerable {
 				$this->plugin->get_version(),
 				true
 			);
-
-			wp_register_style(
-				'barn2-tooltip',
-				plugins_url( 'lib/assets/css/admin/tooltip.min.css', $this->plugin->get_file() ),
-				[],
-				$this->plugin->get_version()
-			);
 		}
 	}
 
