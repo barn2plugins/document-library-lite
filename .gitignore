@@ -9,3 +9,4 @@
 /vendor/squizlabs
 /vendor/wp-coding-standards
 /.npmrc
+assets/dist

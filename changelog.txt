@@ -1,3 +1,8 @@
+= 1.0.4 = 
+Release date 24 May 2024
+
+ * Dev: Updated webpack configuration 
+
 = 1.0.3 =
 Release date 17 October 2022
 

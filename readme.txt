@@ -5,7 +5,7 @@ Tags: wordpress, document library, file manager, download manager, documents, do
 Requires at least: 5.2
 Tested up to: 6.2
 Requires PHP: 7.2
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 License: GPL-3.0
 License URI: https://www.gnu.org/licenses/gpl.html
 
@@ -193,6 +193,11 @@ Like all Barn2 plugins, the free file manager plugin comes with in-depth documen
 11. View document downloads separately from other Media Library files.
 
 == Changelog ==
+
+= 1.0.4 = 
+Release date 24 May 2023 
+
+ * Update webpack configuration 
 
 = 1.0.3 =
 Release date 17 October 2022
