@@ -1,17 +1,19 @@
-const config = require( '@barn2media/webpack-config' );
-const WPDependencyExtractionWebpackPlugin = require( '@wordpress/dependency-extraction-webpack-plugin' );
+const defaultConfig = require( '@wordpress/scripts/config/webpack.config' );
+const Barn2Configuration = require( '@barn2media/webpack-config' );
 
-module.exports = {
-	...config,
-	plugins: [
-		...config.plugins.filter(
-			( plugin ) =>
-				plugin.constructor.name !== 'DependencyExtractionWebpackPlugin'
-		),
-		new WPDependencyExtractionWebpackPlugin({
-			outputFormat: 'json',
-			combineAssets: true,
-			combinedOutputFile: './assets/js/wp-dependencies.json'
-		}),
+const config = new Barn2Configuration(
+	[
+		'admin/document-library-post/index.js', 
+		'admin/document-library-settings/index.js', 
+		'document-library-main.js'
 	],
-};
+	[
+		'admin/document-library-import.scss', 
+		'admin/document-library-post.scss', 
+		'admin/document-library-settings.scss', 
+		'document-library-main.scss'
+	],
+	defaultConfig
+);
+
+module.exports = config.getWebpackConfig();
