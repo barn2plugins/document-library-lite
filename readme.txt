@@ -178,6 +178,9 @@ If you would like to modify the plugin to suit your exact requirements, then we 
 = Where can I find the documentation? =
 Like all Barn2 plugins, the free file manager plugin comes with in-depth documentation. You can either read the instructions above, or the [dedicated documentation page](https://barn2.com/kb/document-library-wordpress-documentation/?utm_source=wporg&utm_medium=freeplugin&utm_campaign=freepluginwporg&utm_content=dlw-wporg) on the Barn2 site.
 
+= Where do I report security bugs found in this plugin? =
+Please report any security bugs through the [Patchstack Vulnerability Disclosure Program](https://patchstack.com/database/vdp/document-library-lite). The Patchstack team will assist you with verification, CVE assignment, and notify the developers of this plugin.
+
 == Screenshots ==
 
 1. Searching a WordPress document library.
