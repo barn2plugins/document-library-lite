@@ -2,10 +2,10 @@
 
 namespace Barn2\Plugin\Document_Library\Admin\Wizard\Steps;
 
-use Barn2\Plugin\Document_Library\Dependencies\Barn2\Setup_Wizard\Api;
-use Barn2\Plugin\Document_Library\Dependencies\Barn2\Setup_Wizard\Step,
+use Barn2\Plugin\Document_Library\Dependencies\Setup_Wizard\Api;
+use Barn2\Plugin\Document_Library\Dependencies\Setup_Wizard\Step,
 	Barn2\Plugin\Document_Library\Util\Options,
-	Barn2\DLW_Lib\Util as Lib_Util;
+	Barn2\Plugin\Document_Library\Dependencies\Lib\Util as Lib_Util;
 
 /**
  * Document Links Settings Step.

@@ -2,9 +2,9 @@
 
 namespace Barn2\Plugin\Document_Library\Admin\Settings_Tab;
 
-use Barn2\DLW_Lib\Registerable,
-	Barn2\DLW_Lib\Admin\Settings_API_Helper,
-	Barn2\DLW_Lib\Util as Lib_Util,
+use Barn2\Plugin\Document_Library\Dependencies\Lib\Registerable,
+	Barn2\Plugin\Document_Library\Dependencies\Lib\Admin\Settings_API_Helper,
+	Barn2\Plugin\Document_Library\Dependencies\Lib\Util as Lib_Util,
 	Barn2\Plugin\Document_Library\Util\Options;
 
 defined( 'ABSPATH' ) || exit;

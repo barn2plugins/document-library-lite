@@ -2,10 +2,10 @@
 
 namespace Barn2\Plugin\Document_Library\Admin\Metabox;
 
-use Barn2\DLW_Lib\Conditional,
-	Barn2\DLW_Lib\Registerable,
-	Barn2\DLW_Lib\Service,
-	Barn2\DLW_Lib\Util,
+use Barn2\Plugin\Document_Library\Dependencies\Lib\Conditional,
+	Barn2\Plugin\Document_Library\Dependencies\Lib\Registerable,
+	Barn2\Plugin\Document_Library\Dependencies\Lib\Service,
+	Barn2\Plugin\Document_Library\Dependencies\Lib\Util,
 	Barn2\Plugin\Document_Library\Post_Type,
 	Barn2\Plugin\Document_Library\Document;
 

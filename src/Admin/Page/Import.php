@@ -1,11 +1,11 @@
 <?php
 namespace Barn2\Plugin\Document_Library\Admin\Page;
 
-use Barn2\DLW_Lib\Registerable,
-	Barn2\DLW_Lib\Service,
-	Barn2\DLW_Lib\Conditional,
-	Barn2\DLW_Lib\Plugin\Plugin,
-	Barn2\DLW_Lib\Util as Lib_Util;
+use Barn2\Plugin\Document_Library\Dependencies\Lib\Registerable,
+	Barn2\Plugin\Document_Library\Dependencies\Lib\Service,
+	Barn2\Plugin\Document_Library\Dependencies\Lib\Conditional,
+	Barn2\Plugin\Document_Library\Dependencies\Lib\Plugin\Plugin,
+	Barn2\Plugin\Document_Library\Dependencies\Lib\Util as Lib_Util;
 
 defined( 'ABSPATH' ) || exit;
 

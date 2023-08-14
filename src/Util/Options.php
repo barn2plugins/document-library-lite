@@ -1,7 +1,7 @@
 <?php
 namespace Barn2\Plugin\Document_Library\Util;
 
-use Barn2\DLW_Lib\Util as Lib_Util;
+use Barn2\Plugin\Document_Library\Dependencies\Lib\Util as Lib_Util;
 
 defined( 'ABSPATH' ) || exit;
 

@@ -18,13 +18,24 @@
         },
         {
             "type": "vcs",
+            "url": "git@bitbucket.org:barn2plugins/barn2-lib.git"
+        },
+        {
+            "type": "vcs",
             "url": "git@bitbucket.org:barn2plugins/setup-wizard.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@bitbucket.org:barn2plugins/php-scoper-excludes.git"
         }
     ],
     "require-dev": {
         "barn2/php-standards": "dev-master",
-        "bamarni/composer-bin-plugin": "^1.4",
-        "barn2/setup-wizard": "^1.0.6"
+        "barn2/setup-wizard": "1.2.0",
+        "bamarni/composer-bin-plugin": "^1.5",
+        "barn2/barn2-lib": "^1.1",
+        "barn2/php-scoper-excludes": "^0.1.0",
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.7.2"
     },
     "scripts": {
 		"no-dev": "composer update --prefer-dist --no-dev",
@@ -37,11 +48,10 @@
     },
     "autoload": {
         "psr-4": {
-            "Barn2\\Plugin\\Document_Library\\": "src",
-            "Barn2\\DLW_Lib\\": "lib"
+            "Barn2\\Plugin\\Document_Library\\": "src"
         },
         "classmap": [
-            "dependencies/src"
+            "dependencies"
         ]
     },
     "config": {

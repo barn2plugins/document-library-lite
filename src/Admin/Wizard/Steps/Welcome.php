@@ -2,7 +2,7 @@
 
 namespace Barn2\Plugin\Document_Library\Admin\Wizard\Steps;
 
-use Barn2\Plugin\Document_Library\Dependencies\Barn2\Setup_Wizard\Steps\Welcome_Free;
+use Barn2\Plugin\Document_Library\Dependencies\Setup_Wizard\Steps\Welcome_Free;
 
 /**
  * Welcome Step.

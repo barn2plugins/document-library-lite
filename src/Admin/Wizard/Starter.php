@@ -2,7 +2,7 @@
 
 namespace Barn2\Plugin\Document_Library\Admin\Wizard;
 
-use Barn2\Plugin\Document_Library\Dependencies\Barn2\Setup_Wizard\Starter as Setup_Wizard_Starter;
+use Barn2\Plugin\Document_Library\Dependencies\Setup_Wizard\Starter as Setup_Wizard_Starter;
 
 /**
  * Setup Wizard Starter

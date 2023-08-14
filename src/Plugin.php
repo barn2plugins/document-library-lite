@@ -2,11 +2,11 @@
 
 namespace Barn2\Plugin\Document_Library;
 
-use Barn2\DLW_Lib\Plugin\Simple_Plugin;
-use Barn2\DLW_Lib\Registerable;
-use Barn2\DLW_Lib\Service;
-use Barn2\DLW_Lib\Service_Provider;
-use Barn2\DLW_Lib\Util;
+use Barn2\Plugin\Document_Library\Dependencies\Lib\Plugin\Simple_Plugin;
+use Barn2\Plugin\Document_Library\Dependencies\Lib\Registerable;
+use Barn2\Plugin\Document_Library\Dependencies\Lib\Service;
+use Barn2\Plugin\Document_Library\Dependencies\Lib\Service_Provider;
+use Barn2\Plugin\Document_Library\Dependencies\Lib\Util;
 use Barn2\Plugin\Document_Library\Admin\Wizard\Setup_Wizard;
 
 /**

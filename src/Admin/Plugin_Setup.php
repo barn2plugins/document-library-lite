@@ -3,10 +3,10 @@
 namespace Barn2\Plugin\Document_Library\Admin;
 
 use Barn2\Plugin\Document_Library\Admin\Wizard\Starter,
-	Barn2\DLW_Lib\Plugin\Plugin,
-	Barn2\DLW_Lib\Plugin\Plugin_Activation_Listener,
-	Barn2\DLW_Lib\Util as Lib_Util,
-	Barn2\DLW_Lib\Registerable;
+	Barn2\Plugin\Document_Library\Dependencies\Lib\Plugin\Plugin,
+	Barn2\Plugin\Document_Library\Dependencies\Lib\Plugin\Plugin_Activation_Listener,
+	Barn2\Plugin\Document_Library\Dependencies\Lib\Util as Lib_Util,
+	Barn2\Plugin\Document_Library\Dependencies\Lib\Registerable;
 
 /**
  * Plugin Setup

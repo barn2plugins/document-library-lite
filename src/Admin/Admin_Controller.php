@@ -2,13 +2,13 @@
 namespace Barn2\Plugin\Document_Library\Admin;
 
 use Barn2\Plugin\Document_Library\Admin\Wizard\Setup_Wizard,
-	Barn2\DLW_Lib\Util,
-	Barn2\DLW_Lib\Plugin\Plugin,
-	Barn2\DLW_Lib\Service_Container,
-	Barn2\DLW_Lib\Registerable,
-	Barn2\DLW_Lib\Service,
-	Barn2\DLW_Lib\Admin\Plugin_Promo,
-	Barn2\DLW_Lib\Admin\Settings_API_Helper;
+	Barn2\Plugin\Document_Library\Dependencies\Lib\Util,
+	Barn2\Plugin\Document_Library\Dependencies\Lib\Plugin\Plugin,
+	Barn2\Plugin\Document_Library\Dependencies\Lib\Service_Container,
+	Barn2\Plugin\Document_Library\Dependencies\Lib\Registerable,
+	Barn2\Plugin\Document_Library\Dependencies\Lib\Service,
+	Barn2\Plugin\Document_Library\Dependencies\Lib\Admin\Plugin_Promo,
+	Barn2\Plugin\Document_Library\Dependencies\Lib\Admin\Settings_API_Helper;
 use Barn2\Plugin\Document_Library\Post_Type;
 
 /**

@@ -2,10 +2,10 @@
 
 namespace Barn2\Plugin\Document_Library\Admin\Wizard\Steps;
 
-use Barn2\Plugin\Document_Library\Dependencies\Barn2\Setup_Wizard\Interfaces\Deferrable;
-use Barn2\Plugin\Document_Library\Dependencies\Barn2\Setup_Wizard\Steps\Ready,
+use Barn2\Plugin\Document_Library\Dependencies\Setup_Wizard\Interfaces\Deferrable;
+use Barn2\Plugin\Document_Library\Dependencies\Setup_Wizard\Steps\Ready,
 	Barn2\Plugin\Document_Library\Util\Options,
-	Barn2\DLW_Lib\Util as Lib_Util;
+	Barn2\Plugin\Document_Library\Dependencies\Lib\Util as Lib_Util;
 
 /**
  * Completed Step.

@@ -2,8 +2,8 @@
 namespace Barn2\Plugin\Document_Library;
 
 use Barn2\Plugin\Document_Library\Util\Options,
-	Barn2\DLW_Lib\Registerable,
-	Barn2\DLW_Lib\Service;
+	Barn2\Plugin\Document_Library\Dependencies\Lib\Registerable,
+	Barn2\Plugin\Document_Library\Dependencies\Lib\Service;
 
 /**
  * This class handles the posts table shortcode registration.

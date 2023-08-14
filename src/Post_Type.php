@@ -2,8 +2,8 @@
 
 namespace Barn2\Plugin\Document_Library;
 
-use Barn2\DLW_Lib\Registerable,
-	Barn2\DLW_Lib\Service;
+use Barn2\Plugin\Document_Library\Dependencies\Lib\Registerable,
+	Barn2\Plugin\Document_Library\Dependencies\Lib\Service;
 
 defined( 'ABSPATH' ) || exit;
 

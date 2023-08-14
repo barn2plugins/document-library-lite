@@ -3,10 +3,10 @@
 namespace Barn2\Plugin\Document_Library\Admin\Wizard;
 
 use Barn2\Plugin\Document_Library\Admin\Wizard\Steps,
-	Barn2\DLW_Lib\Plugin\Plugin,
-	Barn2\DLW_Lib\Registerable,
-	Barn2\DLW_Lib\Util as Lib_Util;
-use Barn2\Plugin\Document_Library\Dependencies\Barn2\Setup_Wizard\Setup_Wizard as Wizard;
+	Barn2\Plugin\Document_Library\Dependencies\Lib\Plugin\Plugin,
+	Barn2\Plugin\Document_Library\Dependencies\Lib\Registerable,
+	Barn2\Plugin\Document_Library\Dependencies\Lib\Util as Lib_Util;
+use Barn2\Plugin\Document_Library\Dependencies\Setup_Wizard\Setup_Wizard as Wizard;
 
 /**
  * Main Setup Wizard Loader

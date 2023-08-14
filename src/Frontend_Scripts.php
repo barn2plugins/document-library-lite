@@ -2,10 +2,10 @@
 
 namespace Barn2\Plugin\Document_Library;
 
-use Barn2\DLW_Lib\Plugin\Plugin;
-use Barn2\DLW_Lib\Registerable;
-use Barn2\DLW_Lib\Service;
-use Barn2\DLW_Lib\Util;
+use Barn2\Plugin\Document_Library\Dependencies\Lib\Plugin\Plugin;
+use Barn2\Plugin\Document_Library\Dependencies\Lib\Registerable;
+use Barn2\Plugin\Document_Library\Dependencies\Lib\Service;
+use Barn2\Plugin\Document_Library\Dependencies\Lib\Util;
 
 /**
  * Registers the frontend styles and scripts for the post tables.

@@ -2,8 +2,8 @@
 
 namespace Barn2\Plugin\Document_Library\Admin\Wizard\Steps;
 
-use Barn2\Plugin\Document_Library\Dependencies\Barn2\Setup_Wizard\Steps\Cross_Selling;
-use Barn2\Plugin\Document_Library\Dependencies\Barn2\Setup_Wizard\Util;
+use Barn2\Plugin\Document_Library\Dependencies\Setup_Wizard\Steps\Cross_Selling;
+use Barn2\Plugin\Document_Library\Dependencies\Setup_Wizard\Util;
 
 /**
  * Upsell Step.
