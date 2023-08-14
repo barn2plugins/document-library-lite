@@ -3,9 +3,9 @@ Contributors: barn2media
 Donate link: https://barn2.com
 Tags: wordpress, document library, file manager, download manager, documents, downloads, document management
 Requires at least: 5.2
-Tested up to: 6.2
+Tested up to: 6.3
 Requires PHP: 7.2
-Stable tag: 1.0.4
+Stable tag: 1.0.5
 License: GPL-3.0
 License URI: https://www.gnu.org/licenses/gpl.html
 
@@ -196,6 +196,12 @@ Please report any security bugs through the [Patchstack Vulnerability Disclosure
 11. View document downloads separately from other Media Library files.
 
 == Changelog ==
+
+= 1.0.5 =
+Release date 14 Aug 2023
+
+ * Update internal libraries
+ * Tested up to WordPress 6.3
 
 = 1.0.4 = 
 Release date 24 May 2023 
