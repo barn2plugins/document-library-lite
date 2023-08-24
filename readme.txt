@@ -36,7 +36,7 @@ Supports the following file types:
 * ODT, ODS, ODP (OpenDocument Format)
 * JPG, JPEG, PNG, SVG (image files)
 * MP4, MOV (video files)
-* .numbers, .pages (Apple document formats)
+* .numbers, .pages, .key (Apple document formats)
 * And many more
 
 The plugin adds a dedicated 'Documents' section to the Media Library where you can manage documents separately from images and other media types. If you’ve ever wanted Media Library categories then you can filter the media library to view document files only.
