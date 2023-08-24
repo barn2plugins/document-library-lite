@@ -13,13 +13,15 @@ Create a WordPress document library to manage, search and download files.
 
 == Description ==
 
-*Document Library Lite* creates a WordPress document library (or download manager) with table layout and instant search. View the [plugin demo](https://documentlibrary-free.barn2.com/) to see it in action.
+*Document Library Lite* creates a WordPress document library or download manager. It displays documents in a table layout and allows users to quickly search for, sort and download documents. 
+
+View the [plugin demo](https://documentlibrary-free.barn2.com/) to see it in action.
 
 https://www.youtube.com/watch?v=K0H-9FUQgW0
 
-The document library plugin will save a huge amount of time. It adds a dedicated 'Documents' section to the Media Library where you can manage documents separately from images and other media types. If you’ve ever wanted Media Library categories then you can filter the media library to view document files only.
+*Document Library Lite* will save you a huge amount of time. It adds a dedicated 'Documents' section to the Media Library where you can manage documents separately from images and other media types. If you’ve ever wanted Media Library categories then you can filter the media library to view document files only.
 
-*Document Library Lite* makes things easier for your users. Instead of having to read through a long list of document links, they can use the instant search box, sortable columns and category filters to find exactly what they’re looking for. They can click to download documents of any file type straight to their device.
+The document library makes things easier for your users. Instead of having to read through a long list of document links, they can use the instant search box, sortable columns and category filters to find exactly what they’re looking for. They can click to download documents of any file type straight to their device.
 
 Supports the following file types:
 
