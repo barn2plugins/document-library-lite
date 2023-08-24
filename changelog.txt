@@ -1,3 +1,9 @@
+= 1.0.5 =
+Release date 14 Aug 2023
+
+ * Update internal libraries
+ * Tested up to WordPress 6.3
+
 = 1.0.4 = 
 Release date 24 May 2024
 
