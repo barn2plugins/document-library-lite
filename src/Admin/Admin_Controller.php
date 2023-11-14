@@ -28,6 +28,8 @@ class Admin_Controller implements Registerable, Service {
 
 	public function __construct( Plugin $plugin ) {
 		$this->plugin = $plugin;
+
+		$this->add_services();
 	}
 
 	public function register() {
@@ -44,20 +46,16 @@ class Admin_Controller implements Registerable, Service {
 	/**
 	 * {@inheritdoc}
 	 */
-	public function get_services() {
-		$services = [
-			'menu'                  => new Menu( $this->plugin ),
-			'plugin_promo'          => new Plugin_Promo( $this->plugin ),
-			'settings_api'          => new Settings_API_Helper( $this->plugin ),
-			'settings'              => new Settings( $this->plugin ),
-			'page/settings'         => new Page\Settings( $this->plugin ),
-			'page/import'           => new Page\Import( $this->plugin ),
-			'page_list'             => new Page_List(),
-			'metabox/document_link' => new Metabox\Document_Link(),
-			'media_library'         => new Media_Library()
-		];
-
-		return $services;
+	public function add_services() {
+		$this->add_service( 'menu', new Menu( $this->plugin ) );
+		$this->add_service( 'plugin_promo', new Plugin_Promo( $this->plugin ) );
+		$this->add_service( 'settings_api', new Settings_API_Helper( $this->plugin ) );
+		$this->add_service( 'settings', new Settings( $this->plugin ) );
+		$this->add_service( 'page/settings', new Page\Settings( $this->plugin ) );
+		$this->add_service( 'page/import', new Page\Import( $this->plugin ) );
+		$this->add_service( 'page_list', new Page_List() );
+		$this->add_service( 'metabox/document_link', new Metabox\Document_Link() );
+		$this->add_service( 'media_library', new Media_Library() );
 	}
 
 	/**

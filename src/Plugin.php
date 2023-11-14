@@ -47,28 +47,19 @@ class Plugin extends Simple_Plugin implements Registerable, Service_Provider {
 			]
 		);
 
-		// Services
-		$this->services['wizard']     = new Setup_Wizard( $this );
-		$this->services['post_type']     = new Post_Type();
-		$this->services['taxonomies']    = new Taxonomies();
-		$this->services['shortcode']     = new Document_Library_Shortcode();
-		$this->services['scripts']       = new Frontend_Scripts( $this );
-		$this->services['review_notice'] = new Review_Notice( $this );
-
-		// Admin only services
-		if ( Util::is_admin() ) {
-			$this->services['admin'] = new Admin\Admin_Controller( $this );
-		}
+		$this->add_service( 'plugin_setup', new Plugin_Setup( $this->get_file(), $this ), true );
 	}
 
 	/**
 	 * {@inheritdoc}
 	 */
 	public function register() {
-		$plugin_setup = new Admin\Plugin_Setup( $this->get_file(), $this );
-		$plugin_setup->register();
+		parent::register();
 
-		add_action( 'init', [ $this, 'maybe_load_plugin' ] );
+		add_action( 'plugins_loaded', [ $this, 'add_services' ] );
+
+		add_action( 'init', [ $this, 'register_services' ] );
+		add_action( 'init', [ $this, 'load_textdomain' ], 5 );
 	}
 
 	/**
@@ -79,10 +70,21 @@ class Plugin extends Simple_Plugin implements Registerable, Service_Provider {
 		if ( function_exists( '\Barn2\Plugin\Document_Library_Pro\document_library_pro' ) ) {
 			return;
 		}
+	}
 
-		add_action( 'init', [ $this, 'load_textdomain' ] );
+	public function add_services() {
+		$this->add_service( 'wizard', new Setup_Wizard( $this ) );
+		$this->add_service( 'post_type', new Post_Type() );
+		$this->add_service( 'taxonomies', new Taxonomies() );
+		$this->add_service( 'shortcode', new Document_Library_Shortcode() );
+		$this->add_service( 'scripts', new Frontend_Scripts( $this ) );
+		$this->add_service( 'review_notice', new Review_Notice( $this ) );
 
-		Util::register_services( $this->services );
+		// Admin only services
+		if ( Util::is_admin() ) {
+			$this->add_service( 'admin', new Admin\Admin_Controller( $this ) );
+		}
+
 	}
 
 	/**
@@ -90,29 +92,6 @@ class Plugin extends Simple_Plugin implements Registerable, Service_Provider {
 	 */
 	public function load_textdomain() {
 		load_plugin_textdomain( 'document-library-lite', false, $this->get_slug() . '/languages' );
-	}
-
-	/**
-	 * Retrieve a plugin service.
-	 *
-	 * @param string $id
-	 * @return Service
-	 */
-	public function get_service( $id ) {
-		if ( isset( $this->services[ $id ] ) ) {
-			return $this->services[ $id ];
-		}
-
-		return null;
-	}
-
-	/**
-	 * Retrieve the plugin services.
-	 *
-	 * @return array
-	 */
-	public function get_services() {
-		return $this->services;
 	}
 
 }

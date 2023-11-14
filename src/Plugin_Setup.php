@@ -1,6 +1,6 @@
 <?php
 
-namespace Barn2\Plugin\Document_Library\Admin;
+namespace Barn2\Plugin\Document_Library;
 
 use Barn2\Plugin\Document_Library\Admin\Wizard\Starter,
 	Barn2\Plugin\Document_Library\Dependencies\Lib\Plugin\Plugin,
