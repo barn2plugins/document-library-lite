@@ -5,7 +5,7 @@ Tags: wordpress, document library, file manager, download manager, documents, do
 Requires at least: 6.0
 Tested up to: 6.4
 Requires PHP: 7.4
-Stable tag: 1.0.5
+Stable tag: 1.0.6
 License: GPL-3.0
 License URI: https://www.gnu.org/licenses/gpl.html
 
@@ -203,10 +203,10 @@ Please report any security bugs through the [Patchstack Vulnerability Disclosure
 
 == Changelog ==
 
-= 1.0.5 =
-Release date 14 Aug 2023
+= 1.0.6 =
+Release date 14 November 2023
 
- * Update internal libraries
- * Tested up to WordPress 6.3
+* Tested up to WordPress 6.4
+* Updated internal libraries 
 
 See changelog.txt for more details.
