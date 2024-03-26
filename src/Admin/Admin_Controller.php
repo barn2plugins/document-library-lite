@@ -1,14 +1,12 @@
 <?php
 namespace Barn2\Plugin\Document_Library\Admin;
 
-use Barn2\Plugin\Document_Library\Admin\Wizard\Setup_Wizard,
-	Barn2\Plugin\Document_Library\Dependencies\Lib\Util,
-	Barn2\Plugin\Document_Library\Dependencies\Lib\Plugin\Plugin,
-	Barn2\Plugin\Document_Library\Dependencies\Lib\Service_Container,
-	Barn2\Plugin\Document_Library\Dependencies\Lib\Registerable,
-	Barn2\Plugin\Document_Library\Dependencies\Lib\Service,
-	Barn2\Plugin\Document_Library\Dependencies\Lib\Admin\Plugin_Promo,
-	Barn2\Plugin\Document_Library\Dependencies\Lib\Admin\Settings_API_Helper;
+use Barn2\Plugin\Document_Library\Dependencies\Lib\Plugin\Plugin;
+use Barn2\Plugin\Document_Library\Dependencies\Lib\Service_Container;
+use Barn2\Plugin\Document_Library\Dependencies\Lib\Registerable;
+use Barn2\Plugin\Document_Library\Dependencies\Lib\Service;
+use Barn2\Plugin\Document_Library\Dependencies\Lib\Admin\Plugin_Promo;
+use Barn2\Plugin\Document_Library\Dependencies\Lib\Admin\Settings_API_Helper;
 use Barn2\Plugin\Document_Library\Post_Type;
 
 /**
@@ -26,12 +24,20 @@ class Admin_Controller implements Registerable, Service {
 	private $plugin;
 	private $settings_page;
 
+	/**
+	 * Constructor.
+	 *
+	 * @param Plugin $plugin
+	 */
 	public function __construct( Plugin $plugin ) {
 		$this->plugin = $plugin;
 
 		$this->add_services();
 	}
 
+	/**
+	 * {@inheritdoc}
+	 */
 	public function register() {
 		$this->register_services();
 
@@ -53,6 +59,7 @@ class Admin_Controller implements Registerable, Service {
 		$this->add_service( 'settings', new Settings( $this->plugin ) );
 		$this->add_service( 'page/settings', new Page\Settings( $this->plugin ) );
 		$this->add_service( 'page/import', new Page\Import( $this->plugin ) );
+		$this->add_service( 'page/protect', new Page\Protect( $this->plugin ) );
 		$this->add_service( 'page_list', new Page_List() );
 		$this->add_service( 'metabox/document_link', new Metabox\Document_Link() );
 		$this->add_service( 'media_library', new Media_Library() );
@@ -105,19 +112,24 @@ class Admin_Controller implements Registerable, Service {
 
 		// Main Settings Page
 		if ( 'toplevel_page_document_library' === $hook ) {
-			wp_enqueue_style( 'dlw-admin-settings', plugins_url( "assets/css/admin/document-library-settings.css", $this->plugin->get_file() ), [], $this->plugin->get_version(), 'all' );
-			wp_enqueue_script( 'dlw-admin-settings', plugins_url( "assets/js/admin/document-library-settings.js", $this->plugin->get_file() ), [ 'jquery' ], $this->plugin->get_version(), true );
+			wp_enqueue_style( 'dlw-admin-settings', plugins_url( 'assets/css/admin/document-library-settings.css', $this->plugin->get_file() ), [], $this->plugin->get_version(), 'all' );
+			wp_enqueue_script( 'dlw-admin-settings', plugins_url( 'assets/js/admin/document-library-settings.js', $this->plugin->get_file() ), [ 'jquery' ], $this->plugin->get_version(), true );
 		}
 
 		// Import Page
-		if (  $this->str_ends_with( $hook, 'page_dlp_import' ) ) {
-			wp_enqueue_style( 'dlw-admin-import', plugins_url( "assets/css/admin/document-library-import.css", $this->plugin->get_file() ), [], $this->plugin->get_version(), 'all' );
+		if ( $this->str_ends_with( $hook, 'page_dlp_import' ) ) {
+			wp_enqueue_style( 'dlw-admin-import', plugins_url( 'assets/css/admin/document-library-import.css', $this->plugin->get_file() ), [], $this->plugin->get_version(), 'all' );
+		}
+
+		// Protect Page
+		if ( $this->str_ends_with( $hook, 'page_dlp_protect' ) ) {
+			wp_enqueue_style( 'dlw-admin-protect', plugins_url( 'assets/css/admin/document-library-protect.css', $this->plugin->get_file() ), [], $this->plugin->get_version(), 'all' );
 		}
 
 		// Add - Edit Document Page
 		if ( in_array( $hook, [ 'post.php', 'post-new.php' ], true ) && is_object( $screen ) && Post_Type::POST_TYPE_SLUG === $screen->post_type ) {
 			wp_enqueue_media();
-			wp_enqueue_script( 'dlw-admin-post', $this->plugin->get_dir_url() . "assets/js/admin/document-library-post.js", [ 'jquery' ], $this->plugin->get_version(), true );
+			wp_enqueue_script( 'dlw-admin-post', $this->plugin->get_dir_url() . 'assets/js/admin/document-library-post.js', [ 'jquery' ], $this->plugin->get_version(), true );
 			wp_localize_script(
 				'dlw-admin-post',
 				'dlwAdminObject',
@@ -130,7 +142,7 @@ class Admin_Controller implements Registerable, Service {
 				]
 			);
 
-			wp_enqueue_style( 'dlw-admin-post', $this->plugin->get_dir_url() . "assets/css/admin/document-library-post.css", [], $this->plugin->get_version(), 'all' );
+			wp_enqueue_style( 'dlw-admin-post', $this->plugin->get_dir_url() . 'assets/css/admin/document-library-post.css', [], $this->plugin->get_version(), 'all' );
 		}
 	}
 
