@@ -88,7 +88,7 @@ class Protect implements Service, Registerable, Conditional {
 				'</a>',
 				// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				Lib_Util::barn2_url( 'wordpress-plugins/password-protected-categories/?utm_source=settings&utm_medium=settings&utm_campaign=upsellpg&utm_content=dlp-ppc' ),
-				esc_url( $this->plugin->get_dir_url() . '/assets/images/promo-grid.png' )
+				esc_url( $this->plugin->get_dir_url() . '/assets/images/promo-protect.png' )
 			);
 			?>
 
