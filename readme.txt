@@ -1,7 +1,7 @@
 === Document Library Lite ===
 Contributors: barn2media
 Donate link: https://barn2.com
-Tags: wordpress, document library, file manager, download manager, documents, downloads, document management
+Tags: document library, file manager, download manager, document management, media library
 Requires at least: 6.0
 Tested up to: 6.4
 Requires PHP: 7.4
