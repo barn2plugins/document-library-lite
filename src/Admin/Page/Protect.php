@@ -41,7 +41,7 @@ class Protect implements Service, Registerable, Conditional {
 	 * {@inheritdoc}
 	 */
 	public function register() {
-		if ( Lib_Util::is_barn2_plugin_active( 'Barn2\Plugin\Password_Protected_Categories\ppc' ) ) {
+        if ( Lib_Util::is_plugin_installed( 'password-protected-categories/password-protected-categories.php' ) ) {
 			return;
 		}
 
