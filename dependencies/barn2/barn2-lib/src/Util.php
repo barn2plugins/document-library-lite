@@ -383,6 +383,20 @@ class Util
         return $barn2_installed;
     }
     /**
+     * Check if a plugin is installed on the WordPress site (whether active or not).
+     *
+     * @param string $plugin_file The plugin file relative to the plugins directory. e.g. my-plugin/my-plugin.php
+     * @return bool
+     */
+    public static function is_plugin_installed($plugin_file)
+    {
+        if (!\function_exists('get_plugins')) {
+            require_once \ABSPATH . 'wp-admin/includes/plugin.php';
+        }
+        $plugins = \get_plugins();
+        return isset($plugins[$plugin_file]);
+    }
+    /**
      * Sanitize anything.
      *
      * @param mixed $var the thing to sanitize.
@@ -391,15 +405,15 @@ class Util
     public static function clean($var)
     {
         if (\is_array($var)) {
-            return \array_map('self::clean', $var);
+            return \array_map([__CLASS__, 'clean'], $var);
         } else {
             return \is_scalar($var) ? \sanitize_text_field($var) : $var;
         }
     }
     /**
-     * Declare compatibility with the High-Performance Order Storage 
+     * Declare compatibility with the High-Performance Order Storage
      * feature in WooCommerce.
-     * 
+     *
      * @param string $plugin_entry_file The main plugin file.
      * @param bool $compatible Whether the plugin is compatible with HPOS.
      * @return void
