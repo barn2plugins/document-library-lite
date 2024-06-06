@@ -36,15 +36,15 @@ class Setup_Wizard implements Bootable, JsonSerializable
     /**
      * Holds the EDD_Licensing class.
      *
-     * @var object
+     * @var object|boolean
      */
-    private $edd_api;
+    private $edd_api = \false;
     /**
      * Holds the Plugin_License class.
      *
-     * @var object
+     * @var object|boolean
      */
-    private $plugin_license;
+    private $plugin_license = \false;
     /**
      * Specify the hook to use to which the restart button will be attached.
      *
@@ -130,7 +130,7 @@ class Setup_Wizard implements Bootable, JsonSerializable
      */
     public function configure($args = [])
     {
-        $defaults = ['plugin_name' => $this->plugin->get_name(), 'plugin_slug' => $this->plugin->get_slug(), 'plugin_product_id' => $this->plugin->get_id(), 'skip_url' => \admin_url(), 'license_tooltip' => '', 'utm_id' => '', 'premium_url' => '', 'completed' => $this->is_completed(), 'barn2_api' => 'https://barn2.com/wp-json/upsell/v1/settings', 'ready_links' => []];
+        $defaults = ['plugin_name' => $this->plugin->get_name(), 'plugin_slug' => $this->plugin->get_slug(), 'plugin_product_id' => $this->plugin->get_id(), 'skip_url' => \admin_url(), 'license_tooltip' => '', 'utm_id' => '', 'premium_url' => '', 'completed' => $this->is_completed(), 'barn2_api' => 'https://api.barn2.com/wp-json/upsell/v1/settings', 'ready_links' => [], 'is_free' => empty($this->get_licensing())];
         $args = \wp_parse_args($args, $defaults);
         $this->js_args = $args;
         return $this;
@@ -139,7 +139,6 @@ class Setup_Wizard implements Bootable, JsonSerializable
      * Assign a Plugin_License and an EDD_Licensing class to the setup wizard.
      *
      * @param string $plugin_license_class full class path to the barn2lib Plugin_License class.
-     * @param string $edd_licensing_class full class path to the barn2lib EDD_Licensing class.
      * @return Setup_Wizard
      */
     public function add_license_class(string $plugin_license_class)
@@ -273,7 +272,7 @@ class Setup_Wizard implements Bootable, JsonSerializable
     {
         $config = [];
         /** @var Step $step */
-        foreach ($this->steps as $step) {
+        foreach ($this->get_steps() as $step) {
             $config[] = ['key' => $step->get_id(), 'label' => $step->get_name(), 'description' => $step->get_description(), 'heading' => $step->get_title(), 'tooltip' => $step->get_tooltip(), 'hidden' => $step->is_hidden()];
         }
         return $config;
@@ -281,13 +280,13 @@ class Setup_Wizard implements Bootable, JsonSerializable
     /**
      * Get all initially hidden steps.
      *
-     * @return void
+     * @return array
      */
     private function get_initially_hidden_steps()
     {
         $steps = [];
         /** @var Step $step */
-        foreach ($this->steps as $step) {
+        foreach ($this->get_steps() as $step) {
             if ($step->is_hidden()) {
                 $steps[] = $step->get_id();
             }
@@ -301,7 +300,17 @@ class Setup_Wizard implements Bootable, JsonSerializable
      */
     public function get_steps()
     {
-        return $this->steps;
+        $steps = [];
+        foreach ($this->steps as $step) {
+            $steps[$step->get_id()] = $step;
+        }
+        /**
+         * Filter the steps of the wizard.
+         *
+         * @param array $steps list of steps.
+         * @return array
+         */
+        return \apply_filters("{$this->get_slug()}_wizard_steps", $steps);
     }
     /**
      * Boot the setup wizard.
@@ -316,6 +325,7 @@ class Setup_Wizard implements Bootable, JsonSerializable
         \add_filter('admin_body_class', [$this, 'admin_page_body_class']);
         \add_action('admin_enqueue_scripts', [$this, 'enqueue_assets'], 20);
         \add_action('admin_head', [$this, 'admin_head']);
+        $this->register_activation_redirect();
         $rest_api->register_api_routes();
         // Attach the restart button if specified.
         if (!empty($this->get_restart_hook())) {
@@ -400,7 +410,7 @@ class Setup_Wizard implements Bootable, JsonSerializable
      */
     public function get_wizard_url()
     {
-        return \add_query_arg(['page' => $this->get_slug()], \admin_url('admin.php'));
+        return \add_query_arg(['page' => $this->get_slug() . '-setup-wizard'], \admin_url('admin.php'));
     }
     /**
      * Returns the html for the restart link.
@@ -457,7 +467,7 @@ class Setup_Wizard implements Bootable, JsonSerializable
             $version = isset($custom_asset['dependencies']['version']) ? $custom_asset['dependencies']['version'] : $script_asset['version'];
             \wp_enqueue_script($slug . '-custom-asset', $custom_asset['url'], $deps, $version, \true);
         }
-        \wp_add_inline_script($slug, 'const barn2_setup_wizard = ' . \json_encode($this), 'before');
+        \wp_add_inline_script($slug, 'const barn2_setup_wizard = ' . \wp_json_encode($this), 'before');
     }
     /**
      * Attach the restart wizard button.
@@ -523,21 +533,48 @@ class Setup_Wizard implements Bootable, JsonSerializable
      */
     public function add_restart_link(string $wc_section_id, string $title_option_id)
     {
-        \add_filter("woocommerce_get_settings_{$wc_section_id}", function ($settings) use($title_option_id) {
-            $url = \add_query_arg(['page' => $this->get_slug()], \admin_url('admin.php'));
-            $title_setting = \wp_list_filter($settings, ['id' => $title_option_id]);
-            if ($title_setting && isset($title_setting[\key($title_setting)]['desc'])) {
-                $desc = $title_setting[\key($title_setting)]['desc'];
-                $p_closing_tag = \strrpos($desc, '</p>');
-                $new_desc = \substr_replace($desc, ' | <a class="barn2-wiz-restart-btn" href="' . \esc_url($url) . '">' . esc_html__('Setup wizard', 'barn2-setup-wizard') . '</a>', $p_closing_tag, 0);
-                $settings[\key($title_setting)]['desc'] = $new_desc;
+        \add_filter('barn2_plugin_settings_help_links', function ($links, $plugin) use($title_option_id) {
+            if ($plugin->get_slug() !== $this->plugin->get_slug()) {
+                return $links;
             }
-            return $settings;
-        });
+            $url = \add_query_arg(['page' => $this->get_slug()], \admin_url('admin.php'));
+            $links['setup_wizard'] = ['url' => \esc_url($url), 'label' => esc_html__('Setup wizard', 'barn2-setup-wizard'), 'class' => 'barn2-wiz-restart-btn'];
+            return $links;
+        }, 10, 2);
         \add_action('admin_footer', function () use($wc_section_id) {
             if ($this->is_wc_settings_screen($wc_section_id)) {
                 echo $this->load_wizard_restart_assets();
+                // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
             }
+        });
+    }
+    /**
+     * Get the list of installed plugins slugs.
+     *
+     * @return array
+     */
+    public function get_installed_plugins_slugs()
+    {
+        if (!\function_exists('get_plugins')) {
+            require_once \ABSPATH . 'wp-admin/includes/plugin.php';
+        }
+        $installed_plugins = \get_plugins();
+        $parsed = [];
+        foreach ($installed_plugins as $plugin => $data) {
+            $parsed[] = \explode('/', $plugin)[0];
+        }
+        return $parsed;
+    }
+    /**
+     * Register the activation redirect.
+     *
+     * @return void
+     */
+    public function register_activation_redirect()
+    {
+        $url = $this->get_wizard_url();
+        \add_filter('plugin_configuration_data_' . $this->plugin->get_slug(), static function () use($url) {
+            return ['url' => \esc_url($url)];
         });
     }
     /**
@@ -548,6 +585,6 @@ class Setup_Wizard implements Bootable, JsonSerializable
     #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
-        return \array_merge(['restNonce' => \wp_create_nonce('wp_rest'), 'apiURL' => \get_rest_url(null, \trailingslashit(Api::API_NAMESPACE . '/' . $this->plugin->get_slug())), 'steps' => $this->get_steps_configuration(), 'hiddenSteps' => $this->get_initially_hidden_steps()], $this->js_args);
+        return \array_merge(['restNonce' => \wp_create_nonce('wp_rest'), 'apiURL' => \get_rest_url(null, \trailingslashit(Api::API_NAMESPACE . '/' . $this->plugin->get_slug())), 'steps' => $this->get_steps_configuration(), 'hiddenSteps' => $this->get_initially_hidden_steps(), 'installedPlugins' => $this->get_installed_plugins_slugs()], $this->js_args);
     }
 }

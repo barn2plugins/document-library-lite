@@ -5,7 +5,7 @@ namespace Barn2\Plugin\Document_Library\Dependencies\Lib\Plugin\Admin;
 use Barn2\Plugin\Document_Library\Dependencies\Lib\Plugin\License\License_API;
 use Barn2\Plugin\Document_Library\Dependencies\Lib\Plugin\Licensed_Plugin;
 use Barn2\Plugin\Document_Library\Dependencies\Lib\Registerable;
-use Barn2\Plugin\Document_Library\Dependencies\Lib\Util;
+use Barn2\Plugin\Document_Library\Dependencies\Lib\Service\Core_Service;
 /**
  * Handles plugin update checks for our EDD plugins.
  *
@@ -14,7 +14,7 @@ use Barn2\Plugin\Document_Library\Dependencies\Lib\Util;
  * @license   GPL-3.0
  * @copyright Barn2 Media Ltd
  */
-class Plugin_Updater implements Registerable
+class Plugin_Updater implements Registerable, Core_Service
 {
     /**
      * @var Licensed_Plugin The plugin we're managing updates for.
@@ -35,7 +35,7 @@ class Plugin_Updater implements Registerable
     }
     public function register()
     {
-        if (\is_admin() || \defined('Barn2\\Plugin\\Document_Library\\Dependencies\\WP_CLI') && WP_CLI) {
+        if (\is_admin() || \defined('WP_CLI') && \WP_CLI) {
             if ($this->use_barn2_update_uri()) {
                 \add_filter('update_plugins_barn2.com', [$this, 'update_plugins_barn2_com'], 10, 3);
             } else {
@@ -119,8 +119,7 @@ class Plugin_Updater implements Registerable
         if (\version_compare(\get_bloginfo('version'), '5.8', '<')) {
             return \false;
         }
-        $plugin_data = Util::get_plugin_data($this->plugin);
-        return isset($plugin_data['UpdateURI']) && \false !== \strpos($plugin_data['UpdateURI'], 'barn2.com');
+        return \false !== \strpos($this->plugin->plugin_data()->get_update_uri(), 'barn2.com');
     }
     /**
      * Updates information on the "View version x.x details" page with custom data.
@@ -238,7 +237,7 @@ class Plugin_Updater implements Registerable
     private function get_cached_version_info()
     {
         $cache = \get_transient($this->get_cache_key());
-        return $cache ? $cache : \false;
+        return $cache ?: \false;
     }
     private function set_cached_version_info($version_info)
     {

@@ -56,7 +56,7 @@ class Util
     public static function clean($var)
     {
         if (\is_array($var)) {
-            return \array_map('self::clean', $var);
+            return \array_map([__CLASS__, 'clean'], $var);
         } else {
             return \is_scalar($var) ? \sanitize_text_field($var) : $var;
         }
@@ -142,7 +142,7 @@ class Util
     public static function license_is_access_pass($plugin, $license_key)
     {
         $is_access_pass = \false;
-        $rest_url = 'https://barn2.com/wp-json/upsell/v1/validate/';
+        $rest_url = 'https://api.barn2.com/wp-json/upsell/v1/validate/';
         $args = ['license' => $license_key];
         $request = \wp_remote_get(\add_query_arg($args, $rest_url));
         $response = \wp_remote_retrieve_body($request);

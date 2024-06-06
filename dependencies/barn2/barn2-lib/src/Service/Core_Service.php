@@ -1,9 +1,9 @@
 <?php
 
-namespace Barn2\Plugin\Document_Library\Dependencies\Lib;
+namespace Barn2\Plugin\Document_Library\Dependencies\Lib\Service;
 
 /**
- * Marker interface to denote a service.
+ * Marker interface to denote a core service.
  *
  * @package   Barn2\barn2-lib
  * @author    Barn2 Plugins <support@barn2.com>
@@ -11,6 +11,6 @@ namespace Barn2\Plugin\Document_Library\Dependencies\Lib;
  * @copyright Barn2 Media Ltd
  * @version   1.0
  */
-interface Service
+interface Core_Service extends Service
 {
 }
