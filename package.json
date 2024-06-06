@@ -34,7 +34,6 @@
     "devDependencies": {
         "@barn2media/webpack-config": "^2.0.0",
         "@wordpress/dependency-extraction-webpack-plugin": "^4.8.0",
-        "@wordpress/scripts": "^26.4.0",
-        "gulp": "^4.0.2"
+        "@wordpress/scripts": "^26.4.0"
     }
 }
