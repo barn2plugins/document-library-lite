@@ -2,20 +2,18 @@
 
 namespace Barn2\Plugin\Document_Library;
 
-use Barn2\Plugin\Document_Library\Dependencies\Lib\Registerable,
-	Barn2\Plugin\Document_Library\Dependencies\Lib\Service;
-
-defined( 'ABSPATH' ) || exit;
+use Barn2\Plugin\Document_Library\Dependencies\Lib\Registerable;
+use	Barn2\Plugin\Document_Library\Dependencies\Lib\Service\Standard_Service;
 
 /**
  * Register the Document Library associated taxonomies
  *
- * @package   Barn2/document-library-lite
+ * @package   Barn2\document-library-lite
  * @author    Barn2 Plugins <info@barn2.com>
  * @license   GPL-3.0
  * @copyright Barn2 Media Ltd
  */
-class Taxonomies implements Registerable, Service {
+class Taxonomies implements Registerable, Standard_Service {
 	const CATEGORY_SLUG          = 'doc_categories';
 	const DOCUMENT_DOWNLOAD_SLUG = 'document_download';
 

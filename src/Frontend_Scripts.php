@@ -4,7 +4,7 @@ namespace Barn2\Plugin\Document_Library;
 
 use Barn2\Plugin\Document_Library\Dependencies\Lib\Plugin\Plugin;
 use Barn2\Plugin\Document_Library\Dependencies\Lib\Registerable;
-use Barn2\Plugin\Document_Library\Dependencies\Lib\Service;
+use Barn2\Plugin\Document_Library\Dependencies\Lib\Service\Standard_Service;
 use Barn2\Plugin\Document_Library\Dependencies\Lib\Util;
 
 /**
@@ -15,7 +15,7 @@ use Barn2\Plugin\Document_Library\Dependencies\Lib\Util;
  * @license   GPL-3.0
  * @copyright Barn2 Media Ltd
  */
-class Frontend_Scripts implements Registerable, Service {
+class Frontend_Scripts implements Registerable, Standard_Service {
 
 	const DATATABLES_VERSION = '1.11.3';
 	const PHOTOSWIPE_VERSION = '4.1.3';

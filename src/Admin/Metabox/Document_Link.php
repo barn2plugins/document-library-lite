@@ -2,23 +2,21 @@
 
 namespace Barn2\Plugin\Document_Library\Admin\Metabox;
 
-use Barn2\Plugin\Document_Library\Dependencies\Lib\Conditional,
-	Barn2\Plugin\Document_Library\Dependencies\Lib\Registerable,
-	Barn2\Plugin\Document_Library\Dependencies\Lib\Service,
-	Barn2\Plugin\Document_Library\Dependencies\Lib\Util,
-	Barn2\Plugin\Document_Library\Post_Type,
-	Barn2\Plugin\Document_Library\Document;
-
-defined( 'ABSPATH' ) || exit;
+use Barn2\Plugin\Document_Library\Dependencies\Lib\Conditional;
+use Barn2\Plugin\Document_Library\Dependencies\Lib\Registerable;
+use	Barn2\Plugin\Document_Library\Dependencies\Lib\Service\Standard_Service;
+use	Barn2\Plugin\Document_Library\Dependencies\Lib\Util;
+use	Barn2\Plugin\Document_Library\Post_Type;
+use	Barn2\Plugin\Document_Library\Document;
 
 /**
  * Document Link - Edit Document Metabox
  *
- * @package   Barn2/document-library-lite
+ * @package   Barn2\document-library-lite
  * @author    Barn2 Plugins <info@barn2.com>
  * @license   GPL-3.0z
  */
-class Document_Link implements Registerable, Service, Conditional {
+class Document_Link implements Registerable, Standard_Service, Conditional {
 	const ID = 'document_link';
 
 	/**

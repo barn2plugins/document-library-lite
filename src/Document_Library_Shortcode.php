@@ -1,9 +1,9 @@
 <?php
 namespace Barn2\Plugin\Document_Library;
 
-use Barn2\Plugin\Document_Library\Util\Options,
-	Barn2\Plugin\Document_Library\Dependencies\Lib\Registerable,
-	Barn2\Plugin\Document_Library\Dependencies\Lib\Service;
+use Barn2\Plugin\Document_Library\Util\Options;
+use	Barn2\Plugin\Document_Library\Dependencies\Lib\Registerable;
+use	Barn2\Plugin\Document_Library\Dependencies\Lib\Service\Standard_Service;
 
 /**
  * This class handles the posts table shortcode registration.
@@ -13,7 +13,7 @@ use Barn2\Plugin\Document_Library\Util\Options,
  * @license   GPL-3.0
  * @copyright Barn2 Media Ltd
  */
-class Document_Library_Shortcode implements Registerable, Service {
+class Document_Library_Shortcode implements Registerable, Standard_Service {
 
 	const SHORTCODE = 'doc_library';
 

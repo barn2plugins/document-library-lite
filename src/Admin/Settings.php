@@ -2,21 +2,21 @@
 
 namespace Barn2\Plugin\Document_Library\Admin;
 
-use Barn2\Plugin\Document_Library\Dependencies\Lib\Registerable,
-	Barn2\Plugin\Document_Library\Dependencies\Lib\Service,
-	Barn2\Plugin\Document_Library\Util\Options;
+use Barn2\Plugin\Document_Library\Dependencies\Lib\Registerable;
+use	Barn2\Plugin\Document_Library\Dependencies\Lib\Service\Standard_Service;
+use	Barn2\Plugin\Document_Library\Util\Options;
 
 defined( 'ABSPATH' ) || exit;
 
 /**
  * Settings Registry
  *
- * @package   Barn2/document-library-lite
+ * @package   Barn2\document-library-lite
  * @author    Barn2 Plugins <info@barn2.com>
  * @license   GPL-3.0
  * @copyright Barn2 Media Ltd
  */
-class Settings implements Registerable, Service {
+class Settings implements Registerable, Standard_Service {
 
 	/**
 	 * Constructor.

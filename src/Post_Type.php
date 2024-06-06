@@ -3,19 +3,17 @@
 namespace Barn2\Plugin\Document_Library;
 
 use Barn2\Plugin\Document_Library\Dependencies\Lib\Registerable,
-	Barn2\Plugin\Document_Library\Dependencies\Lib\Service;
-
-defined( 'ABSPATH' ) || exit;
+	Barn2\Plugin\Document_Library\Dependencies\Lib\Service\Standard_Service;
 
 /**
  * Register the Document Library post type
  *
- * @package   Barn2/document-library-lite
+ * @package   Barn2\document-library-lite
  * @author    Barn2 Plugins <info@barn2.com>
  * @license   GPL-3.0
  * @copyright Barn2 Media Ltd
  */
-class Post_Type implements Registerable, Service {
+class Post_Type implements Registerable, Standard_Service {
 	const POST_TYPE_SLUG = 'dlp_document';
 
 	/**

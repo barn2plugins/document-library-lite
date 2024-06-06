@@ -2,17 +2,15 @@
 
 namespace Barn2\Plugin\Document_Library\Admin\Settings_Tab;
 
-use Barn2\Plugin\Document_Library\Dependencies\Lib\Registerable,
-	Barn2\Plugin\Document_Library\Dependencies\Lib\Admin\Settings_API_Helper,
-	Barn2\Plugin\Document_Library\Dependencies\Lib\Util as Lib_Util,
-	Barn2\Plugin\Document_Library\Util\Options;
-
-defined( 'ABSPATH' ) || exit;
+use Barn2\Plugin\Document_Library\Dependencies\Lib\Registerable;
+use	Barn2\Plugin\Document_Library\Dependencies\Lib\Admin\Settings_API_Helper;
+use	Barn2\Plugin\Document_Library\Dependencies\Lib\Util as Lib_Util;
+use	Barn2\Plugin\Document_Library\Util\Options;
 
 /**
  * General Setting Tab
  *
- * @package   Barn2/document-library-lite
+ * @package   Barn2\document-library-lite
  * @author    Barn2 Plugins <info@barn2.com>
  * @license   GPL-3.0
  * @copyright Barn2 Media Ltd

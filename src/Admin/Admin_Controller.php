@@ -1,14 +1,14 @@
 <?php
 namespace Barn2\Plugin\Document_Library\Admin;
 
-use Barn2\Plugin\Document_Library\Admin\Wizard\Setup_Wizard,
-	Barn2\Plugin\Document_Library\Dependencies\Lib\Util,
-	Barn2\Plugin\Document_Library\Dependencies\Lib\Plugin\Plugin,
-	Barn2\Plugin\Document_Library\Dependencies\Lib\Service_Container,
-	Barn2\Plugin\Document_Library\Dependencies\Lib\Registerable,
-	Barn2\Plugin\Document_Library\Dependencies\Lib\Service,
-	Barn2\Plugin\Document_Library\Dependencies\Lib\Admin\Plugin_Promo,
-	Barn2\Plugin\Document_Library\Dependencies\Lib\Admin\Settings_API_Helper;
+use Barn2\Plugin\Document_Library\Admin\Wizard\Setup_Wizard;
+use	Barn2\Plugin\Document_Library\Dependencies\Lib\Util;
+use	Barn2\Plugin\Document_Library\Dependencies\Lib\Plugin\Plugin;
+use	Barn2\Plugin\Document_Library\Dependencies\Lib\Service\Service_Container;
+use	Barn2\Plugin\Document_Library\Dependencies\Lib\Registerable;
+use	Barn2\Plugin\Document_Library\Dependencies\Lib\Service\Standard_Service;
+use	Barn2\Plugin\Document_Library\Dependencies\Lib\Admin\Plugin_Promo;
+use	Barn2\Plugin\Document_Library\Dependencies\Lib\Admin\Settings_API_Helper;
 use Barn2\Plugin\Document_Library\Post_Type;
 
 /**
@@ -19,7 +19,7 @@ use Barn2\Plugin\Document_Library\Post_Type;
  * @license   GPL-3.0
  * @copyright Barn2 Media Ltd
  */
-class Admin_Controller implements Registerable, Service {
+class Admin_Controller implements Registerable, Standard_Service {
 
 	use Service_Container;
 
@@ -28,13 +28,11 @@ class Admin_Controller implements Registerable, Service {
 
 	public function __construct( Plugin $plugin ) {
 		$this->plugin = $plugin;
-
-		$this->add_services();
 	}
 
 	public function register() {
 		$this->register_services();
-
+		$this->start_all_services();
 		// Extra links on Plugins page
 		add_filter( 'plugin_action_links_' . $this->plugin->get_basename(), [ $this, 'add_settings_link' ] );
 		add_filter( 'plugin_row_meta', [ $this, 'add_pro_version_link' ], 10, 2 );
@@ -49,7 +47,6 @@ class Admin_Controller implements Registerable, Service {
 	public function add_services() {
 		$this->add_service( 'menu', new Menu( $this->plugin ) );
 		$this->add_service( 'plugin_promo', new Plugin_Promo( $this->plugin ) );
-		$this->add_service( 'settings_api', new Settings_API_Helper( $this->plugin ) );
 		$this->add_service( 'settings', new Settings( $this->plugin ) );
 		$this->add_service( 'page/settings', new Page\Settings( $this->plugin ) );
 		$this->add_service( 'page/import', new Page\Import( $this->plugin ) );

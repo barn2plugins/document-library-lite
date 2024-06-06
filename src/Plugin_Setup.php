@@ -2,21 +2,22 @@
 
 namespace Barn2\Plugin\Document_Library;
 
-use Barn2\Plugin\Document_Library\Admin\Wizard\Starter,
-	Barn2\Plugin\Document_Library\Dependencies\Lib\Plugin\Plugin,
-	Barn2\Plugin\Document_Library\Dependencies\Lib\Plugin\Plugin_Activation_Listener,
-	Barn2\Plugin\Document_Library\Dependencies\Lib\Util as Lib_Util,
-	Barn2\Plugin\Document_Library\Dependencies\Lib\Registerable;
+use Barn2\Plugin\Document_Library\Admin\Wizard\Starter;
+use	Barn2\Plugin\Document_Library\Dependencies\Lib\Plugin\Plugin;
+use	Barn2\Plugin\Document_Library\Dependencies\Lib\Plugin\Plugin_Activation_Listener;
+use	Barn2\Plugin\Document_Library\Dependencies\Lib\Util as Lib_Util;
+use	Barn2\Plugin\Document_Library\Dependencies\Lib\Registerable;
+use Barn2\Plugin\Document_Library\Dependencies\Lib\Service\Standard_Service;
 
 /**
  * Plugin Setup
  *
- * @package   Barn2/document-library-lite
+ * @package   Barn2\document-library-lite
  * @author    Barn2 Plugins <info@barn2.com>
  * @license   GPL-3.0
  * @copyright Barn2 Media Ltd
  */
-class Plugin_Setup implements Registerable {
+class Plugin_Setup implements Plugin_Activation_Listener, Standard_Service {
 	/**
 	 * Plugin's entry file
 	 *
@@ -48,14 +49,6 @@ class Plugin_Setup implements Registerable {
 		$this->file    = $file;
 		$this->plugin  = $plugin;
 		$this->starter = new Starter( $this->plugin );
-	}
-
-	/**
-	 * Register the service.
-	 */
-	public function register() {
-		register_activation_hook( $this->file, [ $this, 'on_activate' ] );
-		add_action( 'admin_init', [ $this, 'after_plugin_activation' ] );
 	}
 
 	/**

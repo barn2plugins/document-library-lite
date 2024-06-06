@@ -2,21 +2,19 @@
 
 namespace Barn2\Plugin\Document_Library\Admin;
 
-use Barn2\Plugin\Document_Library\Dependencies\Lib\Registerable,
-	Barn2\Plugin\Document_Library\Dependencies\Lib\Service,
-	Barn2\Plugin\Document_Library\Taxonomies;
-
-defined( 'ABSPATH' ) || exit;
+use Barn2\Plugin\Document_Library\Dependencies\Lib\Registerable;
+use	Barn2\Plugin\Document_Library\Dependencies\Lib\Service\Standard_Service;
+use	Barn2\Plugin\Document_Library\Taxonomies;
 
 /**
  * Handles the Media Library features
  *
- * @package   Barn2/document-library-lite
+ * @package   Barn2\document-library-lite
  * @author    Barn2 Plugins <info@barn2.com>
  * @license   GPL-3.0
  * @copyright Barn2 Media Ltd
  */
-class Media_Library implements Registerable, Service {
+class Media_Library implements Registerable, Standard_Service {
 
 	/**
 	 * {@inheritdoc}

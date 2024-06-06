@@ -3,12 +3,10 @@ namespace Barn2\Plugin\Document_Library\Util;
 
 use Barn2\Plugin\Document_Library\Dependencies\Lib\Util as Lib_Util;
 
-defined( 'ABSPATH' ) || exit;
-
 /**
  * Settings Options Utilities
  *
- * @package   Barn2/document-library-pro
+ * @package   Barn2\document-library-lite
  * @author    Barn2 Plugins <info@barn2.com>
  * @license   GPL-3.0
  * @copyright Barn2 Media Ltd

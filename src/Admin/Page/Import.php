@@ -1,23 +1,21 @@
 <?php
 namespace Barn2\Plugin\Document_Library\Admin\Page;
 
-use Barn2\Plugin\Document_Library\Dependencies\Lib\Registerable,
-	Barn2\Plugin\Document_Library\Dependencies\Lib\Service,
-	Barn2\Plugin\Document_Library\Dependencies\Lib\Conditional,
-	Barn2\Plugin\Document_Library\Dependencies\Lib\Plugin\Plugin,
-	Barn2\Plugin\Document_Library\Dependencies\Lib\Util as Lib_Util;
-
-defined( 'ABSPATH' ) || exit;
+use Barn2\Plugin\Document_Library\Dependencies\Lib\Registerable;
+use	Barn2\Plugin\Document_Library\Dependencies\Lib\Service\Standard_Service;
+use	Barn2\Plugin\Document_Library\Dependencies\Lib\Conditional;
+use	Barn2\Plugin\Document_Library\Dependencies\Lib\Plugin\Plugin;
+use	Barn2\Plugin\Document_Library\Dependencies\Lib\Util as Lib_Util;
 
 /**
  * This class handles our plugin import page in the admin.
  *
- * @package   Barn2/document-library-lite
+ * @package   Barn2\document-library-lite
  * @author    Barn2 Plugins <info@barn2.com>
  * @license   GPL-3.0
  * @copyright Barn2 Media Ltd
  */
-class Import implements Service, Registerable, Conditional {
+class Import implements Standard_Service, Registerable, Conditional {
 
 	private $plugin;
 

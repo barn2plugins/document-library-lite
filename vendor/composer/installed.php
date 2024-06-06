@@ -6,7 +6,7 @@
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
         'reference' => 'a5453c3864bfc26b67ab8f8810db96a70af6f6e8',
-        'name' => 'barn2/document-library-lite',
+        'name' => 'Barn2\document-library-lite',
         'dev' => true,
     ),
     'versions' => array(
@@ -28,7 +28,7 @@
             'reference' => '73773bb56ff14eed04e51a98475af2fb3cceaa48',
             'dev_requirement' => true,
         ),
-        'barn2/document-library-lite' => array(
+        'Barn2\document-library-lite' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
             'type' => 'wordpress-plugin',
