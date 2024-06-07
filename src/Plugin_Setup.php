@@ -125,6 +125,7 @@ class Plugin_Setup implements Plugin_Activation_Listener, Standard_Service {
 		}
 
 		$this->starter->delete_transient();
+		$this->starter->create_option();
 		$this->starter->redirect();
 	}
 }

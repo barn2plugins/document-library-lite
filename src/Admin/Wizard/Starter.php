@@ -24,4 +24,12 @@ class Starter extends Setup_Wizard_Starter {
 		return ! $setup_happened;
 	}
 
+	/** 
+	 * Add an option so the setup wizard doesn't run after reactivating 
+	 * 
+	 * @return void
+	 */ 
+	public function create_option() {
+		add_option( "document-library-lite-setup-wizard_completed", true );
+	}
 }
