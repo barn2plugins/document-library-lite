@@ -20,6 +20,10 @@ class Single_Document implements Registerable {
 	const OPTION_GROUP = 'document_library_pro_single_document';
 	const MENU_SLUG    = 'dlp-settings-single-document';
 
+	private $plugin;
+	private $id;
+	private $title;
+
 	/**
 	 * Constructor.
 	 *

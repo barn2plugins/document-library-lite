@@ -17,6 +17,11 @@ class Post_Type implements Registerable, Standard_Service {
 	const POST_TYPE_SLUG = 'dlp_document';
 
 	/**
+	 * @var array $default_fields
+	 */
+	protected $default_fields;
+
+	/**
 	 * Constructor.
 	 */
 	public function __construct() {

@@ -20,6 +20,11 @@ class Document_Table implements Registerable {
 	const OPTION_GROUP = 'document_library_pro_table';
 	const MENU_SLUG    = 'dlp-settings-libraries';
 
+	private $plugin;
+	private $id;
+	private $title;
+	private $default_settings;
+
 	/**
 	 * Constructor.
 	 *

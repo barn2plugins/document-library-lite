@@ -21,6 +21,11 @@ class General implements Registerable {
 	const OPTION_GROUP = 'document_library_pro_general';
 	const MENU_SLUG    = 'dlp-settings-general';
 
+	private $plugin;
+	private $id;
+	private $title;
+	private $default_settings;
+
 	/**
 	 * Constructor.
 	 *

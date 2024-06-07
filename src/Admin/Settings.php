@@ -18,6 +18,8 @@ defined( 'ABSPATH' ) || exit;
  */
 class Settings implements Registerable, Standard_Service {
 
+	private $plugin;
+	
 	/**
 	 * Constructor.
 	 *

@@ -19,6 +19,11 @@ class Document_Grid implements Registerable {
 	const OPTION_GROUP = 'document_library_pro_grid';
 	const MENU_SLUG    = 'dlp-settings-grid';
 
+	private $plugin;
+	private $id;
+	private $title;
+	private $default_settings;
+
 	/**
 	 * Constructor.
 	 *
