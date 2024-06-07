@@ -5,6 +5,7 @@ namespace Barn2\Plugin\Document_Library\Admin\Settings_Tab;
 use Barn2\Plugin\Document_Library\Dependencies\Lib\Registerable;
 use	Barn2\Plugin\Document_Library\Dependencies\Lib\Admin\Settings_API_Helper;
 use	Barn2\Plugin\Document_Library\Dependencies\Lib\Util as Lib_Util;
+use Barn2\Plugin\Document_Library\Dependencies\Lib\Admin\Settings_Util;
 use	Barn2\Plugin\Document_Library\Util\Options;
 
 /**
@@ -37,6 +38,7 @@ class General implements Registerable {
 	 */
 	public function register() {
 		add_action( 'admin_init', [ $this, 'register_settings' ] );
+		add_filter( 'barn2_plugin_settings_help_links', [ $this, 'change_support_url' ] );
 	}
 
 	/**
@@ -103,17 +105,9 @@ class General implements Registerable {
 	 */
 	public function support_links() {
 		printf(
-			'<p>%s | %s | %s</p>',
-			// phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped
-			// Note: Partially escaped in Lib_Util::format_link
-			Lib_Util::format_link( $this->plugin->get_documentation_url(), esc_html__( 'Documentation', 'document-library-lite' ), true ),
-			Lib_Util::format_link( 'https://barn2.com/wordpress-plugins/document-library-free-support-request/', esc_html__( 'Support', 'document-library-lite' ), true ),
-			sprintf(
-				'<a class="barn2-wiz-restart-btn" href="%s">%s</a>',
-				esc_url( add_query_arg( [ 'page' => $this->plugin->get_slug() . '-setup-wizard' ], admin_url( 'admin.php' ) ) ),
-				esc_html__( 'Setup wizard', 'document-library-lite' )
-			)
-			// phpcs:enable
+			'<p>%s</p><p>%s</p>',
+			Settings_Util::get_help_links( $this->plugin ), // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			''
 		);
 	}
 
@@ -525,5 +519,13 @@ class General implements Registerable {
 		}
 
 		return $options;
+	}
+
+	/**
+	 * Change the default support link to the WordPress repository
+	 */
+	public function change_support_url( $links ) {
+		$links[ 'support' ][ 'url' ] = 'https://wordpress.org/support/plugin/document-library-lite/';
+		return $links;
 	}
 }

@@ -49,6 +49,8 @@ class Setup_Wizard implements Registerable, Standard_Service {
 				'utm_id'      => 'dlw',
 			]
 		);
+		
+		$wizard->add_restart_link( '', '' );
 
 		$this->wizard = $wizard;
 	}
