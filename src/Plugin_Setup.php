@@ -17,7 +17,7 @@ use Barn2\Plugin\Document_Library\Dependencies\Lib\Service\Standard_Service;
  * @license   GPL-3.0
  * @copyright Barn2 Media Ltd
  */
-class Plugin_Setup implements Plugin_Activation_Listener, Standard_Service {
+class Plugin_Setup implements Plugin_Activation_Listener, Registerable, Standard_Service {
 	/**
 	 * Plugin's entry file
 	 *
@@ -49,6 +49,14 @@ class Plugin_Setup implements Plugin_Activation_Listener, Standard_Service {
 		$this->file    = $file;
 		$this->plugin  = $plugin;
 		$this->starter = new Starter( $this->plugin );
+	}
+
+	/**
+	 * Register the service.
+	 */
+	public function register() {
+		register_activation_hook( $this->file, [ $this, 'on_activate' ] );
+		add_action( 'admin_init', [ $this, 'after_plugin_activation' ] );
 	}
 
 	/**

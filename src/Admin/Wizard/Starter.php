@@ -30,6 +30,6 @@ class Starter extends Setup_Wizard_Starter {
 	 * @return void
 	 */ 
 	public function create_option() {
-		add_option( "document-library-lite-setup-wizard_completed", true );
+		update_option( "document-library-lite-setup-wizard_completed", true );
 	}
 }
