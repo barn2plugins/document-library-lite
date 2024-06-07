@@ -3,9 +3,9 @@ Contributors: barn2media
 Donate link: https://barn2.com
 Tags: document library, file manager, download manager, document management, media library
 Requires at least: 6.1
-Tested up to: 6.5
+Tested up to: 6.5.4
 Requires PHP: 7.4
-Stable tag: 1.0.6
+Stable tag: 1.0.7
 License: GPL-3.0
 License URI: https://www.gnu.org/licenses/gpl.html
 
@@ -203,10 +203,14 @@ Please report any security bugs through the [Patchstack Vulnerability Disclosure
 
 == Changelog ==
 
-= 1.0.6 =
-Release date 14 November 2023
+= 1.0.7 =
+Release date 10 June 2024
 
-* Tested up to WordPress 6.4
-* Updated internal libraries 
+* Dev: Tested up to WordPress 6.5
+* Dev: Updated internal libraries
+* Dev: Updated the classes to use barn2-lib 2.0
+* Dev: Tested up to PHP 8.2
+* Fix: Setup wizard runs after every activation
+
 
 See changelog.txt for more details.

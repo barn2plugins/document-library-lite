@@ -23,16 +23,16 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/Barn2Media/document-library-lite.git"
+        "url": "git+https://github.com/Barn2Plugins/document-library-lite.git"
     },
     "author": "Barn2 Plugins <support@barn2.com>",
     "license": "GPL-3.0",
     "bugs": {
-        "url": "https://github.com/Barn2Media/document-library-lite/issues"
+        "url": "https://github.com/Barn2Plugins/document-library-lite/issues"
     },
-    "homepage": "https://github.com/Barn2Media/document-library-lite#readme",
+    "homepage": "https://github.com/Barn2Plugins/document-library-lite#readme",
     "devDependencies": {
-        "@barn2media/webpack-config": "^2.0.0",
+        "@barn2plugins/webpack-config": "^2.0.0",
         "@wordpress/dependency-extraction-webpack-plugin": "^4.8.0",
         "@wordpress/scripts": "^26.4.0"
     }

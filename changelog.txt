@@ -1,3 +1,18 @@
+= 1.0.7 =
+Release date 10 June 2024
+
+ * Dev: Tested up to WordPress 6.5
+ * Dev: Updated internal libraries
+ * Dev: Updated the classes to use barn2-lib 2.0
+ * Dev: Tested up to PHP 8.2
+ * Fix: Setup wizard runs after every activation
+
+= 1.0.6 =
+Release date 14 November 2023
+
+ * Tested up to WordPress 6.4
+ * Updated internal libraries
+
 = 1.0.5 =
 Release date 14 Aug 2023
 

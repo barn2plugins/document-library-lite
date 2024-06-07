@@ -16,6 +16,10 @@
  * Author URI:      https://barn2.com
  * Text Domain:     document-library-lite
  * Domain Path:     /languages
+ * 
+ * Requires at least:     6.1
+ * Requires PHP:          7.4
+ * Tested up to:      		6.5.4
  *
  * Copyright:       Barn2 Media Ltd
  * License:         GNU General Public License v3.0
@@ -29,7 +33,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-const PLUGIN_VERSION = '1.0.6';
+const PLUGIN_VERSION = '1.0.7';
 const PLUGIN_FILE    = __FILE__;
 
 // Autoloader.
