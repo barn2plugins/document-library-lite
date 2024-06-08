@@ -43,7 +43,7 @@ class General implements Registerable {
 	 */
 	public function register() {
 		add_action( 'admin_init', [ $this, 'register_settings' ] );
-		add_filter( 'barn2_plugin_settings_help_links', [ $this, 'change_support_url' ] );
+		add_filter( 'barn2_plugin_settings_help_links', [ $this, 'change_support_url' ], 10, 2 );
 	}
 
 	/**
@@ -529,8 +529,10 @@ class General implements Registerable {
 	/**
 	 * Change the default support link to the WordPress repository
 	 */
-	public function change_support_url( $links ) {
-		$links[ 'support' ][ 'url' ] = 'https://wordpress.org/support/plugin/document-library-lite/';
+	public function change_support_url( $links, $plugin ) {
+		if( $plugin->get_id() === $this->plugin->get_id() ) {
+			$links[ 'support' ][ 'url' ] = 'https://wordpress.org/support/plugin/document-library-lite/';
+		}
 		return $links;
 	}
 }
