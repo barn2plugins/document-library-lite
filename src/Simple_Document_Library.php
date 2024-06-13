@@ -50,37 +50,44 @@ class Simple_Document_Library {
 				'id'             => [
 					'heading'  => __( 'ID', 'document-library-lite' ),
 					'priority' => 3,
-					'width'    => ''
+					'width'    => '',
+					'orderable'=> "true"
 				],
 				'image'          => [
 					'heading'  => __( 'Image', 'document-library-lite' ),
 					'priority' => 6,
-					'width'    => ''
+					'width'    => '',
+					'orderable'=> "false"
 				],
 				'title'          => [
 					'heading'  => __( 'Title', 'document-library-lite' ),
 					'priority' => 1,
-					'width'    => ''
+					'width'    => '',
+					'orderable'=> "true"
 				],
 				'doc_categories' => [
 					'heading'  => __( 'Categories', 'document-library-lite' ),
 					'priority' => 7,
-					'width'    => ''
+					'width'    => '',
+					'orderable'=> "true"
 				],
 				'date'           => [
 					'heading'  => __( 'Date', 'document-library-lite' ),
 					'priority' => 2,
-					'width'    => ''
+					'width'    => '',
+					'orderable'=> "true"
 				],
 				'content'        => [
 					'heading'  => __( 'Description', 'document-library-lite' ),
 					'priority' => 5,
-					'width'    => ''
+					'width'    => '',
+					'orderable'=> "true"
 				],
 				'link'           => [
 					'heading'  => __( 'Link', 'document-library-lite' ),
 					'priority' => 4,
-					'width'    => ''
+					'width'    => '',
+					'orderable'=> "false"
 				]
 			];
 		}
@@ -198,7 +205,7 @@ class Simple_Document_Library {
 		$column_defaults = apply_filters( 'document_library_table_column_defaults_' . self::$table_count, apply_filters( 'document_library_table_column_defaults', self::get_column_defaults() ) );
 
 		// Build table header
-		$heading_fmt = '<th data-name="%1$s" data-priority="%2$u" data-width="%3$s"%5$s>%4$s</th>';
+		$heading_fmt = '<th data-name="%1$s" data-priority="%2$u" data-width="%3$s"%5$s data-orderable="%6$s">%4$s</th>';
 		$cell_fmt    = '<td>{%s}</td>';
 
 		foreach ( $columns as $column ) {
@@ -211,7 +218,7 @@ class Simple_Document_Library {
 			$order_data = '';
 
 			// Add heading to table
-			$table_head .= sprintf( $heading_fmt, $column, $column_defaults[ $column ]['priority'], $column_defaults[ $column ]['width'], $column_defaults[ $column ]['heading'], $order_data );
+			$table_head .= sprintf( $heading_fmt, $column, $column_defaults[ $column ]['priority'], $column_defaults[ $column ]['width'], $column_defaults[ $column ]['heading'], $order_data, $column_defaults[ $column ]['orderable'] );
 
 			// Add placeholder to table body format string so that content for this column is included in table output
 			$body_row_fmt .= sprintf( $cell_fmt, $column );
