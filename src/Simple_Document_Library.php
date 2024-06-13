@@ -181,9 +181,11 @@ class Simple_Document_Library {
 			'posts_per_page'   => apply_filters( 'document_library_table_post_limit', 1000 ),
 			'post_status'      => 'publish',
 			'order'            => strtoupper( $args['sort_order'] ),
-			'orderby'          => $args['sort_by'],
+			'orderby'          => $this->get_orderby(),
 			'suppress_filters' => false // Ensure WPML filters run on this query
 		];
+
+		print_r( $post_args );
 
 		// Add our doc_category if we have one.
 		if ( isset( $args['doc_category'] ) && strlen( $args['doc_category'] ) > 0 ) {
@@ -403,6 +405,14 @@ class Simple_Document_Library {
 		}
 
 		return $text;
+	}
+
+	public function get_orderby() {
+		if( ! isset($args[ 'sort_by' ]) || strlen( $args[ 'sort_by' ] ) < 1 ) {
+			return Options::get_defaults()['sort_by'];
+		} else {
+			return $args[ 'sort_by' ];
+		}
 	}
 
 }
