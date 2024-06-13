@@ -62,12 +62,12 @@
         },
         {
             "name": "barn2/barn2-lib",
-            "version": "2.0.2",
-            "version_normalized": "2.0.2.0",
+            "version": "2.0.3",
+            "version_normalized": "2.0.3.0",
             "source": {
                 "type": "git",
                 "url": "git@bitbucket.org:barn2plugins/barn2-lib.git",
-                "reference": "73773bb56ff14eed04e51a98475af2fb3cceaa48"
+                "reference": "4d6e6fe530eb3c17bb7af8e5fc305e6f0a1dad9f"
             },
             "require": {
                 "wptrt/admin-notices": "^1.0"
@@ -75,7 +75,7 @@
             "require-dev": {
                 "barn2/php-standards": "dev-master"
             },
-            "time": "2024-05-15T15:33:09+00:00",
+            "time": "2024-06-07T09:27:48+00:00",
             "type": "library",
             "installation-source": "source",
             "autoload": {
@@ -145,12 +145,12 @@
         },
         {
             "name": "barn2/setup-wizard",
-            "version": "1.2.20",
-            "version_normalized": "1.2.20.0",
+            "version": "1.2.22",
+            "version_normalized": "1.2.22.0",
             "source": {
                 "type": "git",
                 "url": "git@bitbucket.org:barn2plugins/setup-wizard.git",
-                "reference": "2500121e5478870283d3fad3599f36eee791ee07"
+                "reference": "35928ffcef1d3fb24fe6ffd5dc0c496798b5bf2d"
             },
             "require-dev": {
                 "barn2/php-standards": "dev-master",
@@ -159,7 +159,7 @@
                 "phpunit/phpunit": "^9.0.1",
                 "symfony/var-dumper": "^5.1"
             },
-            "time": "2024-05-31T10:58:34+00:00",
+            "time": "2024-06-10T13:33:27+00:00",
             "type": "library",
             "installation-source": "source",
             "autoload": {

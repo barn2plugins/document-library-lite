@@ -410,7 +410,7 @@ class Setup_Wizard implements Bootable, JsonSerializable
      */
     public function get_wizard_url()
     {
-        return \add_query_arg(['page' => $this->get_slug() . '-setup-wizard'], \admin_url('admin.php'));
+        return \add_query_arg(['page' => $this->get_slug()], \admin_url('admin.php'));
     }
     /**
      * Returns the html for the restart link.

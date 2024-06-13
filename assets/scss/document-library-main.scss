@@ -71,7 +71,8 @@ table.document-library-table .document-library-button {
     justify-content: center;
     word-break: keep-all;
     font-size: inherit;
-    height: 2em;
+    min-height: 2em;
+    height: fit-content;
     line-height: 1.9em;
     padding: 0px 18px !important;
 }

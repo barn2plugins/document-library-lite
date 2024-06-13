@@ -61,7 +61,7 @@ class Document_Link implements Registerable, Standard_Service, Conditional {
 		$file_details_class  = $document->get_link_type() === 'file' ? 'active' : '';
 		?>
 
-		<label for="<?php esc_attr( self::ID ); ?>" class="howto"><?php esc_html_e( 'Upload a file or select one from the meid library:', 'document-library-lite' ); ?></label>
+		<label for="<?php esc_attr( self::ID ); ?>" class="howto"><?php esc_html_e( 'Upload a file or select one from the media library:', 'document-library-lite' ); ?></label>
 
 		<!-- option selector -->
 		<select name="_dlp_document_link_type" id="dlw_document_link_type" class="postbox">

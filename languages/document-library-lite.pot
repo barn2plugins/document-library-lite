@@ -172,7 +172,7 @@ msgid "Document Link"
 msgstr ""
 
 #: src/Admin/Metabox/Document_Link.php:66
-msgid "Upload a file or select one from the meid library:"
+msgid "Upload a file or select one from the media library:"
 msgstr ""
 
 #: src/Admin/Metabox/Document_Link.php:70

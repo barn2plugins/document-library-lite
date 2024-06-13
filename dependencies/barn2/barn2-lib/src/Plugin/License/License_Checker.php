@@ -26,6 +26,13 @@ class License_Checker extends Scheduled_Task implements Schedulable, Core_Servic
         parent::__construct($plugin_file);
         $this->license = $license;
     }
+    public function schedule()
+    {
+        if (\apply_filters('barn2_plugin_disable_license_key_check', \false, $this->license)) {
+            return;
+        }
+        parent::schedule();
+    }
     public function run()
     {
         if ($this->license->is_active()) {

@@ -5,8 +5,8 @@
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'a5453c3864bfc26b67ab8f8810db96a70af6f6e8',
-        'name' => 'Barn2\document-library-lite',
+        'reference' => 'daab27756f12be63e66bcf866c2d98108f3a75d3',
+        'name' => 'barn2/document-library-lite',
         'dev' => true,
     ),
     'versions' => array(
@@ -20,21 +20,21 @@
             'dev_requirement' => true,
         ),
         'barn2/barn2-lib' => array(
-            'pretty_version' => '2.0.2',
-            'version' => '2.0.2.0',
+            'pretty_version' => '2.0.3',
+            'version' => '2.0.3.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../barn2/barn2-lib',
             'aliases' => array(),
-            'reference' => '73773bb56ff14eed04e51a98475af2fb3cceaa48',
+            'reference' => '4d6e6fe530eb3c17bb7af8e5fc305e6f0a1dad9f',
             'dev_requirement' => true,
         ),
-        'Barn2\document-library-lite' => array(
+        'barn2/document-library-lite' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'a5453c3864bfc26b67ab8f8810db96a70af6f6e8',
+            'reference' => 'daab27756f12be63e66bcf866c2d98108f3a75d3',
             'dev_requirement' => false,
         ),
         'barn2/php-scoper-excludes' => array(
@@ -58,12 +58,12 @@
             'dev_requirement' => true,
         ),
         'barn2/setup-wizard' => array(
-            'pretty_version' => '1.2.20',
-            'version' => '1.2.20.0',
+            'pretty_version' => '1.2.22',
+            'version' => '1.2.22.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../barn2/setup-wizard',
             'aliases' => array(),
-            'reference' => '2500121e5478870283d3fad3599f36eee791ee07',
+            'reference' => '35928ffcef1d3fb24fe6ffd5dc0c496798b5bf2d',
             'dev_requirement' => true,
         ),
         'dealerdirect/phpcodesniffer-composer-installer' => array(
