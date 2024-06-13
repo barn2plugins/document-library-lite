@@ -204,7 +204,7 @@ Please report any security bugs through the [Patchstack Vulnerability Disclosure
 == Changelog ==
 
 = 1.0.7 =
-Release date 10 June 2024
+Release date 13 June 2024
 
 * Dev: Tested up to WordPress 6.5
 * Dev: Updated internal libraries

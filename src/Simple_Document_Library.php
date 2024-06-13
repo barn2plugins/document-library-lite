@@ -185,8 +185,6 @@ class Simple_Document_Library {
 			'suppress_filters' => false // Ensure WPML filters run on this query
 		];
 
-		print_r( $post_args );
-
 		// Add our doc_category if we have one.
 		if ( isset( $args['doc_category'] ) && strlen( $args['doc_category'] ) > 0 ) {
 			$post_args = array_merge(

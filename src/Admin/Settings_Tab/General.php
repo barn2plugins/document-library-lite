@@ -501,7 +501,7 @@ class General implements Registerable {
 	 * @return string
 	 */
 	private function read_more( $path ) {
-		return ' ' . Lib_Util::barn2_link( $path );
+		return ' ' . Lib_Util::barn2_link( $path, '', true );
 	}
 
 	/**
