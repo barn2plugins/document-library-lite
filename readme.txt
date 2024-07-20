@@ -3,7 +3,7 @@ Contributors: barn2media
 Donate link: https://barn2.com
 Tags: document library, file manager, download manager, document management, media library
 Requires at least: 6.1
-Tested up to: 6.5.4
+Tested up to: 6.6
 Requires PHP: 7.4
 Stable tag: 1.0.7
 License: GPL-3.0
