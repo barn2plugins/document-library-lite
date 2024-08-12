@@ -1,1 +1,106 @@
-jQuery((function(e){const l=function(){e("#dlw_add_file_button").on("click",this.handleAddFile),e("#dlw_remove_file_button").on("click",this.handleRemoveFile),e("#dlw_document_link_type").on("change",this.handleSelectBox)};l.wpMedia=null,l.prototype.handleSelectBox=function(l){const t=e(this).find(":selected").val(),i=e("#dlw_file_attachment_details"),d=e("#dlw_link_url_details"),a=e("#dlw_file_size_input");switch(t){case"file":d.removeClass("active"),i.addClass("active"),a.prop("disabled",!0);break;case"url":d.addClass("active"),i.removeClass("active"),a.removeAttr("disabled");break;default:d.removeClass("active"),i.removeClass("active"),a.removeAttr("disabled")}},l.prototype.handleAddFile=function(t){t.preventDefault();const i=e(this),d=e("#dlw_file_name"),a=e(".dlw_file_name_text"),n=e("#dlw_file_id"),o=e(".dlw_file_attached");null===l.wpMedia?((l.wpMedia=wp.media({title:dlwAdminObject.i18n.select_file,button:{text:dlwAdminObject.i18n.add_file}})).on("select",(function(){l.wpMedia.state().get("selection").map((function(e){e=e.toJSON(),d.val(e.filename),a.text(e.filename),n.val(e.id),o.addClass("active"),i.text(dlwAdminObject.i18n.replace_file)}))})),l.wpMedia.open()):l.wpMedia.open()},l.prototype.handleRemoveFile=function(l){l.preventDefault();const t=e("#dlw_file_name"),i=e("#dlw_file_id"),d=e(".dlw_file_attached"),a=e("#dlw_add_file_button");d.removeClass("active"),t.val(""),i.val(""),a.text(dlwAdminObject.i18n.add_file)},new l}));
+/*! License information is available at CREDITS.md *//******/ (() => { // webpackBootstrap
+var __webpack_exports__ = {};
+/*!************************************************************!*\
+  !*** ./assets/js/src/admin/document-library-post/index.js ***!
+  \************************************************************/
+jQuery(function ($) {
+  /**
+   * Document Link Metabox JS
+   */
+  const dlwDocumentLink = function () {
+    $('#dlw_add_file_button').on('click', this.handleAddFile);
+    $('#dlw_remove_file_button').on('click', this.handleRemoveFile);
+    $('#dlw_document_link_type').on('change', this.handleSelectBox);
+  };
+  dlwDocumentLink.wpMedia = null;
+
+  /**
+  * Render second option
+  */
+  dlwDocumentLink.prototype.handleSelectBox = function (event) {
+    const $this = $(this);
+    const value = $this.find(':selected').val();
+    const $file_details = $('#dlw_file_attachment_details');
+    const $url_details = $('#dlw_link_url_details');
+    const $file_size_input = $('#dlw_file_size_input');
+    switch (value) {
+      case 'file':
+        $url_details.removeClass('active');
+        $file_details.addClass('active');
+        $file_size_input.prop('disabled', true);
+        break;
+      case 'url':
+        $url_details.addClass('active');
+        $file_details.removeClass('active');
+        $file_size_input.removeAttr('disabled');
+        break;
+      case 'none':
+        $url_details.removeClass('active');
+        $file_details.removeClass('active');
+        $file_size_input.removeAttr('disabled');
+        break;
+      default:
+        $url_details.removeClass('active');
+        $file_details.removeClass('active');
+        $file_size_input.removeAttr('disabled');
+        break;
+    }
+  };
+
+  /**
+  * Handle Add File (WP Media)
+  */
+  dlwDocumentLink.prototype.handleAddFile = function (event) {
+    event.preventDefault();
+    const $this = $(this);
+    const $file_name = $('#dlw_file_name');
+    const $file_name_text = $('.dlw_file_name_text');
+    const $file_id = $('#dlw_file_id');
+    const $file_attached_area = $('.dlw_file_attached');
+    if (dlwDocumentLink.wpMedia !== null) {
+      dlwDocumentLink.wpMedia.open();
+      return;
+    }
+    dlwDocumentLink.wpMedia = wp.media({
+      title: dlwAdminObject.i18n.select_file,
+      button: {
+        text: dlwAdminObject.i18n.add_file
+      }
+    });
+    dlwDocumentLink.wpMedia.on('select', function () {
+      const selection = dlwDocumentLink.wpMedia.state().get('selection');
+      selection.map(function (attachment) {
+        attachment = attachment.toJSON();
+        $file_name.val(attachment.filename);
+        $file_name_text.text(attachment.filename);
+        $file_id.val(attachment.id);
+        $file_attached_area.addClass('active');
+        $this.text(dlwAdminObject.i18n.replace_file);
+      });
+    });
+    dlwDocumentLink.wpMedia.open();
+  };
+
+  /**
+  * Handle Remove File
+  */
+  dlwDocumentLink.prototype.handleRemoveFile = function (event) {
+    event.preventDefault();
+    const $file_name = $('#dlw_file_name');
+    const $file_id = $('#dlw_file_id');
+    const $file_attached_area = $('.dlw_file_attached');
+    const $add_file_button = $('#dlw_add_file_button');
+    $file_attached_area.removeClass('active');
+    $file_name.val('');
+    $file_id.val('');
+    $add_file_button.text(dlwAdminObject.i18n.add_file);
+  };
+
+  /**
+   * Init dlwDocumentLink.
+   */
+  new dlwDocumentLink();
+});
+/******/ })()
+;
+//# sourceMappingURL=document-library-post.js.map

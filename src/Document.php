@@ -2,6 +2,9 @@
 
 namespace Barn2\Plugin\Document_Library;
 
+use Barn2\Plugin\Document_Library\Util\SVG_Icon;
+
+
 /**
  * Document Controller
  *
@@ -139,6 +142,38 @@ class Document {
 	}
 
 	/**
+	 * Retrieves the associated file type icon
+	 *
+	 * @return string $file_icon
+	 */
+	public function get_file_icon() {
+		$file_type = $this->get_file_type();
+
+		if ( $file_type ) {
+			$file_icon = SVG_Icon::get( SVG_Icon::get_file_extension_icon( $file_type ), [ 'dlp-file-icon' ] );
+		} else {
+			$file_icon = SVG_Icon::get( 'default', [ 'dlp-file-icon' ] );
+		}
+
+		return $file_icon;
+	}
+
+	/**
+	 * Gets the associated file type
+	 *
+	 * @return string
+	 */
+	public function get_file_type() {
+		$file_types = wp_get_object_terms( $this->id, 'file_type' );
+
+		if ( ! is_wp_error( $file_types ) && is_array( $file_types ) && isset( $file_types[0] ) ) {
+			return strtolower( $file_types[0]->name );
+		}
+
+		return false;
+	}
+
+	/**
 	 * Gets the link type
 	 *
 	 * @return string
@@ -176,15 +211,16 @@ class Document {
      * Generate the Download button HTML markup
      *
      * @param string $text
+	 * @param string $link_style
      * @return string
      */
-    public function get_download_button( $link_text ) {
+    public function get_download_button( $link_text, $link_style = 'button' ) {
 		if ( ! $this->get_download_url() ) {
 			return '';
 		}
 
 		$link_text = $this->ensure_download_button_link_text( $link_text );
-		$button_class =  apply_filters( 'document_library_button_column_button_class', 'document-library-button button btn' );
+		$button_class       = in_array( $link_style, [ 'icon_only', 'icon', 'text' ], true ) ? '' : apply_filters( 'document_library_button_column_button_class', 'dlp-download-button document-library-button button btn' );
 		$download_attribute = $this->get_download_button_attributes();
 
 		$anchor_open = sprintf(
@@ -194,9 +230,18 @@ class Document {
 			$download_attribute
 		);
 
+		$anchor_text = [
+			'button'           => $link_text,
+			'button_icon_text' => SVG_Icon::get( 'download', [ 'dlp-button-icon', 'dlp-button-icon-text' ] ) . $link_text,
+			'button_icon'      => SVG_Icon::get( 'download', [ 'dlp-button-icon' ] ),
+			'icon_only'        => SVG_Icon::get( 'download', [ 'dlp-button-icon' ] ),
+			'icon'             => $this->get_file_icon(), // file type icon
+			'text'             => $link_text,
+		];
+
 		$anchor_close = '</a>';
 
-		return $anchor_open . $link_text . $anchor_close;
+		return $anchor_open . $anchor_text[ $link_style ] . $anchor_close;
     }
 
 	/**

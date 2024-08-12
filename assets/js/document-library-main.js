@@ -1,1 +1,99 @@
-(()=>{var t;(t=jQuery)(document).ready((function(){let a=t(".document-library-table");const e=t("#wpadminbar"),n=["doc_categories"];a.each((function(){let a=t(this),i={responsive:!0,processing:!0};"undefined"!=typeof document_library&&document_library.langurl&&(i.language={url:document_library.langurl});let o=a.DataTable(i);a.on("page.dt",(function(){if(!1!==t(this).data("scroll-offset")){let a=t(this).parent().offset().top-t(this).data("scroll-offset");if(e.length){a-=e.outerHeight()||32}t("html,body").animate({scrollTop:a},300)}})),a.data("click-filter")&&a.on("click","a",(function(){let a=t(this),e=o.cell(a.closest("td").get(0)).index().column,i=o.column(e).header(),r=t(i).data("name");return-1===n.indexOf(r)||(o.search(a.text()).draw(),!1)}))})),t(document).on("click",".document-library-table a.dlw-lightbox",(function(a){a.preventDefault(),a.stopPropagation();const e=t(".pswp")[0],n=t(this).find("img");if(n.length<1)return;const i=[{src:n.attr("data-large_image"),w:n.attr("data-large_image_width"),h:n.attr("data-large_image_height"),title:n.attr("data-caption")&&n.attr("data-caption").length?n.attr("data-caption"):n.attr("title")}];return new PhotoSwipe(e,PhotoSwipeUI_Default,i,{index:0,shareEl:!1,closeOnScroll:!1,history:!1,hideAnimationDuration:0,showAnimationDuration:0}).init(),!1}))}))})();
+/*! License information is available at CREDITS.md *//******/ (() => { // webpackBootstrap
+var __webpack_exports__ = {};
+/*!************************************************!*\
+  !*** ./assets/js/src/document-library-main.js ***!
+  \************************************************/
+(function ($) {
+  $(document).ready(function () {
+    let tables = $('.document-library-table');
+    const adminBar = $('#wpadminbar');
+    const clickFilterColumns = ['doc_categories'];
+    tables.each(function () {
+      let $table = $(this),
+        config = {
+          responsive: true,
+          processing: true // display 'processing' indicator when loading
+        };
+
+      // Set language - defaults to English if not specified
+      if (typeof document_library !== 'undefined' && document_library.langurl) {
+        config.language = {
+          url: document_library.langurl
+        };
+      }
+
+      // Initialise DataTable
+      let table = $table.DataTable(config);
+
+      // If scroll offset defined, animate back to top of table on next/previous page event
+      $table.on('page.dt', function () {
+        if ($(this).data('scroll-offset') !== false) {
+          let tableOffset = $(this).parent().offset().top - $(this).data('scroll-offset');
+          if (adminBar.length) {
+            // Adjust offset for WP admin bar
+            let adminBarHeight = adminBar.outerHeight();
+            tableOffset -= adminBarHeight ? adminBarHeight : 32;
+          }
+          $('html,body').animate({
+            scrollTop: tableOffset
+          }, 300);
+        }
+      });
+
+      // If 'search on click' enabled then add click handler for links in category, author and tags columns.
+      // When clicked, the table will filter by that value.
+      if ($table.data('click-filter')) {
+        $table.on('click', 'a', function () {
+          let $link = $(this),
+            idx = table.cell($link.closest('td').get(0)).index().column,
+            // get the column index
+            header = table.column(idx).header(),
+            // get the header cell
+            columnName = $(header).data('name'); // get the column name from header
+
+          // Is the column click filterable?
+          if (-1 !== clickFilterColumns.indexOf(columnName)) {
+            table.search($link.text()).draw();
+            return false;
+          }
+          return true;
+        });
+      }
+    }); // each table
+
+    /**
+     * Open Lightbox
+     */
+    $(document).on('click', '.document-library-table a.dlw-lightbox', function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+      const pswpElement = $('.pswp')[0];
+      const $img = $(this).find('img');
+      if ($img.length < 1) {
+        return;
+      }
+      const items = [{
+        src: $img.attr('data-large_image'),
+        w: $img.attr('data-large_image_width'),
+        h: $img.attr('data-large_image_height'),
+        title: $img.attr('data-caption') && $img.attr('data-caption').length ? $img.attr('data-caption') : $img.attr('title')
+      }];
+      const options = {
+        index: 0,
+        shareEl: false,
+        closeOnScroll: false,
+        history: false,
+        hideAnimationDuration: 0,
+        showAnimationDuration: 0
+      };
+
+      // Initializes and opens PhotoSwipe
+      let photoswipe = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
+      photoswipe.init();
+      return false;
+    });
+  }); // end document.ready
+})(jQuery);
+/******/ })()
+;
+//# sourceMappingURL=document-library-main.js.map

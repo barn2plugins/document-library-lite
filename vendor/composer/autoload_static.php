@@ -7,6 +7,10 @@ namespace Composer\Autoload;
 class ComposerStaticInit8aa1d3baa100ae13f7a1ded33fbd6d4b
 {
     public static $prefixLengthsPsr4 = array (
+        'e' => 
+        array (
+            'enshrined\\svgSanitize\\' => 22,
+        ),
         'W' => 
         array (
             'WPTRT\\AdminNotices\\' => 19,
@@ -25,6 +29,10 @@ class ComposerStaticInit8aa1d3baa100ae13f7a1ded33fbd6d4b
     );
 
     public static $prefixDirsPsr4 = array (
+        'enshrined\\svgSanitize\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/enshrined/svg-sanitize/src',
+        ),
         'WPTRT\\AdminNotices\\' => 
         array (
             0 => __DIR__ . '/..' . '/wptrt/admin-notices/src',

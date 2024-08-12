@@ -400,7 +400,15 @@ class Util
             require_once \ABSPATH . 'wp-admin/includes/plugin.php';
         }
         $plugins = \get_plugins();
-        return isset($plugins[$plugin_file]);
+        if (\strpos($plugin_file, '/') !== \false) {
+            return isset($plugins[$plugin_file]);
+        }
+        foreach ($plugins as $plugin_path => $plugin_data) {
+            if (\basename($plugin_path) === $plugin_file) {
+                return \true;
+            }
+        }
+        return \false;
     }
     /**
      * Sanitize anything.

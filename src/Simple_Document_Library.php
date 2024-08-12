@@ -244,7 +244,7 @@ class Simple_Document_Library {
 					'{doc_categories}' => get_the_term_list( $_post->ID, Taxonomies::CATEGORY_SLUG, '', ', ' ),
 					'{date}'           => get_the_date( $args['date_format'], $_post ),
 					'{content}'        => $this->get_post_content( $args['content_length'] ),
-					'{link}'           => $document->get_download_button( $args['link_text'] ),
+					'{link}'           => $document->get_download_button( $args['link_text'], $args['link_style'] ),
 				]
 			);
 
