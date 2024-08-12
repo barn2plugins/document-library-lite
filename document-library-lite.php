@@ -19,7 +19,6 @@
  * 
  * Requires at least:     6.1
  * Requires PHP:          7.4
- * Tested up to:      		6.5.4
  *
  * Copyright:       Barn2 Media Ltd
  * License:         GNU General Public License v3.0

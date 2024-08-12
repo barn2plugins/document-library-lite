@@ -158,7 +158,7 @@ class Settings implements Registerable, Standard_Service {
 	 */
 	public function sanitize_shortcode_settings( $args ) {
 		$existing_options = $this->get_existing_shortcode_options();
-		$option_page      = filter_input( INPUT_GET, 'option_page', FILTER_SANITIZE_FULL_SPECIAL_CHARS );
+		$option_page      = $_REQUEST['option_page'];
 
 		if ( ! $option_page ) {
 			return array_merge( $existing_options, $args );
@@ -195,6 +195,11 @@ class Settings implements Registerable, Standard_Service {
 				);
 			}
 
+			// Link style
+			if ( isset( $args['link_style'] ) ) {
+				$args['link_style'] = sanitize_key( $args['link_style'] );
+			}
+
 			// Sort By
 			if ( isset( $args['sort_by'] ) ) {
 				$args['sort_by'] = sanitize_key( $args['sort_by'] );
@@ -209,12 +214,19 @@ class Settings implements Registerable, Standard_Service {
 			if ( ! isset( $args['lightbox'] ) ) {
 				$args['lightbox'] = false;
 			}
+
 			$args['lightbox'] = filter_var( $args['lightbox'], FILTER_VALIDATE_BOOLEAN );
 
 		} elseif ( $option_page === Options::TABLE_OPTION_GROUP ) {
 			if ( isset( $args['columns'] ) ) {
 				$args['columns'] = sanitize_text_field( $args['columns'] );
 			}
+
+			// Lazy load
+			if ( ! isset( $args['lazy_load'] ) ) {
+				$args['lazy_load'] = false;
+			}
+			$args['lazy_load'] = filter_var( $args['lazy_load'], FILTER_VALIDATE_BOOLEAN );
 		}
 
 		$merge_settings = array_merge( $existing_options, $args );
@@ -238,10 +250,12 @@ class Settings implements Registerable, Standard_Service {
 			// general
 			'link_text',
 			'lightbox',
+			'link_style',
 			'content_length',
 			'rows_per_page',
 			'sort_by',
 			'sort_order',
+			'lazy_load',
 			// document tables
 			'columns',
 		];

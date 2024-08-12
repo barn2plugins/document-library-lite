@@ -127,8 +127,7 @@ class Behavior extends Step {
 				'type'        => 'checkbox',
 				'label'       => __( 'Load the document table one page at a time', 'document-library-lite' ),
 				'description' => __( 'Enable this if you will have lots of documents, otherwise leave it blank.', 'document-library-lite' ),
-				'value'       => false,
-				'premium'     => true,
+				'value'       => $this->values['lazy_load'],
 			],
 		];
 
@@ -143,6 +142,7 @@ class Behavior extends Step {
 		$rows_per_page = isset( $values['rows_per_page'] ) && is_numeric( $values['rows_per_page'] ) ? $values['rows_per_page'] : $this->values['rows_per_page'];
 		$sort_by       = isset( $values['sort_by'] ) ? $values['sort_by'] : $this->values['sort_by'];
 		$sort_order    = isset( $values['sort_order'] ) ? $values['sort_order'] : $this->values['sort_order'];
+		$lazy_load     = isset( $values['lazy_load'] ) && $values['lazy_load'] ? true : false;
 
 		if ( $sort_order === 'auto' ) {
 			$sort_order = '';
@@ -154,6 +154,7 @@ class Behavior extends Step {
 				'rows_per_page' => $rows_per_page,
 				'sort_by'       => $sort_by,
 				'sort_order'    => $sort_order,
+				'lazy_load'		=> $lazy_load
 			]
 		);
 

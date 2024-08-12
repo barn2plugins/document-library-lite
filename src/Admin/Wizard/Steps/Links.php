@@ -53,12 +53,31 @@ class Links extends Step {
 				'type'    => 'select',
 				'options' => [
 					[
-						'key'   => 'button',
+						'value'   => 'button',
 						'label' => __( 'Button with text', 'document-library-lite' ),
-					]
+					],
+					[
+						'value'   => 'button_icon_text',
+						'label' => __( 'Button with icon and text', 'document-library-lite' ),
+					],
+					[
+						'value'   => 'button_icon',
+						'label' => __( 'Button with icon', 'document-library-lite' ),
+					],
+					[
+						'value'   => 'icon_only',
+						'label' => __( 'Download icon only', 'document-library-lite' ),
+					],
+					[
+						'value'   => 'icon',
+						'label' => __( 'File type icon', 'document-library-lite' ),
+					],
+					[
+						'value'   => 'text',
+						'label' => __( 'Text link', 'document-library-lite' ),
+					],
 				],
-				'value'   => 'button',
-				'premium' => true,
+				'value'   => $this->values['link_style']
 			],
 			'preview'    => [
 				'title'   => __( 'Document preview', 'document-library-lite' ),
@@ -78,11 +97,14 @@ class Links extends Step {
 	 */
 	public function submit( array $values ) {
 
-		$link_text = isset( $values['link_text'] ) ? $values['link_text'] : $this->values['link_text'];
+		$link_text 	= isset( $values['link_text'] ) ? $values['link_text'] : $this->values['link_text'];
+
+		$link_style = isset( $values['link_style'] ) ? $values['link_style'] : $this->values['link_style'];
 
 		Options::update_shortcode_option(
 			[
-				'link_text' => $link_text,
+				'link_text' 	=> $link_text,
+				'link_style'	=> $link_style	
 			]
 		);
 

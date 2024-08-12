@@ -152,12 +152,7 @@ class Document_Table implements Registerable {
 					'desc'              => __( 'Enable this if you have many documents or experience slow page load times.', 'document-library-lite' ) . '<br/>' .
 					__( 'Warning: Lazy load limits the searching and sorting features in the document library. Only use it if you definitely need it.', 'document-library-lite' ) .
 					$this->read_more( 'kb/document-library-lazy-load/?utm_source=settings&utm_medium=settings&utm_campaign=settingsinline&utm_content=dlw-settings' ),
-					'default'           => false,
-					'class'             => 'toggle-parent',
-					'custom_attributes' => [
-						'data-child-class' => 'post-limit',
-						'data-toggle-val'  => 0
-					]
+					'default'           => $this->default_settings['lazy_load']
 				],
 				[
 					'title'             => __( 'Caching', 'document-library-lite' ),

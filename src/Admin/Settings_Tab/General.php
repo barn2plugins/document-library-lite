@@ -215,7 +215,7 @@ class General implements Registerable {
 						'icon'             => __( 'File type icon', 'document-library-lite' ),
 						'text'             => __( 'Text link', 'document-library-lite' ),
 					],
-					'default' => 'button_with_text'
+					'default' => $this->default_settings['link_style'],
 				],
 				[
 					'id'      => Options::SHORTCODE_OPTION_KEY . '[link_text]',
