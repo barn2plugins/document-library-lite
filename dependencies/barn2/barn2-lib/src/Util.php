@@ -159,6 +159,7 @@ class Util
      */
     public static function is_protected_categories_active()
     {
+        \_deprecated_function(__FUNCTION__, '1.5.3', 'is_barn2_plugin_active');
         return self::is_barn2_plugin_active('\\Barn2\\Plugin\\WC_Protected_Categories\\wpc');
     }
     /**
@@ -169,6 +170,7 @@ class Util
      */
     public static function is_product_table_active()
     {
+        \_deprecated_function(__FUNCTION__, '1.5.3', 'is_barn2_plugin_active');
         return self::is_barn2_plugin_active('\\Barn2\\Plugin\\WC_Product_Table\\wpt');
     }
     /**
@@ -179,6 +181,7 @@ class Util
      */
     public static function is_quick_view_pro_active()
     {
+        \_deprecated_function(__FUNCTION__, '1.5.3', 'is_barn2_plugin_active');
         return self::is_barn2_plugin_active('\\Barn2\\Plugin\\WC_Quick_View_Pro\\wqv');
     }
     /**
@@ -189,6 +192,7 @@ class Util
      */
     public static function is_restaurant_ordering_active()
     {
+        \_deprecated_function(__FUNCTION__, '1.5.3', 'is_barn2_plugin_active');
         return self::is_barn2_plugin_active('\\Barn2\\Plugin\\WC_Restaurant_Ordering\\wro');
     }
     /**
@@ -199,6 +203,7 @@ class Util
      */
     public static function is_fast_cart_active()
     {
+        \_deprecated_function(__FUNCTION__, '1.5.3', 'is_barn2_plugin_active');
         return self::is_barn2_plugin_active('\\Barn2\\Plugin\\WC_Fast_Cart\\wfc');
     }
     /**

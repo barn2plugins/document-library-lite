@@ -66,11 +66,11 @@
         },
         {
             "name": "barn2/barn2-lib",
-            "version": "2.0.3",
+            "version": "2.0.4",
             "source": {
                 "type": "git",
                 "url": "git@bitbucket.org:barn2plugins/barn2-lib.git",
-                "reference": "4d6e6fe530eb3c17bb7af8e5fc305e6f0a1dad9f"
+                "reference": "b3e5147dbd59f4f39663b677da298946fea550f5"
             },
             "require": {
                 "wptrt/admin-notices": "^1.0"
@@ -94,7 +94,7 @@
                 }
             ],
             "description": "Barn2 Libary code",
-            "time": "2024-06-07T09:27:48+00:00"
+            "time": "2024-07-31T04:01:40+00:00"
         },
         {
             "name": "barn2/php-scoper-excludes",
@@ -121,7 +121,7 @@
             "source": {
                 "type": "git",
                 "url": "git@bitbucket.org:barn2plugins/php-standards.git",
-                "reference": "1dd23ec924c347d8782b08ee2f505065b1fbfa4d"
+                "reference": "7a9946648010ba3b2e2905071002c533d7066784"
             },
             "require": {
                 "dealerdirect/phpcodesniffer-composer-installer": "^0.7.2",
@@ -136,15 +136,15 @@
                 "GPL-3.0"
             ],
             "description": "Barn2 PHPCS Standards",
-            "time": "2024-05-23T16:13:57+00:00"
+            "time": "2024-07-31T03:12:40+00:00"
         },
         {
             "name": "barn2/setup-wizard",
-            "version": "1.2.22",
+            "version": "1.2.25",
             "source": {
                 "type": "git",
                 "url": "git@bitbucket.org:barn2plugins/setup-wizard.git",
-                "reference": "35928ffcef1d3fb24fe6ffd5dc0c496798b5bf2d"
+                "reference": "7752195e10114156fd84bec1a6c34eccbeaee3a5"
             },
             "require-dev": {
                 "barn2/php-standards": "dev-master",
@@ -196,7 +196,7 @@
             "keywords": [
                 "wordpress"
             ],
-            "time": "2024-06-10T13:33:27+00:00"
+            "time": "2024-07-02T07:40:24+00:00"
         },
         {
             "name": "dealerdirect/phpcodesniffer-composer-installer",
@@ -645,16 +645,16 @@
         },
         {
             "name": "squizlabs/php_codesniffer",
-            "version": "3.10.1",
+            "version": "3.10.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPCSStandards/PHP_CodeSniffer.git",
-                "reference": "8f90f7a53ce271935282967f53d0894f8f1ff877"
+                "reference": "86e5f5dd9a840c46810ebe5ff1885581c42a3017"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPCSStandards/PHP_CodeSniffer/zipball/8f90f7a53ce271935282967f53d0894f8f1ff877",
-                "reference": "8f90f7a53ce271935282967f53d0894f8f1ff877",
+                "url": "https://api.github.com/repos/PHPCSStandards/PHP_CodeSniffer/zipball/86e5f5dd9a840c46810ebe5ff1885581c42a3017",
+                "reference": "86e5f5dd9a840c46810ebe5ff1885581c42a3017",
                 "shasum": ""
             },
             "require": {
@@ -721,7 +721,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2024-05-22T21:24:41+00:00"
+            "time": "2024-07-21T23:26:44+00:00"
         },
         {
             "name": "wp-coding-standards/wpcs",
@@ -851,5 +851,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.2.0"
+    "plugin-api-version": "2.6.0"
 }
