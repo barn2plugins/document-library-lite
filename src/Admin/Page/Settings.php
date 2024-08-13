@@ -124,7 +124,7 @@ class Settings implements Standard_Service, Registerable, Conditional {
 
 			<form action="options.php" method="post">
 				<?php
-				settings_errors( 'document-library-lite' );
+				settings_errors( 'general' );
 				settings_fields( $this->registered_settings[ $active_tab ]::OPTION_GROUP );
 				do_settings_sections( $this->registered_settings[ $active_tab ]::MENU_SLUG );
 				?>
