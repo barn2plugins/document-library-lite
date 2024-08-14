@@ -36,10 +36,9 @@ class Document_Library_Shortcode implements Registerable, Standard_Service {
 
 		$atts = Options::handle_shortcode_attribute_aliases( $atts );
 		$atts = shortcode_atts( Options::get_defaults(), $atts, self::SHORTCODE );
-
 		// Create table and return output
-		$table = new Simple_Document_Library();
-		return $table->get_table( $atts );
+		$table = new Simple_Document_Library( $atts );
+		return $table->get_table();
 	}
 
 }
