@@ -123,6 +123,8 @@ final class Options {
 			'wrap'            => true,
 			'content_length'  => 15,
 			'scroll_offset'   => 15,
+			'post_limit'	  => 500,
+			'offset'		  => 0,
 			'lazy_load'		  => false
 		];
 
