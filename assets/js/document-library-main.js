@@ -12,13 +12,28 @@ var __webpack_exports__ = {};
       let $table = $(this),
         config = {
           responsive: true,
-          processing: true // display 'processing' indicator when loading
+          processing: true,
+          // display 'processing' indicator when loading
+          serverSide: document_library_params.lazy_load
         };
-
+      this.id = $table.attr('id');
       // Set language - defaults to English if not specified
       if (typeof document_library !== 'undefined' && document_library.langurl) {
         config.language = {
           url: document_library.langurl
+        };
+      }
+
+      // Set the ajax URL if the lazy load is enabled
+      if (document_library_params.lazy_load) {
+        config.ajax = {
+          url: document_library_params.ajax_url,
+          type: 'POST',
+          data: {
+            table_id: this.id,
+            action: document_library_params.ajax_action,
+            _ajax_nonce: document_library_params.ajax_nonce
+          }
         };
       }
 

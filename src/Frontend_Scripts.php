@@ -6,6 +6,7 @@ use Barn2\Plugin\Document_Library\Dependencies\Lib\Plugin\Plugin;
 use Barn2\Plugin\Document_Library\Dependencies\Lib\Registerable;
 use Barn2\Plugin\Document_Library\Dependencies\Lib\Service\Standard_Service;
 use Barn2\Plugin\Document_Library\Dependencies\Lib\Util;
+use Barn2\Plugin\Document_Library\Util\Options;
 
 /**
  * Registers the frontend styles and scripts for the post tables.
@@ -60,6 +61,18 @@ class Frontend_Scripts implements Registerable, Standard_Service {
 		wp_register_script( 'document-library', plugins_url( "assets/js/document-library-main.js", $this->plugin->get_file() ), [ 'jquery', 'jquery-datatables-dlw' ], $this->plugin->get_version(), true );
 		wp_register_script( 'photoswipe', plugins_url( 'assets/js/photoswipe/photoswipe.min.js', $this->plugin->get_file() ), [], self::PHOTOSWIPE_VERSION, true );
 		wp_register_script( 'photoswipe-ui-default', plugins_url( 'assets/js/photoswipe/photoswipe-ui-default.min.js', $this->plugin->get_file() ), [ 'photoswipe' ], self::PHOTOSWIPE_VERSION, true );
+	
+		$script_params = [
+			'ajax_url'              => admin_url( 'admin-ajax.php' ),
+			'ajax_nonce'            => 'document-library',
+			'ajax_action'           => 'dll_load_posts',
+			'lazy_load'				=> Options::get_shortcode_option()['lazy_load'],
+		];
+		wp_add_inline_script(
+			'document-library',
+			sprintf( 'var document_library_params = %s;', wp_json_encode( apply_filters( 'document_library_script_params', $script_params ) ) ),
+			'before'
+		);
 	}
 
 	/**
