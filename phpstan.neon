@@ -1,0 +1,12 @@
+includes:
+    - vendor/phpstan/phpstan-strict-rules/rules.neon
+    - vendor/szepeviktor/phpstan-wordpress/extension.neon
+parameters:
+    editorUrlTitle: '%%relFile%%:%%line%%'
+    phpVersion: 80100
+    paths:
+        - src/
+    scanFiles:
+        - vendor/php-stubs/wp-cli-stubs/wp-cli-stubs.php
+    level: 6
+    inferPrivatePropertyTypeFromConstructor: true

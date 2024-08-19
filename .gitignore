@@ -46,3 +46,10 @@ docs
 .phpdoc
 dist
 document-library-lite.zip
+/wp
+/wp-content
+.phpunit.result.cache
+artifacts
+.wp-env.override.json
+playwright-report
+tests/coverage

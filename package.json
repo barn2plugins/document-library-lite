@@ -18,8 +18,12 @@
         "packages-update": "wp-scripts packages-update",
         "plugin-zip": "wp-scripts plugin-zip",
         "start": "set BARN2_BUILD_ENV=development & wp-scripts start",
-        "test:e2e": "wp-scripts test-e2e",
-        "test:unit": "wp-scripts test-unit-js"
+        "test:e2e": "playwright test",
+        "test:unit": "wp-scripts test-unit-js",
+        "wp-env:start": "wp-env start",
+        "wp-env:stop": "wp-env stop",
+        "wp-env:update": "wp-env start --update",
+        "wp-env:clean": "wp-env clean all"
     },
     "repository": {
         "type": "git",
@@ -32,8 +36,10 @@
     },
     "homepage": "https://github.com/Barn2Plugins/document-library-lite#readme",
     "devDependencies": {
+        "@barn2plugins/playwright-utils": "^0.2.1",
         "@barn2plugins/webpack-config": "^2.0.0",
         "@wordpress/dependency-extraction-webpack-plugin": "^4.8.0",
+        "@wordpress/env": "^10.5.0",
         "@wordpress/scripts": "^26.4.0"
     }
 }
