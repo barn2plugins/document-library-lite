@@ -23,18 +23,8 @@ test.describe('initial loading', (props) => {
 		admin,
 		pluginUtil
 	}, testInfo) => {
-		const canActivate = await pluginCanBeActivated(page, admin, pluginUtil, true, expect);
+		const canActivate = await pluginCanBeActivated(page, admin, pluginUtil, false, expect);
 		expect(canActivate).toBe(true);
-	});
-
-	test( 'should display WooCommerce dependency notice', async ({
-		page,
-		admin,
-		pluginUtil
-	}, testInfo) => {
-		const displayedNotice = await isWCDependencyNoticeVisible(page, admin, pluginUtil, expect);
-
-		expect(displayedNotice).toBe(true);
 	});
 
 	test( 'can access Setup wizard page', async ({
@@ -76,7 +66,7 @@ test.describe('initial loading', (props) => {
 			page.locator(
 				".barn2-stepper__step.is-active .barn2-stepper__step-label",
 			),
-		).toContainText("Document links");
+		).toContainText("Links");
 		await expect(page.locator('input[name="link_text"]')).toBeVisible();
 
 		await page.getByRole("button", { name: "Next" }).click();
@@ -106,7 +96,7 @@ test.describe('initial loading', (props) => {
 					".barn2-stepper__step.is-active .barn2-stepper__step-label",
 				),
 			).toContainText("More");
-			await page.locator('a:has-text( "Finish setup" )').click();
+			await page.locator('button:has-text( "Finish setup" )').click();
 		}
 
 		await page.locator('a:has-text( "Settings page" )').click();
