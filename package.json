@@ -41,5 +41,24 @@
         "@wordpress/dependency-extraction-webpack-plugin": "^4.8.0",
         "@wordpress/env": "^10.5.0",
         "@wordpress/scripts": "^26.4.0"
+    },
+    "barn2": {
+        "textDomain": "document-library-lite",
+        "tests": [
+            {
+                "name": "default",
+                "plugins": [
+                    "."
+                ],
+                "themes": [
+                ],
+                "mappings": {
+                    "wp-content/db.sql": "./tests/e2e/default/db.sql"
+                }
+            }
+        ]
+    },
+    "dependencies": {
+        "@playwright/test": "^1.46.1"
     }
 }

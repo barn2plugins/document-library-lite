@@ -93,9 +93,13 @@
         }
     },
     "extra": {
-        "installer-paths": []
-    },
-    "require": {
-        "wpackagist-theme/storefront": "^4.6"
-    }
+		"installer-paths": {
+				"wp/src/wp-content/plugins/{$name}/": [
+						"type:wordpress-plugin"
+				],
+				"wp/src/wp-content/themes/{$name}/": [
+						"type:wordpress-theme"
+				]
+		}
+	}
 }

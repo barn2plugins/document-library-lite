@@ -4,14 +4,17 @@
 		"."
 	],
 	"themes": [
-		"./wp/src/wp-content/themes/storefront"
 	],
-	"config": {
-		"WP_DEBUG": true,
-		"WP_DEBUG_LOG": true,
-		"WP_DEBUG_DISPLAY": true
-	},
 	"mappings": {
 		"wp-content/db.sql": "./tests/e2e/default/db.sql"
+	},
+	"env": {
+		"tests": {
+			"config": {
+				"WP_DEBUG": true,
+				"WP_DEBUG_LOG": true,
+				"WP_DEBUG_DISPLAY": true
+			}
+		}
 	}
 }

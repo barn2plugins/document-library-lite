@@ -31,11 +31,6 @@ async function globalSetup(config) {
 	// Authenticate and save the storageState to disk.
 	await requestUtils.setupRest();
 
-	// Reset the test environment before running the tests.
-	await Promise.all([
-		requestUtils.activateTheme('storefront'),
-	]);
-
 	await requestContext.dispose();
 }
 
