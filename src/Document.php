@@ -4,7 +4,6 @@ namespace Barn2\Plugin\Document_Library;
 
 use Barn2\Plugin\Document_Library\Util\SVG_Icon;
 
-
 /**
  * Document Controller
  *
@@ -14,19 +13,19 @@ use Barn2\Plugin\Document_Library\Util\SVG_Icon;
  * @copyright Barn2 Media Ltd
  */
 class Document {
-    /**
-     * ID
-     *
-     * @var int
-     */
+	/**
+	 * ID
+	 *
+	 * @var int
+	 */
 	protected $id = 0;
 
 	/**
 	 * Constructor
 	 *
-	 * @param integer 	$id
+	 * @param integer   $id
 	 */
-    public function __construct( $id = 0 ) {
+	public function __construct( $id = 0 ) {
 		$this->fetch_document( $id );
 	}
 
@@ -48,8 +47,8 @@ class Document {
 	/**
 	 * Retrieves meta data from the post
 	 *
-	 * @param 	string $key
-	 * @return 	string
+	 * @param   string $key
+	 * @return  string
 	 */
 	public function get_meta_data( $key ) {
 		return get_post_meta( $this->id, $key, true );
@@ -58,32 +57,32 @@ class Document {
 	/**
 	 * Sets the document link data
 	 *
-	 * @param 	string 	$type 'file' | 'none
-	 * @param 	array 	$data Should contain 'file_id' for 'file'
+	 * @param   string  $type 'file' | 'none
+	 * @param   array   $data Should contain 'file_id' for 'file'
 	 */
-    public function set_document_link( $type, $data = [] ) {
-        update_post_meta( $this->id, '_dlp_document_link_type', $type );
+	public function set_document_link( $type, $data = [] ) {
+		update_post_meta( $this->id, '_dlp_document_link_type', $type );
 
-        switch ( $type ) {
-            case 'none':
+		switch ( $type ) {
+			case 'none':
 				if ( $this->get_file_id() && is_numeric( $this->get_file_id() ) ) {
 					wp_set_object_terms( $this->get_file_id(), null, Taxonomies::DOCUMENT_DOWNLOAD_SLUG );
 					delete_post_meta( $this->id, '_dlp_attached_file_id' );
 				}
-                break;
+				break;
 
-            case 'file':
+			case 'file':
 				if ( $this->get_file_id() && is_numeric( $this->get_file_id() ) ) {
 					wp_set_object_terms( $this->get_file_id(), null, Taxonomies::DOCUMENT_DOWNLOAD_SLUG );
 				}
 
-                if ( filter_var( $data['file_id'], FILTER_VALIDATE_INT ) ) {
+				if ( filter_var( $data['file_id'], FILTER_VALIDATE_INT ) ) {
 					$this->set_file_id( $data['file_id'] );
 					wp_set_object_terms( $data['file_id'], 'document-download', Taxonomies::DOCUMENT_DOWNLOAD_SLUG );
 				}
-                break;
-        }
-    }
+				break;
+		}
+	}
 
 	/**
 	 * Set the file id meta
@@ -91,7 +90,7 @@ class Document {
 	 * @param string $file_id
 	 */
 	public function set_file_id( $file_id ) {
-        $this->set_meta_data( '_dlp_attached_file_id', $file_id );
+		$this->set_meta_data( '_dlp_attached_file_id', $file_id );
 	}
 
 	/**
@@ -100,17 +99,17 @@ class Document {
 	 * @param string $key
 	 * @param string $value
 	 */
-    protected function set_meta_data( $key, $value ) {
-        update_post_meta( $this->id, $key, $value );
+	protected function set_meta_data( $key, $value ) {
+		update_post_meta( $this->id, $key, $value );
 	}
 
-    /**
-     * Returns the document ID
-     *
-     * @return int
-     */
-    public function get_id() {
-        return $this->id;
+	/**
+	 * Returns the document ID
+	 *
+	 * @return int
+	 */
+	public function get_id() {
+		return $this->id;
 	}
 
 	/**
@@ -150,9 +149,9 @@ class Document {
 		$file_type = $this->get_file_type();
 
 		if ( $file_type ) {
-			$file_icon = SVG_Icon::get( SVG_Icon::get_file_extension_icon( $file_type ), [ 'dlp-file-icon' ] );
+			$file_icon = SVG_Icon::get( SVG_Icon::get_file_extension_icon( $file_type ), [ 'dll-file-icon' ] );
 		} else {
-			$file_icon = SVG_Icon::get( 'default', [ 'dlp-file-icon' ] );
+			$file_icon = SVG_Icon::get( 'default', [ 'dll-file-icon' ] );
 		}
 
 		return $file_icon;
@@ -208,19 +207,19 @@ class Document {
 	}
 
 	/**
-     * Generate the Download button HTML markup
-     *
-     * @param string $text
+	 * Generate the Download button HTML markup
+	 *
+	 * @param string $link_text
 	 * @param string $link_style
-     * @return string
-     */
-    public function get_download_button( $link_text, $link_style = 'button' ) {
+	 * @return string
+	 */
+	public function get_download_button( $link_text, $link_style = 'button' ) {
 		if ( ! $this->get_download_url() ) {
 			return '';
 		}
 
-		$link_text = $this->ensure_download_button_link_text( $link_text );
-		$button_class       = in_array( $link_style, [ 'icon_only', 'icon', 'text' ], true ) ? '' : apply_filters( 'document_library_button_column_button_class', 'dlp-download-button document-library-button button btn' );
+		$link_text          = $this->ensure_download_button_link_text( $link_text );
+		$button_class       = in_array( $link_style, [ 'icon_only', 'icon', 'text' ], true ) ? '' : apply_filters( 'document_library_button_column_button_class', 'dll-download-button document-library-button button btn' );
 		$download_attribute = $this->get_download_button_attributes();
 
 		$anchor_open = sprintf(
@@ -232,9 +231,9 @@ class Document {
 
 		$anchor_text = [
 			'button'           => $link_text,
-			'button_icon_text' => SVG_Icon::get( 'download', [ 'dlp-button-icon', 'dlp-button-icon-text' ] ) . $link_text,
-			'button_icon'      => SVG_Icon::get( 'download', [ 'dlp-button-icon' ] ),
-			'icon_only'        => SVG_Icon::get( 'download', [ 'dlp-button-icon' ] ),
+			'button_icon_text' => SVG_Icon::get( 'download', [ 'dll-button-icon', 'dll-button-icon-text' ] ) . $link_text,
+			'button_icon'      => SVG_Icon::get( 'download', [ 'dll-button-icon' ] ),
+			'icon_only'        => SVG_Icon::get( 'download', [ 'dll-button-icon' ] ),
 			'icon'             => $this->get_file_icon(), // file type icon
 			'text'             => $link_text,
 		];
@@ -242,33 +241,49 @@ class Document {
 		$anchor_close = '</a>';
 
 		return $anchor_open . $anchor_text[ $link_style ] . $anchor_close;
-    }
+	}
 
 	/**
-     * Retrieves the 'download' attribute
+	 * Retrieves the 'download' attribute
 	 *
 	 * @return string
-     */
-    private function get_download_button_attributes() {
+	 */
+	private function get_download_button_attributes() {
 
-		if (  $this->get_link_type() !== 'file' ) {
+		if ( $this->get_link_type() !== 'file' ) {
 			return '';
 		}
 
-        $mime_type = get_post_mime_type( $this->get_file_id() );
+		$mime_type = get_post_mime_type( $this->get_file_id() );
 
-        return sprintf(' download="%1$s" type="%2$s"', basename( get_attached_file( $this->get_file_id() ) ), $mime_type );
-    }
+		return sprintf( ' download="%1$s" type="%2$s"', basename( get_attached_file( $this->get_file_id() ) ), $mime_type );
+	}
 
 	/**
-     * Retrieves the download button text
-     *
-     * @return string
-     */
-    private function ensure_download_button_link_text( $link_text ) {
-        $link_text = $link_text ? $link_text : get_the_title( $this->get_id() );
+	 * Retrieves the download button text
+	 *
+	 * @param string $link_text
+	 * @return string
+	 */
+	private function ensure_download_button_link_text( $link_text ) {
+		$link_text = $link_text ? $link_text : get_the_title( $this->get_id() );
 
-        return apply_filters( 'document_library_button_column_button_text', $link_text );
-    }
+		return apply_filters( 'document_library_button_column_button_text', $link_text );
+	}
 
+	/**
+	 * @param int $post_id
+	 * Sets the file type taxonomy if there is associated file
+	 */
+	public function set_file_type( $post_id ) {
+		$file_name = $this->get_file_name();
+
+		if ( $file_name ) {
+			$file_type = wp_check_filetype( $file_name );
+
+			if ( isset( $file_type['ext'] ) ) {
+				wp_set_object_terms( $post_id, $file_type['ext'], Taxonomies::FILE_TYPE_SLUG );
+			}
+		}
+	}
 }

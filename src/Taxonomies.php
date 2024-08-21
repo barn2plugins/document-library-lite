@@ -16,6 +16,7 @@ use	Barn2\Plugin\Document_Library\Dependencies\Lib\Service\Standard_Service;
 class Taxonomies implements Registerable, Standard_Service {
 	const CATEGORY_SLUG          = 'doc_categories';
 	const DOCUMENT_DOWNLOAD_SLUG = 'document_download';
+	const FILE_TYPE_SLUG         = 'file_type';
 
 	/**
 	 * {@inheritdoc}
@@ -23,6 +24,7 @@ class Taxonomies implements Registerable, Standard_Service {
 	public function register() {
 		add_action( 'init', [ $this, 'register_document_category' ], 11 );
 		add_action( 'init', [ $this, 'register_document_download_taxonomy' ], 11 );
+		add_action( 'init', [ $this, 'register_file_types' ], 11 );
 	}
 
 	/**
@@ -100,5 +102,46 @@ class Taxonomies implements Registerable, Standard_Service {
 		];
 
 		register_taxonomy( self::DOCUMENT_DOWNLOAD_SLUG, 'attachment', $args );
+	}
+
+	/**
+	 * Registers the file types taxonomy.
+	 */
+	public function register_file_types() {
+		$labels = [
+			'name'                       => _x( 'File Types', 'Taxonomy General Name', 'document-library-lite' ),
+			'singular_name'              => _x( 'File Type', 'Taxonomy Singular Name', 'document-library-lite' ),
+			'menu_name'                  => __( 'File Types', 'document-library-lite' ),
+			'all_items'                  => __( 'All File Types', 'document-library-lite' ),
+			'parent_item'                => __( 'Parent File Type', 'document-library-lite' ),
+			'parent_item_colon'          => __( 'Parent File Type:', 'document-library-lite' ),
+			'new_item_name'              => __( 'New File Type Name', 'document-library-lite' ),
+			'add_new_item'               => __( 'Add New File Type', 'document-library-lite' ),
+			'edit_item'                  => __( 'Edit File Type', 'document-library-lite' ),
+			'update_item'                => __( 'Update File Type', 'document-library-lite' ),
+			'view_item'                  => __( 'View File Type', 'document-library-lite' ),
+			'separate_items_with_commas' => __( 'Separate file types with commas', 'document-library-lite' ),
+			'add_or_remove_items'        => __( 'Add or remove file types', 'document-library-lite' ),
+			'choose_from_most_used'      => __( 'Choose from the most used', 'document-library-lite' ),
+			'popular_items'              => __( 'Popular File Types', 'document-library-lite' ),
+			'search_items'               => __( 'Search File Types', 'document-library-lite' ),
+			'not_found'                  => __( 'Not Found', 'document-library-lite' ),
+			'no_terms'                   => __( 'No file types', 'document-library-lite' ),
+			'items_list'                 => __( 'File types list', 'document-library-lite' ),
+			'items_list_navigation'      => __( 'File types list navigation', 'document-library-lite' ),
+		];
+
+		$args = [
+			'labels'             => $labels,
+			'public'             => false,
+			'publicly_queryable' => true,
+			'hierarchical'       => false,
+			'rewrite'            => true,
+			'capabilities'       => [ Post_Type::POST_TYPE_SLUG ],
+			'show_admin_column'  => true,
+			'show_in_rest'       => true,
+		];
+
+		register_taxonomy( self::FILE_TYPE_SLUG, Post_Type::POST_TYPE_SLUG, $args );
 	}
 }

@@ -40,7 +40,7 @@ final class SVG_Icon {
 	 */
 	public static function get( $key, $classes = [], $fill_color = '' ) {
 		$icons = apply_filters(
-			'document_library_pro_icon_svg',
+			'document_library_lite_icon_svg',
 			[
 				'www'          => '<svg xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 511 511" xml:space="preserve"><style>.prefix__st2{fill:#9777a8}.prefix__st3{fill:#fff}</style><path d="M337.5 0H72.7c-7.4 0-13.4 6-13.4 17.6v484.3c0 3.2 6 9.1 13.4 9.1h365.7c7.4 0 13.3-6 13.3-9.1V118.4c0-6.4-.8-8.4-2.3-9.9L343.2 2.4C341.7.8 339.6 0 337.5 0zm0 0" fill="#e9e9e0"/><path d="M342.2 1.4v108.1h108.1L342.2 1.4zm0 0" fill="#d9d7ca"/><path class="prefix__st2" d="M438.3 511H72.7c-7.4 0-13.4-6-13.4-13.4V355.9h392.3v141.8c.1 7.3-5.9 13.3-13.3 13.3zm0 0"/><g id="prefix__www"><path class="prefix__st3" d="M102.2 483.3l-27.1-92.6h17l17.5 67.2 16.4-67.2h11.3l16.4 67.1 17.3-67.1h16.2l-27.1 92.6h-13.4l-15.8-63.5-15.9 63.5h-12.8zM224.4 483.3l-27.1-92.6h17l17.5 67.2 16.4-67.2h11.3l16.4 67.1 17.3-67.1h16.2l-27.1 92.6H269l-15.9-63.5-15.9 63.5h-12.8zM346.7 483.3l-27.1-92.6h17l17.5 67.2 16.5-67.2h11.3l16.4 67.1 17.3-67.1h16.2l-27.1 92.6h-13.4l-15.8-63.5-15.9 63.5h-12.9z"/></g><path class="prefix__st2" d="M235.2 249l-21.7 21.7c-9 9-23.5 9-32.5 0s-9-23.5 0-32.5l43.3-43.3c9-9 23.5-9 32.5 0 3 3 7.8 3 10.8 0 3-3 3-7.8 0-10.8-15-15-39.2-15-54.1 0l-43.3 43.3c-15 15-15 39.2 0 54.1 15 15 39.2 15 54.2 0l21.7-21.7c3-3 3-7.8 0-10.8-3-3-7.9-3-10.9 0z"/><path class="prefix__st2" d="M331.6 120.1c-15-15-39.2-15-54.2 0l-26 26c-3 3-3 7.8 0 10.8 3 3 7.8 3 10.8 0l26-26c9-9 23.5-9 32.5 0s9 23.5 0 32.5L273.1 211c-9 9-23.5 9-32.5 0-3-3-7.8-3-10.8 0-3 3-3 7.8 0 10.8 15 15 39.2 15 54.1 0l47.6-47.6c15.1-14.9 15.1-39.2.1-54.1z"/></svg>',
 				'default'      => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 56"><path d="M36.985 0H7.963C7.155 0 6.5.655 6.5 1.926V55c0 .345.655 1 1.463 1h40.074c.808 0 1.463-.655 1.463-1V12.978c0-.696-.093-.92-.257-1.085L37.607.257A.884.884 0 0036.985 0z" fill="#e9e9e0"/><path fill="#d9d7ca" d="M37.5.151V12h11.849z"/><circle cx="25.5" cy="25" r="10" fill="#fff"/><path d="M25.5 36c-6.065 0-11-4.935-11-11s4.935-11 11-11 11 4.935 11 11-4.935 11-11 11zm0-20c-4.963 0-9 4.037-9 9s4.037 9 9 9 9-4.037 9-9-4.037-9-9-9z" fill="#556080"/><path d="M42.5 45a.997.997 0 01-.707-.293l-11-11a.999.999 0 111.414-1.414l11 11A.999.999 0 0142.5 45z" fill="#556080"/><path d="M25.5 22h-6a1 1 0 110-2h6a1 1 0 110 2zM30.5 22h-2a1 1 0 110-2h2a1 1 0 110 2zM24.5 30h-2a1 1 0 110-2h2a1 1 0 110 2zM30.5 30h-2a1 1 0 110-2h2a1 1 0 110 2zM23.5 26h-4a1 1 0 110-2h4a1 1 0 110 2zM32.5 26h-5a1 1 0 110-2h5a1 1 0 110 2z" fill="#d1d4d1"/></svg>',
@@ -83,7 +83,7 @@ final class SVG_Icon {
 		);
 
 		if ( isset( $icons[ $key ] ) ) {
-			$classes = array_merge( [ 'dlp-icon', $key ], $classes );
+			$classes = array_merge( [ 'dll-icon', $key ], $classes );
 
 			if ( $fill_color ) {
 				$fill_color = sprintf( ' style="fill:%s;"', $fill_color );
@@ -117,7 +117,7 @@ final class SVG_Icon {
 		$extension = strtolower( $extension );
 
 		$file_type_icon_map = apply_filters(
-			'document_library_pro_file_type_icon_map',
+			'document_library_lite_file_type_icon_map',
 			[
 				// External
 				'www'      => 'www',

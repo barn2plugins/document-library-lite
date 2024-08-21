@@ -119,6 +119,7 @@ class Document_Link implements Registerable, Standard_Service, Conditional {
 		try {
 			$document = new Document( $post_id );
 			$document->set_document_link( $type, $data );
+			$document->set_file_type( $post_id );
 		// phpcs:ignore Generic.CodeAnalysis.EmptyStatement.DetectedCatch
 		} catch ( \Exception $exception ) {
 			// silent
