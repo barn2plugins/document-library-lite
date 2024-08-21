@@ -133,3 +133,7 @@ table.document-library-table .document-library-button::after {
         font-size: inherit;
     }
 }
+
+.pswp--open {
+    z-index: 999999!important;
+}
