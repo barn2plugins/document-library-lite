@@ -34,6 +34,14 @@
                 }
             }
 
+            // Set the column classes
+            let columns = document_library_params.columns.split(',');
+            let column_classes = [];
+            columns.forEach((column) => {
+                column_classes.push( { 'className': 'col-' + column.trimStart() } );
+            });
+            config.columns = column_classes;
+            
             // Initialise DataTable
             let table = $table.DataTable( config );
 

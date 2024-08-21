@@ -2,13 +2,13 @@
 namespace Barn2\Plugin\Document_Library\Admin;
 
 use Barn2\Plugin\Document_Library\Admin\Wizard\Setup_Wizard;
-use	Barn2\Plugin\Document_Library\Dependencies\Lib\Util;
-use	Barn2\Plugin\Document_Library\Dependencies\Lib\Plugin\Plugin;
-use	Barn2\Plugin\Document_Library\Dependencies\Lib\Service\Service_Container;
-use	Barn2\Plugin\Document_Library\Dependencies\Lib\Registerable;
-use	Barn2\Plugin\Document_Library\Dependencies\Lib\Service\Standard_Service;
-use	Barn2\Plugin\Document_Library\Dependencies\Lib\Admin\Plugin_Promo;
-use	Barn2\Plugin\Document_Library\Dependencies\Lib\Admin\Settings_API_Helper;
+use Barn2\Plugin\Document_Library\Dependencies\Lib\Util;
+use Barn2\Plugin\Document_Library\Dependencies\Lib\Plugin\Plugin;
+use Barn2\Plugin\Document_Library\Dependencies\Lib\Service\Service_Container;
+use Barn2\Plugin\Document_Library\Dependencies\Lib\Registerable;
+use Barn2\Plugin\Document_Library\Dependencies\Lib\Service\Standard_Service;
+use Barn2\Plugin\Document_Library\Dependencies\Lib\Admin\Plugin_Promo;
+use Barn2\Plugin\Document_Library\Dependencies\Lib\Admin\Settings_API_Helper;
 use Barn2\Plugin\Document_Library\Post_Type;
 
 /**
@@ -36,7 +36,6 @@ class Admin_Controller implements Registerable, Standard_Service {
 		// Extra links on Plugins page
 		add_filter( 'plugin_action_links_' . $this->plugin->get_basename(), [ $this, 'add_settings_link' ] );
 		add_filter( 'plugin_row_meta', [ $this, 'add_pro_version_link' ], 10, 2 );
-
 		// Admin scripts
 		add_action( 'admin_enqueue_scripts', [ $this, 'settings_page_scripts' ] );
 	}
@@ -102,19 +101,19 @@ class Admin_Controller implements Registerable, Standard_Service {
 
 		// Main Settings Page
 		if ( 'toplevel_page_document_library' === $hook ) {
-			wp_enqueue_style( 'dlw-admin-settings', plugins_url( "assets/css/admin/document-library-settings.css", $this->plugin->get_file() ), [], $this->plugin->get_version(), 'all' );
-			wp_enqueue_script( 'dlw-admin-settings', plugins_url( "assets/js/admin/document-library-settings.js", $this->plugin->get_file() ), [ 'jquery' ], $this->plugin->get_version(), true );
+			wp_enqueue_style( 'dlw-admin-settings', plugins_url( 'assets/css/admin/document-library-settings.css', $this->plugin->get_file() ), [], $this->plugin->get_version(), 'all' );
+			wp_enqueue_script( 'dlw-admin-settings', plugins_url( 'assets/js/admin/document-library-settings.js', $this->plugin->get_file() ), [ 'jquery' ], $this->plugin->get_version(), true );
 		}
 
 		// Import Page
-		if (  $this->str_ends_with( $hook, 'page_dlp_import' ) ) {
-			wp_enqueue_style( 'dlw-admin-import', plugins_url( "assets/css/admin/document-library-import.css", $this->plugin->get_file() ), [], $this->plugin->get_version(), 'all' );
+		if ( $this->str_ends_with( $hook, 'page_dlp_import' ) ) {
+			wp_enqueue_style( 'dlw-admin-import', plugins_url( 'assets/css/admin/document-library-import.css', $this->plugin->get_file() ), [], $this->plugin->get_version(), 'all' );
 		}
 
 		// Add - Edit Document Page
 		if ( in_array( $hook, [ 'post.php', 'post-new.php' ], true ) && is_object( $screen ) && Post_Type::POST_TYPE_SLUG === $screen->post_type ) {
 			wp_enqueue_media();
-			wp_enqueue_script( 'dlw-admin-post', $this->plugin->get_dir_url() . "assets/js/admin/document-library-post.js", [ 'jquery' ], $this->plugin->get_version(), true );
+			wp_enqueue_script( 'dlw-admin-post', $this->plugin->get_dir_url() . 'assets/js/admin/document-library-post.js', [ 'jquery' ], $this->plugin->get_version(), true );
 			wp_localize_script(
 				'dlw-admin-post',
 				'dlwAdminObject',
@@ -127,7 +126,7 @@ class Admin_Controller implements Registerable, Standard_Service {
 				]
 			);
 
-			wp_enqueue_style( 'dlw-admin-post', $this->plugin->get_dir_url() . "assets/css/admin/document-library-post.css", [], $this->plugin->get_version(), 'all' );
+			wp_enqueue_style( 'dlw-admin-post', $this->plugin->get_dir_url() . 'assets/css/admin/document-library-post.css', [], $this->plugin->get_version(), 'all' );
 		}
 	}
 
