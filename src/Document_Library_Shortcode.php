@@ -18,6 +18,13 @@ class Document_Library_Shortcode implements Registerable, Standard_Service {
 	const SHORTCODE = 'doc_library';
 
 	/**
+	 * Stores the number of tables on this page. Used to generate the table ID.
+	 *
+	 * @var int
+	 */
+	private static $table_count = 1;
+
+	/**
 	 * {@inheritdoc}
 	 */
 	public function register() {
@@ -32,13 +39,37 @@ class Document_Library_Shortcode implements Registerable, Standard_Service {
 	 * @return string The shortcode output
 	 */
 	public function do_shortcode( $atts, $content = '' ) {
+		// Load the scripts and styles.
+		if ( apply_filters( 'document_library_table_load_scripts', true ) ) {
+			wp_enqueue_style( 'document-library' );
+			wp_enqueue_script( 'document-library' );
+		}
+		
 		// Parse attributes
-
 		$atts = Options::handle_shortcode_attribute_aliases( $atts );
 		$atts = shortcode_atts( Options::get_defaults(), $atts, self::SHORTCODE );
-		// Create table and return output
 		$table = new Simple_Document_Library( $atts );
-		return $table->get_table();
+		
+		Frontend_Scripts::load_photoswipe_resources( $table->args['lightbox'] );
+
+		// Create table and return output
+		ob_start(); ?>
+
+		<table <?php echo $table->get_attributes() ?>>
+			<?php
+			echo $table->get_headers();
+			?>
+			<tbody>
+				<?php
+				if( ! $atts[ 'lazy_load' ] ) {
+					echo $table->get_table( 'html' );
+				}
+				?>
+			</tbody>
+		</table>
+		
+		<?php 
+		return ob_get_clean();
 	}
 
 }
