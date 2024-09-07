@@ -1,4 +1,5 @@
 /*! License information is available at CREDITS.md *//******/ (() => { // webpackBootstrap
+var __webpack_exports__ = {};
 /*!************************************************!*\
   !*** ./assets/js/src/document-library-main.js ***!
   \************************************************/
@@ -11,8 +12,6 @@
       let $table = $(this),
         config = {
           responsive: true,
-          processing: true,
-          // display 'processing' indicator when loading
           serverSide: document_library_params.lazy_load
         };
       this.id = $table.attr('id');
@@ -41,11 +40,12 @@
       let column_classes = [];
       columns.forEach(column => {
         column_classes.push({
-          'className': 'col-' + column.trimStart()
+          'className': 'col-' + column.trimStart(),
+          'data': column.trimStart()
         });
       });
       config.columns = column_classes;
-      console.log(column_classes);
+
       // Initialise DataTable
       let table = $table.DataTable(config);
 
@@ -68,13 +68,16 @@
       // When clicked, the table will filter by that value.
       if ($table.data('click-filter')) {
         $table.on('click', 'a', function () {
+          // Don't sort the table when opening the lightbox
+          if ($(this).hasClass('dlw-lightbox')) {
+            return;
+          }
           let $link = $(this),
             idx = table.cell($link.closest('td').get(0)).index().column,
             // get the column index
             header = table.column(idx).header(),
             // get the header cell
             columnName = $(header).data('name'); // get the column name from header
-
           // Is the column click filterable?
           if (-1 !== clickFilterColumns.indexOf(columnName)) {
             table.search($link.text()).draw();

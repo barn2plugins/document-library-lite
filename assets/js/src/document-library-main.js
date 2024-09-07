@@ -1,10 +1,7 @@
 
 ( function( $ ) {
-
     $( document ).ready( function() {
-
         let tables = $( '.document-library-table' );
-
         const adminBar = $( '#wpadminbar' );
         const clickFilterColumns = [ 'doc_categories' ];
 
@@ -12,7 +9,6 @@
             let $table = $( this ),
                 config = {
                     responsive: true,
-                    processing: true, // display 'processing' indicator when loading
                     serverSide: document_library_params.lazy_load,
                 };
             this.id = $table.attr( 'id' );
@@ -38,7 +34,10 @@
             let columns = document_library_params.columns.split(',');
             let column_classes = [];
             columns.forEach((column) => {
-                column_classes.push( { 'className': 'col-' + column.trimStart() } );
+                column_classes.push( { 
+                    'className': 'col-' + column.trimStart(),
+                    'data': column.trimStart()
+                } );
             });
             config.columns = column_classes;
             
@@ -63,11 +62,16 @@
             // When clicked, the table will filter by that value.
             if ( $table.data( 'click-filter' ) ) {
                 $table.on( 'click', 'a', function() {
+
+                    // Don't sort the table when opening the lightbox
+                    if( $(this).hasClass( 'dlw-lightbox' ) ) {
+                        return;
+                    }
+                              
                     let $link = $( this ),
                         idx = table.cell( $link.closest( 'td' ).get( 0 ) ).index().column, // get the column index
                         header = table.column( idx ).header(), // get the header cell
                         columnName = $( header ).data( 'name' ); // get the column name from header
-
                     // Is the column click filterable?
                     if ( -1 !== clickFilterColumns.indexOf( columnName ) ) {
                         table.search( $link.text() ).draw();
