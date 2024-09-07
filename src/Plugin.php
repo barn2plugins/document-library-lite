@@ -57,6 +57,7 @@ class Plugin extends Simple_Plugin {
 
 	public function add_services() {
 		$this->add_service( 'plugin_setup', new Plugin_Setup( $this->get_file(), $this ), true );
+		$this->add_service( 'ajax_handler', new Table\Ajax_Handler() );
 		$this->add_service( 'wizard', new Setup_Wizard( $this ) );
 		$this->add_service( 'post_type', new Post_Type() );
 		$this->add_service( 'taxonomies', new Taxonomies() );
