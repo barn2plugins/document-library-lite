@@ -44,79 +44,6 @@ class Simple_Document_Library {
 	}
 
 	/**
-	 * Retrieves the column defaults for DataTables.
-	 *
-	 * @return array
-	 */
-	public static function get_column_defaults() {
-		if ( empty( self::$column_defaults ) ) {
-			/**
-			 * Priority values are used to determine visiblity at small screen sizes (1 = highest priority, 6 = lowest priority).
-			 * Column widths are automatically calculated by DataTables, but can be overridden by using filter 'rydocument_libra_table_column_defaults'.
-			 */
-			self::$column_defaults = [
-				'id'             => [
-					'heading'   => __( 'ID', 'document-library-lite' ),
-					'priority'  => 3,
-					'width'     => '',
-					'orderable' => 'true',
-				],
-				'image'          => [
-					'heading'   => __( 'Image', 'document-library-lite' ),
-					'priority'  => 6,
-					'width'     => '',
-					'orderable' => 'false',
-				],
-				'title'          => [
-					'heading'   => __( 'Title', 'document-library-lite' ),
-					'priority'  => 1,
-					'width'     => '',
-					'orderable' => 'true',
-				],
-				'doc_categories' => [
-					'heading'   => __( 'Categories', 'document-library-lite' ),
-					'priority'  => 7,
-					'width'     => '',
-					'orderable' => 'true',
-				],
-				'date'           => [
-					'heading'   => __( 'Date', 'document-library-lite' ),
-					'priority'  => 2,
-					'width'     => '',
-					'orderable' => 'true',
-				],
-				'content'        => [
-					'heading'   => __( 'Description', 'document-library-lite' ),
-					'priority'  => 5,
-					'width'     => '',
-					'orderable' => 'true',
-				],
-				'link'           => [
-					'heading'   => __( 'Link', 'document-library-lite' ),
-					'priority'  => 4,
-					'width'     => '',
-					'orderable' => 'false',
-				],
-			];
-		}
-
-		return self::$column_defaults;
-	}
-
-	/**
-	 * Get the allowed columns for DataTables.
-	 *
-	 * @return array
-	 */
-	public static function get_allowed_columns() {
-		if ( empty( self::$allowed_columns ) ) {
-			self::$allowed_columns = array_keys( self::get_column_defaults() );
-		}
-
-		return self::$allowed_columns;
-	}
-
-	/**
 	 * Retrieves a data table containing a list of posts based on the specified arguments.
 	 *
 	 * @return string The posts table HTML output
@@ -132,15 +59,13 @@ class Simple_Document_Library {
     	$this->args['sort_order'] = isset( $_POST['order'] ) ? $_POST['order'][0]['dir'] : $this->args['sort_order'];
     	$this->args['search_value'] = isset( $_POST['search'] ) ? $_POST['search']['value'] : '';
 
-		// Frontend_Scripts::load_photoswipe_resources( $this->args['lightbox'] );
-
 		$this->args['rows_per_page'] = filter_var( $this->args['rows_per_page'], FILTER_VALIDATE_INT );
 
 		if ( $this->args['rows_per_page'] < 1 || ! $this->args['rows_per_page'] ) {
 			$this->args['rows_per_page'] = false;
 		}
 
-		if ( ! in_array( $this->args['sort_by'], self::get_allowed_columns(), true ) ) {
+		if ( ! in_array( $this->args['sort_by'], Options::get_allowed_columns(), true ) ) {
 			$this->args['sort_by'] = Options::get_default_settings()['sort_by'];
 		}
 
@@ -437,13 +362,13 @@ class Simple_Document_Library {
 
 	public function get_headers() {
 		$columns = $this->get_columns();
-		$column_defaults = apply_filters( 'document_library_table_column_defaults_' . self::$table_count, apply_filters( 'document_library_table_column_defaults', self::get_column_defaults() ) );
+		$column_defaults = apply_filters( 'document_library_table_column_defaults_' . self::$table_count, apply_filters( 'document_library_table_column_defaults', Options::get_column_defaults() ) );
 		// Build table header
 		$heading_fmt  = '<th data-name="%1$s" data-priority="%2$u" data-width="%3$s"%5$s data-orderable="%6$s">%4$s</th>';
 		$table_head   = '';
 		foreach ( $columns as $column ) {
 			// Double-check column name is valid
-			if ( ! in_array( $column, self::get_allowed_columns(), true ) ) {
+			if ( ! in_array( $column, Options::get_allowed_columns(), true ) ) {
 				continue;
 			}
 
@@ -466,7 +391,7 @@ class Simple_Document_Library {
 		}
 		// Get the columns to be used in this table
 		$columns = array_filter( array_map( 'trim', explode( ',', strtolower( $this->args['columns'] ) ) ) );
-		$columns = array_intersect( $columns, self::get_allowed_columns() );
+		$columns = array_intersect( $columns, Options::get_allowed_columns() );
 
 		if ( empty( $columns ) ) {
 			$columns = explode( ',', Options::get_default_settings()['columns'] );
@@ -508,6 +433,8 @@ class Simple_Document_Library {
 					break;
 				case 'link':
 					$row_content['link'] = $document->get_download_button( $this->args['link_text'], $this->args['link_style'] );
+					break;
+				default:
 					break;
 			}
 		}

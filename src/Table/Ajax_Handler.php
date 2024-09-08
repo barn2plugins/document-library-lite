@@ -33,7 +33,6 @@ class Ajax_Handler implements Standard_Service {
 
         $args = shortcode_atts( Options::get_defaults(), [], self::SHORTCODE );
 
-        // Here we need to do something with the output pf the Posts_Table class
         $table = new simple_Document_Library( $args );
         $response = $table->get_table( 'array' );
 

@@ -207,4 +207,67 @@ final class Options {
 		return $value;
 	}
 
+	public static function get_allowed_columns() {
+		$allowed_columns = array_keys( self::get_column_defaults() );
+		return $allowed_columns;
+	}
+
+	/**
+	 * Retrieves the column defaults for DataTables.
+	 *
+	 * @return array
+	 */
+	public static function get_column_defaults() {
+			/**
+			 * Priority values are used to determine visiblity at small screen sizes (1 = highest priority, 6 = lowest priority).
+			 * Column widths are automatically calculated by DataTables, but can be overridden by using filter 'rydocument_libra_table_column_defaults'.
+			 */
+			$column_defaults = [
+				'id'             => [
+					'heading'   => __( 'ID', 'document-library-lite' ),
+					'priority'  => 3,
+					'width'     => '',
+					'orderable' => 'true',
+				],
+				'image'          => [
+					'heading'   => __( 'Image', 'document-library-lite' ),
+					'priority'  => 6,
+					'width'     => '',
+					'orderable' => 'false',
+				],
+				'title'          => [
+					'heading'   => __( 'Title', 'document-library-lite' ),
+					'priority'  => 1,
+					'width'     => '',
+					'orderable' => 'true',
+				],
+				'doc_categories' => [
+					'heading'   => __( 'Categories', 'document-library-lite' ),
+					'priority'  => 7,
+					'width'     => '',
+					'orderable' => 'true',
+				],
+				'date'           => [
+					'heading'   => __( 'Date', 'document-library-lite' ),
+					'priority'  => 2,
+					'width'     => '',
+					'orderable' => 'true',
+				],
+				'content'        => [
+					'heading'   => __( 'Description', 'document-library-lite' ),
+					'priority'  => 5,
+					'width'     => '',
+					'orderable' => 'true',
+				],
+				'link'           => [
+					'heading'   => __( 'Link', 'document-library-lite' ),
+					'priority'  => 4,
+					'width'     => '',
+					'orderable' => 'false',
+				],
+			];
+
+		return $column_defaults;
+	}
+
 }

@@ -40,7 +40,7 @@ var __webpack_exports__ = {};
       }
 
       // Set the column classes
-      let columns = document_library_params.columns.split(',');
+      let columns = document_library_params.columns;
       let column_classes = [];
       columns.forEach(column => {
         column_classes.push({
@@ -80,7 +80,7 @@ var __webpack_exports__ = {};
 
       // If 'search on click' enabled then add click handler for links in category, author and tags columns.
       // When clicked, the table will filter by that value.
-      if ($table.data('click-filter')) {
+      if ($table.data('click-filter') && !document_library_params.lazy_load) {
         $table.on('click', 'a', function () {
           // Don't sort the table when opening the lightbox
           if ($(this).hasClass('dlw-lightbox')) {
