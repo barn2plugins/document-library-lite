@@ -2,7 +2,13 @@
 table.document-library-table {
     table-layout: auto;
     margin-bottom: 0 !important;
+    tbody {
+        &.loading {
+            opacity: .1;
+        }
+    }
 }
+
 table.document-library-table td {
     vertical-align: top;
 }
@@ -21,6 +27,62 @@ table.document-library-table.nowrap td.child {
 .dataTables_wrapper {
     margin-top: 1.2em;
     margin-bottom: 2.2em;
+
+    /* Style for the processing message */
+    .dataTables_processing {
+        background: transparent;
+        color: #ccc;
+        font-size: 16px;
+        padding: 20px;
+        border-radius: 5px;
+        position: absolute;
+        top: 50%;
+        left: calc(50% - 100px);
+        width: 100px;
+        margin: 0!important;
+        // transform: translate(-50%, -50%);
+        z-index: 1000; /* Ensure it stays on top */
+        text-align: center;
+    }
+
+    /* The container for the dots */
+    .dots-loader {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px; /* Spacing between dots */
+    }
+
+    /* Style for the dots */
+    .dots-loader .dot {
+        width: 10px;
+        height: 10px;
+        background-color: #ccc;
+        border-radius: 50%;
+        animation: dots 1.2s infinite ease-in-out both;
+    }
+
+    /* Animations for each dot with delays */
+    .dots-loader .dot:nth-child(1) {
+        animation-delay: -0.32s;
+    }
+    .dots-loader .dot:nth-child(2) {
+        animation-delay: -0.16s;
+    }
+    .dots-loader .dot:nth-child(3) {
+        animation-delay: 0s;
+    }
+
+    /* Keyframes for the dot animation */
+    @keyframes dots {
+        0%, 100% {
+            transform: scale(0);
+        }
+        50% {
+            transform: scale(1);
+        }
+    }
+
 }
 .dataTables_wrapper label {
     font-weight: normal;

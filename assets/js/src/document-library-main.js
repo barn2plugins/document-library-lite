@@ -9,7 +9,15 @@
             let $table = $( this ),
                 config = {
                     responsive: true,
+                    processing: true,
                     serverSide: document_library_params.lazy_load,
+                    language: {
+                        processing: '<div class="dots-loader">' +
+                                    '<div class="dot"></div>' +
+                                    '<div class="dot"></div>' +
+                                    '<div class="dot"></div>' +
+                                    '</div>'
+                    }
                 };
             this.id = $table.attr( 'id' );
             // Set language - defaults to English if not specified
@@ -57,6 +65,16 @@
                     $( 'html,body' ).animate( { scrollTop: tableOffset }, 300 );
                 }
             } );
+
+            // Change the animation for the loading state
+            // Listen to the processing event
+            $table.on('processing.dt', function(e, settings, processing) {
+                if (processing) {
+                    $table.find( 'tbody' ).addClass( 'loading' );  // Show custom loader
+                } else {
+                    $table.find( 'tbody' ).removeClass( 'loading' );  // Hide custom loader
+                }
+            });
 
             // If 'search on click' enabled then add click handler for links in category, author and tags columns.
             // When clicked, the table will filter by that value.
