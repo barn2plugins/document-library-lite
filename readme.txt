@@ -5,7 +5,7 @@ Tags: document library, file manager, download manager, document management, med
 Requires at least: 6.1
 Tested up to: 6.6
 Requires PHP: 7.4
-Stable tag: 1.0.7
+Stable tag: 1.1.0
 License: GPL-3.0
 License URI: https://www.gnu.org/licenses/gpl.html
 
@@ -201,6 +201,15 @@ Please report any security bugs through the [Patchstack Vulnerability Disclosure
 11. View document downloads separately from other Media Library files.
 
 == Changelog ==
+
+= 1.1.0 =
+Release date 10 September 2024
+
+* New: Added the link style option
+* New: Added the lazy load option
+* Dev: Added the E2E tests
+* Dev: Tested up to WordPress 6.6.1
+* Dev: Updated internal libraries
 
 = 1.0.7 =
 Release date 13 June 2024
