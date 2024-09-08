@@ -118,6 +118,7 @@ final class Options {
 			'columns'         => 'id,title,content,image,date,doc_categories,link',
 			'doc_category'    => '',
 			'content_length'  => 15,
+			'status'          => 'publish',
 			'date_format'     => 'Y/m/d',
 			'search_on_click' => true,
 			'wrap'            => true,

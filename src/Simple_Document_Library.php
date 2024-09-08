@@ -40,7 +40,7 @@ class Simple_Document_Library {
 
 	public function __construct( $args ) {
 		$this->args = $args;
-		$this->validate_boolean_options();
+		$this->validate_options();
 		$this->set_post_args();
 	}
 
@@ -463,7 +463,7 @@ class Simple_Document_Library {
 			'post_type'        => Post_Type::POST_TYPE_SLUG,
 			// phpcs:ignore WordPress.WP.PostsPerPage.posts_per_page_posts_per_page
 			'posts_per_page'   => apply_filters( 'document_library_table_post_limit', 1000 ),
-			'post_status'      => 'publish',
+			'post_status'      => $this->args['status'],
 			'order'            => strtoupper( $this->args['sort_order'] ),
 			'orderby'          => $this->args['sort_by'],
 			'suppress_filters' => false, // Ensure WPML filters run on this query
@@ -482,12 +482,18 @@ class Simple_Document_Library {
 		}
 	}
 
-	public function validate_boolean_options() {
+	public function validate_options() {
+		// Validate all the boolean options in the database
 		$boolean_options = [ 'lazy_load', 'lightbox', 'wrap', 'search_on_click' ];
 
 		foreach( $boolean_options as $option ) {
 			$this->args[ $option ] = is_string( $this->args[ $option ] ) ? $this->args[ $option ] === "true" : $this->args[ $option ];
 
 		}
+
+		// The post status can only have these values
+		$valid_post_statuses = [ 'publish', 'pending', 'draft', 'future', 'any' ];
+		$this->args[ 'status' ] = in_array( $this->args['status'], $valid_post_statuses ) ? $this->args[ 'status' ] : 'publish';
+	
 	}
 }
