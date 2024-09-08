@@ -19,6 +19,7 @@ var __webpack_exports__ = {};
           }
         };
       this.id = $table.attr('id');
+
       // Set language - defaults to English if not specified
       if (typeof document_library !== 'undefined' && document_library.langurl) {
         config.language = {

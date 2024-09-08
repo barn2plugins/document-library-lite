@@ -112,7 +112,6 @@ Options for the `[doc_library]` shortcode:
 * **scroll_offset** - If your theme has a sticky header then you can use this option to ensure that users are jumped to the correct point of the page when they use the pagination buttons at the bottom of the WordPress document library.
 * **wrap** - By default, if the document library contains too much text to fit on one row then it wraps onto multiple rows. If you prefer, then you can truncate the text and ensure that each download only takes up 1 row of the library. This helps to save space if you have a large download manager table.
 * **search_on_click** - Allow users to click on a category in the ‘Document categories’ column in order to filter the download library by that column.
-* **show_footer** - Show or hide the footer row of the file manager.
 
 For example: `[doc_library doc_category="meetings" content="title,content,link" sort_by="date"]`
 View the [full documentation](https://barn2.com/kb/document-library-wordpress-documentation?utm_source=wporg&utm_medium=freeplugin&utm_campaign=freepluginwporg&utm_content=dlw-wporg#doc-library-shortcode), check out the [demo](https://documentlibrary-free.barn2.com/), and if you need more features then have a look at [Document Library Pro](https://barn2.com/wordpress-plugins/document-library-pro/?utm_source=wporg&utm_medium=freeplugin&utm_campaign=freepluginwporg&utm_content=dlw-wporg).

@@ -40,6 +40,7 @@ class Simple_Document_Library {
 
 	public function __construct( $args ) {
 		$this->args = $args;
+		$this->validate_boolean_options();
 		$this->set_post_args();
 	}
 
@@ -82,8 +83,6 @@ class Simple_Document_Library {
 			}
 		}
 
-		$this->args['search_on_click'] = filter_var( $this->args['search_on_click'], FILTER_VALIDATE_BOOLEAN );
-		$this->args['wrap']            = filter_var( $this->args['wrap'], FILTER_VALIDATE_BOOLEAN );
 		$this->args['content_length']  = filter_var( $this->args['content_length'], FILTER_VALIDATE_INT );
 		$this->args['scroll_offset']   = filter_var( $this->args['scroll_offset'], FILTER_VALIDATE_INT );
 
@@ -480,6 +479,15 @@ class Simple_Document_Library {
 
 		if( isset( $this->args['search_value'] ) && strlen( $this->args['search_value'] ) > 0 ) {
 			$this->post_args['s'] = $this->args['search_value'];
+		}
+	}
+
+	public function validate_boolean_options() {
+		$boolean_options = [ 'lazy_load', 'lightbox', 'wrap', 'search_on_click' ];
+
+		foreach( $boolean_options as $option ) {
+			$this->args[ $option ] = is_string( $this->args[ $option ] ) ? $this->args[ $option ] === "true" : $this->args[ $option ];
+
 		}
 	}
 }

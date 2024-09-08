@@ -61,23 +61,6 @@ class Frontend_Scripts implements Registerable, Standard_Service {
 		wp_register_script( 'document-library', plugins_url( 'assets/js/document-library-main.js', $this->plugin->get_file() ), [ 'jquery', 'jquery-datatables-dlw' ], $this->plugin->get_version(), true );
 		wp_register_script( 'photoswipe', plugins_url( 'assets/js/photoswipe/photoswipe.min.js', $this->plugin->get_file() ), [], self::PHOTOSWIPE_VERSION, true );
 		wp_register_script( 'photoswipe-ui-default', plugins_url( 'assets/js/photoswipe/photoswipe-ui-default.min.js', $this->plugin->get_file() ), [ 'photoswipe' ], self::PHOTOSWIPE_VERSION, true );
-
-		// Get the columns to be used in this table
-		$columns = array_filter( array_map( 'trim', explode( ',', strtolower( Options::get_shortcode_option()['columns'] ) ) ) );
-		$columns = array_intersect( $columns, Options::get_allowed_columns() );
-
-		$script_params = [
-			'ajax_url'    => admin_url( 'admin-ajax.php' ),
-			'ajax_nonce'  => 'document-library',
-			'ajax_action' => 'dll_load_posts',
-			'lazy_load'   => Options::get_shortcode_option()['lazy_load'],
-			'columns'	  => $columns,
-		];
-		wp_add_inline_script(
-			'document-library',
-			sprintf( 'var document_library_params = %s;', wp_json_encode( apply_filters( 'document_library_script_params', $script_params ) ) ),
-			'before'
-		);
 	}
 
 	/**
