@@ -35,6 +35,7 @@ var __webpack_exports__ = {};
           data: {
             table_id: this.id,
             action: document_library_params.ajax_action,
+            category: $(".category-search-" + this.id.replace('document-library-', '')).val(),
             _ajax_nonce: document_library_params.ajax_nonce
           }
         };
@@ -79,11 +80,16 @@ var __webpack_exports__ = {};
         }
       });
 
+      // Add category parameter just before the AJAX request is sent
+      table.on('preXhr.dt', function (e, settings, data) {
+        data.category = $(".category-search-" + this.id.replace('document-library-', '')).val();
+      });
+
       // If 'search on click' enabled then add click handler for links in category, author and tags columns.
       // When clicked, the table will filter by that value.
-      if ($table.data('click-filter') && !document_library_params.lazy_load) {
+      if ($table.data('click-filter')) {
         $table.on('click', 'a', function () {
-          // Don't sort the table when opening the lightbox
+          // Don't filter the table when opening the lightbox
           if ($(this).hasClass('dlw-lightbox')) {
             return;
           }
@@ -95,7 +101,12 @@ var __webpack_exports__ = {};
             columnName = $(header).data('name'); // get the column name from header
           // Is the column click filterable?
           if (-1 !== clickFilterColumns.indexOf(columnName)) {
-            table.search($link.text()).draw();
+            if (!document_library_params.lazy_load) {
+              table.search($link.text()).draw();
+            } else {
+              $(".category-search-" + config.ajax.data.table_id.replace("document-library-", "")).val($link.text());
+              table.draw();
+            }
             return false;
           }
           return true;

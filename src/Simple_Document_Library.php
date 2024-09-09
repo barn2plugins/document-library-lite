@@ -59,11 +59,13 @@ class Simple_Document_Library {
 		$this->args['sort_by'] = isset( $_POST['order'] ) ? $columns[$_POST['order'][0]['column']] : $this->get_orderby();
     	$this->args['sort_order'] = isset( $_POST['order'] ) ? $_POST['order'][0]['dir'] : $this->args['sort_order'];
     	$this->args['search_value'] = isset( $_POST['search'] ) ? $_POST['search']['value'] : '';
-
 		$this->args['rows_per_page'] = filter_var( $this->args['rows_per_page'], FILTER_VALIDATE_INT );
 
 		if ( $this->args['rows_per_page'] < 1 || ! $this->args['rows_per_page'] ) {
 			$this->args['rows_per_page'] = false;
+		}
+		if( isset( $_POST['category'] ) ) {
+			$this->args['doc_category'] = $_POST['category'];
 		}
 
 		if ( ! in_array( $this->args['sort_by'], Options::get_allowed_columns(), true ) ) {
@@ -495,5 +497,9 @@ class Simple_Document_Library {
 		$valid_post_statuses = [ 'publish', 'pending', 'draft', 'future', 'any' ];
 		$this->args[ 'status' ] = in_array( $this->args['status'], $valid_post_statuses ) ? $this->args[ 'status' ] : 'publish';
 	
+	}
+
+	public function get_id() {
+		return self::$table_count;
 	}
 }

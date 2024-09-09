@@ -42,7 +42,6 @@ class Document_Library_Shortcode implements Registerable, Standard_Service {
 		// Parse attributes
 		$atts = Options::handle_shortcode_attribute_aliases( $atts );
 		$atts = shortcode_atts( Options::get_defaults(), $atts, self::SHORTCODE );
-		// $atts['lazy_load'] = is_string( $atts['lazy_load'] ) ? $atts['lazy_load'] === "true" : $atts['lazy_load'];
 
 		$table = new Simple_Document_Library( $atts );
 		
@@ -71,7 +70,7 @@ class Document_Library_Shortcode implements Registerable, Standard_Service {
 
 		// Create table and return output
 		ob_start(); ?>
-
+		<input type="hidden" name="category-search-<?php echo $table->get_id() ?>" value="" class="category-search-<?php echo $table->get_id() ?>">
 		<table <?php echo $table->get_attributes() ?>>
 			<?php
 			echo $table->get_headers();
@@ -84,7 +83,6 @@ class Document_Library_Shortcode implements Registerable, Standard_Service {
 				?>
 			</tbody>
 		</table>
-		
 		<?php 
 		return ob_get_clean();
 	}

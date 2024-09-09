@@ -85,6 +85,8 @@ For more flexibility, you can use the `[doc_library]` shortcode to list differen
 * Built-in ‘Document Library’ page which automatically lists all your downloads.
 * `[doc_library]` shortcode for added flexibility.
 * List documents in a table with sortable columns.
+* Choice of 6 styles for your document download links including buttons, download icons, file type icons, and text.
+* Optional lazy load setting to list unlimited documents with no performance limitations.
 * Instant AJAX search box to find documents more quickly.
 * 'Search on click' feature to filter the WordPress file manager by clicking on a document category.
 * Display the number of documents in the table, and allow users to change this number.
@@ -107,6 +109,8 @@ Options for the `[doc_library]` shortcode:
 * **status** - List documents based on their status (e.g. published/draft/private).
 * **lightbox** - Enable or disable the feature which opens document featured images in a lightbox modal window.
 * **docs_per_page** - Change the number of documents on each page of the library.
+* **link_style** - Choose the style of the document download links. This can be any of the following: button, button_icon_text, button_icon, icon_only, icon, or text.
+* **lazy_load** - List unlimited documents with no performance limitations.
 * **sort_by** - Override the sort order of the WordPress download manager library.
 * **sort_order** - Choose whether files are ordered alphabetically in ascending or descending order.
 * **scroll_offset** - If your theme has a sticky header then you can use this option to ensure that users are jumped to the correct point of the page when they use the pagination buttons at the bottom of the WordPress document library.
@@ -210,15 +214,5 @@ Release date 10 September 2024
 * Dev: Added the E2E tests
 * Dev: Tested up to WordPress 6.6.1
 * Dev: Updated internal libraries
-
-= 1.0.7 =
-Release date 13 June 2024
-
-* Dev: Tested up to WordPress 6.5
-* Dev: Updated internal libraries
-* Dev: Updated the classes to use barn2-lib 2.0
-* Dev: Tested up to PHP 8.2
-* Fix: Setup wizard runs after every activation
-
 
 See changelog.txt for more details.
