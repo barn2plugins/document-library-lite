@@ -21,6 +21,13 @@ class Document {
 	protected $id = 0;
 
 	/**
+	 * Post object
+	 *
+	 * @var \WP_Post
+	 */
+	protected $post_object;
+
+	/**
 	 * Constructor
 	 *
 	 * @param integer   $id
