@@ -54,6 +54,7 @@ class Document_Library_Shortcode implements Registerable, Standard_Service {
 				'ajax_action' => 'dll_load_posts',
 				'lazy_load'   => $table->args['lazy_load'],
 				'columns'	  => $table->get_columns(),
+				'args'        => $table->args
 			];
 
 			wp_add_inline_script(

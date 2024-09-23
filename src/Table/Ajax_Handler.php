@@ -30,8 +30,8 @@ class Ajax_Handler implements Standard_Service {
     }
 
     public function load_posts() {
-
-        $args = shortcode_atts( Options::get_defaults(), [], self::SHORTCODE );
+		$args = Options::handle_shortcode_attribute_aliases( $_POST[ 'args' ] );
+        $args = shortcode_atts( Options::get_defaults(), $args, self::SHORTCODE );
 
         $table = new simple_Document_Library( $args );
         $response = $table->get_table( 'array' );

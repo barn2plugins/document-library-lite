@@ -35,6 +35,7 @@
                         table_id: this.id,
                         action: document_library_params.ajax_action,
                         category: $(".category-search-" + this.id.replace( 'document-library-', '' )).val(),
+                        args: document_library_params.args,
                         _ajax_nonce: document_library_params.ajax_nonce
                     },
                 }
