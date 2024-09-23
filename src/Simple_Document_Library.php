@@ -39,8 +39,7 @@ class Simple_Document_Library {
 	private static $allowed_columns = [];
 
 	public function __construct( $args ) {
-		$this->args = $args;
-		$this->validate_options();
+		$this->args = $this->validate_options( $args );
 		$this->set_post_args();
 	}
 
@@ -55,7 +54,7 @@ class Simple_Document_Library {
 		// Parse DataTables parameters from the AJAX request
 		$draw   = isset( $_POST['draw'] ) ? intval( $_POST['draw'] ) : 1;
 		$this->args['offset']  = isset( $_POST['start'] ) ? intval( $_POST['start'] ) : 0;
-		$this->args['rows_per_page'] = isset( $_POST['length'] ) ? intval( $_POST['length'] ) : $this->args['rows_per_page'];
+		$this->args['rows_per_page'] = isset( $_POST['length'] ) && intval( $_POST['length'] ) !== -1 ? intval( $_POST['length'] ) : $this->args['rows_per_page'];
 		$this->args['sort_by'] = isset( $_POST['order'] ) ? $columns[$_POST['order'][0]['column']] : $this->get_orderby();
     	$this->args['sort_order'] = isset( $_POST['order'] ) ? $_POST['order'][0]['dir'] : $this->args['sort_order'];
     	$this->args['search_value'] = isset( $_POST['search'] ) ? $_POST['search']['value'] : '';
@@ -397,7 +396,6 @@ class Simple_Document_Library {
 		if ( empty( $columns ) ) {
 			$columns = explode( ',', Options::get_default_settings()['columns'] );
 		}
-
 		return $columns;
 	}
 
@@ -484,19 +482,19 @@ class Simple_Document_Library {
 		}
 	}
 
-	public function validate_options() {
+	public function validate_options( $args ) {
 		// Validate all the boolean options in the database
 		$boolean_options = [ 'lazy_load', 'lightbox', 'wrap', 'search_on_click' ];
 
 		foreach( $boolean_options as $option ) {
-			$this->args[ $option ] = is_string( $this->args[ $option ] ) ? $this->args[ $option ] === "true" : $this->args[ $option ];
-
+			$args[ $option ] = is_string( $args[ $option ] ) ? $args[ $option ] === "true" : $args[ $option ];
 		}
 
 		// The post status can only have these values
 		$valid_post_statuses = [ 'publish', 'pending', 'draft', 'future', 'any' ];
-		$this->args[ 'status' ] = in_array( $this->args['status'], $valid_post_statuses ) ? $this->args[ 'status' ] : 'publish';
-	
+		$args[ 'status' ] = in_array( $args['status'], $valid_post_statuses ) ? $args[ 'status' ] : 'publish';
+		
+		return $args;
 	}
 
 	public function get_id() {
