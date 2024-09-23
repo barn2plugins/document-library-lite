@@ -43,6 +43,9 @@ var __webpack_exports__ = {};
 
       // Set the column classes
       let columns = document_library_params.columns;
+      if (typeof columns === 'object') {
+        columns = Object.values(columns);
+      }
       let column_classes = [];
       columns.forEach(column => {
         column_classes.push({

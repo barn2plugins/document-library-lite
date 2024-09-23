@@ -265,15 +265,14 @@ class Simple_Document_Library {
 	 * @param int $num_words The number of words to trim the content to
 	 * @return string The (truncated) post content
 	 */
-	private function get_post_content( $num_words = 15 ) {
-		$text = get_the_content( '' );
+	private function get_post_content( $post_id, $num_words = 15 ) {
+		$text = get_the_content( '', false, $post_id );
 		$text = strip_shortcodes( $text );
 		$text = apply_filters( 'the_content', $text );
 
 		if ( $num_words > 0 ) {
 			$text = wp_trim_words( $text, $num_words, ' &hellip;' );
 		}
-
 		return $text;
 	}
 
@@ -428,7 +427,7 @@ class Simple_Document_Library {
 					$row_content['date'] = get_the_date( $this->args['date_format'], $_post );
 					break;
 				case 'content':
-					$row_content['content'] = $this->get_post_content( $this->args['content_length'] );
+					$row_content['content'] = $this->get_post_content( $_post->ID, $this->args['content_length'] );
 					break;
 				case 'link':
 					$row_content['link'] = $document->get_download_button( $this->args['link_text'], $this->args['link_style'] );
