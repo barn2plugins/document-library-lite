@@ -255,7 +255,7 @@ final class Options {
 					'orderable' => 'true',
 				],
 				'content'        => [
-					'heading'   => __( 'Description', 'document-library-lite' ),
+					'heading'   => __( 'Content', 'document-library-lite' ),
 					'priority'  => 5,
 					'width'     => '',
 					'orderable' => 'true',
