@@ -207,12 +207,12 @@ Please report any security bugs through the [Patchstack Vulnerability Disclosure
 == Changelog ==
 
 = 1.1.0 =
-Release date 10 September 2024
+Release date 25 September 2024
 
 * New: Added the link style option
 * New: Added the lazy load option
 * Dev: Added the E2E tests
-* Dev: Tested up to WordPress 6.6.1
+* Dev: Tested up to WordPress 6.6.2
 * Dev: Updated internal libraries
 
 See changelog.txt for more details.
