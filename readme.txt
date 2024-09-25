@@ -59,12 +59,11 @@ Our [Pro version](https://barn2.com/wordpress-plugins/document-library-pro/?utm_
 * **Control which downloads to list** - Display documents based on additional factors including author, post type, taxonomy term, custom field, year, month, day, or ID. You can also exclude documents from the file manager by ID or category.
 * **Filter dropdowns** - Make it easier for people to find specific documents by adding filter dropdowns for categories, tags and taxonomies.
 * **Standalone document search** - As well as the AJAX search box above the document library, you can use the ‘Document search’ widget or [doc_search] shortcode to add a search box anywhere on your site. For example, you can use this to display a ‘Find Downloads’ search box to the homepage, site header, or sidebar.
-* **Multiple button styles** - Choose from a download button, file type icon, text link, or button with icon.
 * **Flexible document links** - Control the links in your WordPress document library including choosing which columns are clickable and opening links in a new tab.
 * **Multiple document download** - Allow users to select multiple documents and download them together in a handy zip file.
 * **Instant document preview** - Display ‘Preview’ buttons so that users can view documents without downloading them.
 * **Display audio and video** - As well as downloadable documents, display embedded audio and video players directly in the WordPress document library.
-* **Lazy load** - Enable AJAX and caching to list unlimited documents with no performance limitations.
+* **Caching** - Speed up load times with built-in caching.
 * **Compatibility with third party plugins** - Tested with [dozens of other plugins](https://barn2.com/kb/dlp-plugin-compatibility/?utm_source=wporg&utm_medium=freeplugin&utm_campaign=freepluginwporg&utm_content=dlw-wporg).
 * **And much more** - PLUS get dozens of extra features for added flexibility, such as the ability to show and hide each part of the WordPress download manager, customize the colors, and more.
 
@@ -86,13 +85,13 @@ For more flexibility, you can use the `[doc_library]` shortcode to list differen
 * `[doc_library]` shortcode for added flexibility.
 * List documents in a table with sortable columns.
 * Choice of 6 styles for your document download links including buttons, download icons, file type icons, and text.
-* Optional lazy load setting to list unlimited documents with no performance limitations.
 * Instant AJAX search box to find documents more quickly.
 * 'Search on click' feature to filter the WordPress file manager by clicking on a document category.
 * Display the number of documents in the table, and allow users to change this number.
 * For easier WordPress document management, you can filter the Media Library to view document files only.
 * Structure the download manager into categories.
 * Choose the number of downloads per page in the document library.
+* Optional lazy load setting to list unlimited documents with no performance limitations.
 * Change how the WordPress document library is sorted, and customize the sort order for your file manager.
 * Display the document featured image and allow users to open the image and view it in a lightbox.
 * Configure your file manager centrally on the plugin settings page, and instantly update all your document lists (except where you have overridden specific options in the shortcode).
