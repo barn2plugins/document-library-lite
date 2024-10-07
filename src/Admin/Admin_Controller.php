@@ -49,6 +49,7 @@ class Admin_Controller implements Registerable, Standard_Service {
 		$this->add_service( 'settings', new Settings( $this->plugin ) );
 		$this->add_service( 'page/settings', new Page\Settings( $this->plugin ) );
 		$this->add_service( 'page/import', new Page\Import( $this->plugin ) );
+		$this->add_service( 'page/protect', new Page\Protect( $this->plugin ) );
 		$this->add_service( 'page_list', new Page_List() );
 		$this->add_service( 'metabox/document_link', new Metabox\Document_Link() );
 		$this->add_service( 'media_library', new Media_Library() );
@@ -105,8 +106,8 @@ class Admin_Controller implements Registerable, Standard_Service {
 			wp_enqueue_script( 'dlw-admin-settings', plugins_url( 'assets/js/admin/document-library-settings.js', $this->plugin->get_file() ), [ 'jquery' ], $this->plugin->get_version(), true );
 		}
 
-		// Import Page
-		if ( $this->str_ends_with( $hook, 'page_dlp_import' ) ) {
+		// Import and Protect Page
+		if ( $this->str_ends_with( $hook, 'page_dlp_import' ) || $this->str_ends_with( $hook, 'page_dll_protect' ) ) {
 			wp_enqueue_style( 'dlw-admin-import', plugins_url( 'assets/css/admin/document-library-import.css', $this->plugin->get_file() ), [], $this->plugin->get_version(), 'all' );
 		}
 
