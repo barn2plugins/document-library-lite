@@ -1,3 +1,9 @@
+= 1.1.1 =
+Release date 15 November 2024
+
+* Dev: Tested up to WordPress 6.7
+* Dev: Added the promo protect
+
 = 1.1.0 =
 Release date 10 September 2024
 

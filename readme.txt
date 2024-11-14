@@ -3,9 +3,9 @@ Contributors: barn2media
 Donate link: https://barn2.com
 Tags: document library, file manager, download manager, document management, media library
 Requires at least: 6.1
-Tested up to: 6.6
+Tested up to: 6.7
 Requires PHP: 7.4
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 License: GPL-3.0
 License URI: https://www.gnu.org/licenses/gpl.html
 
@@ -205,13 +205,10 @@ Please report any security bugs through the [Patchstack Vulnerability Disclosure
 
 == Changelog ==
 
-= 1.1.0 =
-Release date 25 September 2024
+= 1.1.1 =
+Release date 14 November 2024
 
-* New: Added the link style option
-* New: Added the lazy load option
-* Dev: Added the E2E tests
-* Dev: Tested up to WordPress 6.6.2
-* Dev: Updated internal libraries
+* Dev: Tested up to WordPress 6.7
+* Dev: Added the promo protect
 
 See changelog.txt for more details.
