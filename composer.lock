@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d821004f5dc734c9ae36e1315f010908",
+    "content-hash": "1c030327591549a28c0ede4f67a53221",
     "packages": [],
     "packages-dev": [
         {
@@ -210,17 +210,23 @@
         },
         {
             "name": "barn2/barn2-lib",
-            "version": "2.0.6",
+            "version": "2.2.4",
             "source": {
                 "type": "git",
-                "url": "git@bitbucket.org:barn2plugins/barn2-lib.git",
-                "reference": "83dd99207adf7678b5ea55a6516d68346debf776"
+                "url": "git@github.com:barn2plugins/barn2-lib.git",
+                "reference": "cc582efc9e95f63b0291777808e183b958e05d6d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/barn2plugins/barn2-lib/zipball/cc582efc9e95f63b0291777808e183b958e05d6d",
+                "reference": "cc582efc9e95f63b0291777808e183b958e05d6d",
+                "shasum": ""
             },
             "require": {
                 "wptrt/admin-notices": "^1.0"
             },
             "require-dev": {
-                "barn2/php-standards": "dev-master"
+                "barn2/php-standards": "^1.0.0"
             },
             "type": "library",
             "autoload": {
@@ -238,15 +244,25 @@
                 }
             ],
             "description": "Barn2 Libary code",
-            "time": "2024-10-04T07:07:13+00:00"
+            "support": {
+                "source": "https://github.com/barn2plugins/barn2-lib/tree/2.2.4",
+                "issues": "https://github.com/barn2plugins/barn2-lib/issues"
+            },
+            "time": "2024-11-25T09:22:34+00:00"
         },
         {
             "name": "barn2/php-scoper-excludes",
             "version": "0.2.0",
             "source": {
                 "type": "git",
-                "url": "git@bitbucket.org:barn2plugins/php-scoper-excludes.git",
+                "url": "git@github.com:barn2plugins/php-scoper-excludes.git",
                 "reference": "bbc6c7c8f9d73805a18bbd8e8fc9a78dceaaf920"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/barn2plugins/php-scoper-excludes/zipball/bbc6c7c8f9d73805a18bbd8e8fc9a78dceaaf920",
+                "reference": "bbc6c7c8f9d73805a18bbd8e8fc9a78dceaaf920",
+                "shasum": ""
             },
             "require-dev": {
                 "php-stubs/woocommerce-stubs": "^6.9",
@@ -257,6 +273,10 @@
             },
             "type": "library",
             "description": "A list of all WooCommerce and WordPress core classes, functions and constants. Meant to be used with the PHP-Scoper exclusion functionality.",
+            "support": {
+                "source": "https://github.com/barn2plugins/php-scoper-excludes/tree/0.2.0",
+                "issues": "https://github.com/barn2plugins/php-scoper-excludes/issues"
+            },
             "time": "2023-11-15T13:30:48+00:00"
         },
         {
@@ -264,8 +284,14 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "git@bitbucket.org:barn2plugins/php-standards.git",
-                "reference": "7a9946648010ba3b2e2905071002c533d7066784"
+                "url": "git@github.com:barn2plugins/php-standards.git",
+                "reference": "01b1ceb931587cbbd2285054cd5fd3f0a7c689ae"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/barn2plugins/php-standards/zipball/01b1ceb931587cbbd2285054cd5fd3f0a7c689ae",
+                "reference": "01b1ceb931587cbbd2285054cd5fd3f0a7c689ae",
+                "shasum": ""
             },
             "require": {
                 "dealerdirect/phpcodesniffer-composer-installer": "^0.7.2",
@@ -280,15 +306,25 @@
                 "GPL-3.0"
             ],
             "description": "Barn2 PHPCS Standards",
-            "time": "2024-07-31T03:12:40+00:00"
+            "support": {
+                "source": "https://github.com/barn2plugins/php-standards/tree/1.1.6",
+                "issues": "https://github.com/barn2plugins/php-standards/issues"
+            },
+            "time": "2024-10-15T09:53:25+00:00"
         },
         {
             "name": "barn2/setup-wizard",
             "version": "1.2.25",
             "source": {
                 "type": "git",
-                "url": "git@bitbucket.org:barn2plugins/setup-wizard.git",
+                "url": "git@github.com:barn2plugins/setup-wizard.git",
                 "reference": "7752195e10114156fd84bec1a6c34eccbeaee3a5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/barn2plugins/setup-wizard/zipball/7752195e10114156fd84bec1a6c34eccbeaee3a5",
+                "reference": "7752195e10114156fd84bec1a6c34eccbeaee3a5",
+                "shasum": ""
             },
             "require-dev": {
                 "barn2/php-standards": "dev-master",
@@ -340,6 +376,10 @@
             "keywords": [
                 "wordpress"
             ],
+            "support": {
+                "source": "https://github.com/barn2plugins/setup-wizard/tree/1.2.25",
+                "issues": "https://github.com/barn2plugins/setup-wizard/issues"
+            },
             "time": "2024-07-02T07:40:24+00:00"
         },
         {
@@ -347,8 +387,14 @@
             "version": "0.5.3",
             "source": {
                 "type": "git",
-                "url": "git@bitbucket.org:barn2plugins/test-buddy.git",
+                "url": "git@github.com:barn2plugins/test-buddy.git",
                 "reference": "50d848e7cd8254533ed8aaab2d9c3138169c0ced"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/barn2plugins/test-buddy/zipball/50d848e7cd8254533ed8aaab2d9c3138169c0ced",
+                "reference": "50d848e7cd8254533ed8aaab2d9c3138169c0ced",
+                "shasum": ""
             },
             "require": {
                 "10up/wp_mock": "^0.5.0",
@@ -417,6 +463,10 @@
                 }
             ],
             "description": "Setup unit and integration testing via PEST in WordPress plugins.",
+            "support": {
+                "source": "https://github.com/barn2plugins/test-buddy/tree/0.5.3",
+                "issues": "https://github.com/barn2plugins/test-buddy/issues"
+            },
             "time": "2024-05-17T13:20:11+00:00"
         },
         {
@@ -1894,16 +1944,16 @@
         },
         {
             "name": "php-stubs/wp-cli-stubs",
-            "version": "v2.10.0",
+            "version": "v2.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-stubs/wp-cli-stubs.git",
-                "reference": "fbd7ff47393c9478e0f557d0b4caadaed20986fb"
+                "reference": "f27ff9e8e29d7962cb070e58de70dfaf63183007"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-stubs/wp-cli-stubs/zipball/fbd7ff47393c9478e0f557d0b4caadaed20986fb",
-                "reference": "fbd7ff47393c9478e0f557d0b4caadaed20986fb",
+                "url": "https://api.github.com/repos/php-stubs/wp-cli-stubs/zipball/f27ff9e8e29d7962cb070e58de70dfaf63183007",
+                "reference": "f27ff9e8e29d7962cb070e58de70dfaf63183007",
                 "shasum": ""
             },
             "require": {
@@ -1932,9 +1982,9 @@
             ],
             "support": {
                 "issues": "https://github.com/php-stubs/wp-cli-stubs/issues",
-                "source": "https://github.com/php-stubs/wp-cli-stubs/tree/v2.10.0"
+                "source": "https://github.com/php-stubs/wp-cli-stubs/tree/v2.11.0"
             },
-            "time": "2024-02-09T02:10:10+00:00"
+            "time": "2024-11-25T10:09:13+00:00"
         },
         {
             "name": "phpcompatibility/php-compatibility",

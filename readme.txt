@@ -205,10 +205,10 @@ Please report any security bugs through the [Patchstack Vulnerability Disclosure
 
 == Changelog ==
 
-= 1.1.1 =
-Release date 14 November 2024
+= 1.1.2 =
+Release date 26 November 2024
 
-* Dev: Tested up to WordPress 6.7
-* Dev: Added the promo protect
+* Dev: Tested up to WordPress 6.7.1
+* Dev: Updated the internal libraries
 
 See changelog.txt for more details.

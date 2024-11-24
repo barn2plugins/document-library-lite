@@ -2,4 +2,4 @@
 
 namespace Barn2\Plugin\Document_Library\Dependencies;
 
-return array('dependencies' => array(), 'version' => '7b1406ed6859dfa446fd');
+return array('dependencies' => array(), 'version' => 'ca2df7799aca15672ec5');
