@@ -5,7 +5,7 @@ Tags: document library, file manager, download manager, document management, med
 Requires at least: 6.1
 Tested up to: 6.7
 Requires PHP: 7.4
-Stable tag: 1.1.1
+Stable tag: 1.1.2
 License: GPL-3.0
 License URI: https://www.gnu.org/licenses/gpl.html
 
