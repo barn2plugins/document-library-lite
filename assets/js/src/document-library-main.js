@@ -97,10 +97,17 @@
                         return;
                     }
                               
-                    let $link = $( this ),
-                        idx = table.cell( $link.closest( 'td' ).get( 0 ) ).index().column, // get the column index
-                        header = table.column( idx ).header(), // get the header cell
-                        columnName = $( header ).data( 'name' ); // get the column name from header
+                    let $link = $( this ), idx;
+                    if( table.cell( $link.closest( 'td' ).get( 0 ) ).index() ) {
+                        idx = table.cell( $link.closest( 'td' ).get( 0 ) ).index().column; // get the column index
+                    }
+                    // If the element is in a child row
+                    if( $link.closest( 'td' ).hasClass( 'child' ) ) {
+                        let parentLi = $link.closest( 'li' ).attr('class').split(' ')[0];
+                        idx = table.cell( $('td.' + parentLi) ).index().column; // get the column index
+                    }
+                    let header = table.column( idx ).header(), // get the header cell
+                    columnName = $( header ).data( 'name' ); // get the column name from header
                     // Is the column click filterable?
                     if ( -1 !== clickFilterColumns.indexOf( columnName ) ) {
                         if( ! document_library_params.lazy_load ) {
