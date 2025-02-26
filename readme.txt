@@ -5,7 +5,7 @@ Tags: document library, file manager, download manager, document management, med
 Requires at least: 6.1
 Tested up to: 6.7
 Requires PHP: 7.4
-Stable tag: 1.1.2
+Stable tag: 1.1.3
 License: GPL-3.0
 License URI: https://www.gnu.org/licenses/gpl.html
 
@@ -205,10 +205,11 @@ Please report any security bugs through the [Patchstack Vulnerability Disclosure
 
 == Changelog ==
 
-= 1.1.2 =
-Release date 26 November 2024
+= 1.1.3 = 
+Release date 4 March 2025
 
-* Dev: Tested up to WordPress 6.7.1
-* Dev: Updated the internal libraries
+* Dev: Updated internal libraries and tested up to WordPress 6.7.2
+* Fix: The free version should not register its classes when the pro version is activated
+* Fix: Search on click was not working for the links in the collapsed columns
 
 See changelog.txt for more details.
