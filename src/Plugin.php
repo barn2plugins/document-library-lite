@@ -50,7 +50,7 @@ class Plugin extends Simple_Plugin {
 	 */
 	public function maybe_load_plugin() {
 		// Don't load plugin if Pro version active
-		if ( ! Util::is_barn2_plugin_active( '\\Barn2\\Plugin\\Posts_Table_Pro\\dlp' ) ) {
+		if ( ! Util::is_barn2_plugin_active( '\\Barn2\\Plugin\\Document_Library_Pro\\document_library_pro' ) ) {
 			add_action( 'after_setup_theme', [ $this, 'start_standard_services' ] );
 		}
 	}
