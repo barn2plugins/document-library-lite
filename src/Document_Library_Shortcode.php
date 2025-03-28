@@ -71,7 +71,7 @@ class Document_Library_Shortcode implements Registerable, Standard_Service {
 
 		// Create table and return output
 		ob_start(); ?>
-		<input type="hidden" name="category-search-<?php echo $table->get_id() ?>" value="" class="category-search-<?php echo $table->get_id() ?>">
+		<input type="hidden" name="category-search-<?php echo $table->get_id() ?>" value="<?php echo esc_attr( $table->args['doc_category'] ); ?>" class="category-search-<?php echo $table->get_id() ?>">
 		<table <?php echo $table->get_attributes() ?>>
 			<?php
 			echo $table->get_headers();
