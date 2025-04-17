@@ -27,7 +27,7 @@ class Links extends Step {
 	/**
 	 * Constructor.
 	 */
-	public function __construct() {
+	public function init() {
 		$this->set_id( 'links' );
 		$this->set_name( esc_html__( 'Links', 'document-library-lite' ) );
 		$this->set_description( esc_html__( 'Next, decide how the links to download a document will look and behave.', 'document-library-lite' ) );

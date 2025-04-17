@@ -27,7 +27,7 @@ class Layout extends Step {
 	/**
 	 * Constructor.
 	 */
-	public function __construct() {
+	public function init() {
 		$this->set_id( 'layout' );
 		$this->set_name( esc_html__( 'Layout and Content', 'document-library-lite' ) );
 		$this->set_description( esc_html__( 'First, choose the layout for your document libraries.', 'document-library-lite' ) );

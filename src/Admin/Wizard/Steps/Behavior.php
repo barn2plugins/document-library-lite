@@ -28,7 +28,7 @@ class Behavior extends Step {
 	/**
 	 * Constructor.
 	 */
-	public function __construct() {
+	public function init() {
 		$this->set_id( 'table' );
 		$this->set_name( esc_html__( 'Behavior', 'document-library-lite' ) );
 		$this->set_description( esc_html__( 'Finally, choose from a range of options to customize your document libraries.', 'document-library-lite' ) );
