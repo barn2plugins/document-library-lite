@@ -61,6 +61,46 @@ class Frontend_Scripts implements Registerable, Standard_Service {
 		wp_register_script( 'document-library', plugins_url( 'assets/js/document-library-main.js', $this->plugin->get_file() ), [ 'jquery', 'jquery-datatables-dlw' ], $this->plugin->get_version(), true );
 		wp_register_script( 'photoswipe', plugins_url( 'assets/js/photoswipe/photoswipe.min.js', $this->plugin->get_file() ), [], self::PHOTOSWIPE_VERSION, true );
 		wp_register_script( 'photoswipe-ui-default', plugins_url( 'assets/js/photoswipe/photoswipe-ui-default.min.js', $this->plugin->get_file() ), [ 'photoswipe' ], self::PHOTOSWIPE_VERSION, true );
+
+		$script_params = [
+			'language' => apply_filters(
+				'document_library_lite_language_defaults',
+				[
+					'infoFiltered'      => __( '(_MAX_ in total)', 'document-library-lite' ),
+					'lengthMenu'        => __( 'Show _MENU_ entries', 'document-library-lite' ),
+					'search'            => apply_filters( 'document_library_lite_search_label', __( 'Search:', 'document-library-lite' ) ),
+					'loadingRecords'    => __( 'Loading...', 'document-library-lite' ),
+					'searchPlaceholder' => apply_filters( 'document_library_lite_search_placeholder', '' ),
+					'emptyTable'        => __( 'No data available in table', 'document-library-lite' ),
+					'paginate'          => [
+						'first'    => __( 'First', 'document-library-lite' ),
+						'last'     => __( 'Last', 'document-library-lite' ),
+						'next'     => __( 'Next', 'document-library-lite' ),
+						'previous' => __( 'Previous', 'document-library-lite' ),
+					],
+					'info'              => __( 'Showing _START_ to _END_ of _TOTAL_ entries', 'document-library-lite' ),
+					'infoEmpty'         => __( 'Showing 0 to 0 of 0 entries', 'document-library-lite' ),
+					'thousands'         => _x( ',', 'thousands separator', 'document-library-lite' ),
+					'decimal'           => _x( '.', 'decimal mark', 'document-library-lite' ),
+					'aria'              => [
+						/* translators: ARIA text for sorting column in ascending order */
+						'sortAscending'  => __( ': activate to sort column ascending', 'document-library-lite' ),
+						/* translators: ARIA text for sorting column in descending order */
+						'sortDescending' => __( ': activate to sort column descending', 'document-library-lite' ),
+					],
+					'zeroRecords'       => __( 'No matching records found', 'document-library-lite' ),
+					'filterBy'          => apply_filters( 'document_library_lite_search_filter_label', '' ),
+					'emptyFilter'       => __( 'No results found', 'document-library-lite' ),
+					'resetButton'       => apply_filters( 'document_library_lite_reset_button', __( 'Reset', 'document-library-lite' ) ),
+				]
+			),
+		];
+
+		wp_add_inline_script(
+			'document-library',
+			sprintf( 'var data_table_params = %s;', wp_json_encode( apply_filters( 'document_library_script_params', $script_params ) ) ),
+			'before'
+		);
 	}
 
 	/**
