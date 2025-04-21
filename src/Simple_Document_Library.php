@@ -183,7 +183,7 @@ class Simple_Document_Library {
 		// Do we have slugs or IDs?
 		if ( ! $field ) {
 			$using_term_ids = count( $terms ) === count( array_filter( $terms, 'is_numeric' ) );
-			$field          = $using_term_ids && ! $this->args->numeric_terms ? 'term_id' : 'slug';
+			$field          = $using_term_ids && ! $this->args['numeric_terms'] ? 'term_id' : 'slug';
 		}
 
 		// Strange bug when using operator => 'AND' in individual tax queries -
