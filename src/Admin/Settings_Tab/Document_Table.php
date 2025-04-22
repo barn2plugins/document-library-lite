@@ -79,14 +79,14 @@ class Document_Table implements Registerable {
 					'id'      => Options::SHORTCODE_OPTION_KEY . '[columns]',
 					'title'   => __( 'Columns', 'document-library-lite' ),
 					'type'    => 'text',
-					'desc'    => __( 'Enter the fields to include in your document tables.', 'document-library-lite' ) . $this->read_more( 'kb/document-library-wordpress-documentation/#document-tables-tab' ),
+					'desc'    => __( 'Enter the fields to include in your document tables.', 'document-library-lite' ) . $this->read_more( 'kb/document-library-wordpress-documentation/#document-tables' ),
 					'default' => 'id,title,content,image,date,doc_categories,link'
 				],
 				[
 					'id'      => Options::SHORTCODE_OPTION_KEY . '[image_size]',
 					'title'   => __( 'Image size', 'document-library-lite' ),
 					'type'    => 'text',
-					'desc'    => __( 'Enter WxH in pixels (e.g. 80x80).', 'document-library-lite' ) . $this->read_more( 'kb/document-library-image-options/#image-size?utm_source=settings&utm_medium=settings&utm_campaign=settingsinline&utm_content=dlw-settings' ),
+					'desc'    => __( 'Enter WxH in pixels (e.g. 80x80).', 'document-library-lite' ) . $this->read_more( 'kb/document-library-image-options/?utm_source=settings&utm_medium=settings&utm_campaign=settingsinline&utm_content=dlw-settings#image-size' ),
 					'default' => '70x70',
 				],
 			]
@@ -105,7 +105,7 @@ class Document_Table implements Registerable {
 					'title'   => __( 'Accessing documents', 'document-library-lite' ),
 					'type'    => 'select',
 					'id'      => Options::SHORTCODE_OPTION_KEY . '[accessing_documents]',
-					'desc'    => __( 'How a user accesses documents from the ‘link’ column.', 'document-library-lite' ) . $this->read_more( 'kb/document-library-settings/#accessing-documents?utm_source=settings&utm_medium=settings&utm_campaign=settingsinline&utm_content=dlw-settings' ),
+					'desc'    => __( 'How a user accesses documents from the ‘link’ column.', 'document-library-lite' ) . $this->read_more( 'kb/document-library-settings/?utm_source=settings&utm_medium=settings&utm_campaign=settingsinline&utm_content=dlw-settings#accessing-documents' ),
 					'options' => [
 						'link'     => __( 'Link to document', 'document-library-lite' ),
 						'checkbox' => __( 'Multi-select checkboxes', 'document-library-lite' ),
