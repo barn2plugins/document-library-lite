@@ -1,1 +1,37 @@
-!function(t,e,o,a){"use strict";var c=function(t,e){var o,a=t.data("toggleVal");o="radio"===t.attr("type")?t.prop("checked")&&a==t.val():"checkbox"===t.attr("type")?void 0===a||1==a?t.prop("checked"):!t.prop("checked"):a==t.val(),e.toggle(o)};t(o).ready((function(){t(".form-table .toggle-parent").each((function(){var e=t(this),o=e.closest(".form-table").find("."+e.data("childClass")).closest("tr");c(e,o),e.on("change",(function(){c(e,o)}))}))}))}(jQuery,window,document);
+/*! License information is available at CREDITS.md *//******/ (() => { // webpackBootstrap
+/*!****************************************************************!*\
+  !*** ./assets/js/src/admin/document-library-settings/index.js ***!
+  \****************************************************************/
+(function ($, window, document, undefined) {
+  "use strict";
+
+  var toggleChildSettings = function ($parent, $children) {
+    var show = false;
+    var toggleVal = $parent.data('toggleVal');
+    if ('radio' === $parent.attr('type')) {
+      show = $parent.prop('checked') && toggleVal == $parent.val();
+    } else if ('checkbox' === $parent.attr('type')) {
+      if (typeof toggleVal === 'undefined' || 1 == toggleVal) {
+        show = $parent.prop('checked');
+      } else {
+        show = !$parent.prop('checked');
+      }
+    } else {
+      show = toggleVal == $parent.val();
+    }
+    $children.toggle(show);
+  };
+  $(document).ready(function () {
+    $('.form-table .toggle-parent').each(function () {
+      var $parent = $(this);
+      var $children = $parent.closest('.form-table').find('.' + $parent.data('childClass')).closest('tr');
+      toggleChildSettings($parent, $children);
+      $parent.on('change', function () {
+        toggleChildSettings($parent, $children);
+      });
+    });
+  });
+})(jQuery, window, document);
+/******/ })()
+;
+//# sourceMappingURL=document-library-settings.js.map

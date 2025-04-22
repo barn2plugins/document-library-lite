@@ -3,7 +3,7 @@
     let tables = $(".document-library-table");
     const adminBar = $("#wpadminbar");
     const clickFilterColumns = ["doc_categories"];
-    const dataTablesLanguage = data_table_params.language || {}; // Use your i18n object or an empty one
+    const dataTablesLanguage = data_table_params.language || {};
     if (!dataTablesLanguage.processing) {
       dataTablesLanguage.processing =
         '<div class="dots-loader">' +
@@ -12,21 +12,47 @@
         '<div class="dot"></div>' +
         "</div>";
     }
-    console.log( dataTablesLanguage );
     tables.each(function () {
-      let $table = $(this),
-        config = {
-          responsive: true,
-          processing: true,
-          serverSide: document_library_params.lazy_load,
-          language: dataTablesLanguage,
-        };
+      let $table = $(this);
       this.id = $table.attr("id");
 
-      // Set language - defaults to English if not specified
-      if (typeof document_library !== "undefined" && document_library.langurl) {
-        config.language = { url: document_library.langurl };
+      // Set the column classes
+      let columns = document_library_params.columns || [];
+      if (typeof columns === "object" && !Array.isArray(columns)) {
+        columns = Object.values(columns);
       }
+
+      let column_classes = [];
+      columns.forEach((column) => {
+        column_classes.push({
+          className: "col-" + column.trimStart(),
+          data: column.trimStart(),
+        });
+      });
+
+      // --- Determine default sort index ---
+      const tableArgs =
+        document_library_params.args || document_library_params.args;
+      const defaultSortColumnName = tableArgs.sort_by || "title";
+      const defaultSortDirection = tableArgs.sort_order || "asc";
+
+      let defaultSortColumnIndex = column_classes.findIndex(
+        (col) => col.data === defaultSortColumnName
+      );
+
+      let config = {
+        responsive: true,
+        processing: true,
+        serverSide: document_library_params.lazy_load,
+        language: dataTablesLanguage,
+        initComplete: function (settings, json) {
+          if (defaultSortColumnIndex !== -1) {
+            this.api()
+              .order([defaultSortColumnIndex, defaultSortDirection])
+              .draw();
+          }
+        },
+      };
 
       // Set the ajax URL if the lazy load is enabled
       if (document_library_params.lazy_load) {
@@ -45,21 +71,9 @@
         };
       }
 
-      // Set the column classes
-      let columns = document_library_params.columns;
-      if (typeof columns === "object") {
-        columns = Object.values(columns);
-      }
-      let column_classes = [];
-      columns.forEach((column) => {
-        column_classes.push({
-          className: "col-" + column.trimStart(),
-          data: column.trimStart(),
-        });
-      });
       config.columns = column_classes;
 
-      // Initialise DataTable
+      // Initialize DataTable
       let table = $table.DataTable(config);
 
       // If scroll offset defined, animate back to top of table on next/previous page event
