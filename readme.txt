@@ -206,7 +206,7 @@ Please report any security bugs through the [Patchstack Vulnerability Disclosure
 == Changelog ==
 
 = 1.1.4 = 
-Release date 22 April 2025
+Release date 24 April 2025
 
 * Dev: Updated internal libraries and tested up to WordPress 6.8
 * Dev: Added JavaScript strings to the translation
