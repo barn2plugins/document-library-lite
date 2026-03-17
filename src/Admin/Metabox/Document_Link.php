@@ -46,8 +46,8 @@ class Document_Link implements Registerable, Standard_Service, Conditional {
 			__( 'File', 'document-library-lite' ),
 			[ $this, 'render' ],
 			'dlp_document',
-			'dlw_below_title',
-			'high'
+			'side',
+			'core'
 		);
 	}
 
@@ -202,8 +202,10 @@ class Document_Link implements Registerable, Standard_Service, Conditional {
 			return $value;
 		}
 
+		global $current_screen;
+
 		// Override metabox order - always force our position.
-		if ( 'meta-box-order_' . Post_Type::POST_TYPE_SLUG === $meta_key ) {
+		if ( 'meta-box-order_' . Post_Type::POST_TYPE_SLUG === $meta_key && method_exists( $current_screen, 'is_block_editor' ) && ! $current_screen->is_block_editor() ) {
 			$meta_value = [ 'dlw_below_title' => self::ID ];
 			return [ $meta_value ];
 		}
