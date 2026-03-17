@@ -87,7 +87,7 @@ class Post_Type implements Registerable, Standard_Service {
 			'has_archive'         => false,
 			'hierarchical'        => false,
 			'exclude_from_search' => false,
-			'show_in_rest'        => false,
+			'show_in_rest'        => true,
 			'publicly_queryable'  => false,
 			'capability_type'     => 'post',
 			'rewrite'             => false,
