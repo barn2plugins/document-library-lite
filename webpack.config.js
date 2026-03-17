@@ -6,6 +6,7 @@ const config = new Barn2Configuration(
 		'admin/document-library-post/index.js', 
 		'admin/document-library-settings/index.js', 
 		'admin/document-library-popover/index.js', 
+		'admin/document-library-block-editor/index.js', 
 		'document-library-main.js'
 	],
 	[

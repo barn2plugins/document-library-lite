@@ -101,19 +101,19 @@ class Admin_Controller implements Registerable, Standard_Service {
 	public function settings_page_scripts( $hook ) {
 		$screen = get_current_screen();
 
-		// Main Settings Page
+		// Main Settings Page.
 		if ( 'toplevel_page_document_library' === $hook ) {
 			wp_enqueue_style( 'dlw-admin-settings', plugins_url( 'assets/css/admin/document-library-settings.css', $this->plugin->get_file() ), [], $this->plugin->get_version(), 'all' );
 			wp_enqueue_script( 'dlw-admin-settings', plugins_url( 'assets/js/admin/document-library-settings.js', $this->plugin->get_file() ), [ 'jquery' ], $this->plugin->get_version(), true );
 		}
 
-		// Import and Protect Page
+		// Import and Protect Page.
 		if ( $this->str_ends_with( $hook, 'page_dlp_import' ) || $this->str_ends_with( $hook, 'page_dll_protect' ) ) {
 			wp_enqueue_style( 'dlw-admin-import', plugins_url( 'assets/css/admin/document-library-import.css', $this->plugin->get_file() ), [], $this->plugin->get_version(), 'all' );
 			wp_enqueue_style( 'dlw-admin-settings', plugins_url( 'assets/css/admin/document-library-settings.css', $this->plugin->get_file() ), [], $this->plugin->get_version(), 'all' );
 		}
 
-		// Add - Edit Document Page
+		// Add - Edit Document Page.
 		if ( in_array( $hook, [ 'post.php', 'post-new.php' ], true ) && is_object( $screen ) && Post_Type::POST_TYPE_SLUG === $screen->post_type ) {
 			wp_enqueue_media();
 			wp_enqueue_script( 'dlw-popover', $this->plugin->get_dir_url() . 'assets/js/admin/document-library-popover.js', [], $this->plugin->get_version(), true );
@@ -131,6 +131,9 @@ class Admin_Controller implements Registerable, Standard_Service {
 			);
 
 			wp_enqueue_style( 'dlw-admin-post', $this->plugin->get_dir_url() . 'assets/css/admin/document-library-post.css', [], $this->plugin->get_version(), 'all' );
+
+			// Block editor.
+			wp_enqueue_script( 'dlw-admin-block-editor', $this->plugin->get_dir_url() . 'assets/js/admin/document-library-block-editor.js', [ 'jquery' ], $this->plugin->get_version(), true );
 		}
 	}
 
