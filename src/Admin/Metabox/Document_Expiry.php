@@ -4,10 +4,9 @@ namespace Barn2\Plugin\Document_Library\Admin\Metabox;
 
 use Barn2\Plugin\Document_Library\Dependencies\Lib\Conditional;
 use Barn2\Plugin\Document_Library\Dependencies\Lib\Registerable;
-use	Barn2\Plugin\Document_Library\Dependencies\Lib\Service\Standard_Service;
-use	Barn2\Plugin\Document_Library\Dependencies\Lib\Util;
-use	Barn2\Plugin\Document_Library\Post_Type;
-use	Barn2\Plugin\Document_Library\Document;
+use Barn2\Plugin\Document_Library\Dependencies\Lib\Service\Standard_Service;
+use Barn2\Plugin\Document_Library\Dependencies\Lib\Util;
+use Barn2\Plugin\Document_Library\Post_Type;
 
 /**
  * Document Expiry - Edit Document Metabox
@@ -30,10 +29,37 @@ class Document_Expiry implements Registerable, Standard_Service, Conditional {
 	 * {@inheritdoc}
 	 */
 	public function register() {
-        add_action( 'post_submitbox_misc_actions', [ $this, 'render' ] );
-    }
+		add_action( 'current_screen', [ $this, 'add_metabox' ] );
+	}
 
-    /**
+	/**
+	 * Add metabox either on the misc options section of the classic editor or as a normal metabox in the block editor.
+	 */
+	public function add_metabox( $current_screen ) {
+
+		if ( Post_Type::POST_TYPE_SLUG === $current_screen->post_type ) {
+			if ( method_exists( $current_screen, 'is_block_editor' ) && $current_screen->is_block_editor() ) {
+				add_action( 'add_meta_boxes', [ $this, 'register_metabox' ] );
+			} else {
+				add_action( 'post_submitbox_misc_actions', [ $this, 'render' ] );
+			}
+		}
+	}
+
+	/**
+	 * Register the metabox.
+	 */
+	public function register_metabox() {
+		add_meta_box(
+			self::ID,
+			__( 'Document expiry', 'document-library-lite' ),
+			[ $this, 'render' ],
+			'dlp_document',
+			'side',
+		);
+	}
+
+	/**
 	 * Render the metabox.
 	 *
 	 * @param WP_Post $post
@@ -69,5 +95,4 @@ class Document_Expiry implements Registerable, Standard_Service, Conditional {
 		</div>
 		<?php
 	}
-
 }
