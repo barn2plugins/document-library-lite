@@ -277,3 +277,120 @@
         opacity: .75;
     }
 }
+
+
+// Block editor.
+body.block-editor-page {
+	// File.
+	#side-sortables #document_link {
+		display: none;
+	}
+
+	#document_link_wrapper {
+		#document_link {
+			margin: 0;
+			border: 0;
+			border-bottom: 1px solid #e0e0e0;
+
+			.postbox-header {
+				border-bottom: none;
+				cursor: pointer;
+			}
+
+			h2 {
+				margin: 0;
+				line-height: 47px;
+				font-size: 14px;
+				font-weight: 600;
+				color: inherit;
+				cursor: pointer !important;
+			}
+
+			h2,
+			.inside {
+				padding-left: 24px;
+				padding-right: 24px;
+			}
+
+			.inside {
+				margin-top: 6px;
+			}
+
+			.handle-actions {
+				button {
+					width: 44px;
+					height: 47px;
+				}
+			}
+		}
+
+		.postbox .toggle-indicator::before {
+			content: "";
+			display: inline-block;
+			background-image: url("data:image/svg+xml,%3Csvg%20viewBox%3D'0%200%2024%2024'%20xmlns%3D'http://www.w3.org/2000/svg'%3E%3Cpath%20fill%3D'currentColor'%20d%3D'M6.5%2012.4L12%208l5.5%204.4-.9%201.2L12%2010l-4.5%203.6-1-1.2z'/%3E%3C/svg%3E");
+			width: 24px;
+			height: 24px;
+			vertical-align: middle;
+			margin-left: -4px;
+			background-repeat: no-repeat;
+			background-size: contain;
+		}
+
+		.postbox.closed .handlediv .toggle-indicator::before {
+			background-image: url("data:image/svg+xml,%3Csvg%20viewBox%3D'0%200%2024%2024'%20xmlns%3D'http://www.w3.org/2000/svg'%3E%3Cpath%20fill%3D'currentColor'%20d%3D'M17.5%2011.6L12%2016l-5.5-4.4.9-1.2L12%2014l4.5-3.6%201%201.2z'/%3E%3C/svg%3E");
+		}
+	}
+
+	// Select boxes.
+	#side-sortables select {
+		padding-left: 12px;
+		border: 1px solid #949494;
+		border-radius: 0;
+		min-width: auto;
+		width: 100%;
+		height: 40px;
+		min-height: 40px;
+		box-sizing: border-box;
+	}
+
+	// File size.
+	#dlp_file_size_input {
+		padding: 6px 12px;
+		width: 100%;
+		height: 40px;
+		border-color: var(--wp-components-color-gray-600, #949494);
+		border-radius: 2px;
+	}
+
+	// File type.
+	.file-type-panel {
+		.components-form-token-field__label,
+		.components-form-token-field__help,
+		.editor-post-taxonomies__flat-term-most-used,
+		.components-form-token-field__input-container .components-button {
+			display: none;
+		}
+
+		.components-form-token-field__token-text {
+			padding-right: 8px;
+		}
+	}
+
+	// Sortables arrows.
+	#normal-sortables > :nth-child(1 of .postbox:not(.is-hidden)) .handle-order-higher {
+		cursor: default;
+		color: #a7aaad;
+		pointer-events: none;
+	}
+
+	#side-sortables > :nth-last-child(1 of .postbox:not(.is-hidden)) .handle-order-lower {
+		cursor: default;
+		color: #a7aaad;
+		pointer-events: none;
+	}
+
+	// Sortable headers
+	#side-sortables .postbox-header > h2 {
+		padding-right: 8px;
+	}
+}
