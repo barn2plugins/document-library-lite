@@ -202,10 +202,14 @@ class Document_Link implements Registerable, Standard_Service, Conditional {
 			return $value;
 		}
 
+		// Block editor does not interfere with metabox order.
 		global $current_screen;
+		if ( $current_screen && $current_screen->base === 'post' && $current_screen->id === 'dlp_document' && method_exists( $current_screen, 'is_block_editor' ) && $current_screen->is_block_editor() ) {
+			return $value;
+		}
 
 		// Override metabox order - always force our position.
-		if ( 'meta-box-order_' . Post_Type::POST_TYPE_SLUG === $meta_key && method_exists( $current_screen, 'is_block_editor' ) && ! $current_screen->is_block_editor() ) {
+		if ( 'meta-box-order_' . Post_Type::POST_TYPE_SLUG === $meta_key ) {
 			$meta_value = [ 'dlw_below_title' => self::ID ];
 			return [ $meta_value ];
 		}
