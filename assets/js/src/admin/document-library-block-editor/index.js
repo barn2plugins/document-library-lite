@@ -1,5 +1,3 @@
-// import { __, sprintf } from '@wordpress/i18n';
-
 jQuery( function ( $ ) {
 	/*
 	 * Safely clone a jQuery element, preserving input values.

@@ -4,10 +4,10 @@ namespace Barn2\Plugin\Document_Library\Admin\Metabox;
 
 use Barn2\Plugin\Document_Library\Dependencies\Lib\Conditional;
 use Barn2\Plugin\Document_Library\Dependencies\Lib\Registerable;
-use	Barn2\Plugin\Document_Library\Dependencies\Lib\Service\Standard_Service;
-use	Barn2\Plugin\Document_Library\Dependencies\Lib\Util;
-use	Barn2\Plugin\Document_Library\Post_Type;
-use	Barn2\Plugin\Document_Library\Document;
+use Barn2\Plugin\Document_Library\Dependencies\Lib\Service\Standard_Service;
+use Barn2\Plugin\Document_Library\Dependencies\Lib\Util;
+use Barn2\Plugin\Document_Library\Post_Type;
+use Barn2\Plugin\Document_Library\Document;
 
 /**
  * Document Link - Edit Document Metabox
@@ -63,7 +63,7 @@ class Document_Link implements Registerable, Standard_Service, Conditional {
 		$file_attached_class = $document->get_file_id() ? ' active' : '';
 		$file_details_class  = $document->get_link_type() === 'file' ? 'active' : '';
 		$url_details_class   = $document->get_link_type() === 'url' ? 'active' : '';
-		
+
 		wp_nonce_field( 'dll_save_document_link', 'dll_document_link_nonce' );
 		?>
 
