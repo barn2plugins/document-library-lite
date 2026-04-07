@@ -45,7 +45,7 @@ class Document_Link implements Registerable, Standard_Service, Conditional {
 			self::ID,
 			__( 'File', 'document-library-lite' ),
 			[ $this, 'render' ],
-			'dlp_document',
+			Post_Type::POST_TYPE_SLUG,
 			'side',
 			'core'
 		);
@@ -204,7 +204,7 @@ class Document_Link implements Registerable, Standard_Service, Conditional {
 
 		// Block editor does not interfere with metabox order.
 		global $current_screen;
-		if ( $current_screen && $current_screen->base === 'post' && $current_screen->id === 'dlp_document' && method_exists( $current_screen, 'is_block_editor' ) && $current_screen->is_block_editor() ) {
+		if ( $current_screen && $current_screen->base === 'post' && $current_screen->id === Post_Type::POST_TYPE_SLUG && method_exists( $current_screen, 'is_block_editor' ) && $current_screen->is_block_editor() ) {
 			return $value;
 		}
 

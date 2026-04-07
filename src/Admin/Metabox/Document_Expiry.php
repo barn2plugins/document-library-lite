@@ -54,7 +54,7 @@ class Document_Expiry implements Registerable, Standard_Service, Conditional {
 			self::ID,
 			__( 'Document expiry', 'document-library-lite' ),
 			[ $this, 'render' ],
-			'dlp_document',
+			Post_Type::POST_TYPE_SLUG,
 			'side',
 		);
 	}
