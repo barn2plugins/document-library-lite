@@ -100,28 +100,4 @@ jQuery( function ( $ ) {
 			fixActionButtons();
 		}, 200 );
 	} );
-
-	/*
-	 * Make the File Types panel input readonly.
-	 */
-	const fileTypesObserver = new MutationObserver( function ( mutations, obs ) {
-		$( '.components-panel__body' ).each( function () {
-			const $panel = $( this );
-			const $title = $panel.find( '.components-panel__body-title' ).first();
-
-			if ( $title.length && $title.text().trim() === __( 'File Types', 'document-library-lite' ) ) {
-				$panel.addClass( 'file-type-panel' );
-
-				const $input = $panel.find( 'input[type="text"]' ).first();
-
-				if ( $input.length ) {
-					$input.attr( 'readonly', 'readonly' );
-
-					obs.disconnect();
-				}
-			}
-		} );
-	} );
-
-	fileTypesObserver.observe( document.body, { childList: true, subtree: true } );
 } );
