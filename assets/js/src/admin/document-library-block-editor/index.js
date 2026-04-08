@@ -1,4 +1,10 @@
 jQuery( function ( $ ) {
+	// Check if we're in the block editor. If not, exit early.
+	const isBlockEditor = !! window.wp && !! wp.data && wp.data.select( 'core/edit-post' ) !== undefined;
+	if ( ! isBlockEditor ) {
+		return;
+	}
+
 	/*
 	 * Safely clone a jQuery element, preserving input values.
 	 */
@@ -25,8 +31,6 @@ jQuery( function ( $ ) {
 	/*
 	 * Move the document link meta box above the editor.
 	 */
-	if ( ! wp || ! wp.data ) return;
-
 	const editorObserver = new MutationObserver( ( mutations, obs ) => {
 		if ( document.querySelector( '.editor-visual-editor' ) && document.querySelector( '#document_link' ) ) {
 			$( '#side-sortables' ).sortable( 'option', 'cancel', '#document_link' );
@@ -105,7 +109,7 @@ jQuery( function ( $ ) {
 			const $panel = $( this );
 			const $title = $panel.find( '.components-panel__body-title' ).first();
 
-			if ( $title.length && $title.text().trim() === 'File Types' ) {
+			if ( $title.length && $title.text().trim() === __( 'File Types', 'document-library-lite' ) ) {
 				$panel.addClass( 'file-type-panel' );
 
 				const $input = $panel.find( 'input[type="text"]' ).first();
