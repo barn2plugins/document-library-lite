@@ -48,7 +48,7 @@
         "barn2/php-standards": "dev-master",
         "barn2/setup-wizard": "^1.2",
         "barn2/test-buddy": "^0.5.3",
-        "dealerdirect/phpcodesniffer-composer-installer": "^0.7.2",
+        "dealerdirect/phpcodesniffer-composer-installer": "^1.0.0",
         "enshrined/svg-sanitize": "^0.15.4",
         "php-stubs/wp-cli-stubs": "^2.10",
         "phpstan/phpstan-strict-rules": "^1.6",

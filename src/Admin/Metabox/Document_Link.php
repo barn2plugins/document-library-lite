@@ -4,10 +4,10 @@ namespace Barn2\Plugin\Document_Library\Admin\Metabox;
 
 use Barn2\Plugin\Document_Library\Dependencies\Lib\Conditional;
 use Barn2\Plugin\Document_Library\Dependencies\Lib\Registerable;
-use	Barn2\Plugin\Document_Library\Dependencies\Lib\Service\Standard_Service;
-use	Barn2\Plugin\Document_Library\Dependencies\Lib\Util;
-use	Barn2\Plugin\Document_Library\Post_Type;
-use	Barn2\Plugin\Document_Library\Document;
+use Barn2\Plugin\Document_Library\Dependencies\Lib\Service\Standard_Service;
+use Barn2\Plugin\Document_Library\Dependencies\Lib\Util;
+use Barn2\Plugin\Document_Library\Post_Type;
+use Barn2\Plugin\Document_Library\Document;
 
 /**
  * Document Link - Edit Document Metabox
@@ -45,9 +45,9 @@ class Document_Link implements Registerable, Standard_Service, Conditional {
 			self::ID,
 			__( 'File', 'document-library-lite' ),
 			[ $this, 'render' ],
-			'dlp_document',
-			'dlw_below_title',
-			'high'
+			Post_Type::POST_TYPE_SLUG,
+			'side',
+			'core'
 		);
 	}
 
@@ -63,7 +63,7 @@ class Document_Link implements Registerable, Standard_Service, Conditional {
 		$file_attached_class = $document->get_file_id() ? ' active' : '';
 		$file_details_class  = $document->get_link_type() === 'file' ? 'active' : '';
 		$url_details_class   = $document->get_link_type() === 'url' ? 'active' : '';
-		
+
 		wp_nonce_field( 'dll_save_document_link', 'dll_document_link_nonce' );
 		?>
 
@@ -199,6 +199,12 @@ class Document_Link implements Registerable, Standard_Service, Conditional {
 		if ( ! is_admin() ||
 			( 'meta-box-order_' . Post_Type::POST_TYPE_SLUG !== $meta_key &&
 			'metaboxhidden_' . Post_Type::POST_TYPE_SLUG !== $meta_key ) ) {
+			return $value;
+		}
+
+		// Block editor does not interfere with metabox order.
+		global $current_screen;
+		if ( $current_screen && $current_screen->base === 'post' && $current_screen->id === Post_Type::POST_TYPE_SLUG && method_exists( $current_screen, 'is_block_editor' ) && $current_screen->is_block_editor() ) {
 			return $value;
 		}
 

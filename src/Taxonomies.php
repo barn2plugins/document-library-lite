@@ -61,6 +61,7 @@ class Taxonomies implements Registerable, Standard_Service {
 			'rewrite'           => [ 'slug' => 'document-category' ],
 			'capabilities'      => [ Post_Type::POST_TYPE_SLUG ],
 			'show_admin_column' => true,
+			'show_in_rest'      => true,
 		];
 
 		register_taxonomy( self::CATEGORY_SLUG, Post_Type::POST_TYPE_SLUG, $args );
