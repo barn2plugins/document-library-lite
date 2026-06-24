@@ -29,7 +29,6 @@ final class Options {
 	 * @var array
 	 */
 	public static $readonly_settings = [
-		'layout',
 		'folders',
 		'document_link',
 		'link_destination',
@@ -38,10 +37,8 @@ final class Options {
 		'preview',
 		'preview_style',
 		'preview_text',
-		'image_size',
 		'shortcodes',
 		'excerpt_length',
-		'content_length',
 		'post_limit',
 		'cache',
 		'cache_expiry',
@@ -117,8 +114,12 @@ final class Options {
 		$default_settings = [
 			'link_text'       => __( 'Download', 'document-library-lite' ),
 			'lightbox'        => false,
-			'link_style'	  => 'button',
+			'link_style'      => 'button',
 			'link_icon'       => false,
+			'layout'          => 'table',
+			'grid_columns'    => 4,
+			'grid_content'    => 'image,title,content,link',
+			'image_size'      => '70x70',
 			'rows_per_page'   => 20,
 			'sort_by'         => 'date',
 			'sort_order'      => '',
@@ -129,11 +130,10 @@ final class Options {
 			'date_format'     => 'Y/m/d',
 			'search_on_click' => true,
 			'wrap'            => true,
-			'content_length'  => 15,
 			'scroll_offset'   => 15,
-			'post_limit'	  => 500,
-			'offset'		  => 0,
-			'lazy_load'		  => false
+			'post_limit'      => 500,
+			'offset'          => 0,
+			'lazy_load'       => false,
 		];
 
 		return $default_settings;

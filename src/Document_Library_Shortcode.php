@@ -33,6 +33,13 @@ class Document_Library_Shortcode implements Registerable, Standard_Service {
 	private static $script_params = [];
 
 	/**
+	 * Tracks whether the global grid AJAX params have been localized.
+	 *
+	 * @var bool
+	 */
+	private static $grid_params_printed = false;
+
+	/**
 	 * {@inheritdoc}
 	 */
 	public function register() {
@@ -54,6 +61,11 @@ class Document_Library_Shortcode implements Registerable, Standard_Service {
 
 		// Store the configuration securely and get a unique ID
 		$table_id = Config_Builder::store( $atts );
+
+		// Render a grid instead of a table when the layout is set to 'grid'.
+		if ( isset( $atts['layout'] ) && $atts['layout'] === 'grid' ) {
+			return $this->do_grid_shortcode( $atts, $table_id );
+		}
 
 		$table = new Simple_Document_Library( $atts, $table_id );
 		
@@ -100,6 +112,44 @@ class Document_Library_Shortcode implements Registerable, Standard_Service {
 		</table>
 		<?php 
 		return ob_get_clean();
+	}
+
+	/**
+	 * Handles rendering the document library as a grid.
+	 *
+	 * @param array  $atts     The parsed shortcode attributes.
+	 * @param string $table_id The stored configuration ID.
+	 * @return string The grid HTML output.
+	 */
+	private function do_grid_shortcode( $atts, $table_id ) {
+		$grid = new Simple_Document_Grid( $atts, $table_id );
+
+		if ( apply_filters( 'document_library_grid_load_scripts', true ) ) {
+			wp_enqueue_style( 'document-library-grid' );
+			wp_enqueue_script( 'document-library-grid' );
+
+			// Localize the shared grid AJAX params once per page.
+			if ( ! self::$grid_params_printed ) {
+				wp_localize_script(
+					'document-library-grid',
+					'document_library_grid_params',
+					apply_filters(
+						'document_library_grid_script_params',
+						[
+							'ajax_url'    => admin_url( 'admin-ajax.php' ),
+							'ajax_nonce'  => wp_create_nonce( 'dll_load_grid' ),
+							'ajax_action' => 'dll_load_grid',
+						]
+					)
+				);
+
+				self::$grid_params_printed = true;
+			}
+		}
+
+		Frontend_Scripts::load_photoswipe_resources( $grid->args['lightbox'] );
+
+		return $grid->get_container();
 	}
 
 	/**

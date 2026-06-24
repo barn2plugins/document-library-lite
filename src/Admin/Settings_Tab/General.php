@@ -60,6 +60,9 @@ class General implements Registerable {
 
 		// Frontend Submission - Pro Only
 		Settings_API_Helper::add_settings_section( 'dlp_frontend_submission', self::MENU_SLUG, __( 'Front end document submission', 'document-library-lite' ), [ $this, 'display_frontend_submission_section' ], [] );
+
+		// Lead Capture - Pro Only
+		Settings_API_Helper::add_settings_section( 'dlp_lead_capture', self::MENU_SLUG, __( 'Lead capture', 'document-library-lite' ), [ $this, 'display_lead_capture_section' ], [] );
 	}
 
 	/**
@@ -126,6 +129,22 @@ class General implements Registerable {
 			'<p><span class="dlw-pro-only">%s</span></p>',
 			// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			Lib_Util::barn2_link( 'kb/add-import-documents/#upload-documents-from-the-front-end', __( 'Read more', 'document-library-lite' ), true ),
+			// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			Lib_Util::barn2_link( 'wordpress-plugins/document-library-pro/?utm_source=settings&utm_medium=settings&utm_campaign=settingsinline&utm_content=dlw-settings', __( 'Pro version only', 'document-library-lite' ), true )
+		);
+	}
+
+	/**
+	 * Output the Lead Capture section description.
+	 */
+	public function display_lead_capture_section() {
+		printf(
+			'<p>' .
+			esc_html__( 'Require users to enter their email address before they can access document links.', 'document-library-lite' ) .
+			' %s</p>' .
+			'<p><span class="dlw-pro-only">%s</span></p>',
+			// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			Lib_Util::barn2_link( 'kb/lead-capture/', __( 'Read more', 'document-library-lite' ), true ),
 			// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			Lib_Util::barn2_link( 'wordpress-plugins/document-library-pro/?utm_source=settings&utm_medium=settings&utm_campaign=settingsinline&utm_content=dlw-settings', __( 'Pro version only', 'document-library-lite' ), true )
 		);

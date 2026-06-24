@@ -54,8 +54,8 @@ class Display implements Registerable {
 		// Table section
 		Settings_API_Helper::add_settings_section( 'dlp_table', self::MENU_SLUG, __( 'Table', 'document-library-lite' ), '__return_false', $this->get_table_settings() );
 
-		// Grid section - Pro Only
-		Settings_API_Helper::add_settings_section( 'dlp_grid', self::MENU_SLUG, __( 'Grid', 'document-library-lite' ), [ $this, 'display_grid_section' ], [] );
+		// Grid section
+		Settings_API_Helper::add_settings_section( 'dlp_grid', self::MENU_SLUG, __( 'Grid', 'document-library-lite' ), [ $this, 'display_grid_section' ], $this->get_grid_settings() );
 
 		// Sorting section
 		Settings_API_Helper::add_settings_section( 'dlp_sort_by', self::MENU_SLUG, __( 'Sorting', 'document-library-lite' ), '__return_false', $this->get_sort_by_settings() );
@@ -100,12 +100,39 @@ class Display implements Registerable {
 	 */
 	public function display_grid_section() {
 		printf(
-			'<p>' .
-			esc_html__( 'Display your documents in a responsive grid layout. Control the grid content, clickable fields, columns, and customize the appearance to match your site design.', 'document-library-lite' ) .
-			'</p>' .
-			'<p><span class="pro-version">%s</span></p>',
-			// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-			Lib_Util::barn2_link( 'wordpress-plugins/document-library-pro/?utm_source=settings&utm_medium=settings&utm_campaign=settingsinline&utm_content=dlw-settings', __( 'Pro version only', 'document-library-lite' ), true )
+			'<p>%s</p>',
+			esc_html__( 'Display your documents in a responsive grid layout. Set the default layout to Grid to enable it.', 'document-library-lite' )
+		);
+	}
+
+	/**
+	 * Get the Grid settings.
+	 *
+	 * @return array
+	 */
+	private function get_grid_settings() {
+		return Options::mark_readonly_settings(
+			[
+				[
+					'id'      => Options::SHORTCODE_OPTION_KEY . '[grid_content]',
+					'title'   => __( 'Grid content', 'document-library-lite' ),
+					'type'    => 'text',
+					'desc'    => __( 'Choose which information to display in the grid of documents.', 'document-library-lite' ) . ' ' . Lib_Util::barn2_link( 'kb/document-library-wordpress-documentation/#document-tables', '', true ),
+					'default' => 'image,title,content,link',
+				],
+				[
+					'id'                => Options::SHORTCODE_OPTION_KEY . '[grid_columns]',
+					'title'             => __( 'Number of columns', 'document-library-lite' ),
+					'type'              => 'number',
+					'class'             => 'small-text',
+					'desc'              => __( 'The number of columns to display in the grid layout.', 'document-library-lite' ),
+					'default'           => 4,
+					'custom_attributes' => [
+						'min' => 1,
+						'max' => 6,
+					],
+				],
+			]
 		);
 	}
 
@@ -161,13 +188,6 @@ class Display implements Registerable {
 					'type'    => 'text',
 					'desc'    => __( 'Enter the fields to include in your document tables.', 'document-library-lite' ) . ' ' . Lib_Util::barn2_link( 'kb/document-library-wordpress-documentation/#document-tables', '', true ),
 					'default' => 'id,title,content,image,date,doc_categories,link',
-				],
-				[
-					'id'      => Options::SHORTCODE_OPTION_KEY . '[image_size]',
-					'title'   => __( 'Image size', 'document-library-lite' ),
-					'type'    => 'text',
-					'desc'    => __( 'Enter WxH in pixels (e.g. 80x80).', 'document-library-lite' ) . ' ' . Lib_Util::barn2_link( 'kb/document-library-image-options/#image-size', '', true ),
-					'default' => '70x70',
 				],
 			]
 		);
