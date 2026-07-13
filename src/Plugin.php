@@ -4,6 +4,7 @@ namespace Barn2\Plugin\Document_Library;
 
 use Barn2\Plugin\Document_Library\Dependencies\Lib\Plugin\Simple_Plugin;
 use Barn2\Plugin\Document_Library\Dependencies\Lib\Util;
+use Barn2\Plugin\Document_Library\Dependencies\Lib\Admin\Help_Scout_Beacon;
 use Barn2\Plugin\Document_Library\Admin\Wizard\Setup_Wizard;
 
 /**
@@ -65,5 +66,20 @@ class Plugin extends Simple_Plugin {
 		$this->add_service( 'scripts', new Frontend_Scripts( $this ) );
 		$this->add_service( 'review_notice', new Review_Notice( $this ) );
 		$this->add_service( 'admin', new Admin\Admin_Controller( $this ) );
+		$this->add_service(
+			'helpscout_beacon',
+			new Help_Scout_Beacon(
+				$this,
+				[
+					'plugin_slug'  => 'document-library-pro',
+					'screen_hooks' => [
+						'toplevel_page_document_library',
+						'documents_page_dlp_import',
+						'documents_page_dll_protect',
+					],
+					'capability'   => 'manage_options',
+				]
+			)
+		);
 	}
 }
