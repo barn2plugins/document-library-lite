@@ -2,11 +2,9 @@
 
 namespace Barn2\Plugin\Document_Library\Table;
 
-use Barn2\Plugin\Document_Library\Dependencies\Lib\Util;
 use Barn2\Plugin\Document_Library\Dependencies\Lib\Service\Standard_Service;
-use Barn2\Plugin\Document_Library\Frontend_Scripts;
 use Barn2\Plugin\Document_Library\Simple_Document_Library;
-use Barn2\Plugin\Document_Library\Util\Options;
+use Barn2\Plugin\Document_Library\Simple_Document_Grid;
 
 /**
  * Handles AJAX requests for loading document library posts.
@@ -22,6 +20,8 @@ class Ajax_Handler implements Standard_Service {
 	public function __construct() {
 		add_action( 'wp_ajax_dll_load_posts', [ $this, 'load_posts' ] );
 		add_action( 'wp_ajax_nopriv_dll_load_posts', [ $this, 'load_posts' ] );
+		add_action( 'wp_ajax_dll_load_grid', [ $this, 'load_grid' ] );
+		add_action( 'wp_ajax_nopriv_dll_load_grid', [ $this, 'load_grid' ] );
 	}
 
 	public function register() {
@@ -78,6 +78,68 @@ class Ajax_Handler implements Standard_Service {
 
 		// Return the response as JSON
 		wp_send_json( $response );
+	}
+
+	/**
+	 * Handle AJAX requests for loading a page of grid cards.
+	 */
+	public function load_grid() {
+		$nonce = '';
+		if ( isset( $_POST['_ajax_nonce'] ) ) {
+			$nonce = sanitize_text_field( wp_unslash( $_POST['_ajax_nonce'] ) );
+		} elseif ( isset( $_POST['ajax_nonce'] ) ) {
+			$nonce = sanitize_text_field( wp_unslash( $_POST['ajax_nonce'] ) );
+		}
+
+		if ( ! $nonce || ! wp_verify_nonce( $nonce, 'dll_load_grid' ) ) {
+			wp_send_json_error( [ 'message' => 'Security check failed' ], 403 );
+		}
+
+		if ( ! isset( $_POST['grid_id'] ) ) {
+			wp_send_json_error( [ 'message' => 'Grid ID is required' ], 400 );
+		}
+
+		$grid_id = sanitize_key( wp_unslash( $_POST['grid_id'] ) );
+
+		// Retrieve the stored configuration using the grid ID.
+		$args = Config_Builder::retrieve( $grid_id );
+
+		if ( false === $args ) {
+			wp_send_json_error( [ 'message' => 'Invalid or expired grid configuration' ], 404 );
+		}
+
+		$requested_status = isset( $args['status'] ) ? $args['status'] : 'publish';
+
+		// Unauthenticated users can ONLY see published content.
+		if ( ! is_user_logged_in() ) {
+			$args['status'] = 'publish';
+		} elseif ( $requested_status !== 'publish' && ! current_user_can( 'edit_posts' ) ) {
+			wp_send_json_error( [ 'message' => 'Insufficient permissions' ], 403 );
+		}
+
+		// Allow category filtering via the visible UI input.
+		if ( isset( $_POST['category'] ) && ! empty( $_POST['category'] ) ) {
+			$args['doc_category'] = sanitize_text_field( wp_unslash( $_POST['category'] ) );
+		}
+
+		// Free-text search.
+		if ( isset( $_POST['search_query'] ) ) {
+			$args['search_value'] = sanitize_text_field( wp_unslash( $_POST['search_query'] ) );
+		}
+
+		// Documents per page.
+		if ( isset( $_POST['length'] ) ) {
+			$length = (int) $_POST['length'];
+			if ( $length > 0 ) {
+				$args['requested_length'] = $length;
+			}
+		}
+
+		$page = isset( $_POST['page_number'] ) ? max( 1, (int) $_POST['page_number'] ) : 1;
+
+		$grid = new Simple_Document_Grid( $args, $grid_id );
+
+		wp_send_json( $grid->get_ajax_parts( $page ) );
 	}
 
 }

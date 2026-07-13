@@ -1,0 +1,284 @@
+/**
+ * Document Library Lite – grid layout styles.
+ */
+
+.dlp-grid-container {
+    margin-top: 1.2em;
+	margin-bottom: 2.2em;
+
+	&.dlp-grid-loading {
+		opacity: 0.6;
+		pointer-events: none;
+	}
+
+	.dlp-grid-header {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		justify-content: space-between;
+		align-items: start;
+		margin-bottom: 1rem;
+		color: #333333;
+	}
+
+	.dlp-grid-length-select {
+		height: auto;
+		line-height: 1.25;
+		margin-bottom: 0;
+		padding: .2em .5em;
+		width: auto;
+		border: 1px solid #aaa;
+		border-radius: 3px;
+		background-color: transparent;
+	}
+
+	.dlp-grid-search-input {
+		// Matches the table layout's .dataTables_filter input styling.
+		box-sizing: border-box;
+		border: 1px solid #aaa;
+		border-radius: 3px;
+		background-color: transparent;
+		margin: 0 0 0 3px;
+		padding: 0.3em 0.5em;
+		width: auto;
+		height: auto;
+		line-height: 1.25;
+		font-size: inherit;
+	}
+
+	.dlp-grid-documents {
+		display: grid;
+		gap: 1.5rem;
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+
+		&.columns-1 {
+			grid-template-columns: repeat(1, minmax(0, 1fr));
+		}
+
+		&.columns-2 {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+
+		&.columns-3 {
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+		}
+
+		&.columns-4 {
+			grid-template-columns: repeat(4, minmax(0, 1fr));
+		}
+
+		&.columns-5 {
+			grid-template-columns: repeat(5, minmax(0, 1fr));
+		}
+
+		&.columns-6 {
+			grid-template-columns: repeat(6, minmax(0, 1fr));
+		}
+	}
+
+	@media (max-width: 960px) {
+		.dlp-grid-documents {
+			grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+		}
+	}
+
+	@media (max-width: 600px) {
+		.dlp-grid-documents {
+			grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+		}
+	}
+}
+
+.dlp-grid-empty {
+	grid-column: 1 / -1;
+	margin: 0;
+	padding: 1rem 0;
+}
+
+.dlp-grid-card {
+	display: flex;
+	background: #fff;
+	border: 1px solid #e2e2e2;
+	border-radius: 6px;
+	overflow: hidden;
+
+	.dlp-grid-card-inner {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+	}
+
+	.dlp-grid-card-featured-img {
+		a {
+			display: block;
+		}
+
+		img {
+			display: block;
+			width: 100%;
+			height: auto;
+			aspect-ratio: 4 / 3;
+			object-fit: cover;
+		}
+	}
+
+	.dlp-grid-card-featured-icon {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 2rem;
+		background: #f6f7f7;
+
+		svg {
+			width: 48px;
+			height: 48px;
+		}
+	}
+
+	.dlp-grid-card-content {
+		display: flex;
+		flex: 1;
+		flex-direction: column;
+		gap: 0.5rem;
+		padding: 1rem;
+	}
+
+	.dlp-grid-card-info {
+		display:flex;
+		align-items: center;
+		flex-wrap: nowrap;
+		justify-content: flex-start;
+	}
+
+	.dlp-grid-card-categories {
+		margin-left: auto;
+		font-size: 0.78rem;
+		text-transform: uppercase;
+		letter-spacing: 0.03em;
+		opacity: 0.75;
+
+		.dlp-grid-category-link {
+			cursor: pointer;
+		}
+	}
+
+	.dlp-grid-card-title {
+		font-weight: 700;
+	}
+
+	.dlp-grid-card-excerpt {
+		flex: 1;
+		font-size: 0.9rem;
+	}
+
+	.dlp-grid-card-link {
+		margin-top: auto;
+		padding-top: 0.5rem;
+	}
+}
+
+.dlp-grid-footer {
+	margin-top: 10px;
+
+	// Clearfix for the floated info (left) and pagination (right).
+	&::after {
+		content: "";
+		display: block;
+		clear: both;
+	}
+}
+
+// Info text — "Showing 1 to 10 of 12 entries" (left).
+.dlp-grid-totals {
+	clear: both;
+	float: left;
+	padding-top: 4px;
+	color: #333;
+}
+
+// Pagination (right). Styling ported from DataTables so it matches the table layout exactly.
+.dlp-grid-pagination {
+	float: right;
+	text-align: right;
+	color: #333;
+
+	.dlp-grid-paginate-button {
+		box-sizing: border-box;
+		display: inline-block;
+		min-width: 1.5em;
+		padding: 0.3em 0.9em;
+		margin-left: 2px;
+		text-align: center;
+		text-decoration: none !important;
+		cursor: pointer;
+		color: #333 !important;
+		border: 1px solid transparent;
+		border-radius: 2px;
+		box-shadow: none;
+
+		&:hover {
+			color: #fff !important;
+			border: 1px solid #111;
+			background: linear-gradient(to bottom, #585858 0%, #111 100%);
+		}
+
+		&:active {
+			outline: none;
+			background: linear-gradient(to bottom, #2b2b2b 0%, #0c0c0c 100%);
+			box-shadow: inset 0 0 3px #111;
+		}
+
+		&.current,
+		&.current:hover {
+			color: #333 !important;
+			border: 1px solid #979797;
+			background: linear-gradient(to bottom, #fff 0%, #dcdcdc 100%);
+		}
+
+		&.disabled,
+		&.disabled:hover,
+		&.disabled:active {
+			cursor: default;
+			color: #666 !important;
+			border: 1px solid transparent;
+			background: transparent;
+			box-shadow: none;
+		}
+	}
+}
+
+.document-library-button {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    word-break: keep-all;
+    font-size: inherit;
+    min-height: 2em;
+    line-height: 1.9em;
+    padding: 0px 18px !important;
+
+    &:hover {
+        text-decoration: none;
+    }
+
+    &::after {
+        display: none;
+    }
+}
+
+.dll-button-icon {
+    min-width: 18px;
+    min-height: 18px;
+    width: 18px;
+    height: 18px;
+    line-height: 1 !important;
+}
+
+.dll-button-icon-text {
+    margin-right: 10px;
+}
+
+.dll-file-icon {
+    width: 48px;
+    height: 48px;
+}

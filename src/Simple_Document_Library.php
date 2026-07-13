@@ -14,6 +14,8 @@ use Barn2\Plugin\Document_Library\Util\Options;
  */
 class Simple_Document_Library {
 
+	use Document_Query;
+
 	public $args         = [];
 	public $post_args    = [];
 	private $total_posts = null;
@@ -163,59 +165,6 @@ class Simple_Document_Library {
 	}
 
 	/**
-	 * Generate an inner array for the 'tax_query' arg in WP_Query.
-	 *
-	 * @param string $terms    The list of terms as a string
-	 * @param string $taxonomy The taxonomy name
-	 * @param string $operator The SQL operator: IN, NOT IN, AND, etc
-	 * @param string $field    Add tax query by `term_id` or `slug`. Leave empty to auto-detect correct type
-	 * @return array A tax query sub-array
-	 */
-	private function tax_query_item( $terms, $taxonomy, $operator = 'IN', $field = '' ) {
-		$and_relation = 'AND' === $operator;
-
-		// comma-delimited list = OR, plus-delimited = AND
-		if ( ! is_array( $terms ) ) {
-			if ( false !== strpos( $terms, '+' ) ) {
-				$terms        = explode( '+', $terms );
-				$and_relation = true;
-			} else {
-				$terms = explode( ',', $terms );
-			}
-		}
-
-		// Do we have slugs or IDs?
-		if ( ! $field ) {
-			$using_term_ids = count( $terms ) === count( array_filter( $terms, 'is_numeric' ) );
-			$field          = $using_term_ids && ( ! isset( $this->args['numeric_terms'] ) || ! $this->args['numeric_terms'] ) ? 'term_id' : 'slug';
-		}
-
-		// Strange bug when using operator => 'AND' in individual tax queries -
-		// We need to separate these out into separate 'IN' arrays joined by and outer relation => 'AND'
-		if ( $and_relation && count( $terms ) > 1 ) {
-			$result = [ 'relation' => 'AND' ];
-
-			foreach ( $terms as $term ) {
-				$result[] = [
-					'taxonomy' => $taxonomy,
-					'terms'    => $term,
-					'operator' => 'IN',
-					'field'    => $field,
-				];
-			}
-
-			return $result;
-		} else {
-			return [
-				'taxonomy' => $taxonomy,
-				'terms'    => $terms,
-				'operator' => $operator,
-				'field'    => $field,
-			];
-		}
-	}
-
-	/**
 	 * Get the document featured image.
 	 *
 	 * @param WP_Post $post
@@ -249,8 +198,9 @@ class Simple_Document_Library {
 			$atts['alt'] = empty( $atts['alt'] ) ? $atts['title'] : $atts['alt'];
 			$atts['alt'] = empty( $atts['alt'] ) ? trim( esc_attr( wp_strip_all_tags( $post->post_title ) ) ) : $atts['alt'];
 
-			// Get the image to display
-			$image = wp_get_attachment_image( $attachment_id, apply_filters( 'document_library_image_table_size', 'thumbnail' ), false, $atts );
+			// Get the image to display. Use the configured WxH image size, falling back to 'thumbnail'.
+			$image_size = $this->parse_image_size( isset( $args['image_size'] ) ? $args['image_size'] : '' );
+			$image = wp_get_attachment_image( $attachment_id, apply_filters( 'document_library_image_table_size', $image_size ), false, $atts );
 		}
 
 		// Wrap image with lightbox markup or post link - lightbox takes priority over the 'links' option.
@@ -259,6 +209,22 @@ class Simple_Document_Library {
 		}
 
 		return apply_filters( 'document_library_table_image', $image, $post );
+	}
+
+	/**
+	 * Parse a "WxH" image size string into a [ width, height ] array for wp_get_attachment_image().
+	 *
+	 * Falls back to the 'thumbnail' size keyword when the value is empty or malformed.
+	 *
+	 * @param string $image_size The image size string, e.g. '80x80'.
+	 * @return array|string A [ width, height ] array, or the 'thumbnail' size keyword.
+	 */
+	private function parse_image_size( $image_size ) {
+		if ( is_string( $image_size ) && preg_match( '/^\s*(\d+)\s*[xX]\s*(\d+)\s*$/', $image_size, $matches ) ) {
+			return [ (int) $matches[1], (int) $matches[2] ];
+		}
+
+		return 'thumbnail';
 	}
 
 	/**
@@ -286,55 +252,6 @@ class Simple_Document_Library {
 		} else {
 			return $this->args['sort_by'];
 		}
-	}
-
-	public function run_table_query( $query_args ) {
-		do_action( 'document_library_before_posts_query', $this );
-
-		$query = get_posts( $query_args );
-
-		do_action( 'document_library_after_posts_query', $this );
-
-		return $query;
-	}
-
-	public function build_table_query( $query_args ) {
-		if ( $this->args['lazy_load'] ) {
-			// Ensure rows per page doesn't exceed post limit
-			$query_args['posts_per_page'] = $this->check_within_post_limit( $this->args['rows_per_page'] );
-			$query_args['offset']         = $this->args['offset'];
-		} else {
-			$query_args['posts_per_page'] = $this->args['post_limit'];
-		}
-		return apply_filters( 'document_library_table_query_args', $query_args, $this );
-	}
-
-	private function check_within_post_limit( $count ) {
-		return is_int( $this->args['post_limit'] ) && $this->args['post_limit'] > 0 ? min( $this->args['post_limit'], $count ) : $count;
-	}
-
-	public function get_total_posts() {
-		if ( is_numeric( $this->total_posts ) ) {
-			return $this->total_posts;
-		}
-
-		$total = 0;
-
-		$total_query = new \WP_Query( $this->build_post_totals_query( $this->post_args ) );
-		$total       = $total_query->post_count;
-
-		$this->total_posts = $this->check_within_post_limit( $total );
-
-		return $this->total_posts;
-	}
-
-	private function build_post_totals_query( $args ) {
-		$query_args                   = $this->build_table_query( $args );
-		$query_args['offset']         = 0;
-		$query_args['posts_per_page'] = -1;
-		$query_args['fields']         = 'ids';
-
-		return apply_filters( 'document_library_query_args', $query_args, $this );
 	}
 
 	public function get_attributes() {

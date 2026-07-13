@@ -42,12 +42,6 @@ class Layout extends Step {
 	public function setup_fields() {
 
 		$fields = [
-			'columns' => [
-				'label'       => __( 'Columns', 'document-library-lite' ),
-				'description' => __( 'Enter the fields to include in your document tables.', 'document-library-lite' ) . ' ' . Lib_Util::barn2_link( 'kb/document-library-wordpress-documentation/#document-tables-tab', esc_html__( 'Read more', 'document-library-lite' ), true ),
-				'type'        => 'text',
-				'value'       => $this->values['columns'],
-			],
 			'layout'  => [
 				'label'   => __( 'Default layout', 'document-library-lite' ),
 				'type'    => 'radio',
@@ -59,10 +53,45 @@ class Layout extends Step {
 					[
 						'value' => 'grid',
 						'label' => __( 'Grid', 'document-library-lite' ),
-					]
+					],
 				],
-				'value'   => 'table',
-				'premium' => true,
+				'value'   => $this->values['layout'],
+			],
+			'columns' => [
+				'label'       => __( 'Columns', 'document-library-lite' ),
+				'description' => __( 'Enter the fields to include in your document tables.', 'document-library-lite' ) . ' ' . Lib_Util::barn2_link( 'kb/document-library-wordpress-documentation/#document-tables', esc_html__( 'Read more', 'document-library-lite' ), true ),
+				'type'        => 'text',
+				'value'       => $this->values['columns'],
+				'conditions'  => [
+					'layout' => [
+						'op'    => 'eq',
+						'value' => 'table',
+					],
+				],
+			],
+			'grid_content' => [
+				'label'       => __( 'Grid content', 'document-library-lite' ),
+				'description' => __( 'Choose which information to display in the grid of documents.', 'document-library-lite' ) . ' ' . Lib_Util::barn2_link( 'kb/document-library-wordpress-documentation/#document-grids', '', true ),
+				'type'        => 'text',
+				'value'       => $this->values['grid_content'],
+				'conditions'  => [
+					'layout' => [
+						'op'    => 'eq',
+						'value' => 'grid',
+					],
+				],
+			],
+			'grid_columns' => [
+				'label'       => __( 'Number of columns', 'document-library-lite' ),
+				'type'        => 'number',
+				'description' => __( 'The number of columns to display in the grid layout.', 'document-library-lite' ),
+				'value'       => $this->values['grid_columns'],
+				'conditions'  => [
+					'layout' => [
+						'op'    => 'eq',
+						'value' => 'grid',
+					],
+				],
 			],
 			'folders' => [
 				'title'   => __( 'Folders', 'document-library-lite' ),
@@ -72,9 +101,7 @@ class Layout extends Step {
 				'premium' => true,
 			],
 		];
-
 		return $fields;
-
 	}
 
 	/**
@@ -82,11 +109,17 @@ class Layout extends Step {
 	 */
 	public function submit( array $values ) {
 
-		$columns = isset( $values['columns'] ) && ! empty( trim( $values['columns'] ) ) ? $values['columns'] : $this->values['columns'];
+		$layout       = isset( $values['layout'] ) ? $values['layout'] : $this->values['layout'];
+		$columns      = isset( $values['columns'] ) && ! empty( trim( $values['columns'] ) ) ? $values['columns'] : $this->values['columns'];
+		$grid_content = isset( $values['grid_content'] ) && ! empty( trim( $values['grid_content'] ) ) ? $values['grid_content'] : $this->values['grid_content'];
+		$grid_columns = isset( $values['grid_columns'] ) && is_numeric( $values['grid_columns'] ) ? $values['grid_columns'] : $this->values['grid_columns'];
 
 		Options::update_shortcode_option(
 			[
-				'columns' => $columns,
+				'layout'       => $layout,
+				'columns'      => $columns,
+				'grid_content' => $grid_content,
+				'grid_columns' => $grid_columns,
 			]
 		);
 
