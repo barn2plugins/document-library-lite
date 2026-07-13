@@ -145,6 +145,10 @@ class Plugin_License implements Registerable, License, Core_Service
                 if (isset($response->bonus_downloads)) {
                     $license_data['bonus_downloads'] = $response->bonus_downloads;
                 }
+                // Store allowed domains if provided by API (for multidomain support)
+                if (isset($response->allowed_domains) && \is_array($response->allowed_domains)) {
+                    $license_data['allowed_domains'] = $response->allowed_domains;
+                }
                 \do_action("barn2_license_activated_{$this->item_id}", $license_key, $url_to_activate);
             } else {
                 // Invalid license.
@@ -261,6 +265,10 @@ class Plugin_License implements Registerable, License, Core_Service
                 $license_data['status'] = 'active';
                 if (isset($response->bonus_downloads)) {
                     $license_data['bonus_downloads'] = $response->bonus_downloads;
+                }
+                // Store allowed domains if provided by API
+                if (isset($response->allowed_domains) && \is_array($response->allowed_domains)) {
+                    $license_data['allowed_domains'] = $response->allowed_domains;
                 }
             } else {
                 // Invalid license - $response->license will contain the reason for the invalid license - e.g. expired, inactive, site_inactive, etc.
@@ -411,11 +419,35 @@ class Plugin_License implements Registerable, License, Core_Service
         if ($this->is_license_overridden()) {
             return \false;
         }
-        $has_moved = $active_url !== $this->get_home_url();
+        $current_url = $this->get_home_url();
+        $has_moved = $active_url !== $current_url;
+        // If domain appears to have changed, check if current domain is in allowed domains list
+        if ($has_moved) {
+            $license_data = $this->get_license_data();
+            // Check if API provided a list of allowed domains (for multidomain setups)
+            if (!empty($license_data['allowed_domains']) && \is_array($license_data['allowed_domains'])) {
+                // Clean current URL for comparison
+                $cleaned_current = $this->clean_license_url(\get_option('home'));
+                // Check if current domain is in the allowed list
+                foreach ($license_data['allowed_domains'] as $allowed_domain) {
+                    $cleaned_allowed = $this->clean_license_url($allowed_domain);
+                    if ($cleaned_current === $cleaned_allowed) {
+                        // Current domain is in allowed list, not actually moved
+                        $has_moved = \false;
+                        break;
+                    }
+                }
+            }
+        }
         if ($has_moved && $this->is_active()) {
             $this->set_site_inactive();
         }
         return $has_moved;
+    }
+    public function get_renewal_notice()
+    {
+        $info = $this->get_license_info();
+        return isset($info['renewal_notice']) ? $info['renewal_notice'] : '';
     }
     public function get_renewal_url($apply_discount = \true)
     {
@@ -494,7 +526,7 @@ class Plugin_License implements Registerable, License, Core_Service
     }
     private function get_default_data()
     {
-        return ['license' => '', 'status' => 'invalid', 'url' => '', 'error_code' => '', 'error_message' => '', 'license_info' => []];
+        return ['license' => '', 'status' => 'invalid', 'url' => '', 'error_code' => '', 'error_message' => '', 'license_info' => [], 'allowed_domains' => []];
     }
     private function get_license_data()
     {

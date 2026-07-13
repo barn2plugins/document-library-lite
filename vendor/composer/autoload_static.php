@@ -22,6 +22,7 @@ class ComposerStaticInit8aa1d3baa100ae13f7a1ded33fbd6d4b
 
     public static $classMap = array (
         'Barn2\\Plugin\\Document_Library\\Dependencies\\Lib\\Admin\\Abstract_Plugin_Promo' => __DIR__ . '/../..' . '/dependencies/barn2/barn2-lib/src/Admin/Abstract_Plugin_Promo.php',
+        'Barn2\\Plugin\\Document_Library\\Dependencies\\Lib\\Admin\\Help_Scout_Beacon' => __DIR__ . '/../..' . '/dependencies/barn2/barn2-lib/src/Admin/Help_Scout_Beacon.php',
         'Barn2\\Plugin\\Document_Library\\Dependencies\\Lib\\Admin\\Notice' => __DIR__ . '/../..' . '/dependencies/barn2/barn2-lib/src/Admin/Notice.php',
         'Barn2\\Plugin\\Document_Library\\Dependencies\\Lib\\Admin\\Notices' => __DIR__ . '/../..' . '/dependencies/barn2/barn2-lib/src/Admin/Notices.php',
         'Barn2\\Plugin\\Document_Library\\Dependencies\\Lib\\Admin\\Plugin_Promo' => __DIR__ . '/../..' . '/dependencies/barn2/barn2-lib/src/Admin/Plugin_Promo.php',
@@ -35,6 +36,8 @@ class ComposerStaticInit8aa1d3baa100ae13f7a1ded33fbd6d4b
         'Barn2\\Plugin\\Document_Library\\Dependencies\\Lib\\Plugin\\Admin\\Notice_Provider' => __DIR__ . '/../..' . '/dependencies/barn2/barn2-lib/src/Plugin/Admin/Notice_Provider.php',
         'Barn2\\Plugin\\Document_Library\\Dependencies\\Lib\\Plugin\\Admin\\Plugin_Updater' => __DIR__ . '/../..' . '/dependencies/barn2/barn2-lib/src/Plugin/Admin/Plugin_Updater.php',
         'Barn2\\Plugin\\Document_Library\\Dependencies\\Lib\\Plugin\\I18n' => __DIR__ . '/../..' . '/dependencies/barn2/barn2-lib/src/Plugin/I18n.php',
+        'Barn2\\Plugin\\Document_Library\\Dependencies\\Lib\\Plugin\\License\\Admin\\License_Expired_Guard' => __DIR__ . '/../..' . '/dependencies/barn2/barn2-lib/src/Plugin/License/Admin/License_Expired_Guard.php',
+        'Barn2\\Plugin\\Document_Library\\Dependencies\\Lib\\Plugin\\License\\Admin\\License_Expired_Overlay' => __DIR__ . '/../..' . '/dependencies/barn2/barn2-lib/src/Plugin/License/Admin/License_Expired_Overlay.php',
         'Barn2\\Plugin\\Document_Library\\Dependencies\\Lib\\Plugin\\License\\Admin\\License_Key_Setting' => __DIR__ . '/../..' . '/dependencies/barn2/barn2-lib/src/Plugin/License/Admin/License_Key_Setting.php',
         'Barn2\\Plugin\\Document_Library\\Dependencies\\Lib\\Plugin\\License\\Admin\\License_Notices' => __DIR__ . '/../..' . '/dependencies/barn2/barn2-lib/src/Plugin/License/Admin/License_Notices.php',
         'Barn2\\Plugin\\Document_Library\\Dependencies\\Lib\\Plugin\\License\\Admin\\License_Setting' => __DIR__ . '/../..' . '/dependencies/barn2/barn2-lib/src/Plugin/License/Admin/License_Setting.php',

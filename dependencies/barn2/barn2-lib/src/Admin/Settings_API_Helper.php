@@ -193,6 +193,9 @@ class Settings_API_Helper implements Registerable, Conditional
     {
         $class = !empty($args['input_class']) ? $args['input_class'] : 'regular-text';
         $type = !empty($args['type']) ? $args['type'] : 'text';
+        // Allow a caller to override the displayed value (e.g. a masked license key) without
+        // changing what's stored. Falls back to the stored option value when not provided.
+        $value = \array_key_exists('display_value', $args) ? $args['display_value'] : self::get_value($args['id'], $args['default']);
         ?>
 		<input
 			id="<?php 
@@ -208,12 +211,17 @@ class Settings_API_Helper implements Registerable, Conditional
         echo \esc_attr($type);
         ?>"
 			value="<?php 
-        echo \esc_attr(self::get_value($args['id'], $args['default']));
+        echo \esc_attr($value);
         ?>"<?php 
         self::custom_attributes($args);
         ?>
 		/>
 		<?php 
+        // Optional CSRF nonce hidden field, supplied pre-rendered by the caller (e.g. the license field).
+        if (!empty($args['license_nonce'])) {
+            echo $args['license_nonce'];
+            // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- markup from wp_nonce_field().
+        }
         if (!empty($args['suffix'])) {
             echo ' ' . \esc_html($args['suffix']) . ' ';
         }
@@ -564,6 +572,13 @@ class Settings_API_Helper implements Registerable, Conditional
         self::custom_attributes($args);
         ?> />
 		<?php 
+        // Optionally render additional hidden inputs alongside the main one (e.g. a licence override
+        // code carried next to the security nonce).
+        if (!empty($args['extra']) && \is_array($args['extra'])) {
+            foreach ($args['extra'] as $name => $value) {
+                \printf('<input type="hidden" name="%s" value="%s" />', \esc_attr($name), \esc_attr($value));
+            }
+        }
     }
     /**
      * Color field.
@@ -577,7 +592,7 @@ class Settings_API_Helper implements Registerable, Conditional
         $current_value = self::get_value($args['id'], $args['default']);
         ?>
 		<div class="color-field <?php 
-        esc_attr_e($args['input_class']);
+        echo \esc_attr($args['input_class']);
         ?>">
 			<input
 				type="text"
@@ -620,7 +635,7 @@ class Settings_API_Helper implements Registerable, Conditional
         $size_attributes = self::get_custom_attributes($args);
         ?>
 		<div class="color-size-field <?php 
-        esc_attr_e($args['input_class']);
+        echo \esc_attr($args['input_class']);
         ?>">
 			<input
 				type="text"

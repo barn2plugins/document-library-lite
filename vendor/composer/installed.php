@@ -3,7 +3,7 @@
         'name' => 'barn2/document-library-lite',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'cb7ae2775014c7bbcb88edc0e119b09b8afd891d',
+        'reference' => '5623ad2bb0df96d4924da46e099227d7aae986f0',
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'barn2/document-library-lite' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'cb7ae2775014c7bbcb88edc0e119b09b8afd891d',
+            'reference' => '5623ad2bb0df96d4924da46e099227d7aae986f0',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Barn2\\Plugin\\Document_Library\\Dependencies\\Lib\\Admin\\Abstract_Plugin_Promo' => $baseDir . '/dependencies/barn2/barn2-lib/src/Admin/Abstract_Plugin_Promo.php',
+    'Barn2\\Plugin\\Document_Library\\Dependencies\\Lib\\Admin\\Help_Scout_Beacon' => $baseDir . '/dependencies/barn2/barn2-lib/src/Admin/Help_Scout_Beacon.php',
     'Barn2\\Plugin\\Document_Library\\Dependencies\\Lib\\Admin\\Notice' => $baseDir . '/dependencies/barn2/barn2-lib/src/Admin/Notice.php',
     'Barn2\\Plugin\\Document_Library\\Dependencies\\Lib\\Admin\\Notices' => $baseDir . '/dependencies/barn2/barn2-lib/src/Admin/Notices.php',
     'Barn2\\Plugin\\Document_Library\\Dependencies\\Lib\\Admin\\Plugin_Promo' => $baseDir . '/dependencies/barn2/barn2-lib/src/Admin/Plugin_Promo.php',
@@ -20,6 +21,8 @@ return array(
     'Barn2\\Plugin\\Document_Library\\Dependencies\\Lib\\Plugin\\Admin\\Notice_Provider' => $baseDir . '/dependencies/barn2/barn2-lib/src/Plugin/Admin/Notice_Provider.php',
     'Barn2\\Plugin\\Document_Library\\Dependencies\\Lib\\Plugin\\Admin\\Plugin_Updater' => $baseDir . '/dependencies/barn2/barn2-lib/src/Plugin/Admin/Plugin_Updater.php',
     'Barn2\\Plugin\\Document_Library\\Dependencies\\Lib\\Plugin\\I18n' => $baseDir . '/dependencies/barn2/barn2-lib/src/Plugin/I18n.php',
+    'Barn2\\Plugin\\Document_Library\\Dependencies\\Lib\\Plugin\\License\\Admin\\License_Expired_Guard' => $baseDir . '/dependencies/barn2/barn2-lib/src/Plugin/License/Admin/License_Expired_Guard.php',
+    'Barn2\\Plugin\\Document_Library\\Dependencies\\Lib\\Plugin\\License\\Admin\\License_Expired_Overlay' => $baseDir . '/dependencies/barn2/barn2-lib/src/Plugin/License/Admin/License_Expired_Overlay.php',
     'Barn2\\Plugin\\Document_Library\\Dependencies\\Lib\\Plugin\\License\\Admin\\License_Key_Setting' => $baseDir . '/dependencies/barn2/barn2-lib/src/Plugin/License/Admin/License_Key_Setting.php',
     'Barn2\\Plugin\\Document_Library\\Dependencies\\Lib\\Plugin\\License\\Admin\\License_Notices' => $baseDir . '/dependencies/barn2/barn2-lib/src/Plugin/License/Admin/License_Notices.php',
     'Barn2\\Plugin\\Document_Library\\Dependencies\\Lib\\Plugin\\License\\Admin\\License_Setting' => $baseDir . '/dependencies/barn2/barn2-lib/src/Plugin/License/Admin/License_Setting.php',

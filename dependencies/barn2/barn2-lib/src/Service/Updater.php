@@ -50,9 +50,19 @@ abstract class Updater implements Standard_Service, Registerable, Plugin_Activat
      *
      * See the get_default_options method to verify the array structure.
      *
-     * @var string
+     * @var array
      */
     public $options = [];
+    /**
+     * The raw options supplied by the consumer.
+     *
+     * Kept separately from $options (which holds the defaults merged with the
+     * consumer values) so we can tell which notice strings were explicitly
+     * overridden and therefore should not be replaced by the translated defaults.
+     *
+     * @var array
+     */
+    private $custom_options = [];
     /**
      * Constructor.
      *
@@ -61,13 +71,14 @@ abstract class Updater implements Standard_Service, Registerable, Plugin_Activat
      *     Optional. An array of additional options to change the default values.
      *
      *     @type string $version_option_name       Option name to store the version value on the options DB table. Default '<plugin_slug>_version'.
-     *     @type array  $needs_update_db_notice    Needs update database admin notice array options. Accepts 'title', 'message', 'buttons' array keys.
-     *     @type array  $update_db_complete_notice Update database complete admin notice options. Accepts 'title', 'message', 'buttons' array keys.
+     *     @type array  $needs_update_db_notice    "Database update required" notice config. Accepts 'title', 'message', 'buttons', 'type', 'capability', 'dismissible' and 'additional_classes' keys. 'title' and 'message' may also be a callable returning the string, invoked lazily so the consumer can defer its own __() call.
+     *     @type array  $update_db_complete_notice "Database update complete" notice config. Accepts the same keys as $needs_update_db_notice.
      * }
      */
     public function __construct(Plugin $plugin, $options = null)
     {
         $this->plugin = $plugin;
+        $this->custom_options = \is_array($options) ? $options : [];
         $this->set_options($options);
     }
     /**
@@ -99,7 +110,7 @@ abstract class Updater implements Standard_Service, Registerable, Plugin_Activat
      */
     public function get_default_options()
     {
-        return ['version_option_name' => $this->plugin->get_slug() . '_version', 'needs_update_db_notice' => ['title' => '%1$s database update required', 'message' => '<p>%1$s has been updated! To keep things running smoothly, we have to update your database to the newest version. The database update process runs in the background and may take a little while, so please be patient.</p>', 'buttons' => ['update-db' => ['value' => 'Update Database', 'href' => '#', 'class' => 'button-primary'], 'learn-more' => ['value' => 'Learn more about updates', 'href' => 'https://barn2.com/kb/learn-more-about-updates/', 'target' => '_blank', 'class' => 'button-secondary', 'style' => 'margin-left: 8px;']]], 'update_db_complete_notice' => ['title' => '%1$s database update done', 'message' => '<p>%1$s database update complete. Thank you for updating to the latest version!</p>']];
+        return ['version_option_name' => $this->plugin->get_slug() . '_version', 'needs_update_db_notice' => ['title' => '%1$s database update required', 'message' => '<p>%1$s has been updated! To keep things running smoothly, we have to update your database to the newest version. The database update process runs in the background and may take a little while, so please be patient.</p>', 'type' => 'warning', 'capability' => 'install_plugins', 'dismissible' => \false, 'additional_classes' => [], 'buttons' => ['update-db' => ['value' => 'Update Database', 'href' => '#', 'class' => 'button-primary'], 'learn-more' => ['value' => 'Learn more about updates', 'href' => 'https://barn2.com/kb/learn-more-about-updates/', 'target' => '_blank', 'class' => 'button-secondary', 'style' => 'margin-left: 8px;']]], 'update_db_complete_notice' => ['title' => '%1$s database update done', 'message' => '<p>%1$s database update complete. Thank you for updating to the latest version!</p>', 'type' => 'success', 'capability' => 'install_plugins', 'dismissible' => \true, 'additional_classes' => ['barn2-update-complete-notice'], 'buttons' => []]];
     }
     /**
      * Sets the final options.
@@ -111,23 +122,62 @@ abstract class Updater implements Standard_Service, Registerable, Plugin_Activat
         $this->options = \array_replace_recursive($this->get_default_options(), $options ?? []);
     }
     /**
-     * Gets the translated options for notices.
+     * Gets the notice options with their strings resolved (translated + plugin name substituted).
+     *
+     * The default title/message strings are translated here (lazily) so they are only
+     * loaded once the text domain is available. When a consumer supplied its own string
+     * via the constructor $options argument, that string is used as-is — it is the
+     * consumer's job to wrap it in __() with their own text domain — and the plugin name
+     * is still substituted into it, so overrides may keep using the %1$s/%s placeholder.
+     *
+     * A consumer override may also be a callable returning the string. It is invoked here
+     * (i.e. lazily, on admin_init) so the consumer can defer its own __() call past the
+     * point WordPress considers safe for loading text domains.
      *
      * @return array
      */
     private function get_translated_options()
     {
         $translated_options = $this->options;
-        // Translate the notice strings
-        /* translators: %1$s: plugin name */
-        $translated_options['needs_update_db_notice']['title'] = \sprintf(__('%1$s database update required'), $this->plugin->get_name());
-        /* translators: %1$s: plugin name */
-        $translated_options['needs_update_db_notice']['message'] = \sprintf(__('<p>%1$s has been updated! To keep things running smoothly, we have to update your database to the newest version. The database update process runs in the background and may take a little while, so please be patient.</p>'), $this->plugin->get_name());
-        /* translators: %1$s: plugin name */
-        $translated_options['update_db_complete_notice']['title'] = \sprintf(__('%1$s database update done'), $this->plugin->get_name());
-        /* translators: %1$s: plugin name */
-        $translated_options['update_db_complete_notice']['message'] = \sprintf(__('<p>%1$s database update complete. Thank you for updating to the latest version!</p>'), $this->plugin->get_name());
+        $default_strings = ['needs_update_db_notice' => [
+            /* translators: %1$s: plugin name */
+            'title' => __('%1$s database update required'),
+            /* translators: %1$s: plugin name */
+            'message' => __('<p>%1$s has been updated! To keep things running smoothly, we have to update your database to the newest version. The database update process runs in the background and may take a little while, so please be patient.</p>'),
+        ], 'update_db_complete_notice' => [
+            /* translators: %1$s: plugin name */
+            'title' => __('%1$s database update done'),
+            /* translators: %1$s: plugin name */
+            'message' => __('<p>%1$s database update complete. Thank you for updating to the latest version!</p>'),
+        ]];
+        foreach ($default_strings as $notice_key => $strings) {
+            foreach ($strings as $string_key => $default_string) {
+                $is_overridden = isset($this->custom_options[$notice_key][$string_key]);
+                $value = $is_overridden ? $translated_options[$notice_key][$string_key] : $default_string;
+                if (!\is_string($value) && \is_callable($value)) {
+                    $value = \call_user_func($value);
+                }
+                $translated_options[$notice_key][$string_key] = \sprintf((string) $value, $this->plugin->get_name());
+            }
+        }
         return $translated_options;
+    }
+    /**
+     * Builds the options array passed to Notices::add() for a single notice.
+     *
+     * @param array $notice The resolved notice config (a sub-array of get_translated_options()).
+     *
+     * @return array
+     */
+    private function build_notice_args(array $notice)
+    {
+        $args = [];
+        foreach (['type', 'capability', 'dismissible', 'additional_classes', 'buttons'] as $key) {
+            if (\array_key_exists($key, $notice)) {
+                $args[$key] = $notice[$key];
+            }
+        }
+        return $args;
     }
     /**
      * Checks the plugin's version and shows the update admin notice message if an update is required.
@@ -152,13 +202,15 @@ abstract class Updater implements Standard_Service, Registerable, Plugin_Activat
         // Removes all old dismissed admin notice messages status.
         \delete_option('barn2_notice_dismissed_' . $this->plugin->get_slug() . '_update_db_complete_notice');
         $nonce_url = \wp_nonce_url(\add_query_arg(['action' => $this->plugin->get_slug() . '_update_db', 'return_url' => \admin_url()], \admin_url('admin-post.php')), $this->plugin->get_slug() . '_update_db');
-        // Get translated options
-        $translated_options = $this->get_translated_options();
-        // Update the button href with the nonce URL.
-        $translated_options['needs_update_db_notice']['buttons']['update-db']['href'] = $nonce_url;
+        // Get the resolved notice config.
+        $notice = $this->get_translated_options()['needs_update_db_notice'];
+        // Point the primary action button at the nonce URL (if the consumer kept it).
+        if (isset($notice['buttons']['update-db']) && \is_array($notice['buttons']['update-db'])) {
+            $notice['buttons']['update-db']['href'] = $nonce_url;
+        }
         $admin_notice = new Notices();
         // Show update required notice
-        $admin_notice->add($this->plugin->get_slug() . '_needs_update_db_notice', $translated_options['needs_update_db_notice']['title'], $translated_options['needs_update_db_notice']['message'], ['type' => 'warning', 'capability' => 'install_plugins', 'dismissible' => \false, 'buttons' => $translated_options['needs_update_db_notice']['buttons'] ?? null]);
+        $admin_notice->add($this->plugin->get_slug() . '_needs_update_db_notice', $notice['title'], $notice['message'], $this->build_notice_args($notice));
         $admin_notice->boot();
     }
     /**
@@ -185,12 +237,13 @@ abstract class Updater implements Standard_Service, Registerable, Plugin_Activat
      */
     public function check_update_complete()
     {
-        if ($this->is_update_complete()) {
-            $translated_options = $this->get_translated_options();
-            $admin_notice = new Notices();
-            $admin_notice->add($this->plugin->get_slug() . '_update_db_complete_notice', $translated_options['update_db_complete_notice']['title'], $translated_options['update_db_complete_notice']['message'], ['type' => 'success', 'capability' => 'install_plugins', 'additional_classes' => ['barn2-update-complete-notice']]);
-            $admin_notice->boot();
+        if (!$this->is_update_complete()) {
+            return;
         }
+        $notice = $this->get_translated_options()['update_db_complete_notice'];
+        $admin_notice = new Notices();
+        $admin_notice->add($this->plugin->get_slug() . '_update_db_complete_notice', $notice['title'], $notice['message'], $this->build_notice_args($notice));
+        $admin_notice->boot();
     }
     /**
      * Runs all the required update callback functions.

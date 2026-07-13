@@ -108,13 +108,10 @@ class Api implements JsonSerializable
      */
     private function maybe_authenticate_from_cookie()
     {
-        foreach ($_COOKIE as $name => $value) {
-            if (\strpos($name, 'wordpress_logged_in_') === 0) {
-                $user_id = \wp_validate_auth_cookie($value, 'logged_in');
-                if ($user_id) {
-                    \wp_set_current_user($user_id);
-                }
-                break;
+        if (!empty($_COOKIE[\LOGGED_IN_COOKIE])) {
+            $user_id = \wp_validate_auth_cookie($_COOKIE[\LOGGED_IN_COOKIE], 'logged_in');
+            if ($user_id) {
+                \wp_set_current_user($user_id);
             }
         }
     }

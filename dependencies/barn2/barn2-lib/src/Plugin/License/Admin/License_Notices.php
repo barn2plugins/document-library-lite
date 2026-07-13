@@ -95,6 +95,8 @@ class License_Notices implements Registerable, Core_Service
     public function expired_license_notice()
     {
         $plugin_name = '<strong>' . $this->plugin->get_name() . '</strong>';
+        $license = $this->plugin->get_license();
+        $renewal_notice = $license->get_renewal_notice();
         ?>
 		<div class="notice notice-warning is-dismissible barn2-notice" data-id="<?php 
         echo \esc_attr($this->plugin->get_id());
@@ -103,15 +105,19 @@ class License_Notices implements Registerable, Core_Service
         ?>">
 			<p>
 				<?php 
-        // phpcs:disable WordPress.Security.EscapeOutput
-        \printf(
-            /* translators: 1: the plugin name, 2: renewal link start, 3: renewal link end. */
-            __('Your license key for %1$s has expired. %2$sClick here to renew for 20%% discount%3$s.', 'barn2'),
-            $plugin_name,
-            Util::format_link_open($this->plugin->get_license()->get_renewal_url(), \true),
-            '</a>'
-        );
-        // phpcs:enable WordPress.Security.EscapeOutput
+        if ($renewal_notice) {
+            echo \wp_kses_post($renewal_notice);
+        } else {
+            // phpcs:disable WordPress.Security.EscapeOutput
+            \printf(
+                /* translators: 1: the plugin name, 2: renewal link start, 3: renewal link end. */
+                __('Your license key for %1$s has expired. %2$sClick here to renew for 20%% discount%3$s.', 'barn2'),
+                $plugin_name,
+                Util::format_link_open($license->get_renewal_url(), \true),
+                '</a>'
+            );
+            // phpcs:enable WordPress.Security.EscapeOutput
+        }
         ?>
 			</p>
 		</div>

@@ -26,5 +26,6 @@ interface License extends License_Summary
     public function get_active_url();
     public function has_site_moved();
     public function get_renewal_url($apply_discount = \true);
+    public function get_renewal_notice();
     public function get_setting_name();
 }
