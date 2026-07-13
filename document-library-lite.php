@@ -11,7 +11,7 @@
  * Plugin Name:     Document Library Lite - Manage & Display Downloads
  * Plugin URI:      https://barn2.com/kb-categories/document-library-free-kb/
  * Description:     Add documents and display them in a searchable document library.
- * Version:         1.2.0
+ * Version:         1.3.0
  * Author:          Barn2 Plugins
  * Author URI:      https://barn2.com
  * Text Domain:     document-library-lite
@@ -32,7 +32,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-const PLUGIN_VERSION = '1.2.0';
+const PLUGIN_VERSION = '1.3.0';
 const PLUGIN_FILE    = __FILE__;
 
 // Autoloader.

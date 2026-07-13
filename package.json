@@ -1,6 +1,6 @@
 {
     "name": "document-library-lite",
-    "version": "1.2.0",
+    "version": "1.3.0",
     "description": "Document Library Lite.",
     "main": "gulpfile.js",
     "directories": {
@@ -39,9 +39,9 @@
     },
     "homepage": "https://github.com/Barn2Plugins/document-library-lite#readme",
     "devDependencies": {
+        "@automattic/color-studio": "^2.5.0",
         "@barn2plugins/playwright-utils": "^0.2.1",
         "@barn2plugins/webpack-config": "^2.0.0",
-        "@automattic/color-studio": "^2.5.0",
         "@wordpress/base-styles": "^4.19.0",
         "@wordpress/dependency-extraction-webpack-plugin": "^4.8.0",
         "@wordpress/env": "^10.5.0",
@@ -56,8 +56,7 @@
                 "plugins": [
                     "."
                 ],
-                "themes": [
-                ],
+                "themes": [],
                 "mappings": {
                     "wp-content/db.sql": "./tests/e2e/default/db.sql"
                 }
@@ -65,7 +64,7 @@
         ]
     },
     "dependencies": {
-        "@playwright/test": "^1.46.1",
-        "@floating-ui/dom": "^1.6.13"
+        "@floating-ui/dom": "^1.6.13",
+        "@playwright/test": "^1.46.1"
     }
 }

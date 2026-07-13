@@ -5,7 +5,7 @@ Tags: document library, file manager, download manager, document management, med
 Requires at least: 6.1
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 1.2.0
+Stable tag: 1.3.0
 License: GPL-3.0
 License URI: https://www.gnu.org/licenses/gpl.html
 
@@ -206,13 +206,12 @@ Please report any security bugs through the [Patchstack Vulnerability Disclosure
 
 == Changelog ==
 
-= 1.2.0 = 
-Release date 11 December 2025
+= 1.3.0 = 
+Release date 14 July 2026
 
-* Dev: Enhanced AJAX request security with proper nonce verification
-* Dev: Added input sanitization to prevent XSS attacks
-* Dev: Added premium options and changed the design structure
-* Dev: Updated internal libraries and tested up to WordPress 6.9
-* Fix: Fixed IDOR (Insecure Direct Object Reference) vulnerabilities
+* New: Added the HelpScout beacon
+* New: Added the block editor to the single document page
+* New: Added Grid layout, Content length and Image size features from the Pro version
+* Dev: Updated the internal libraries and tested up to latest WordPress version
 
 See changelog.txt for more details.
