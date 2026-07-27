@@ -207,7 +207,7 @@ Please report any security bugs through the [Patchstack Vulnerability Disclosure
 == Changelog ==
 
 = 1.3.0 = 
-Release date 14 July 2026
+Release date 27 July 2026
 
 * New: Added the HelpScout beacon
 * New: Added the block editor to the single document page
