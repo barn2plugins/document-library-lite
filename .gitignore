@@ -54,3 +54,5 @@ artifacts
 playwright-report
 tests/coverage
 /.env
+
+/.claude

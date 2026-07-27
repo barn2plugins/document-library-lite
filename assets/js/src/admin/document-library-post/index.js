@@ -67,7 +67,15 @@ jQuery( function( $ ) {
 			title: dlwAdminObject.i18n.select_file,
 			button: {
 				text: dlwAdminObject.i18n.add_file
-			}
+			},
+			states: [
+				new wp.media.controller.Library({
+					title: dlwAdminObject.i18n.select_file,
+					filterable: 'all',
+					multiple: false
+				}),
+				new wp.media.controller.EditImage()
+			]
 		});
 
 		dlwDocumentLink.wpMedia.on( 'select', function () {
