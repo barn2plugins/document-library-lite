@@ -207,11 +207,11 @@ Please report any security bugs through the [Patchstack Vulnerability Disclosure
 == Changelog ==
 
 = 1.3.0 = 
-Release date 14 July 2026
+Release date 27 July 2026
 
 * New: Added the HelpScout beacon
 * New: Added the block editor to the single document page
 * New: Added Grid layout, Content length and Image size features from the Pro version
 * Dev: Updated the internal libraries and tested up to latest WordPress version
-
+* Fix: Showing the "Filter by type" when working with the media library in the document post type
 See changelog.txt for more details.
