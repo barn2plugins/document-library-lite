@@ -1,0 +1,39 @@
+# Files and directories excluded from the built plugin zip.
+# Mirrors and extends .gitattributes export-ignore.
+
+# Dev tooling directories
+/.wordpress-org
+/.github
+/bin
+/vendor-bin
+/vendor
+/composer.lock
+/.env.example
+/.wp-env.json
+
+# Build / dev configs
+/webpack.config.js
+/playwright.config.js
+/package.json
+/package-lock.json
+/yarn.lock
+/composer.json
+/phpstan.neon
+/phpcs.ruleset.xml
+/phpunit.xml
+/.gitattributes
+/.gitignore
+/.scoper.inc.php
+/.claudeignore
+/CLAUDE.md
+
+# Tests
+/tests
+/tests/coverage
+
+# Build outputs
+/document-library-lite.zip
+/dist
+
+# This file
+/.distignore

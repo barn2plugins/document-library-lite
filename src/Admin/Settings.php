@@ -95,14 +95,9 @@ class Settings implements Registerable, Standard_Service {
 
 	/**
 	 * Hook into the allowed_options filter.
-	 * Back compatibility ( < 5.5 ) included with 'whitelist_options'.
 	 */
 	public function filter_allowed_options() {
-		if ( function_exists( 'add_allowed_options' ) ) {
-			add_filter( 'allowed_options', [ $this, 'allowed_options' ] );
-		} else {
-			add_filter( 'whitelist_options', [ $this, 'allowed_options' ] );
-		}
+		add_filter( 'allowed_options', [ $this, 'allowed_options' ] );
 	}
 
 	/**
@@ -121,11 +116,7 @@ class Settings implements Registerable, Standard_Service {
 			'document_library_pro_advanced' => [ Options::SHORTCODE_OPTION_KEY, Options::MISC_OPTION_KEY ],
 		];
 
-		if ( function_exists( 'add_allowed_options' ) ) {
-			$options = add_allowed_options( $new_options, $options );
-		} else {
-			$options = add_option_whitelist( $new_options, $options );
-		}
+		$options = add_allowed_options( $new_options, $options );
 
 		return $options;
 	}
