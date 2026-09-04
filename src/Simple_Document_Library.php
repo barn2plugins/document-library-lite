@@ -56,11 +56,22 @@ class Simple_Document_Library {
 		$columns = $this->get_columns();
 
 		// Parse DataTables parameters from the AJAX request
-		$draw   = isset( $_POST['draw'] ) ? intval( $_POST['draw'] ) : 1;
-		$this->args['offset']  = isset( $_POST['start'] ) ? intval( $_POST['start'] ) : 0;
-		$this->args['rows_per_page'] = isset( $_POST['length'] ) && intval( $_POST['length'] ) !== -1 ? intval( $_POST['length'] ) : $this->args['rows_per_page'];
-		$this->args['sort_by'] = isset( $_POST['order'] ) ? $columns[$_POST['order'][0]['column']] : $this->get_orderby();
-    	$this->args['sort_order'] = isset( $_POST['order'] ) ? sanitize_key( $_POST['order'][0]['dir'] ) : $this->args['sort_order'];
+		$draw   = isset( $_POST['draw'] ) ? intval( wp_unslash( $_POST['draw'] ) ) : 1;
+		$this->args['offset']  = isset( $_POST['start'] ) ? intval( wp_unslash( $_POST['start'] ) ) : 0;
+		$this->args['rows_per_page'] = isset( $_POST['length'] ) && intval( wp_unslash( $_POST['length'] ) ) !== -1 ? intval( wp_unslash( $_POST['length'] ) ) : $this->args['rows_per_page'];
+		$order        = isset( $_POST['order'] ) && is_array( $_POST['order'] ) ? wp_unslash( $_POST['order'] ) : [];
+		$column_index = isset( $order[0]['column'] ) && is_scalar( $order[0]['column'] )
+			? filter_var( $order[0]['column'], FILTER_VALIDATE_INT )
+			: false;
+		$this->args['sort_by'] = false !== $column_index && $column_index >= 0 && isset( $columns[ $column_index ] )
+			? $columns[ $column_index ]
+			: $this->get_orderby();
+		$direction = isset( $order[0]['dir'] ) && is_scalar( $order[0]['dir'] )
+			? sanitize_key( (string) $order[0]['dir'] )
+			: '';
+		if ( in_array( $direction, [ 'asc', 'desc' ], true ) ) {
+			$this->args['sort_order'] = $direction;
+		}
     	$this->args['search_value'] = isset( $_POST['search']['value'] ) ? sanitize_text_field( wp_unslash( $_POST['search']['value'] ) ) : '';
 		$this->args['rows_per_page'] = filter_var( $this->args['rows_per_page'], FILTER_VALIDATE_INT );
 

@@ -185,7 +185,9 @@ class Settings implements Registerable, Standard_Service {
 	 */
 	public function sanitize_shortcode_settings( $args ) {
 		$existing_options = $this->get_existing_shortcode_options();
-		$option_page      = $_REQUEST['option_page'];
+		$option_page      = isset( $_REQUEST['option_page'] )
+			? sanitize_key( wp_unslash( $_REQUEST['option_page'] ) )
+			: '';
 
 		if ( ! $option_page ) {
 			return array_merge( $existing_options, $args );

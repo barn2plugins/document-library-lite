@@ -117,7 +117,7 @@ class Document_Link implements Registerable, Standard_Service, Conditional {
 	 */
 	public function save( $post_id ) {
 		// Verify nonce
-		if ( ! isset( $_POST['dll_document_link_nonce'] ) || ! wp_verify_nonce( $_POST['dll_document_link_nonce'], 'dll_save_document_link' ) ) {
+		if ( ! isset( $_POST['dll_document_link_nonce'] ) || ! wp_verify_nonce( wp_unslash( $_POST['dll_document_link_nonce'] ), 'dll_save_document_link' ) ) {
 			return;
 		}
 
