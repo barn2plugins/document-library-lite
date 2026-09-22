@@ -8,6 +8,7 @@ use Barn2\Plugin\Document_Library\Dependencies\Lib\Service\Service_Container;
 use Barn2\Plugin\Document_Library\Dependencies\Lib\Registerable;
 use Barn2\Plugin\Document_Library\Dependencies\Lib\Service\Standard_Service;
 use Barn2\Plugin\Document_Library\Dependencies\Lib\Admin\Plugin_Promo;
+use Barn2\Plugin\Document_Library\Dependencies\Lib\Admin\Sale_Notice;
 use Barn2\Plugin\Document_Library\Dependencies\Lib\Admin\Settings_API_Helper;
 use Barn2\Plugin\Document_Library\Post_Type;
 
@@ -46,6 +47,18 @@ class Admin_Controller implements Registerable, Standard_Service {
 	public function add_services() {
 		$this->add_service( 'menu', new Menu( $this->plugin ) );
 		$this->add_service( 'plugin_promo', new Plugin_Promo( $this->plugin ) );
+		$this->add_service(
+			'sale_notice',
+			new Sale_Notice(
+				[
+					'plugin_slug' => 'document-library-lite',
+					'plugin_file' => $this->plugin->get_file(),
+					'product_url' => 'https://barn2.com/wordpress-plugins/document-library-pro/',
+					'pro_name'    => 'Document Library Pro',
+					'screens'     => [ 'toplevel_page_document_library' ],
+				]
+			)
+		);
 		$this->add_service( 'settings', new Settings( $this->plugin ) );
 		$this->add_service( 'page/settings', new Page\Settings( $this->plugin ) );
 		$this->add_service( 'page/import', new Page\Import( $this->plugin ) );
