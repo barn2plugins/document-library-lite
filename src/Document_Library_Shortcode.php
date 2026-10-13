@@ -98,7 +98,7 @@ class Document_Library_Shortcode implements Registerable, Standard_Service {
 		// Create table and return output
 		ob_start(); ?>
 		<input type="hidden" name="category-search-<?php echo esc_attr( $table_id ) ?>" value="<?php echo esc_attr( $table->args['doc_category'] ); ?>" class="category-search-<?php echo esc_attr( $table_id ) ?>">
-		<table <?php echo $table->get_attributes() ?>>
+		<table <?php echo $table->get_attributes(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- attribute string is pre-escaped in Simple_Document_Library::get_attributes() ?>>
 			<?php
 			echo $table->get_headers();
 			?>

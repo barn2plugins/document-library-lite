@@ -116,6 +116,7 @@ class Search implements Registerable {
 						'document_search' => __( 'Document search', 'document-library-lite' ),
 					],
 					'desc'    => sprintf(
+						/* translators: %s: global search link. */
 						__( 'When using the %s, this page will display your search results.', 'document-library-lite' ),
 						Lib_Util::barn2_link( 'kb/document-library-search/#standalone-search-box', __( 'global search', 'document-library-lite' ), true )
 					),
