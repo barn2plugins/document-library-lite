@@ -13,7 +13,7 @@ Create a WordPress document library to manage, search and download files.
 
 == Description ==
 
-*Document Library Lite* creates a WordPress document library/download manager. It is the free plan of Document Library Pro, which is also available in Essentials and Advanced plans with additional features. It displays documents in a table layout and allows users to quickly search for, sort and download documents. 
+*Document Library Lite* creates a WordPress document library/download manager. It is the free plan of Document Library Pro, which is also available in Essentials and Advanced plans with additional features. It displays documents in a table or grid layout and allows users to quickly search for, sort and download documents. 
 
 View the [plugin demo](https://documentlibrary-free.barn2.com/) to see it in action.
 
@@ -22,8 +22,9 @@ https://www.youtube.com/watch?v=K0H-9FUQgW0
 ### Features
 
 * Easy document management - add documents of any file type, plus all the document data you want to display.
-* List documents in searchable, sortable tables.
-* Choose any or all of the following columns: ID, image, title, content, date, categories, plus download button.
+* List documents in searchable, sortable tables or responsive grids.
+* Choose any or all of the following table columns: ID, image, title, content, date, categories, plus download button.
+* Control the grid columns, grid card content, featured image size and content length.
 * List all files in your document library, or list them by category or status.
 * 100% responsive - works on any screen size or mobile device.
 
@@ -52,7 +53,7 @@ Our [Document Library Pro](https://barn2.com/wordpress-plugins/document-library-
 [View free & pro comparison table](https://barn2.com/kb/document-library-plugins-free-pro-comparison/?utm_source=wporg&utm_medium=freeplugin&utm_campaign=freepluginwporg&utm_content=dlw-wporg)
 
 * **Bulk upload** - Add files using drag and drop file upload, CSV import, or import Media Library files to the download manager.
-* **Extra layout options** - Display documents in a beautiful grid layout, and optionally structure the WordPress document library into collapsible folders.
+* **Folders layout** - Structure the WordPress document library into collapsible folders.
 * **Add extra columns** - File size, file type, document excerpt, status, last modified date, author, plus custom fields and custom taxonomies. You can also rename the column headings of the document library. Advanced Custom Fields and ACF Pro support.
 * **Individual document pages** - Create a separate page for each document.
 * **Host documents on third party sites** - As well as displaying files from the Media Library, your WordPress download manager can include documents hosted on third party sites such as Dropbox, Google Drive, and Office 365.
@@ -86,6 +87,10 @@ For more flexibility, you can use the `[doc_library]` shortcode to list differen
 * Built-in ‘Document Library’ page which automatically lists all your downloads.
 * `[doc_library]` shortcode for added flexibility.
 * List documents in a table with sortable columns.
+* List documents in a responsive grid layout with 1 to 6 columns.
+* Choose which information appears in each grid card: Image, title, content, categories and download link.
+* Set the featured image size in pixels.
+* Control how many words of document content appear in the library.
 * Choice of 6 styles for your document download links including buttons, download icons, file type icons, and text.
 * Instant AJAX search box to find documents more quickly.
 * 'Search on click' feature to filter the WordPress file manager by clicking on a document category.
@@ -105,7 +110,12 @@ View the [plugin documentation](https://barn2.com/kb/document-library-wordpress-
 
 Options for the `[doc_library]` shortcode:
 
+* **layout** - Choose the document library layout. The options are table and grid.
 * **content** - The columns to display in the document library. This can be any combination of the following (comma-separated): id, image, title, content, categories, or date.
+* **grid_columns** - Choose 1 to 6 columns in the grid layout. The default is 4.
+* **grid_content** - Choose which information appears in each grid card. This can be any combination of the following (comma-separated): image, title, content, doc_categories, or link. The default is image,title,content,link.
+* **image_size** - Set the featured image size in pixels, for example 80x80. The default is 70x70.
+* **content_length** - Choose how many words of document content to show. The default is 15. Use -1 to show the full content.
 * **doc_category** - List downloads from a specific category only.
 * **status** - List documents based on their status (e.g. published/draft/private).
 * **lightbox** - Enable or disable the feature which opens document featured images in a lightbox modal window.
@@ -150,6 +160,8 @@ To control which columns appear on the list of downloads, enter a comma separate
 * **doc_categories** - A comma separated list of the document categories.
 * **link** - A download button for each file.
 
+If you use the grid layout, then you can use the grid_content option to choose which information appears in each grid card. The available fields are title, content, image, doc_categories and link.
+
 = Do I have to list all the file downloads on the same page?  =
 The main ‘Document Library’ page will list all your documents, and you can delete this if you don’t need it. Instead, you can use the `[doc_library]` shortcode to list different documents in different parts of your WordPress website. For example, you can list documents by category.
 
@@ -158,7 +170,7 @@ See the complete list of shortcode options above
 = Is there a maximum number of documents? =
 With the free WordPress document library plugin, the number of documents depends on the overall speed of your website and how good your hosting is. Most sites can happily list several dozen documents per page.
 
-If you want to list hundreds (or even thousands) of downloads on the same page, then we recommend upgrading to [Document Library Pro](https://barn2.com/wordpress-plugins/document-library-pro/?utm_source=wporg&utm_medium=freeplugin&utm_campaign=freepluginwporg&utm_content=dlw-wporg). This comes with built-in lazy load and caching options which allow you to list an unlimited number of documents without any performance issues.
+If you want to list hundreds (or even thousands) of downloads on the same page, then you can use the built-in lazy load option. You can also upgrade to [Document Library Pro](https://barn2.com/wordpress-plugins/document-library-pro/?utm_source=wporg&utm_medium=freeplugin&utm_campaign=freepluginwporg&utm_content=dlw-wporg) for caching and even faster load times on larger document libraries.
 
 = Can I make the document library private? =
 If you want a private WordPress file manager then we recommend using *Document Library Lite* with our other plugin, [Password Protected Categories](https://barn2.com/wordpress-plugins/password-protected-categories/?utm_source=wporg&utm_medium=freeplugin&utm_campaign=freepluginwporg&utm_content=dlw-wporg). This lets you restrict access to any or all of your download categories.
@@ -177,7 +189,7 @@ Absolutely! You can see the *Document Library Lite* plugin in action on the [dem
 Document Library Pro is available in three plans: Lite (free), Essentials, and Advanced. [Compare plans and features on the Barn2 website.](https://barn2.com/kb/document-library-plugins-free-pro-comparison/?utm_source=wporg&utm_medium=freeplugin&utm_campaign=freepluginwporg&utm_content=dlw-wporg)
 
 = What is the difference between Lite, Essentials, and Advanced? =
-Lite (free) displays documents in searchable, sortable tables with categories, download buttons, and AJAX search. Essentials adds grid layouts, bulk import (drag-and-drop and CSV), filter dropdowns, extra columns (file size, file type, custom fields), and document preview. Advanced adds role-based access control, version control, document expiry, and lead capture before download.
+Lite (free) displays documents in searchable, sortable tables and responsive grids with categories, download buttons, and AJAX search. Essentials adds folders, bulk import (drag-and-drop and CSV), filter dropdowns, extra columns (file size, file type, custom fields), and document preview. Advanced adds role-based access control, version control, document expiry, and lead capture before download.
 
 = Can you customize the plugin for me? =
 We developed this free plugin to be flexible and easy to configure so that it will be suitable for many different websites. The [premium version](https://barn2.com/wordpress-plugins/document-library-pro/?utm_source=wporg&utm_medium=freeplugin&utm_campaign=freepluginwporg&utm_content=dlw-wporg) adds most of the features which you are ever likely to need.
@@ -203,6 +215,7 @@ Please report any security bugs through the [Patchstack Vulnerability Disclosure
 9. Choose which columns of information to include in the document library.
 10. Easily list documents anywhere on your site using a simple shortcode.
 11. View document downloads separately from other Media Library files.
+12. Display documents in a responsive grid layout.
 
 == Changelog ==
 
