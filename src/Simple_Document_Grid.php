@@ -266,7 +266,8 @@ class Simple_Document_Grid {
 	private function get_card_image( $post ) {
 		$attachment_id = get_post_thumbnail_id( $post->ID );
 
-		if ( ! $attachment_id ) {
+		// Password protected documents fall back to the file-type icon so the image URL isn't exposed.
+		if ( ! $attachment_id || post_password_required( $post ) ) {
 			$document = new Document( $post->ID );
 			return sprintf(
 				'<div class="dlp-grid-card-featured-img dlp-grid-card-featured-icon">%s</div>',

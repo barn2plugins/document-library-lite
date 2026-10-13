@@ -187,6 +187,11 @@ class Simple_Document_Library {
 
 		$image = '';
 
+		// Don't expose the image URLs of password protected documents.
+		if ( post_password_required( $post ) ) {
+			return apply_filters( 'document_library_table_image', $image, $post );
+		}
+
 		if ( $attachment_id ) {
 			// Create $atts for PhotoSwipe
 			$full_src = wp_get_attachment_image_src( $attachment_id, apply_filters( 'document_library_image_full_size', 'full' ) );

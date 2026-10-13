@@ -191,11 +191,25 @@ class Document {
 	}
 
 	/**
+	 * Whether the document is password protected and the visitor hasn't entered the password yet.
+	 *
+	 * @return bool
+	 */
+	public function is_password_protected() {
+		return post_password_required( $this->post_object );
+	}
+
+	/**
 	 * Gets the download URL
 	 *
 	 * @return string
 	 */
 	public function get_download_url() {
+		// Never reveal the attachment URL of a password protected document until the password has been entered.
+		if ( $this->is_password_protected() ) {
+			return false;
+		}
+
 		switch ( $this->get_link_type() ) {
 			case 'none':
 				$url = false;
