@@ -107,6 +107,12 @@ if ($override_code) {
 }
 ?>
 
+				<?php 
+// CSRF nonce required by License_Key_Setting::process_license_action().
+echo $plugin->get_license_setting()->get_license_nonce_field();
+// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+?>
+
 				<button
 					type="submit"
 					name="activate_key"

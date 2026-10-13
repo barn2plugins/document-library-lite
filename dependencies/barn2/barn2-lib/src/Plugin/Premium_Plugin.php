@@ -2,6 +2,7 @@
 
 namespace Barn2\Plugin\Document_Library\Dependencies\Lib\Plugin;
 
+use Barn2\Plugin\Document_Library\Dependencies\Lib\Admin\Sale_Notice;
 use Barn2\Plugin\Document_Library\Dependencies\Lib\Plugin\Admin\Plugin_Updater;
 use Barn2\Plugin\Document_Library\Dependencies\Lib\Plugin\License\Admin\License_Key_Setting;
 use Barn2\Plugin\Document_Library\Dependencies\Lib\Plugin\License\Admin\License_Notices;
@@ -44,6 +45,8 @@ class Premium_Plugin extends Simple_Plugin implements Licensed_Plugin
         $this->add_service('license_checker', new License_Checker($this->get_file(), $this->get_license()));
         $this->add_service('license_setting', new License_Key_Setting($this->get_license(), $this->is_woocommerce(), $this->is_edd()));
         $this->add_service('license_notices', new License_Notices($this));
+        // Sale banner on the settings page. Dates, codes and wording come from the API site.
+        $this->add_service('sale_notice', new Sale_Notice(['source' => 'remote', 'plugin' => $this]));
     }
     public function maybe_load_plugin()
     {

@@ -17,4 +17,5 @@ interface License_Setting
     public function get_license_override_setting();
     public function save_license_key($license_key);
     public function save_posted_license_key();
+    public function get_license_nonce_field();
 }

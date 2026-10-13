@@ -99,6 +99,22 @@ class License_Expired_Guard implements Registerable, Core_Service
         return $license && $license->is_expired();
     }
     /**
+     * Whether the license was re-activated earlier in the current request.
+     *
+     * The guard's hooks are only registered while the license is expired, but
+     * activation runs on admin_init, so the license can become active later in
+     * the same request. Only a genuinely active license lifts the block: a
+     * failed activation attempt can move the status from 'expired' to
+     * 'invalid' or 'inactive', which must stay blocked.
+     *
+     * @return bool
+     */
+    private function is_reactivated()
+    {
+        $license = $this->plugin->get_license();
+        return $license && $license->is_active();
+    }
+    /**
      * Block an option update by returning the existing stored value.
      *
      * @param mixed $value     The new value being saved (discarded).
@@ -107,6 +123,10 @@ class License_Expired_Guard implements Registerable, Core_Service
      */
     public function block_option($value, $old_value)
     {
+        // Skip if the license was re-activated earlier this same request.
+        if ($this->is_reactivated()) {
+            return $value;
+        }
         unset($value);
         return $old_value;
     }
@@ -122,6 +142,10 @@ class License_Expired_Guard implements Registerable, Core_Service
     public function block_post_meta($check, $object_id, $meta_key, $meta_value)
     {
         unset($object_id, $meta_value);
+        // Skip if the license was re-activated earlier this same request.
+        if ($this->is_reactivated()) {
+            return $check;
+        }
         if (\in_array($meta_key, $this->post_meta, \true)) {
             return \false;
         }
@@ -134,6 +158,10 @@ class License_Expired_Guard implements Registerable, Core_Service
      */
     public function deny_ajax()
     {
+        // Skip if the license was re-activated earlier this same request.
+        if ($this->is_reactivated()) {
+            return;
+        }
         \wp_send_json_error(['message' => $this->message], 403);
     }
     /**
@@ -144,10 +172,18 @@ class License_Expired_Guard implements Registerable, Core_Service
      */
     public function block_wc_settings($settings)
     {
-        // Filter fires on both render and save. Only strip on save (POST) so
-        // the settings page still renders for the user.
-        $method = isset($_SERVER['REQUEST_METHOD']) ? \strtoupper(\sanitize_text_field(\wp_unslash($_SERVER['REQUEST_METHOD']))) : '';
-        if ('POST' !== $method) {
+        // This filter fires on both render and save. Only strip on a genuine
+        // WooCommerce settings save (WC sets $_POST['save']). Other POSTs to
+        // this page — e.g. the expired-license activation form — also trigger a
+        // render, and must leave the fields intact so the page still displays.
+        // phpcs:ignore WordPress.Security.NonceVerification.Missing -- presence check only; WC verifies its own nonce before saving.
+        if (empty($_POST['save'])) {
+            return $settings;
+        }
+        // The license may have been re-activated earlier this same request
+        // (activation runs on admin_init, before settings render/save). If it
+        // is active again, don't block the save.
+        if ($this->is_reactivated()) {
             return $settings;
         }
         global $current_section;
@@ -174,9 +210,9 @@ class License_Expired_Guard implements Registerable, Core_Service
     public function block_rest($result, $server, $request)
     {
         unset($server);
-        // Leave the result untouched if another handler already set it, or this
-        // isn't a REST request.
-        if (null !== $result || !$request instanceof WP_REST_Request) {
+        // Leave the result untouched if another handler already set it, this
+        // isn't a REST request, or the license was re-activated this request.
+        if (null !== $result || !$request instanceof WP_REST_Request || $this->is_reactivated()) {
             return $result;
         }
         $route = \trim((string) $request->get_route(), '/');
