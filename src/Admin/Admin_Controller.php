@@ -118,6 +118,16 @@ class Admin_Controller implements Registerable, Standard_Service {
 		if ( 'toplevel_page_document_library' === $hook ) {
 			wp_enqueue_style( 'dlw-admin-settings', plugins_url( 'assets/css/admin/document-library-settings.css', $this->plugin->get_file() ), [], $this->plugin->get_version(), 'all' );
 			wp_enqueue_script( 'dlw-admin-settings', plugins_url( 'assets/js/admin/document-library-settings.js', $this->plugin->get_file() ), [ 'jquery' ], $this->plugin->get_version(), true );
+
+			// Artwork for the sale banner. Set here rather than in the stylesheet, so the build doesn't rewrite the paths.
+			wp_add_inline_style(
+				'dlw-admin-settings',
+				sprintf(
+					'#barn2-sale-notice-document-library-lite{--dlw-sale-image-30:url("%1$s");--dlw-sale-image-25:url("%2$s");}',
+					esc_url( $this->plugin->get_dir_url() . 'assets/images/bf2026-30-off.png' ),
+					esc_url( $this->plugin->get_dir_url() . 'assets/images/bf2026-25-off.png' )
+				)
+			);
 		}
 
 		// Import and Protect Page.

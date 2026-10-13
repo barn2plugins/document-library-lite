@@ -148,3 +148,63 @@
     }
 }
 
+// Black Friday 2026 sale banner (markup and behaviour come from barn2-lib's Sale_Notice).
+#barn2-sale-notice-document-library-lite {
+    --b2sn-bg: #fff;
+    --b2sn-border: #c3c4c7;
+    --b2sn-accent: #c3c4c7;
+    --b2sn-label: #2271b1;
+    --b2sn-title: #1d2327;
+    --b2sn-text: #1d2327;
+    --b2sn-button-bg: #2271b1;
+    --b2sn-button-hover: #135e96;
+
+    align-items: center;
+    gap: 24px;
+    padding: 20px 48px 20px 24px;
+    margin-top: 24px;
+    border-left-width: 1px;
+
+    // The artwork replaces the round badge.
+    .barn2-sale-notice__badge {
+        width: 120px;
+        height: 76px;
+        border-radius: 0;
+        background: transparent center / contain no-repeat;
+        font-size: 0;
+        color: transparent;
+
+        span {
+            display: none;
+        }
+    }
+
+    // The image URLs are set from PHP (--dlw-sale-image-*), because webpack would rewrite url() paths.
+    &[data-campaign="bf2026"] .barn2-sale-notice__badge {
+        background-image: var(--dlw-sale-image-30);
+    }
+
+    &[data-campaign="extradays"] .barn2-sale-notice__badge {
+        background-image: var(--dlw-sale-image-25);
+    }
+
+    .barn2-sale-notice__label {
+        display: inline-block;
+        margin-bottom: 8px;
+        padding: 4px 10px;
+        border: 1px solid var(--b2sn-label);
+        border-radius: 2px;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        line-height: 1.4;
+    }
+
+    .barn2-sale-notice__title {
+        font-size: 20px;
+    }
+
+    a.barn2-sale-notice__button {
+        padding: 12px 18px;
+        border-radius: 2px;
+    }
+}
