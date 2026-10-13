@@ -1,3 +1,12 @@
+= 1.3.1 =
+* New: Added the Black Friday 2026 sale notice on the settings page
+* Tweak: Updated the plugin description and layout options in the readme
+* Security: Added password protection checks to prevent exposure of document URLs
+* Security: Hardened request input handling
+* Fix: Resolved Plugin Check warnings
+* Fix: Lite no longer loads when the Essentials or Advanced plans are active, not just Pro, which avoids clashes
+* Dev: Updated the internal libraries
+
 = 1.3.0 = 
 Release date 27 July 2026
 

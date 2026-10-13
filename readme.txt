@@ -5,7 +5,7 @@ Tags: document library, file manager, download manager, document management, med
 Requires at least: 6.1
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.3.0
+Stable tag: 1.3.1
 License: GPL-3.0
 License URI: https://www.gnu.org/licenses/gpl.html
 
@@ -219,12 +219,14 @@ Please report any security bugs through the [Patchstack Vulnerability Disclosure
 
 == Changelog ==
 
-= 1.3.0 = 
-Release date 27 July 2026
+= 1.3.1 =
+Release date 15 October 2026
 
-* New: Added the Help Scout beacon in the plugin settings
-* New: Added the block editor to the single document page
-* New: Added Grid layout, Content length and Image size features from the Pro version
-* Dev: Updated the internal libraries and tested up to latest WordPress version
-* Fix: Showing the "Filter by type" when working with the media library in the document post type
+* New: Added the Black Friday 2026 sale notice on the settings page
+* Security: Added password protection checks to prevent exposure of document URLs
+* Security: Hardened request input handling
+* Fix: Resolved Plugin Check warnings
+* Fix: Lite no longer loads when the Essentials or Advanced plans are active, not just Pro, which avoids clashes
+* Dev: Updated the internal libraries
+
 See changelog.txt for more details.
