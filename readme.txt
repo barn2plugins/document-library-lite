@@ -3,7 +3,7 @@ Contributors: barn2media
 Donate link: https://barn2.com
 Tags: document library, file manager, download manager, document management, media library
 Requires at least: 6.1
-Tested up to: 7.1
+Tested up to: 7.1.3
 Requires PHP: 7.4
 Stable tag: 1.3.1
 License: GPL-3.0
@@ -220,7 +220,7 @@ Please report any security bugs through the [Patchstack Vulnerability Disclosure
 == Changelog ==
 
 = 1.3.1 =
-Release date 15 October 2026
+Release date 28 October 2026
 
 * New: Added the Black Friday 2026 sale notice on the settings page
 * Security: Added password protection checks to prevent exposure of document URLs

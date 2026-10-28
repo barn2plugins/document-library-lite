@@ -1,4 +1,6 @@
 = 1.3.1 =
+Release date 28 October 2026
+
 * New: Added the Black Friday 2026 sale notice on the settings page
 * Tweak: Updated the plugin description and layout options in the readme
 * Security: Added password protection checks to prevent exposure of document URLs
