@@ -161,9 +161,23 @@
 
     align-items: center;
     gap: 24px;
-    padding: 20px 48px 20px 24px;
-    margin-top: 24px;
+    max-width: 976px;
+    padding: 16px 48px 16px 24px;
+    margin: 16px 0;
+    border-radius: 2px;
     border-left-width: 1px;
+
+    .notice-dismiss,
+    .notice-dismiss:before {
+        color: #787c82;
+    }
+
+    .notice-dismiss:hover,
+    .notice-dismiss:focus,
+    .notice-dismiss:hover:before,
+    .notice-dismiss:focus:before {
+        color: #1d2327;
+    }
 
     // The artwork replaces the round badge.
     .barn2-sale-notice__badge {
@@ -190,21 +204,31 @@
 
     .barn2-sale-notice__label {
         display: inline-block;
-        margin-bottom: 8px;
+        margin-bottom: 0;
         padding: 4px 10px;
         border: 1px solid var(--b2sn-label);
         border-radius: 2px;
-        font-weight: 600;
+        background: #f0f6fc;
+        color: var(--b2sn-label);
+        font-size: 12px;
+        font-weight: 700;
         letter-spacing: 0.12em;
         line-height: 1.4;
     }
 
     .barn2-sale-notice__title {
         font-size: 20px;
+        font-weight: 600;
     }
 
     a.barn2-sale-notice__button {
-        padding: 12px 18px;
+        padding: 8px 15px;
         border-radius: 2px;
+        background: var(--b2sn-button-bg);
+
+        &:hover,
+        &:focus {
+            background: var(--b2sn-button-hover);
+        }
     }
 }

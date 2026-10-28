@@ -39,6 +39,8 @@ class Admin_Controller implements Registerable, Standard_Service {
 		add_filter( 'plugin_row_meta', [ $this, 'add_pro_version_link' ], 10, 2 );
 		// Admin scripts
 		add_action( 'admin_enqueue_scripts', [ $this, 'settings_page_scripts' ] );
+		// The sale banner design uses an uppercase "OFF" in the title and button.
+		add_filter( 'gettext_barn2-lib', fn( $text ) => str_replace( '%% off', '%% OFF', $text ) );
 	}
 
 	/**
