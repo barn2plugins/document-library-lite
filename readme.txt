@@ -223,6 +223,6 @@ Please report any security bugs through the [Patchstack Vulnerability Disclosure
 Release date 28 October 2026
 
 * Dev: Tested up to WordPress 7.1.4
-* Fix: COrrected the list of the excluded files from the release
+* Fix: Corrected the list of the excluded files from the release
 
 See changelog.txt for more details.
