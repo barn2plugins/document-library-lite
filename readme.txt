@@ -3,9 +3,9 @@ Contributors: barn2media
 Donate link: https://barn2.com
 Tags: document library, file manager, download manager, document management, media library
 Requires at least: 6.1
-Tested up to: 7.1.3
+Tested up to: 7.1.4
 Requires PHP: 7.4
-Stable tag: 1.3.1
+Stable tag: 1.3.2
 License: GPL-3.0
 License URI: https://www.gnu.org/licenses/gpl.html
 
@@ -219,14 +219,10 @@ Please report any security bugs through the [Patchstack Vulnerability Disclosure
 
 == Changelog ==
 
-= 1.3.1 =
+= 1.3.2 =
 Release date 28 October 2026
 
-* New: Added the Black Friday 2026 sale notice on the settings page
-* Security: Added password protection checks to prevent exposure of document URLs
-* Security: Hardened request input handling
-* Fix: Resolved Plugin Check warnings
-* Fix: Lite no longer loads when the Essentials or Advanced plans are active, not just Pro, which avoids clashes
-* Dev: Updated the internal libraries
+* Dev: Tested up to WordPress 7.1.4
+* Fix: COrrected the list of the excluded files from the release
 
 See changelog.txt for more details.

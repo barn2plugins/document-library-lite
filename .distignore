@@ -6,7 +6,7 @@
 /.github
 /bin
 /vendor-bin
-/vendor
+/vendor/barn2
 /composer.lock
 /.env.example
 /.wp-env.json
